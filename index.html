@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>FASTR — Domain-Recherche-Report</title>
+<style>
+  @page { size: A4; margin: 13mm 13mm 12mm; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  :root{
+    --ink:#0B0B0B; --paper:#F4F2EA; --volt:#C7FF00; --hot:#FF3A21;
+    --mut:#6E6E66; --soft:#E7E4DA; --line:#0B0B0B;
+  }
+  html,body{margin:0;padding:0;}
+  body{font-family:"Segoe UI",Arial,Helvetica,sans-serif;color:var(--ink);
+       background:var(--paper);font-size:10.4px;line-height:1.5;}
+  .mono{font-family:"Consolas","Courier New",monospace;}
+  h1,h2,h3,h4{font-family:"Consolas","Courier New",monospace;line-height:1.12;
+       letter-spacing:.01em;margin:0;}
+  p{margin:.35em 0;}
+  a{color:#1c5cff;text-decoration:none;}
+  strong{font-weight:700;}
+  small{color:var(--mut);}
+
+  /* ---------- COVER ---------- */
+  .cover{background:var(--ink);color:#fff;min-height:266mm;position:relative;
+         padding:24mm 18mm;break-after:page;overflow:hidden;}
+  .cover .lanes{position:absolute;left:0;right:0;bottom:0;height:44mm;
+       background:repeating-linear-gradient(90deg,transparent 0 26px,rgba(199,255,0,.16) 26px 28px);}
+  .cover .kicker{font-family:"Consolas",monospace;color:var(--volt);font-size:12px;
+       letter-spacing:.42em;text-transform:uppercase;border:1px solid var(--volt);
+       display:inline-block;padding:5px 12px;}
+  .cover .wm{font-family:"Arial Black","Arial",sans-serif;font-weight:900;color:#fff;
+       font-size:118px;line-height:.9;letter-spacing:-.04em;margin:42mm 0 0;}
+  .cover .wm span{color:var(--volt);}
+  .cover .sub{font-family:"Consolas",monospace;font-size:21px;letter-spacing:.04em;
+       margin-top:10px;color:#fff;}
+  .cover .rule{height:3px;background:var(--volt);width:120px;margin:20px 0;}
+  .cover .meta{font-family:"Consolas",monospace;font-size:11.5px;color:#CFCFC6;
+       letter-spacing:.02em;line-height:1.9;position:absolute;bottom:30mm;left:18mm;}
+  .cover .tag{position:absolute;top:24mm;right:18mm;text-align:right;
+       font-family:"Consolas",monospace;color:var(--volt);font-size:11px;letter-spacing:.18em;}
+
+  /* ---------- SECTIONS ---------- */
+  .section{break-before:page;padding-top:2mm;}
+  .secno{font-family:"Consolas",monospace;color:var(--mut);font-size:12px;letter-spacing:.3em;}
+  h2.sechead{font-size:22px;text-transform:uppercase;margin:2px 0 2px;}
+  .headbar{height:6px;background:var(--ink);width:100%;margin:8px 0 14px;position:relative;}
+  .headbar::after{content:"";position:absolute;left:0;top:0;height:6px;width:64px;background:var(--volt);}
+  h3{font-size:14px;text-transform:uppercase;margin:16px 0 6px;}
+  h4{font-size:11.5px;text-transform:uppercase;margin:12px 0 4px;color:#000;}
+
+  /* ---------- TABLES ---------- */
+  table{width:100%;border-collapse:collapse;margin:8px 0 6px;font-size:9.6px;}
+  th{background:var(--ink);color:var(--paper);text-align:left;padding:6px 7px;
+     font-family:"Consolas",monospace;font-weight:600;text-transform:uppercase;
+     letter-spacing:.04em;font-size:8.8px;border:1px solid var(--ink);}
+  td{padding:5px 7px;border:1px solid #cfccc2;vertical-align:top;}
+  tbody tr:nth-child(even){background:var(--soft);}
+  tr{break-inside:avoid;}
+  td .mono{font-size:9.4px;}
+  .dom{font-family:"Consolas",monospace;font-weight:700;white-space:nowrap;}
+
+  /* ---------- BADGES / PILLS ---------- */
+  .score{font-family:"Consolas",monospace;font-weight:700;background:var(--ink);
+     color:var(--volt);padding:2px 7px;display:inline-block;white-space:nowrap;font-size:9.6px;}
+  .score.big{font-size:11px;padding:3px 9px;}
+  .pill{font-family:"Consolas",monospace;font-size:8.4px;font-weight:700;padding:2px 6px;
+     text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;display:inline-block;}
+  .buy{background:var(--volt);color:#000;}
+  .watch{background:#000;color:var(--volt);}
+  .no{background:#fff;color:var(--hot);border:1.4px solid var(--hot);}
+  .neg{background:var(--hot);color:#fff;}
+  .free{color:#0a7d2c;font-weight:700;}
+  .taken{color:var(--hot);font-weight:700;}
+  .prem{color:#a06800;font-weight:700;}
+
+  /* ---------- CALLOUTS ---------- */
+  .note,.warn{padding:9px 12px;margin:10px 0;font-size:9.8px;background:#fff;}
+  .note{border-left:5px solid var(--ink);}
+  .warn{border-left:5px solid var(--hot);background:#fff4f2;}
+  .note b,.warn b{font-family:"Consolas",monospace;}
+  .lead{font-size:11px;border:2px solid var(--ink);padding:11px 13px;background:#fff;margin:12px 0;}
+
+  /* ---------- DEEP DIVE CARDS ---------- */
+  .card{border:2px solid var(--ink);padding:12px 14px;margin:12px 0;background:#fff;break-inside:avoid;}
+  .card .rank{font-family:"Arial Black",sans-serif;font-size:13px;background:var(--ink);
+     color:var(--volt);display:inline-block;padding:2px 9px;margin-right:8px;}
+  .card .dh{font-family:"Consolas",monospace;font-size:16px;font-weight:700;}
+  .kv{margin:5px 0;}
+  .kv b{font-family:"Consolas",monospace;text-transform:uppercase;font-size:9px;
+     letter-spacing:.05em;color:#000;display:inline-block;min-width:88px;}
+  ul{margin:5px 0 5px 0;padding-left:18px;}
+  li{margin:2px 0;}
+  .claims li{font-style:italic;}
+
+  .footer{break-before:page;padding-top:4mm;}
+  .src{font-size:9.2px;line-height:1.8;}
+  .endmark{margin-top:14px;font-family:"Arial Black",sans-serif;font-size:30px;letter-spacing:-.03em;}
+  .endmark span{color:#bdb9ac;}
+  .disc{font-size:8.6px;color:var(--mut);margin-top:6px;}
+</style>
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<style>
+@media screen{html{background:#26261f;}body{max-width:1000px;margin:0 auto;}
+.dlbar{position:sticky;top:0;z-index:99;background:#0B0B0B;color:#fff;font-family:"Consolas",monospace;font-size:13px;padding:11px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.dlbar a{background:#C7FF00;color:#000;padding:7px 14px;font-weight:700;text-decoration:none;white-space:nowrap;}
+.dlbar b{color:#C7FF00;}}
+@media print{.dlbar{display:none;}}
+</style>
+</head>
+<body>
+<div class="dlbar"><span><b>FASTR</b> &middot; Domain-Recherche-Report &middot; 2026-06-15</span><a href="FASTR-Domain-Report-2026-06-15.pdf" download>PDF herunterladen &#8595;</a></div>
+
+<!-- ================= COVER ================= -->
+<div class="cover">
+  <span class="kicker">Domain · Brand · Trademark Intelligence</span>
+  <div class="tag">VERIFIED<br>200 DOMAINS<br>CHECKED LIVE</div>
+  <div class="wm">FAST<span>R</span></div>
+  <div class="sub">DOMAIN-RECHERCHE-REPORT</div>
+  <div class="rule"></div>
+  <div style="font-family:'Consolas',monospace;font-size:13px;max-width:135mm;color:#E7E4DA;">
+    Internationale Performance- / Sprint- / Competition-Marke.<br>
+    Verfügbare &amp; kaufbare Domains für Dachmarke, App, League, Events &amp; Apparel.
+  </div>
+  <div class="meta">
+    ERSTELLT&nbsp;&nbsp;2026-06-15<br>
+    SCOPE&nbsp;&nbsp;&nbsp;&nbsp;~200 Domains live geprüft · 9 Web-Checks · 6 Wayback-Checks<br>
+    METHODE&nbsp;&nbsp;Vercel-Registrar-API (Verfügbarkeit/Preis) · Google · archive.org<br>
+    PREISE&nbsp;&nbsp;&nbsp;USD, live verifiziert · ~EUR ×0,92
+  </div>
+  <div class="lanes"></div>
+</div>
+
+<!-- ================= 1 EXEC SUMMARY ================= -->
+<div class="section">
+  <div class="secno">SEKTION 01</div>
+  <h2 class="sechead">Executive Summary</h2>
+  <div class="headbar"></div>
+
+  <p><b>Was gesucht:</b> Echte, registrierbare oder kaufbare Domains im FASTR-Spirit
+  (Speed / Sprint / Competition / Underground / Performance) — als <b>(A)</b> internationale
+  Dachmarke oder <b>(B)</b> SEO-/Growth-Asset. Keine Brainstorm-Liste, sondern live geprüfte Kandidaten.</p>
+
+  <p><b>Quellen live geprüft:</b> Vercel-Domain-Registrar (Verfügbarkeit + Preis, 200 Domains) ·
+  Google / WebSearch (Marken- &amp; Markt-Kollisionen) · archive.org Wayback-availability (Historie).</p>
+
+  <p><b>Grob geprüft:</b> ~200 Domain-Varianten über 12+ TLDs &nbsp;|&nbsp;
+  <b>Shortlist:</b> 16 verifiziert verfügbare + 1 hart ausgeschlossen.</p>
+
+  <div class="lead">
+    <b>EHRLICHES FAZIT.</b> Der kurze Ein-Wort-<span class="mono">.com</span>-Namensraum ist
+    <b>verifiziert leergeräumt</b> — 48/50 der ersten Welle weg, inkl. <i>aller</i>
+    „Vokal-weg + R"-Tricks (stridr, blitzr, sprnt, stryv …), <i>aller</i> Racing-Idiome
+    (redline, deadheat, photofinish, flatout, lastlap) und <i>aller</i> Coinages
+    (velox, veloz, vektr, korsa). Es gibt <b>noch keinen echten Single-word-.com-Master-Brand-Winner</b>
+    zum Reg-Preis. <b>ABER zwei Assets sind echte Treffer:</b>
+    <span class="mono">sub10.run</span> (Elite-100m-Code / 10-Sekunden-Barriere) und
+    <span class="mono">onthegun.com</span> (Sprint-Startritual, echtes .com). Beide ownable für ~10&nbsp;€.
+  </div>
+
+  <div class="warn">
+    <b>METHODIK-LIMITS (transparent).</b> <b>Nicht möglich:</b> Live-Zugriff auf
+    ExpiredDomains.net, DomCop, GoDaddy / NameJet / Sedo / DropCatch / SnapNames-Inventare und
+    Ahrefs / Semrush / Majestic-Backlinkzahlen (Paywall/Login). Diese Werte wurden <b>nicht erfunden</b> —
+    stattdessen liefert §8 den exakten Such-Workflow. „Nicht verfügbar" = nicht neu registrierbar,
+    <b>nicht</b> zwingend „unkaufbar" (Aftermarket separat). TM-Risiko hier ist „grob" aus Web-Signalen,
+    <b>kein</b> Ersatz für formale EUIPO/USPTO-Clearance.
+  </div>
+</div>
+
+<!-- ================= 2 TOP 10 ================= -->
+<div class="section">
+  <div class="secno">SEKTION 02</div>
+  <h2 class="sechead">Top 10 potenzielle Winner</h2>
+  <div class="headbar"></div>
+  <p><small>Alle verifiziert verfügbar zum gelisteten Reg-/Premium-Preis (Vercel-Registrar, 2026-06-15).</small></p>
+
+  <table>
+    <thead><tr>
+      <th style="width:6%">#</th><th style="width:24%">Domain</th><th style="width:14%">Status</th>
+      <th style="width:18%">Preis (verifiziert)</th><th style="width:13%">Score</th><th style="width:25%">Empfehlung</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>1</td><td class="dom">sub10.run</td><td><span class="free">frei</span></td><td>$6,99 · ~6,40&nbsp;€</td><td><span class="score big">7,74</span></td><td><span class="pill buy">kaufen — sofort</span></td></tr>
+      <tr><td>2</td><td class="dom">onthegun.com</td><td><span class="free">frei</span></td><td>$11,25 · ~10,40&nbsp;€</td><td><span class="score big">7,70</span></td><td><span class="pill buy">kaufen</span> <small>Gun-Caveat</small></td></tr>
+      <tr><td>3</td><td class="dom">sprintleague.run</td><td><span class="free">frei</span></td><td>$6,99</td><td><span class="score">6,95</span></td><td><span class="pill buy">kaufen</span> <small>League-Asset</small></td></tr>
+      <tr><td>4</td><td class="dom">sprintguild.com</td><td><span class="free">frei</span></td><td>$11,25</td><td><span class="score">6,81</span></td><td><span class="pill buy">kaufen</span> <small>günstig</small></td></tr>
+      <tr><td>5</td><td class="dom">sprintunion.com</td><td><span class="free">frei</span></td><td>$11,25</td><td><span class="score">6,59</span></td><td><span class="pill watch">beobachten</span></td></tr>
+      <tr><td>6</td><td class="dom">sendit.run</td><td><span class="free">frei</span></td><td>$6,99</td><td><span class="score">6,50</span></td><td><span class="pill watch">beobachten</span></td></tr>
+      <tr><td>7</td><td class="dom">sprintclub.run</td><td><span class="free">frei</span></td><td>$6,99</td><td><span class="score">6,45</span></td><td><span class="pill buy">kaufen</span> <small>Produktlinie</small></td></tr>
+      <tr><td>8</td><td class="dom">undergroundsprint.com</td><td><span class="free">frei</span></td><td>$11,25</td><td><span class="score">6,33</span></td><td><span class="pill no">nicht kaufen</span> <small>Kollision</small></td></tr>
+      <tr><td>9</td><td class="dom">sprint.fit</td><td><span class="prem">Premium</span></td><td>$500 · ~460&nbsp;€</td><td><span class="score">6,25</span></td><td><span class="pill watch">verhandeln</span></td></tr>
+      <tr><td>10</td><td class="dom">kapp.run</td><td><span class="free">frei</span></td><td>$6,99</td><td><span class="score">6,25</span></td><td><span class="pill watch">beobachten</span></td></tr>
+    </tbody>
+  </table>
+  <p><small>Knapp außerhalb: heatr.run (5,97) · pronghorn.run (5,74) · spryg.co (5,39) · heat.club $1.339 (Premium, zu teuer).</small></p>
+
+  <h3>Brand-Fit &amp; Risiken je Top-Pick</h3>
+  <div class="note"><b>1 · sub10.run</b> — „Sub-10" = ultimativer Sprint-Flex (erste Person unter 10&nbsp;s: Jim Hines 1968). Hart, kompetitiv, IYKYK, international lesbar. Perfekt für App-Challenge, „Sub10 Series", Apparel. <b>Risiko:</b> <span class="mono">.run</span> statt .com; Zahl im Namen = minimale verbale Reibung. TM-Risiko sehr gering.</div>
+  <div class="note"><b>2 · onthegun.com</b> — „on the gun" = explosiver Start am Startschuss; thematisch Bullseye, echtes .com, bildstark. <b>Risiko:</b> „gun" lebt in Firearms-dominiertem SEO-/Ad-Raum → mögliche Keyword-Filter (Meta/Google-Ads, App-Stores). <b>Operatives</b> Risiko, <b>kein</b> TM-Risiko. 1 Wayback-Snapshot 2018 → vor Kauf selbst ansehen.</div>
+  <div class="note"><b>3 · sprintleague.run</b> — League = Competition/Ranking-Vertikale, skaliert als Format-Brand. <b>Risiko:</b> deskriptiv; „sprint" + existierende TM „Speedrunners League" → Apparel-Vorsicht.</div>
+  <div class="note"><b>4 · sprintguild.com</b> — „Guild" = Community/Membership, distinktiver als „club", sauberer .com-Slate. <b>Risiko:</b> „sprint"-Apparel-Nachbarschaft (getsprints.com).</div>
+  <div class="note"><b>8 · undergroundsprint.com</b> — <i>trotz</i> sauberem Slate <b>abgewertet:</b> „Underground Run Club" real besetzt (London/Sydney/Canberra) → Verwechslungs- &amp; SEO-Kollision.</div>
+</div>
+
+<!-- ================= 3 KAT A ================= -->
+<div class="section">
+  <div class="secno">SEKTION 03</div>
+  <h2 class="sechead">Kategorie A — Hauptmarken-Kandidaten</h2>
+  <div class="headbar"></div>
+  <p><small>Mix aus <b>verifiziert verfügbar</b> (sofort sicherbar) und <b>verifiziert vergeben</b> (nur Aftermarket — Preis nicht live prüfbar, oft 4–6-stellig). Status jeweils live geprüft.</small></p>
+  <table>
+    <thead><tr><th style="width:22%">Domain</th><th style="width:18%">Status (live)</th><th style="width:16%">Preis</th><th style="width:24%">Master-Brand-Tauglichkeit</th><th style="width:20%">Hinweis</th></tr></thead>
+    <tbody>
+      <tr><td class="dom">sub10.run</td><td><span class="free">✓ frei</span></td><td>$6,99</td><td>hoch (insider, hart)</td><td>bester verfügbarer Master-Brand</td></tr>
+      <tr><td class="dom">onthegun.com</td><td><span class="free">✓ frei</span></td><td>$11,25</td><td>hoch (echtes .com)</td><td>Gun-Ad-Caveat</td></tr>
+      <tr><td class="dom">spryg.co</td><td><span class="free">✓ frei</span></td><td>$17,99</td><td>mittel (Kunstwort)</td><td>Bedeutung/Recall schwach</td></tr>
+      <tr><td class="dom">kapp.run</td><td><span class="free">✓ frei</span></td><td>$6,99</td><td>mittel</td><td>Bedeutung opak (skand. „Rennen")</td></tr>
+      <tr><td class="dom">sprintguild.com</td><td><span class="free">✓ frei</span></td><td>$11,25</td><td>mittel</td><td>„sprint"-TM-Umfeld</td></tr>
+      <tr><td class="dom">sprintunion.com</td><td><span class="free">✓ frei</span></td><td>$11,25</td><td>mittel</td><td>„Union" vorbelegt</td></tr>
+      <tr><td class="dom">pronghorn.run</td><td><span class="free">✓ frei</span></td><td>$6,99</td><td>mittel (Speed-Animal)</td><td>schwer buchstabierbar</td></tr>
+      <tr><td class="dom">surge.com</td><td><span class="taken">⛔ vergeben</span></td><td>Aftermarket ?</td><td>sehr hoch</td><td>Sedo „make offer", Preis unbekannt</td></tr>
+      <tr><td class="dom">stride.com</td><td><span class="taken">⛔ vergeben</span></td><td>Aftermarket ?</td><td>sehr hoch</td><td>wahrsch. 5-stellig</td></tr>
+      <tr><td class="dom">velo.com</td><td><span class="taken">⛔ vergeben</span></td><td>Aftermarket ?</td><td>hoch</td><td>Cycling-Assoziation</td></tr>
+      <tr><td class="dom">korsa.com</td><td><span class="taken">⛔ vergeben</span></td><td>Aftermarket ?</td><td>hoch (skand. „Rennen")</td><td>TM prüfen</td></tr>
+      <tr><td class="dom">stryve.com</td><td><span class="taken">⛔ vergeben</span></td><td>Aftermarket ?</td><td>hoch</td><td>aktive Marke(n) möglich</td></tr>
+      <tr><td class="dom">veloz.com</td><td><span class="taken">⛔ vergeben</span></td><td>Aftermarket ?</td><td>hoch</td><td>TM prüfen</td></tr>
+      <tr><td class="dom">tempo.com</td><td><span class="taken">⛔ vergeben</span></td><td>Aftermarket ?</td><td>hoch</td><td>Tempo (Fitness) aktiv → TM-Risiko</td></tr>
+      <tr><td class="dom">dash / blitz / rush.com</td><td><span class="taken">⛔ vergeben</span></td><td>Aftermarket ?</td><td>hoch</td><td>Premium, vermutl. teuer</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><b>Ehrliche Wertung Kat. A:</b> Von den <i>verfügbaren</i> taugen nur <b>sub10</b> und <b>onthegun</b> wirklich als globale Marke. Alles andere wirklich Starke ist <b>vergeben</b> → entweder Aftermarket-Budget oder Kunstwort coinen (§8/§9).</div>
+</div>
+
+<!-- ================= 4 KAT B ================= -->
+<div class="section">
+  <div class="secno">SEKTION 04</div>
+  <h2 class="sechead">Kategorie B — SEO-/Growth-Asset-Domains</h2>
+  <div class="headbar"></div>
+  <h3>Teil 1 — verifiziert verfügbar (sofort, sauber, thematisch)</h3>
+  <table>
+    <thead><tr><th style="width:26%">Domain</th><th style="width:16%">Preis</th><th style="width:58%">Nutzung als Asset</th></tr></thead>
+    <tbody>
+      <tr><td class="dom">sprintclub.run</td><td>$6,99</td><td>Club-Landing / Community-Portal</td></tr>
+      <tr><td class="dom">sprintleague.run</td><td>$6,99</td><td>League-Format-Hub</td></tr>
+      <tr><td class="dom">sprintleague.club</td><td>$6,99</td><td>League alt-Redirect</td></tr>
+      <tr><td class="dom">sprintco.run</td><td>$6,99</td><td>Corporate/Holding-Redirect</td></tr>
+      <tr><td class="dom">heatr.run</td><td>$6,99</td><td>Timing-/Heats-Microsite</td></tr>
+      <tr><td class="dom">sub10.run</td><td>$6,99</td><td>Challenge-/Benchmark-Hub</td></tr>
+      <tr><td class="dom">sendit.run</td><td>$6,99</td><td>Kampagnen-/Social-Landing</td></tr>
+      <tr><td class="dom">sprint.fit</td><td>$500</td><td>App/Training Exact-Match</td></tr>
+    </tbody>
+  </table>
+  <h3>Teil 2 — der eigentliche SEO-Schatz (alte Athletics-.com mit Backlinks)</h3>
+  <div class="warn">
+    <b>BLOCKED — ehrlich.</b> Echte gedropte Athletics-Domains <i>mit verifizierten Backlinks</i> kann ich
+    mit den vorhandenen Tools <b>nicht</b> live surfacen (ExpiredDomains / DomCop / Ahrefs = Login/Paywall).
+    Statt erfundener „DR-42, 1.200 Backlinks, war 2009 ein Laufverein"-Fantasiewerte → exakter
+    <b>Mining-Workflow in §8</b>. In ~30 Min selbst findbar — und dann <i>echt</i>.
+  </div>
+</div>
+
+<!-- ================= 5 AUSSORTIERT ================= -->
+<div class="section">
+  <div class="secno">SEKTION 05</div>
+  <h2 class="sechead">Sofort aussortierte Domains</h2>
+  <div class="headbar"></div>
+  <table>
+    <thead><tr><th style="width:34%">Domain</th><th style="width:66%">Grund</th></tr></thead>
+    <tbody>
+      <tr><td class="dom">springbok.run</td><td><b><span class="taken">TM-Risiko hoch</span></b> — SARU (South African Rugby Union) besitzt &amp; verteidigt „Springbok" aggressiv inkl. Apparel-Klagen. Hart raus.</td></tr>
+      <tr><td class="dom">undergroundsprint.com</td><td>Brand-Kollision — „Underground Run Club" real besetzt (London/Sydney/Canberra).</td></tr>
+      <tr><td class="dom">sprint.com / surge.com / stride.com / velo.com</td><td>vergeben; nur Aftermarket, Preis unklar, vermutl. zu teuer für Reg-Budget.</td></tr>
+      <tr><td class="dom">stridr / blitzr / sprnt / stryv / veloz / vektr / korsa (.com)</td><td>alle vergeben (Domainer-leergeräumt).</td></tr>
+      <tr><td class="dom">heat.club</td><td>verfügbar, aber $1.339 — zu teuer für schwache Brand-Power von „heat.club".</td></tr>
+      <tr><td class="dom">sprints*.com</td><td>„Sprints" (getsprints.com) = aktive Apparel-Marke → Verwechslungsrisiko Apparel.</td></tr>
+      <tr><td class="dom">tempo.com</td><td>„Tempo" (Fitness-Hardware) aktiv → TM-Risiko.</td></tr>
+      <tr><td class="dom">sendit (als Dachmarke)</td><td>als Asset ok, als Master-Brand zu generisch + „WeSendit" existiert.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ================= 6 DEEP DIVE ================= -->
+<div class="section">
+  <div class="secno">SEKTION 06</div>
+  <h2 class="sechead">Deep-Dive: die 3 besten Kandidaten</h2>
+  <div class="headbar"></div>
+
+  <div class="card">
+    <div><span class="rank">1</span><span class="dh">sub10.run</span> &nbsp;<span class="score">Score 7,74</span></div>
+    <div class="kv"><b>Warum Winner</b> „Sub-10" = heiligster Benchmark im Sprint (100&nbsp;m unter 10&nbsp;s). Hart, exklusiv, kein Vereins-Geruch, weltweit sofort verstanden. Kurz, sauber, TM-Risiko minimal.</div>
+    <div class="kv"><b>Markenname</b> <b>SUB10</b> (Wortmarke) · Domain sub10.run</div>
+    <div class="kv"><b>Subbrands</b> SUB10 Sprint Club · SUB10 League · SUB10 Underground · SUB10 App · SUB10 Wear · SUB10 Trials</div>
+    <div class="kv"><b>Claims</b></div>
+    <ul class="claims"><li>„Break Ten."</li><li>„Everyone chases ten."</li><li>„Sub-ten or nothing."</li><li>„The wall is ten seconds."</li><li>„Welcome to Sub10."</li></ul>
+    <div class="kv"><b>Design</b> Stoppuhr-Brutalismus, „10.00 → 09.xx" Flip-Counter, Mono-Type, Schwarz/Neon, Startblock-Bildsprache.</div>
+    <div class="kv"><b>vs FASTR</b> <i>Besser</i> in Spezifität &amp; Insider-Cred; <i>schlechter</i> in .com-Prestige (.run) &amp; reiner Aussprechbarkeit (Zahl).</div>
+    <div class="kv"><b>Vor Kauf</b> TM-Suche „SUB10"/„Sub Ten" (EUIPO/USPTO, Klasse 25 Apparel / 41 Events) · Handles @sub10.</div>
+  </div>
+
+  <div class="card">
+    <div><span class="rank">2</span><span class="dh">onthegun.com</span> &nbsp;<span class="score">Score 7,70</span></div>
+    <div class="kv"><b>Warum Winner</b> Einziges echtes, brandfähiges .com im Reg-Preis. „On the gun" = der Moment des Starts; energiegeladen, bildstark, Event-tauglich.</div>
+    <div class="kv"><b>Markenname</b> <b>ON THE GUN</b> / intern kurz „GUN"</div>
+    <div class="kv"><b>Subbrands</b> On The Gun Sprint Club · …League · …Underground · …App · …Wear · …Trials</div>
+    <div class="kv"><b>Claims</b></div>
+    <ul class="claims"><li>„It starts on the gun."</li><li>„React. Explode. Repeat."</li><li>„No false starts."</li><li>„Live on the gun."</li><li>„From the blocks, on the gun."</li></ul>
+    <div class="kv"><b>Design</b> Startschuss-/Soundwave-Motiv, „BANG"-Typo, Rauch/Konkret, hartes Schwarzweiß + 1 Signalfarbe.</div>
+    <div class="kv"><b>vs FASTR</b> <i>Besser</i> als echtes .com &amp; Story-Tiefe; <i>schlechter</i> wegen „gun"-Ad-/App-Store-Reibung (vor Skalierung testen!).</div>
+    <div class="kv"><b>Vor Kauf</b> Wayback-Snapshot 2018 ansehen · Meta/Google-Ads-Policy für „gun" im Brand testen · Handles.</div>
+  </div>
+
+  <div class="card">
+    <div><span class="rank">3</span><span class="dh">sprintleague.run</span> &nbsp;<span class="score">Score 6,95</span></div>
+    <div class="kv"><b>Warum (bedingt)</b> Beste Format-/Event-Marke — League = Ranking, Tabellen, Saisons (Hyrox-Logik). Eher Vertikale als Dachmarke.</div>
+    <div class="kv"><b>Markenname</b> <b>SPRINT LEAGUE</b></div>
+    <div class="kv"><b>Subbrands</b> Sprint League Clubs · …App · …Trials · …Wear · …City Series</div>
+    <div class="kv"><b>Claims</b></div>
+    <ul class="claims"><li>„Race the league."</li><li>„Climb the ladder, lane by lane."</li><li>„Your city. Your lane. Your rank."</li><li>„The league of speed."</li><li>„Every heat counts."</li></ul>
+    <div class="kv"><b>Design</b> Leaderboard-UI als Brand-Element, Trikot-Nummern, Liga-Wappen-Modernismus.</div>
+    <div class="kv"><b>vs FASTR</b> <i>Besser</i> als Liga-Struktur-Brand; <i>schlechter</i> als emotionale Dachmarke (deskriptiv) + „sprint"-Apparel-TM-Umfeld.</div>
+    <div class="kv"><b>Vor Kauf</b> EUIPO „Sprint League" / „Speedrunners League" (existierende TM!) gründlich klären.</div>
+  </div>
+</div>
+
+<!-- ================= 7 KAUFSTRATEGIE ================= -->
+<div class="section">
+  <div class="secno">SEKTION 07</div>
+  <h2 class="sechead">Kaufstrategie</h2>
+  <div class="headbar"></div>
+
+  <h4>Sofort sichern (alles &lt; 50 €, kein Anwalt — Defensiv-Kauf)</h4>
+  <ul>
+    <li><b>sub10.run</b> ($6,99) · <b>onthegun.com</b> ($11,25) — die zwei echten Assets.</li>
+    <li><b>sprintclub.run</b> ($6,99) — die reale Club-Ebene.</li>
+    <li>Optional Bundle (~30 €): sprintleague.run + sprintguild.com + sub10.run als Sub-Brand-Set.</li>
+  </ul>
+  <h4>Nur Preis anfragen (Sedo / GoDaddy „make offer")</h4>
+  <ul><li>surge.com · stride.com · korsa.com · stryve.com · velo.com — falls Aftermarket &lt; Limit; Preis nicht live prüfbar.</li></ul>
+  <h4>Vorher TM-Anwalt (Klasse 25 Apparel / 41 Events / 9 App)</h4>
+  <ul>
+    <li>Jeder <span class="mono">sprint…</span>-<b>Apparel</b>-Name (getsprints.com + TM „Speedrunners League" + Sprint/T-Mobile).</li>
+    <li>tempo.com · veloz.com · stryve.com (mögliche aktive Marken).</li>
+  </ul>
+  <h4>Nur als SEO-Asset</h4>
+  <p>→ betrifft die §8-Aftermarket-Funde (gedropte Athletics-.com), <b>nicht</b> die obigen Neuregistrierungen (0 Backlink-Equity).</p>
+
+  <h3>Maximalpreis-Empfehlung</h3>
+  <table>
+    <thead><tr><th style="width:22%">Tier</th><th style="width:78%">Domains</th></tr></thead>
+    <tbody>
+      <tr><td><b>&lt; 50 €</b></td><td>sub10.run · onthegun.com · sprintclub.run · sprintleague.run/.club · sprintguild.com · sprintunion.com · kapp.run · sendit.run — <b>alle sofort</b></td></tr>
+      <tr><td><b>50–250 €</b></td><td>(—)</td></tr>
+      <tr><td><b>250–1.000 €</b></td><td>sprint.fit ($500) — nur bei App-First-Strategie</td></tr>
+      <tr><td><b>1.000–5.000 €</b></td><td>heat.club ($1.339) — <b>nein</b>, schwache Brand-Power; eher gedropte Athletics-.com mit echten Backlinks</td></tr>
+      <tr><td><b>nur strategisch &gt; 5.000 €</b></td><td>surge.com / stride.com (Aftermarket) — nur wenn finale Dachmarke gesetzt + TM-clean</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ================= 8 SUCHQUERIES ================= -->
+<div class="section">
+  <div class="secno">SEKTION 08</div>
+  <h2 class="sechead">Weitere Suchqueries</h2>
+  <div class="headbar"></div>
+
+  <h4>ExpiredDomains.net — Filter-Setup</h4>
+  <ul>
+    <li>Keyword-Felder: <span class="mono">sprint · track · athletic · runners · relay · pace · dash · velo · lauf · leichtathletik</span></li>
+    <li>Filter: TLD = .com/.de/.at · Domain-Länge ≤ 12 · Backlinks &gt; 25 · Archive.org &gt; 0 · „Listed &gt; 1x" · Sortierung Domain-Pop / Majestic TF</li>
+    <li>Tabs <b>„Deleted Domains"</b> + <b>„Pending Delete / Auctions"</b> für Drops</li>
+  </ul>
+  <h4>Google-Operatoren</h4>
+  <ul class="mono" style="font-size:9px">
+    <li>site:*.de ("leichtathletik" OR "laufverein" OR "sprintclub") -inurl:(verband|olympia)</li>
+    <li>"sprint" (club OR league OR series) -site:t-mobile.com inurl:com</li>
+    <li>intitle:"track club" "this domain" (expired OR "for sale")</li>
+    <li>"sprint" "ehemalige seite" laufverein</li>
+  </ul>
+  <h4>Auktions-Suchbegriffe (GoDaddy / Sedo / Dynadot)</h4>
+  <p class="mono" style="font-size:9px">sprint · velo · pace · dash · surge · relay · track · runner · korsa · tempo · bolt · swift · kinetic &nbsp;— Filter „Aftermarket/Expired", Preis ↑, TLD .com</p>
+  <h4>Wayback-Checks (vor jedem Kauf)</h4>
+  <ul class="mono" style="font-size:9px">
+    <li>https://web.archive.org/web/2015*/DOMAIN → 2010–2018 durchklicken: Casino/Crypto/Adult/PBN? → raus</li>
+    <li>http://web.archive.org/cdx/search/cdx?url=DOMAIN&amp;output=json&amp;collapse=urlkey</li>
+  </ul>
+  <h4>Trademark-Checks (grob, kostenlos)</h4>
+  <ul>
+    <li>EUIPO eSearch <span class="mono">euipo.europa.eu</span> · USPTO <span class="mono">tmsearch.uspto.gov</span> · WIPO <span class="mono">branddb.wipo.int</span> · AT <span class="mono">see-ip.patentamt.at</span> — Wortmarke, Klasse 25/41/09</li>
+    <li>Heuristik: Google <span class="mono">"NAME" trademark</span> + <span class="mono">"NAME" apparel|league|running</span></li>
+  </ul>
+  <h4>Social-Handles</h4>
+  <p><span class="mono">namecheckr.com</span> · instagram.com/NAME · x.com/NAME · tiktok.com/@NAME</p>
+</div>
+
+<!-- ================= 9 URTEIL ================= -->
+<div class="section">
+  <div class="secno">SEKTION 09</div>
+  <h2 class="sechead">Finales Urteil</h2>
+  <div class="headbar"></div>
+
+  <div class="lead">
+    <b>Noch kein echter Single-word-.com-Master-Brand-Winner dabei — und das ist ein verifiziertes
+    Marktfaktum, kein Suchversäumnis.</b> 200 Checks bestätigen: der gesamte kurze, harte
+    Ein-Wort-Korridor ist über <i>alle</i> Premium-TLDs vergeben.
+  </div>
+
+  <h3>Was du <i>hast</i></h3>
+  <ul>
+    <li><b>sub10.run — der eine echte Treffer.</b> Insider-Härte, Sprint-DNA pur, sauber, ownable für 6 €. Näher am FASTR-Spirit als FASTR selbst (spezifischer, kompromissloser). <b>→ ja, sofort.</b></li>
+    <li><b>onthegun.com — das einzige brandfähige .com.</b> Storystark, eventfähig — mit ehrlichem „gun"-Vorbehalt (vor Skalierung Ad-Policies testen). <b>→ sichern, parallel validieren.</b></li>
+    <li>Der Rest (sprintleague · sprintguild · sprintclub) sind gute, billige <b>Sub-Brand-/Asset-Domains</b>, keine Dachmarken.</li>
+  </ul>
+
+  <h3>Der strategisch stärkste Zug</h3>
+  <div class="note">
+    <b>(a)</b> sub10.run + onthegun.com + sprintclub.run heute für <b>~25 €</b> sichern (reine Optionswerte). &nbsp;
+    <b>(b)</b> Ein <b>echtes Kunstwort</b> coinen (Strava/Hyrox/Whoop-Logik) und die frische .com greifen — <i>bevor</i> ein Domainer sie nimmt. &nbsp;
+    <b>(c)</b> Den <b>Aftermarket</b> nach gedropten Leichtathletik-.com mit echten Backlinks abgrasen (§8) — dort liegt der SEO-Wert, den ich live nicht heben konnte.
+  </div>
+  <p>FASTR selbst bleibt stark; keine gefundene Domain <i>schlägt</i> es klar als Dachmarke.
+  <b>sub10</b> und <b>onthegun</b> sind die zwei, die es als Schwester-Brand / Pivot-Option ernsthaft herausfordern könnten.</p>
+</div>
+
+<!-- ================= QUELLEN ================= -->
+<div class="footer">
+  <div class="secno">ANHANG</div>
+  <h2 class="sechead">Quellen — live geprüft</h2>
+  <div class="headbar"></div>
+  <div class="src">
+    Verfügbarkeit/Preis via Vercel-Registrar-API (200 Domains, 2026-06-15) ·
+    <a href="https://getsprints.com/">getsprints.com — Apparel-Marke „Sprints"</a> ·
+    <a href="https://trademarks.justia.com/owners/ukuza-inc-4192775">„Speedrunners League" TM (Justia)</a> ·
+    <a href="https://www.undergroundrunclub.co.uk/">Underground Run Club UK</a> ·
+    <a href="https://www.sarugby.co.za/news-features/articles/2023/09/15/saru-pleads-for-respect-for-the-springbok-brand-from-corporate-sa-after-successful-legal-action/">SARU schützt „Springbok"-Marke</a> ·
+    <a href="https://believeintherun.com/the-run-culture-dispatch-july-2025/">Run-Culture-Umfeld (Bandit/Satisfy/Soar)</a> ·
+    <a href="https://en.wikipedia.org/wiki/10-second_barrier">10-Sekunden-Barriere (Wikipedia)</a> ·
+    Wayback-Historie via archive.org availability-API.
+  </div>
+  <div class="endmark">FAST<span>R</span> // ENDE</div>
+  <div class="disc">Dieser Report ersetzt keine formale Marken-Clearance. Vor jedem Kauf: Wayback-Sichtprüfung,
+  EUIPO/USPTO-Recherche in den relevanten Nizza-Klassen und ggf. anwaltliche Prüfung. Domain-Verfügbarkeit
+  ist zeitkritisch und kann sich täglich ändern.</div>
+</div>
+
+</body>
+</html>
