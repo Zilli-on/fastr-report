@@ -39,10 +39,10 @@ jobs:
             await page.goto('http://127.0.0.1:4173/character-lab-v7/', {waitUntil:'networkidle', timeout:120000});
             await page.waitForTimeout(3800);
             await page.screenshot({path:'review-v7/hero.png', timeout:120000, animations:'disabled'});
-            await page.getByRole('button',{name:'Print inspect'}).click();
+            await page.locator('button[data-mode="inspect"]').click({force:true});
             await page.waitForTimeout(700);
             await page.screenshot({path:'review-v7/inspect.png', timeout:120000, animations:'disabled'});
-            await page.getByRole('button',{name:'Front'}).click();
+            await page.locator('button[data-view="front"]').click({force:true});
             await page.waitForTimeout(500);
             await page.screenshot({path:'review-v7/front.png', timeout:120000, animations:'disabled'});
             await browser.close();
