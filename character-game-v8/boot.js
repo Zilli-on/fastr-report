@@ -8,7 +8,6 @@ import { AfterimagePass } from 'three/addons/postprocessing/AfterimagePass.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 Object.assign(globalThis,{THREE,OrbitControls,GLTFExporter,EffectComposer,RenderPass,UnrealBloomPass,AfterimagePass,RoomEnvironment});
 
-const urls=['../character-lab-v7/part1.js','../character-lab-v7/part2.js','./game.js'];
+const urls=['../character-lab-v7/part1.js','../character-lab-v7/part2.js','./game.js','./polish.js'];
 const chunks=await Promise.all(urls.map(async u=>{const r=await fetch(u,{cache:'no-store'});if(!r.ok)throw new Error(`Failed to load ${u}: ${r.status}`);return await r.text();}));
-// Execute model + game together so the model's lexical references remain shared.
 new Function(chunks.join('\n\n'))();
