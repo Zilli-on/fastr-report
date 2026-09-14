@@ -1,4 +1,4 @@
-const LIME=0xd8ff1e, ROCK=0x242724, BLACK=0x050605, OFFWHITE=0xf4f4ec;
+const LIME=0xd8ff1e, ROCK=0x1a1d1a, BLACK=0x050605, OFFWHITE=0xf1f1e9;
 const stage=document.getElementById('stage');
 const loading=document.getElementById('loading');
 const modeLabel=document.getElementById('modeLabel');
@@ -8,13 +8,13 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
 renderer.setSize(innerWidth,innerHeight);
 renderer.outputColorSpace=THREE.SRGBColorSpace;
 renderer.toneMapping=THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure=.93;
+renderer.toneMappingExposure=.78;
 renderer.shadowMap.enabled=true;
 renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 stage.appendChild(renderer.domElement);
 
 const scene=new THREE.Scene();
-scene.fog=new THREE.FogExp2(0x020302,.022);
+scene.fog=new THREE.FogExp2(0x010201,.019);
 const pmrem=new THREE.PMREMGenerator(renderer);
 scene.environment=pmrem.fromScene(new RoomEnvironment(renderer),.03).texture;
 const camera=new THREE.PerspectiveCamera(38,innerWidth/innerHeight,.05,160);
@@ -22,20 +22,20 @@ camera.position.set(7.8,5.2,11.8);
 const controls=new OrbitControls(camera,renderer.domElement);
 controls.enableDamping=true; controls.dampingFactor=.055; controls.target.set(0,.8,0); controls.minDistance=5.8; controls.maxDistance=22;
 
-scene.add(new THREE.HemisphereLight(0xffffff,0x090d07,1.7));
-const key=new THREE.DirectionalLight(0xffffff,3.0); key.position.set(6,10,9); key.castShadow=true; key.shadow.mapSize.set(2048,2048); scene.add(key);
-const rim=new THREE.PointLight(LIME,44,20,1.9); rim.position.set(-5,4,-4); scene.add(rim);
-const soft=new THREE.PointLight(0x8ca8ff,7,18,2); soft.position.set(4,1,-5); scene.add(soft);
-const chin=new THREE.PointLight(LIME,7.5,9,2); chin.position.set(0,-1.5,4); scene.add(chin);
+scene.add(new THREE.HemisphereLight(0xffffff,0x070a06,1.15));
+const key=new THREE.DirectionalLight(0xffffff,1.75); key.position.set(6,10,9); key.castShadow=true; key.shadow.mapSize.set(2048,2048); scene.add(key);
+const rim=new THREE.PointLight(LIME,14,18,2.0); rim.position.set(-5,4,-4); scene.add(rim);
+const soft=new THREE.PointLight(0x879eff,2.6,17,2); soft.position.set(4,1,-5); scene.add(soft);
+const chin=new THREE.PointLight(LIME,1.8,8,2); chin.position.set(0,-1.5,4); scene.add(chin);
 
-const floor=new THREE.Mesh(new THREE.PlaneGeometry(160,160),new THREE.MeshStandardMaterial({color:0x040604,roughness:.96,metalness:.01}));
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(160,160),new THREE.MeshStandardMaterial({color:0x030503,roughness:.98,metalness:.01}));
 floor.rotation.x=-Math.PI/2; floor.position.y=-3.12; floor.receiveShadow=true; scene.add(floor);
-const grid=new THREE.GridHelper(160,160,0x182012,0x0b1009); grid.position.y=-3.1; grid.material.opacity=.12; grid.material.transparent=true; scene.add(grid);
+const grid=new THREE.GridHelper(160,160,0x12180e,0x080b07); grid.position.y=-3.1; grid.material.opacity=.08; grid.material.transparent=true; scene.add(grid);
 
 const composer=new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene,camera));
-const bloomPass=new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),.72,.52,1.02); composer.addPass(bloomPass);
-const afterPass=new AfterimagePass(.76); afterPass.enabled=false; composer.addPass(afterPass);
+const bloomPass=new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),.48,.52,1.65); composer.addPass(bloomPass);
+const afterPass=new AfterimagePass(.74); afterPass.enabled=false; composer.addPass(afterPass);
 
 const character=new THREE.Group(); character.name='OG_FASTR_CLEAN_MASTER'; scene.add(character);
 character.position.y=.25;
@@ -56,14 +56,14 @@ function makeRockBump(){
  const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;t.repeat.set(3.6,2.2);t.colorSpace=THREE.NoColorSpace;return t;
 }
 const rockBump=makeRockBump();
-const bodyMat=new THREE.MeshStandardMaterial({color:0xffffff,vertexColors:true,roughness:.73,metalness:.055,bumpMap:rockBump,bumpScale:.055,envMapIntensity:.78});
-const rockMat=new THREE.MeshStandardMaterial({color:ROCK,roughness:.76,metalness:.055,bumpMap:rockBump,bumpScale:.035,envMapIntensity:.72});
-const rockDark=new THREE.MeshStandardMaterial({color:0x070907,roughness:.96,metalness:.01});
-const rubberMat=new THREE.MeshStandardMaterial({color:0x111411,roughness:.72,metalness:.025,envMapIntensity:.4});
-const soleMat=new THREE.MeshStandardMaterial({color:0x050605,roughness:.64,metalness:.06});
-const whiteMat=new THREE.MeshPhysicalMaterial({color:OFFWHITE,roughness:.31,metalness:.01,clearcoat:.14,clearcoatRoughness:.28,envMapIntensity:.55});
-const limeMat=new THREE.MeshStandardMaterial({color:LIME,emissive:LIME,emissiveIntensity:.18,roughness:.28,metalness:.04});
-const chromeMat=new THREE.MeshStandardMaterial({color:0xe9e9e2,roughness:.17,metalness:.68,envMapIntensity:.9});
+const bodyMat=new THREE.MeshStandardMaterial({color:0xffffff,vertexColors:true,roughness:.78,metalness:.045,bumpMap:rockBump,bumpScale:.060,envMapIntensity:.46});
+const rockMat=new THREE.MeshStandardMaterial({color:ROCK,roughness:.80,metalness:.045,bumpMap:rockBump,bumpScale:.042,envMapIntensity:.42});
+const rockDark=new THREE.MeshStandardMaterial({color:0x040504,roughness:.98,metalness:.005});
+const rubberMat=new THREE.MeshStandardMaterial({color:0x0d100d,roughness:.76,metalness:.02,envMapIntensity:.26});
+const soleMat=new THREE.MeshStandardMaterial({color:0x030403,roughness:.68,metalness:.04});
+const whiteMat=new THREE.MeshPhysicalMaterial({color:OFFWHITE,roughness:.40,metalness:.005,clearcoat:.06,clearcoatRoughness:.36,envMapIntensity:.30});
+const limeMat=new THREE.MeshStandardMaterial({color:LIME,emissive:LIME,emissiveIntensity:.06,roughness:.34,metalness:.025});
+const chromeMat=new THREE.MeshStandardMaterial({color:0xdadbd4,roughness:.24,metalness:.58,envMapIntensity:.62});
 let sseed=68217; const rnd=()=>{sseed=(sseed*16807)%2147483647;return(sseed-1)/2147483646};
 function smoothstep(a,b,x){const t=Math.max(0,Math.min(1,(x-a)/(b-a)));return t*t*(3-2*t)}
 
@@ -84,7 +84,7 @@ craterDefs.push(
  {n:new THREE.Vector3(.12,.97,.18).normalize(),r:.18,d:.17,rim:.05}
 );
 const colors=new Float32Array(pos.count*3);
-const baseColor=new THREE.Color(0x292c29), pitColor=new THREE.Color(0x090b09), rimColor=new THREE.Color(0x5a5d56);
+const baseColor=new THREE.Color(0x181b18), pitColor=new THREE.Color(0x010201), rimColor=new THREE.Color(0x4c5049);
 for(let i=0;i<pos.count;i++){
   const p=new THREE.Vector3().fromBufferAttribute(pos,i);
   const n=p.clone().normalize();
@@ -97,8 +97,7 @@ for(let i=0;i<pos.count;i++){
     if(ang<outer){
       const pit=1-smoothstep(0,inner,ang);
       const rimZone=smoothstep(inner*.68,inner,ang)*(1-smoothstep(inner,outer,ang));
-      radius-=c.d*pit;
-      radius+=c.rim*rimZone;
+      radius-=c.d*pit; radius+=c.rim*rimZone;
       maxPit=Math.max(maxPit,pit); maxRim=Math.max(maxRim,rimZone);
     }
   }
@@ -106,15 +105,14 @@ for(let i=0;i<pos.count;i++){
   p.x*=1.045; p.y*=1.02; p.z*=.962;
   pos.setXYZ(i,p.x,p.y,p.z);
   const col=baseColor.clone();
-  if(maxPit>0)col.lerp(pitColor,Math.min(.92,maxPit*.96));
-  if(maxRim>.08)col.lerp(rimColor,Math.min(.36,maxRim*.34));
-  const mott=.92+.08*(.5+.5*Math.sin(n.x*22+n.y*17+n.z*31)); col.multiplyScalar(mott);
+  if(maxPit>0)col.lerp(pitColor,Math.min(.96,maxPit*1.02));
+  if(maxRim>.08)col.lerp(rimColor,Math.min(.28,maxRim*.30));
+  const mott=.90+.10*(.5+.5*Math.sin(n.x*22+n.y*17+n.z*31)); col.multiplyScalar(mott);
   colors[i*3]=col.r;colors[i*3+1]=col.g;colors[i*3+2]=col.b;
 }
 pos.needsUpdate=true;bodyGeo.setAttribute('color',new THREE.BufferAttribute(colors,3));bodyGeo.computeVertexNormals();
 const body=new THREE.Mesh(bodyGeo,bodyMat); body.name='BODY_SCULPT'; body.castShadow=true; body.receiveShadow=true; core.add(body);
 
-// upper meteor lip: sculptural ridge that visually merges with the body and VFX start
 const crestCurve=new THREE.CatmullRomCurve3([
   new THREE.Vector3(.58,2.19,.12), new THREE.Vector3(1.13,2.45,-.02), new THREE.Vector3(1.62,2.35,-.20), new THREE.Vector3(1.95,1.92,-.38)
 ]);
