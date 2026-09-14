@@ -8,4 +8,4 @@ import { AfterimagePass } from 'three/addons/postprocessing/AfterimagePass.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 Object.assign(globalThis,{THREE,OrbitControls,GLTFExporter,EffectComposer,RenderPass,UnrealBloomPass,AfterimagePass,RoomEnvironment});
 function load(src){return new Promise((ok,fail)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=fail;document.body.appendChild(s);});}
-await load('./part1.js'); await load('./part2.js'); await load('./part3.js');
+await load('./part1.js'); await load('./part2.js'); await load('./part3.js'); await load('./part4.js');
