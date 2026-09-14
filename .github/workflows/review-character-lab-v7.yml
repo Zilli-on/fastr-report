@@ -8,7 +8,7 @@ on:
       - '.github/workflows/review-character-lab-v7.yml'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   screenshot:
@@ -21,7 +21,7 @@ jobs:
       - run: npm init -y && npm install playwright@1.55.0
       - run: npx playwright install chromium --with-deps
       - name: Wait for Pages deployment
-        run: sleep 35
+        run: sleep 45
       - name: Capture live renders
         run: |
           mkdir -p review-v7
@@ -31,18 +31,17 @@ jobs:
             const browser = await chromium.launch({headless:true});
             const page = await browser.newPage({viewport:{width:1600,height:1000}, deviceScaleFactor:1});
             await page.goto('https://zilli-on.github.io/fastr-report/character-lab-v7/', {waitUntil:'networkidle', timeout:120000});
-            await page.waitForTimeout(6500);
+            await page.waitForTimeout(7000);
             await page.screenshot({path:'review-v7/hero.png', fullPage:true});
             await page.getByRole('button',{name:'Print inspect'}).click();
-            await page.waitForTimeout(1800);
+            await page.waitForTimeout(2000);
             await page.screenshot({path:'review-v7/inspect.png', fullPage:true});
             await browser.close();
           })();
           NODE
-      - name: Commit review screenshots
-        run: |
-          git config user.name 'og-fastr-review-bot'
-          git config user.email 'actions@users.noreply.github.com'
-          git add review-v7/hero.png review-v7/inspect.png
-          git diff --cached --quiet || git commit -m 'chore: update v7 live review renders'
-          git push
+      - name: Upload live review renders
+        uses: actions/upload-artifact@v4
+        with:
+          name: og-fastr-v7-live-review
+          path: review-v7/
+          retention-days: 3
