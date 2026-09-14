@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="theme-color" content="#050605" />
+<title>OG FASTR — 3D Character Lab v6</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.170.0/build/three.module.js","three/addons/":"https://unpkg.com/three@0.170.0/examples/jsm/"}}</script>
+</head>
+<body>
+<div id="stage"></div>
+<div class="loading" id="loading"><div class="loader"></div><div class="loadcopy">Sculpting OG FASTR</div></div>
+<div class="topbar"><div class="brand"><span class="orb"></span><div><h1>OG FASTR · CHARACTER LAB</h1><div class="sub">sculpted clean mesh · animated cosmic VFX · exportable</div></div></div><div class="status">WEB MASTER v6<br>REFERENCE-DRIVEN</div></div>
+<div class="badge"><strong>OG FASTR</strong><br>clean printable character mesh<br>separate animated comet VFX<br><span id="modeLabel">Hero motion</span></div>
+<div class="panel">
+  <div class="sec"><h3>Mode</h3><div class="row"><button data-mode="hero" class="active mode">Hero motion</button><button data-mode="inspect" class="mode">Inspect</button><button data-mode="world" class="mode">Run world</button></div></div>
+  <div class="sec"><h3>Camera</h3><div class="row"><button data-view="front">Front</button><button data-view="three">3/4</button><button data-view="side">Side</button><button data-view="back">Back</button><button data-view="top">Top</button></div></div>
+  <div class="sec"><h3>Motion</h3><div class="row"><button data-anim="idle" class="anim">Idle</button><button data-anim="run" class="active anim">Run</button><button data-anim="sprint" class="anim">Sprint</button><button data-anim="jump" class="anim">Jump</button></div></div>
+  <div class="sec"><h3>VFX</h3><div class="control"><label>Cosmic tail</label><input id="tailToggle" type="checkbox" checked></div><div class="control"><label>Motion afterimage</label><input id="blurToggle" type="checkbox" checked></div><div class="control"><label>Particles / debris</label><input id="particleToggle" type="checkbox" checked></div><div class="control"><label>Bloom</label><input id="bloom" type="range" min="0" max="2.2" value="1.2" step="0.05"></div><div class="control"><label>Tail intensity</label><input id="tailStrength" type="range" min="0.3" max="2.5" value="1.2" step="0.05"></div></div>
+  <div class="sec"><h3>Character</h3><div class="control"><label>Eye glow</label><input id="eyeGlow" type="range" min="0" max="1.6" value="0.48" step="0.04"></div><div class="control"><label>Stone roughness</label><input id="roughness" type="range" min="0.45" max="1" value="0.84" step="0.02"></div><div class="control"><label>Wireframe</label><input id="wire" type="checkbox"></div><div class="control"><label>Auto rotate</label><input id="rotateToggle" type="checkbox"></div></div>
+  <div class="sec"><h3>Asset</h3><button id="exportGLB" class="primary wide">Export clean GLB</button><button id="shot" class="wide">PNG screenshot</button></div>
+</div>
+<div class="hint"><b>Hero:</b> animated tail + afterimage<br><b>Inspect:</b> drag to orbit · scroll to zoom<br><b>Run world:</b> WASD · Shift sprint · Space jump</div>
+<script type="module" src="app.js"></script>
+</body></html>
