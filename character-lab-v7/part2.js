@@ -2,23 +2,23 @@
 function eyeTexture(letter){
   const c=document.createElement('canvas'); c.width=c.height=768; const x=c.getContext('2d');
   x.clearRect(0,0,768,768);
-  const g=x.createRadialGradient(260,205,12,384,384,330); g.addColorStop(0,'#f5ffd7');g.addColorStop(.26,'#e8ff6c');g.addColorStop(.55,'#d8ff1e');g.addColorStop(1,'#6d9400');
+  const g=x.createRadialGradient(260,205,12,384,384,330); g.addColorStop(0,'#f4ffd2');g.addColorStop(.25,'#e7ff6a');g.addColorStop(.58,'#d8ff1e');g.addColorStop(1,'#648800');
   x.fillStyle=g; x.beginPath(); x.ellipse(384,384,300,305,0,0,Math.PI*2); x.fill();
   x.fillStyle='#050605'; x.beginPath(); x.ellipse(384,408,171,186,0,0,Math.PI*2); x.fill();
   x.fillStyle='#d8ff1e'; x.font='900 italic 190px Arial Black,Arial';x.textAlign='center';x.textBaseline='middle';x.fillText(letter,393,418);
-  x.fillStyle='#fff'; x.beginPath();x.ellipse(292,260,50,72,-.45,0,Math.PI*2);x.fill();
-  x.save(); x.translate(511,250); x.rotate(Math.PI/4); x.fillRect(-9,-45,18,90);x.fillRect(-45,-9,90,18);x.restore();
+  x.fillStyle='#fff'; x.beginPath();x.ellipse(292,260,48,68,-.45,0,Math.PI*2);x.fill();
+  x.save(); x.translate(511,250); x.rotate(Math.PI/4); x.fillRect(-8,-42,16,84);x.fillRect(-42,-8,84,16);x.restore();
   const t=new THREE.CanvasTexture(c); t.colorSpace=THREE.SRGBColorSpace; t.anisotropy=renderer.capabilities.getMaxAnisotropy(); return t;
 }
 const texO=eyeTexture('O'),texG=eyeTexture('G');
 function makeEye(x,tex,rotY){
   const g=new THREE.Group();
-  const socket=new THREE.Mesh(new THREE.SphereGeometry(.94,64,44),rockDark); socket.scale.set(1.05,1.05,.30); g.add(socket);
-  const sclera=new THREE.Mesh(new THREE.SphereGeometry(.80,64,48),whiteMat); sclera.scale.set(1.0,1.07,.40); sclera.position.z=.16; g.add(sclera);
-  const irisMat=new THREE.MeshPhysicalMaterial({map:tex,roughness:.1,metalness:0,clearcoat:1,clearcoatRoughness:.04,emissive:LIME,emissiveIntensity:.25});
-  const iris=new THREE.Mesh(new THREE.SphereGeometry(.62,64,48),irisMat); iris.scale.set(1,1.03,.23); iris.position.z=.50; g.add(iris);
-  const lens=new THREE.Mesh(new THREE.SphereGeometry(.65,64,48),new THREE.MeshPhysicalMaterial({color:0xffffff,transparent:true,opacity:.06,roughness:.02,transmission:.12,clearcoat:1,clearcoatRoughness:.02}));
-  lens.scale.set(1,1.04,.20); lens.position.z=.55; g.add(lens);
+  const socket=new THREE.Mesh(new THREE.SphereGeometry(.93,72,50),rockDark); socket.scale.set(1.05,1.06,.28); g.add(socket);
+  const sclera=new THREE.Mesh(new THREE.SphereGeometry(.81,72,52),whiteMat); sclera.scale.set(1.0,1.07,.39); sclera.position.z=.17; g.add(sclera);
+  const irisMat=new THREE.MeshPhysicalMaterial({map:tex,roughness:.09,metalness:0,clearcoat:1,clearcoatRoughness:.035,emissive:LIME,emissiveIntensity:.10,envMapIntensity:.65});
+  const iris=new THREE.Mesh(new THREE.SphereGeometry(.625,72,52),irisMat); iris.scale.set(1,1.03,.23); iris.position.z=.505; g.add(iris);
+  const lens=new THREE.Mesh(new THREE.SphereGeometry(.655,72,52),new THREE.MeshPhysicalMaterial({color:0xffffff,transparent:true,opacity:.045,roughness:.018,transmission:.16,clearcoat:1,clearcoatRoughness:.015}));
+  lens.scale.set(1,1.04,.20); lens.position.z=.555; g.add(lens);
   g.position.set(x,.47,2.28); g.rotation.y=rotY; return g;
 }
 const eyeL=makeEye(-.84,texO,.035),eyeR=makeEye(.84,texG,-.035); core.add(eyeL,eyeR);
@@ -39,11 +39,11 @@ function bentSmileGeometry(w=2.62,h=.78,seg=56){
  }
  a.needsUpdate=true; g.computeVertexNormals(); return g;
 }
-const mouthCavity=new THREE.Mesh(bentSmileGeometry(2.90,1.04,60),new THREE.MeshStandardMaterial({color:0x030403,roughness:.92,metalness:.02}));
+const mouthCavity=new THREE.Mesh(bentSmileGeometry(2.90,1.04,60),new THREE.MeshStandardMaterial({color:0x020302,roughness:.96,metalness:.01}));
 mouthCavity.position.set(0,-.89,2.36); mouthCavity.scale.set(1,1.04,1); core.add(mouthCavity);
-const smilePlane=new THREE.Mesh(bentSmileGeometry(),new THREE.MeshPhysicalMaterial({map:wordTexture(),transparent:true,roughness:.16,metalness:.30,clearcoat:.72,clearcoatRoughness:.10,emissive:0x253500,emissiveIntensity:.42}));
+const smilePlane=new THREE.Mesh(bentSmileGeometry(),new THREE.MeshPhysicalMaterial({map:wordTexture(),transparent:true,roughness:.18,metalness:.26,clearcoat:.62,clearcoatRoughness:.12,emissive:0x182000,emissiveIntensity:.12,envMapIntensity:.6}));
 smilePlane.position.set(0,-.88,2.43); smilePlane.rotation.x=-.015; core.add(smilePlane);
-const smileGlow=new THREE.PointLight(LIME,28,4,2); smileGlow.position.set(0,-1.04,2.0); core.add(smileGlow);
+const smileGlow=new THREE.PointLight(LIME,3.2,3.2,2); smileGlow.position.set(0,-1.06,2.15); core.add(smileGlow);
 
 function pillArm(x){
  const g=new THREE.Group();
@@ -56,7 +56,7 @@ function makeLeg(x){
  const leg=new THREE.Mesh(new THREE.CapsuleGeometry(.27,.34,12,24),rubberMat);leg.position.y=.38;g.add(leg);
  const shoe=new THREE.Group();
  const upper=new THREE.Mesh(new THREE.SphereGeometry(.70,52,36),rubberMat); upper.scale.set(1.18,.65,1.46); upper.position.z=.20; shoe.add(upper);
- const toe=new THREE.Mesh(new THREE.SphereGeometry(.61,44,32),new THREE.MeshStandardMaterial({color:0x1d201d,roughness:.60})); toe.scale.set(1.14,.46,.98); toe.position.set(0,-.15,.75); shoe.add(toe);
+ const toe=new THREE.Mesh(new THREE.SphereGeometry(.61,44,32),new THREE.MeshStandardMaterial({color:0x1d201d,roughness:.64,metalness:.015,envMapIntensity:.35})); toe.scale.set(1.14,.46,.98); toe.position.set(0,-.15,.75); shoe.add(toe);
  const mid=new THREE.Mesh(new THREE.SphereGeometry(.74,48,30),whiteMat); mid.scale.set(1.18,.16,1.48); mid.position.set(0,-.54,.25); shoe.add(mid);
  const outsole=new THREE.Mesh(new THREE.SphereGeometry(.70,48,30),soleMat); outsole.scale.set(1.16,.12,1.43); outsole.position.set(0,-.66,.28); shoe.add(outsole);
  const stripe=new THREE.Mesh(new THREE.TorusGeometry(.44,.065,10,46,Math.PI*1.35),limeMat); stripe.rotation.x=Math.PI/2; stripe.rotation.z=.95; stripe.position.set(.40,-.18,.58); shoe.add(stripe);
@@ -64,9 +64,9 @@ function makeLeg(x){
  g.add(shoe); g.position.set(x,-2.73,.08); g.userData.shoe=shoe; return g;
 }
 const legL=makeLeg(-.80),legR=makeLeg(.80); core.add(legL,legR);
-const soleIconTex=(()=>{const c=document.createElement('canvas');c.width=512;c.height=512;const x=c.getContext('2d');x.clearRect(0,0,512,512);x.fillStyle='#0a0b0a';x.fillRect(0,0,512,512);x.strokeStyle='#272a27';x.lineWidth=7;for(let y=45;y<500;y+=32){x.beginPath();x.moveTo(18,y);x.lineTo(494,y);x.stroke()}x.fillStyle='#d8ff1e';x.beginPath();x.arc(315,258,64,0,Math.PI*2);x.fill();x.beginPath();x.moveTo(310,220);x.lineTo(110,165);x.lineTo(245,245);x.closePath();x.fill();x.beginPath();x.moveTo(310,288);x.lineTo(118,336);x.lineTo(246,270);x.closePath();x.fill();const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;return t})();
+const soleIconTex=(()=>{const c=document.createElement('canvas');c.width=512;c.height=512;const x=c.getContext('2d');x.clearRect(0,0,512,512);x.fillStyle='#080908';x.fillRect(0,0,512,512);x.strokeStyle='#292c29';x.lineWidth=7;for(let y=45;y<500;y+=32){x.beginPath();x.moveTo(18,y);x.lineTo(494,y);x.stroke()}x.fillStyle='#d8ff1e';x.beginPath();x.arc(315,258,64,0,Math.PI*2);x.fill();x.beginPath();x.moveTo(310,220);x.lineTo(110,165);x.lineTo(245,245);x.closePath();x.fill();x.beginPath();x.moveTo(310,288);x.lineTo(118,336);x.lineTo(246,270);x.closePath();x.fill();const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;return t})();
 function attachSoleDecal(leg){
- const m=new THREE.Mesh(new THREE.PlaneGeometry(1.20,1.62),new THREE.MeshStandardMaterial({map:soleIconTex,roughness:.46,metalness:.04}));
+ const m=new THREE.Mesh(new THREE.PlaneGeometry(1.20,1.62),new THREE.MeshStandardMaterial({map:soleIconTex,roughness:.52,metalness:.02}));
  m.rotation.x=Math.PI/2; m.position.set(0,-.735,.34); m.renderOrder=3; leg.userData.shoe.add(m); leg.userData.soleDecal=m; return m;
 }
 const soleDecalL=attachSoleDecal(legL), soleDecalR=attachSoleDecal(legR);
