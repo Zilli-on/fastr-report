@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="theme-color" content="#020302" />
+<title>OG FASTR — RUN THE COMET</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+</head>
+<body>
+<div id="stage"></div>
+<div class="loading" id="loading"><div class="loader"></div><div class="loadcopy">LOADING OG FASTR</div></div>
+<div id="modeLabel" hidden>Game</div>
+
+<div class="brandmark"><span></span><div><b>OG FASTR</b><small>RUN THE COMET</small></div></div>
+
+<div id="hud" class="hud hidden">
+  <div class="metric"><span>SCORE</span><b id="score">000000</b></div>
+  <div class="metric"><span>DISTANCE</span><b><i id="distance">0</i> M</b></div>
+  <div class="metric combo"><span>COMBO</span><b id="combo">×1</b></div>
+  <div class="boost"><div class="boostHead"><span>FASTR BOOST</span><b id="boostPct">0%</b></div><div class="boostTrack"><div id="boostFill"></div></div></div>
+</div>
+
+<div id="startScreen" class="screen show">
+  <div class="heroCopy">
+    <div class="eyebrow">OG FASTR · BROWSER GAME PROTOTYPE</div>
+    <h1>RUN<br><em>FASTR.</em></h1>
+    <p>Collect energy. Dodge the city. Build speed.<br>Turn the OG meteor into motion.</p>
+    <button id="startBtn">START RUN</button>
+    <div class="keys"><span>← → / A D</span><span>SPACE = JUMP</span><span>SHIFT = BOOST</span></div>
+  </div>
+</div>
+
+<div id="gameOver" class="screen">
+  <div class="endCard">
+    <div class="eyebrow">RUN COMPLETE</div>
+    <h2 id="endScore">0</h2><p>FINAL SCORE</p>
+    <div class="endStats"><div><span>DISTANCE</span><b id="endDistance">0 M</b></div><div><span>BEST COMBO</span><b id="endCombo">×1</b></div></div>
+    <button id="restartBtn">RUN AGAIN</button>
+  </div>
+</div>
+
+<div class="mobileControls" id="mobileControls">
+  <button data-act="left">←</button><button data-act="jump">↑</button><button data-act="right">→</button><button class="boostBtn" data-act="boost">BOOST</button>
+</div>
+
+<div class="footerHint">SWIPE / KEYS TO MOVE · COLLECT <b>ENERGY</b> · DON'T HIT THE BLOCKS</div>
+<script type="module" src="boot.js"></script>
+</body>
+</html>
