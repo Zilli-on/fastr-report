@@ -34,7 +34,7 @@ const grid=new THREE.GridHelper(160,160,0x182012,0x0b1009); grid.position.y=-3.1
 const composer=new EffectComposer(renderer);
 composer.addPass(new RenderPass(scene,camera));
 const bloomPass=new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),1.15,.5,.66); composer.addPass(bloomPass);
-const afterPass=new AfterimagePass(.86); composer.addPass(afterPass);
+const afterPass=new AfterimagePass(.78); afterPass.enabled=false; composer.addPass(afterPass);
 
 const character=new THREE.Group(); character.name='OG_FASTR_CLEAN_MASTER'; scene.add(character);
 character.position.y=.25;
