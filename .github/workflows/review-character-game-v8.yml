@@ -1,0 +1,46 @@
+name: Review OG FASTR Browser Game v8
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'character-game-v8/**'
+      - '.github/workflows/review-character-game-v8.yml'
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '20' }
+      - run: npm init -y && npm install playwright@1.55.0
+      - run: npx playwright install chromium --with-deps
+      - name: Serve exact build
+        run: |
+          python3 -m http.server 4173 >/tmp/ogfastr-game.log 2>&1 &
+          sleep 2
+      - name: Capture game
+        run: |
+          mkdir -p review-game-v8
+          node <<'NODE'
+          const { chromium } = require('playwright');
+          (async()=>{
+            const browser=await chromium.launch({headless:true,args:['--enable-unsafe-swiftshader']});
+            const page=await browser.newPage({viewport:{width:1440,height:900}});
+            page.setDefaultTimeout(15000);
+            const errors=[];
+            page.on('pageerror',e=>errors.push(e.message));
+            page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+            await page.goto('http://127.0.0.1:4173/character-game-v8/?demo=1',{waitUntil:'networkidle',timeout:120000});
+            await page.waitForTimeout(4500);
+            if(errors.length) throw new Error('Browser errors: '+errors.join(' | '));
+            await page.screenshot({path:'review-game-v8/gameplay.png',timeout:120000});
+            await browser.close();
+          })();
+          NODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: og-fastr-game-v8-review
+          path: review-game-v8/
+          retention-days: 3
