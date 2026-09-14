@@ -17,18 +17,14 @@ function makeEye(x,tex,rotY){
   const sclera=new THREE.Mesh(new THREE.SphereGeometry(.80,64,48),whiteMat); sclera.scale.set(1.0,1.07,.40); sclera.position.z=.16; g.add(sclera);
   const irisMat=new THREE.MeshPhysicalMaterial({map:tex,roughness:.1,metalness:0,clearcoat:1,clearcoatRoughness:.04,emissive:LIME,emissiveIntensity:.25});
   const iris=new THREE.Mesh(new THREE.SphereGeometry(.62,64,48),irisMat); iris.scale.set(1,1.03,.23); iris.position.z=.50; g.add(iris);
-  // glass lens for premium toy feel
   const lens=new THREE.Mesh(new THREE.SphereGeometry(.65,64,48),new THREE.MeshPhysicalMaterial({color:0xffffff,transparent:true,opacity:.06,roughness:.02,transmission:.12,clearcoat:1,clearcoatRoughness:.02}));
   lens.scale.set(1,1.04,.20); lens.position.z=.55; g.add(lens);
   g.position.set(x,.47,2.28); g.rotation.y=rotY; return g;
 }
 const eyeL=makeEye(-.84,texO,.035),eyeR=makeEye(.84,texG,-.035); core.add(eyeL,eyeR);
-
-// sculpted brow pads
-function brow(x,tilt){const b=new THREE.Mesh(new THREE.CapsuleGeometry(.18,1.24,12,28),rockMat); b.scale.set(1,.9,.55); b.position.set(x,1.39,2.20); b.rotation.z=tilt; b.rotation.x=Math.PI/2; return b}
+function brow(x,tilt){const b=new THREE.Mesh(new THREE.CapsuleGeometry(.13,1.02,12,28),rockMat); b.scale.set(1,.82,.46); b.position.set(x,1.31,2.18); b.rotation.z=tilt; b.rotation.x=Math.PI/2; return b}
 const browL=brow(-.84,-.18),browR=brow(.84,.18); core.add(browL,browR);
 
-// smile geometry: curved recessed mouth + convex label following arc
 const mouthCurve=new THREE.CatmullRomCurve3([
  new THREE.Vector3(-1.28,-.69,2.19), new THREE.Vector3(-.67,-1.02,2.33), new THREE.Vector3(0,-1.12,2.38), new THREE.Vector3(.67,-1.02,2.33), new THREE.Vector3(1.28,-.69,2.19)
 ]);
@@ -38,7 +34,7 @@ function bentSmileGeometry(w=2.62,h=.78,seg=56){
  const g=new THREE.PlaneGeometry(w,h,seg,3); const a=g.attributes.position;
  for(let i=0;i<a.count;i++){
    const x=a.getX(i), y=a.getY(i), q=x/(w*.5);
-   const z=.19*(1-q*q); // center follows the round meteor face, edges tuck back
+   const z=.19*(1-q*q);
    a.setXYZ(i,x,y-.055*q*q,z);
  }
  a.needsUpdate=true; g.computeVertexNormals(); return g;
@@ -49,12 +45,10 @@ const smilePlane=new THREE.Mesh(bentSmileGeometry(),new THREE.MeshPhysicalMateri
 smilePlane.position.set(0,-.88,2.43); smilePlane.rotation.x=-.015; core.add(smilePlane);
 const smileGlow=new THREE.PointLight(LIME,28,4,2); smileGlow.position.set(0,-1.04,2.0); core.add(smileGlow);
 
-// ---------- Limbs and footwear ----------
 function pillArm(x){
  const g=new THREE.Group();
- const arm=new THREE.Mesh(new THREE.CapsuleGeometry(.34,.58,14,28),rubberMat); arm.castShadow=true; g.add(arm);
- const hand=new THREE.Mesh(new THREE.SphereGeometry(.43,36,28),rubberMat); hand.position.y=-.56; hand.scale.set(1.08,.92,.94); hand.castShadow=true; g.add(hand);
- g.position.set(x,-.37,.25); g.rotation.z=x<0?.15:-.15; return g;
+ const arm=new THREE.Mesh(new THREE.CapsuleGeometry(.40,.86,16,32),rubberMat); arm.castShadow=true; arm.scale.set(1,.96,.94); g.add(arm);
+ g.position.set(x,-.46,.18); g.rotation.z=x<0?.17:-.17; return g;
 }
 const armL=pillArm(-2.53),armR=pillArm(2.53); core.add(armL,armR);
 function makeLeg(x){
