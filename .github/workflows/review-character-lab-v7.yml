@@ -1,0 +1,48 @@
+name: Review OG FASTR Character Lab v7
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'character-lab-v7/**'
+      - '.github/workflows/review-character-lab-v7.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm init -y && npm install playwright@1.55.0
+      - run: npx playwright install chromium --with-deps
+      - name: Wait for Pages deployment
+        run: sleep 35
+      - name: Capture live renders
+        run: |
+          mkdir -p review-v7
+          node <<'NODE'
+          const { chromium } = require('playwright');
+          (async()=>{
+            const browser = await chromium.launch({headless:true});
+            const page = await browser.newPage({viewport:{width:1600,height:1000}, deviceScaleFactor:1});
+            await page.goto('https://zilli-on.github.io/fastr-report/character-lab-v7/', {waitUntil:'networkidle', timeout:120000});
+            await page.waitForTimeout(6500);
+            await page.screenshot({path:'review-v7/hero.png', fullPage:true});
+            await page.getByRole('button',{name:'Print inspect'}).click();
+            await page.waitForTimeout(1800);
+            await page.screenshot({path:'review-v7/inspect.png', fullPage:true});
+            await browser.close();
+          })();
+          NODE
+      - name: Commit review screenshots
+        run: |
+          git config user.name 'og-fastr-review-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add review-v7/hero.png review-v7/inspect.png
+          git diff --cached --quiet || git commit -m 'chore: update v7 live review renders'
+          git push
