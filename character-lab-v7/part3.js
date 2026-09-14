@@ -38,6 +38,7 @@ function ribbonGeometry(points,width=.70,segments=110){
  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(verts,3));g.setAttribute('uv',new THREE.Float32BufferAttribute(uvs,2));g.setIndex(idx);g.computeVertexNormals();return g;
 }
 const tails=[];
+const tailBackdropMat=new THREE.MeshBasicMaterial({color:0x020503,transparent:true,opacity:.74,depthWrite:false,side:THREE.DoubleSide,blending:THREE.NormalBlending});
 const baseTailSets=[
  [[.72,1.70,-1.52],[2.2,2.45,-2.5],[4.4,3.72,-4.8],[7.8,5.0,-8.9]],
  [[.82,1.22,-1.60],[2.5,1.95,-2.9],[4.9,3.05,-5.4],[8.2,4.2,-9.4]],
@@ -46,18 +47,22 @@ const baseTailSets=[
  [[.56,1.42,-1.72],[2.0,2.10,-3.0],[4.2,3.18,-5.8],[7.4,4.3,-9.7]],
  [[.50,.36,-1.76],[2.0,.72,-3.7],[4.4,1.42,-6.7],[7.7,2.2,-10.5]]
 ];
+const tailBackdrop=new THREE.Mesh(ribbonGeometry(baseTailSets[1].map(a=>new THREE.Vector3(...a)),1.48),tailBackdropMat);tailBackdrop.position.z=-.025;vfx.add(tailBackdrop);
 baseTailSets.forEach((set,i)=>{const pts=set.map(a=>new THREE.Vector3(...a));const width=i<4?.48-i*.045:.20;const m=new THREE.Mesh(ribbonGeometry(pts,width),ribbonMat.clone());m.material.uniforms={uTime:{value:i*.21},uEnergy:{value:i<4?1.12:1.5},uColor:{value:new THREE.Color(i%2?0xb9ff13:LIME)}};vfx.add(m);tails.push(m)});
 const glowMat=ribbonMat.clone(); glowMat.uniforms={uTime:{value:0},uEnergy:{value:.32},uColor:{value:new THREE.Color(0x9cff00)}};
 const glowRibbon=new THREE.Mesh(ribbonGeometry(baseTailSets[1].map(a=>new THREE.Vector3(...a)),1.34),glowMat);glowRibbon.scale.z=1.02;vfx.add(glowRibbon);tails.push(glowRibbon);
 
-// particles and debris behind the body
+const starGeoVfx=new THREE.BufferGeometry();
+const starCount=48, starArr=new Float32Array(starCount*3);
+for(let i=0;i<starCount;i++){starArr[i*3]=1.4+Math.random()*7.2;starArr[i*3+1]=.1+Math.random()*4.4;starArr[i*3+2]=-1.6-Math.random()*7.8;}
+starGeoVfx.setAttribute('position',new THREE.BufferAttribute(starArr,3));
+const tailStars=new THREE.Points(starGeoVfx,new THREE.PointsMaterial({color:0xffffff,size:.075,transparent:true,opacity:.9,blending:THREE.AdditiveBlending,depthWrite:false}));vfx.add(tailStars);
 const pCount=220, pPos=new Float32Array(pCount*3),pSeed=[];
 for(let i=0;i<pCount;i++){pSeed.push(Math.random());pPos[i*3]=1+Math.random()*8;pPos[i*3+1]=-.5+Math.random()*5;pPos[i*3+2]=-1.4-Math.random()*8}
 const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pPos,3));
 const pm=new THREE.PointsMaterial({color:LIME,size:.055,transparent:true,opacity:.78,blending:THREE.AdditiveBlending,depthWrite:false});const particles=new THREE.Points(pg,pm);vfx.add(particles);
 const debris=[];for(let i=0;i<13;i++){const m=new THREE.Mesh(new THREE.DodecahedronGeometry(.08+Math.random()*.18,1),rockMat.clone());m.position.set(1.8+Math.random()*7,-.5+Math.random()*4,-1.8-Math.random()*7);m.rotation.set(Math.random()*4,Math.random()*4,Math.random()*4);vfx.add(m);debris.push(m)}
 
-// ---------- World ----------
 const lane=new THREE.Group();scene.add(lane);lane.visible=false;
 for(let i=0;i<80;i++){const dash=new THREE.Mesh(new THREE.BoxGeometry(.035,.012,1.4),new THREE.MeshBasicMaterial({color:i%5===0?LIME:0x343a31}));dash.position.set((i%2?1:-1)*2.5,-3.05,-i*2.3);lane.add(dash)}
 
@@ -102,7 +107,7 @@ document.getElementById('particleToggle').onchange=e=>{particles.visible=e.targe
 document.getElementById('bloom').oninput=e=>bloomPass.strength=+e.target.value;
 document.getElementById('tailEnergy').oninput=e=>{const v=+e.target.value;tails.forEach(t=>{t.material.uniforms.uEnergy.value=v*(t===glowRibbon?0.34:1.0)});};
 document.getElementById('eyeScale').oninput=e=>{const v=+e.target.value;eyeL.scale.setScalar(v);eyeR.scale.setScalar(v)};
-document.getElementById('smileDepth').oninput=e=>{const v=+e.target.value;mouthBack.scale.z=v;smilePlane.scale.set(v,v,1)};
+document.getElementById('smileDepth').oninput=e=>{const v=+e.target.value;mouthBack.scale.z=v;smilePlane.scale.set(v,v,1);mouthCavity.scale.set(v,1.04*v,1)};
 document.getElementById('roughness').oninput=e=>rockMat.roughness=+e.target.value;
 document.getElementById('wire').onchange=e=>core.traverse(o=>{if(o.isMesh&&o.material&&o.material.wireframe!==undefined)o.material.wireframe=e.target.checked});
 
@@ -117,6 +122,7 @@ function animate(){requestAnimationFrame(animate);const dt=Math.min(clock.getDel
   camera.position.x=THREE.MathUtils.lerp(camera.position.x,character.position.x+5.7,.035);camera.lookAt(character.position.x,.3,0);
  }
  tails.forEach((m,i)=>{m.material.uniforms.uTime.value=t*(1.0+i*.035)+i*.31; m.position.y=Math.sin(t*2.4+i)*.015;});
+ tailBackdrop.position.y=Math.sin(t*1.7)*.025;tailBackdrop.scale.y=1+Math.sin(t*1.3)*.025;tailStars.material.opacity=.72+.22*Math.sin(t*4.6);
  const arr=particles.geometry.attributes.position.array;for(let i=0;i<pCount;i++){arr[i*3]+=.018+(.06*pSeed[i]);if(arr[i*3]>9.3)arr[i*3]=1.2;arr[i*3+1]+=Math.sin(t*2+pSeed[i]*20)*.0015}particles.geometry.attributes.position.needsUpdate=true;
  debris.forEach((d,i)=>{d.rotation.x+=dt*(.5+i*.03);d.rotation.y+=dt*(.35+i*.025);d.position.x+=dt*.5;if(d.position.x>9.6)d.position.x=1.6});
  composer.render(dt);
