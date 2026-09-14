@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="theme-color" content="#030403" />
+<title>OG FASTR — Character Lab v7</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+</head>
+<body>
+<div id="stage"></div>
+<div class="loading" id="loading"><div class="loader"></div><div class="loadcopy">Sculpting OG FASTR v7</div></div>
+<header class="topbar">
+  <div class="brand"><span class="orb"></span><div><h1>OG FASTR · CHARACTER LAB</h1><div class="sub">printable core · animated cosmic motion layer</div></div></div>
+  <div class="status">FIDELITY PASS v7<br>SCULPT / MOTION / EXPORT</div>
+</header>
+<div class="badge"><strong>OG FASTR</strong><br>reference-driven character<br>VFX never baked into mesh<br><span id="modeLabel">Hero Motion</span></div>
+<aside class="panel">
+  <section><h3>View</h3><div class="row"><button data-mode="hero" class="active mode">Hero motion</button><button data-mode="inspect" class="mode">Print inspect</button><button data-mode="world" class="mode">Run world</button></div></section>
+  <section><h3>Camera</h3><div class="row"><button data-view="front">Front</button><button data-view="three">3/4</button><button data-view="side">Side</button><button data-view="back">Back</button><button data-view="top">Top</button></div></section>
+  <section><h3>Motion</h3><div class="row"><button data-anim="idle" class="anim">Idle</button><button data-anim="run" class="active anim">Run</button><button data-anim="sprint" class="anim">Sprint</button><button data-anim="jump" class="anim">Jump</button></div></section>
+  <section><h3>Cosmic Layer</h3>
+    <label class="ctrl"><span>Tail</span><input id="tailToggle" type="checkbox" checked></label>
+    <label class="ctrl"><span>Afterimage</span><input id="afterToggle" type="checkbox" checked></label>
+    <label class="ctrl"><span>Particles</span><input id="particleToggle" type="checkbox" checked></label>
+    <label class="ctrl"><span>Bloom</span><input id="bloom" type="range" min="0" max="2.4" step=".05" value="1.15"></label>
+    <label class="ctrl"><span>Tail energy</span><input id="tailEnergy" type="range" min=".2" max="2.2" step=".05" value="1.2"></label>
+  </section>
+  <section><h3>Character Fidelity</h3>
+    <label class="ctrl"><span>Eye scale</span><input id="eyeScale" type="range" min=".82" max="1.20" step=".01" value="1.03"></label>
+    <label class="ctrl"><span>Smile depth</span><input id="smileDepth" type="range" min=".82" max="1.25" step=".01" value="1.05"></label>
+    <label class="ctrl"><span>Body roughness</span><input id="roughness" type="range" min=".45" max="1" step=".01" value=".78"></label>
+    <label class="ctrl"><span>Wireframe</span><input id="wire" type="checkbox"></label>
+  </section>
+  <section><h3>Asset</h3><button id="exportGLB" class="primary wide">Export clean GLB</button><button id="shot" class="wide">PNG screenshot</button></section>
+</aside>
+<div class="hint"><b>Inspect:</b> drag to orbit · scroll to zoom<br><b>Run world:</b> WASD · Shift sprint · Space jump</div>
+<script type="module" src="boot.js"></script>
+</body>
+</html>
