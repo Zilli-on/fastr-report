@@ -201,3 +201,73 @@ img,video{display:block;max-width:100%}
   .step-actions{align-items:stretch;flex-direction:column}.step-actions .btn{width:100%}.share-actions{flex-direction:column}.share-actions .btn{width:100%}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.location-row,.links a,.resource-row strong{transition:none}}
+
+
+/* final UX polish */
+.progress>i{transform:scaleX(0);transform-origin:left center;will-change:transform}
+.nav{will-change:background-color,backdrop-filter,color}
+.nav.scrolled{box-shadow:0 8px 30px rgba(11,11,12,.035)}
+.nav-links a,.links a,.resource-row,.interest,.mode,.btn{transition:transform .18s ease,background-color .18s ease,color .18s ease,border-color .18s ease,opacity .18s ease}
+.nav-links a:hover,.links a:hover,.resource-row:hover,.btn:hover{transform:translateY(-1px)}
+.nav-links a:active,.links a:active,.resource-row:active,.interest:active,.mode:active,.btn:active{transform:scale(.985)}
+button,a,input,textarea{ -webkit-tap-highlight-color:transparent }
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+.interest,.mode,.btn,.nav-cta{min-height:44px}
+.step.active{animation:stepIn .28s cubic-bezier(.2,.8,.2,1) both}
+@keyframes stepIn{from{opacity:.25;transform:translateY(8px)}to{opacity:1;transform:none}}
+.wizard-progress button{cursor:pointer}
+.chapter-indicator{position:fixed;z-index:105;right:22px;bottom:22px;display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(11,11,12,.88);backdrop-filter:blur(14px);color:#fff;transform:translateY(18px);opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease}
+.chapter-indicator.visible{opacity:1;transform:none}
+.chapter-indicator span{font-size:9px;color:var(--signal);letter-spacing:.08em}
+.chapter-indicator b{font:500 9px/1 "DM Mono",monospace;text-transform:uppercase;letter-spacing:.08em}
+.hero-media video{will-change:transform}
+.project-card,.dossier,.location-row,.resource-row{contain:layout paint}
+textarea{min-height:118px}
+@media(hover:hover){
+  .project-card{transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease}
+  .project-card:hover{transform:translateY(-4px);box-shadow:0 18px 60px rgba(11,11,12,.07)}
+}
+@media(max-width:900px){
+  .nav{height:62px}
+  .nav-links .nav-cta{padding:9px 11px}
+  .hero{height:92svh;min-height:620px}
+  .hero-content{padding-bottom:34px}
+  .intro-copy p,.dossier-rail p,.fact p,.partner p,.decision p,.location-row p,.work-row p,.ownership-grid p{font-size:15px}
+  .dossier{padding:42px 0 54px}
+  .dossier-summary{font-size:clamp(26px,8vw,38px);margin-bottom:30px}
+  .fact{padding:19px 0 22px}
+  .partner{padding:20px}
+  .resource-row{min-height:68px;padding:16px 0}
+  .route-step{padding:22px 0}
+  .chapter-indicator{right:14px;bottom:calc(14px + env(safe-area-inset-bottom));padding:9px 10px}
+  .chapter-indicator b{max-width:90px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .reflection{padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+}
+@media(max-width:560px){
+  .nav{height:58px}
+  .logo{font-size:17px}
+  .nav-links .nav-cta{font-size:9px}
+  .hero{height:88svh;min-height:580px}
+  .hero-meta{gap:14px;margin-bottom:18px}
+  .hero-content{padding-top:92px;padding-bottom:26px}
+  .hero h1{font-size:16.2vw;line-height:.8}
+  .hero-bottom{margin-top:28px}
+  .hero-side{font-size:9px}
+  .intro,.landscape,.dossiers,.locations,.resources,.work,.ownership,.reflection{padding-top:78px;padding-bottom:78px}
+  .route{padding:72px 0}
+  .principle{padding:38px 20px}
+  .project-card{min-height:330px}
+  .dossier-rail h3{font-size:34px}
+  .resource-row b{font-size:16px}
+  .resource-row p{font-size:12px}
+  .wizard-progress{position:sticky;top:58px;background:#fff;z-index:20}
+  .wizard-progress button{padding:14px 0 12px}
+  .step{padding-top:32px}
+  .step h3{font-size:38px}
+  .field input,.field textarea{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  .step.active{animation:none}
+  .chapter-indicator,.nav-links a,.links a,.resource-row,.interest,.mode,.btn,.project-card{transition:none}
+  .project-card:hover,.nav-links a:hover,.links a:hover,.resource-row:hover,.btn:hover{transform:none}
+}
