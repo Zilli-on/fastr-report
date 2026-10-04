@@ -10,31 +10,96 @@
   const interests = [...document.querySelectorAll("[data-interest]")];
   const modes = [...document.querySelectorAll("[data-mode]")];
   const sharePanel = document.querySelector("#share-panel");
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const saveData = Boolean(navigator.connection && navigator.connection.saveData);
   let currentStep = 0;
   let selectedInterests = [];
   let workingStyle = "mix";
+  let scrollTicking = false;
+  let saveTimer = 0;
+  let chapterOffsets = [];
+
+  const chapterMap = [
+    [".hero", "00", "Intro"],
+    [".intro", "01", "Context"],
+    [".principles", "02", "Principles"],
+    [".route", "03", "Start here"],
+    [".landscape", "04", "Projects"],
+    [".dossiers", "05", "Dossiers"],
+    [".locations", "06", "Locations"],
+    [".resources", "07", "Library"],
+    [".work", "08", "Working model"],
+    [".horizon", "09", "Horizon"],
+    [".ownership", "10", "Ownership"],
+    [".reflection", "11", "Your input"]
+  ];
+
+  const chapterIndicator = document.createElement("div");
+  chapterIndicator.className = "chapter-indicator";
+  chapterIndicator.innerHTML = '<span class="mono">00</span><b>Intro</b>';
+  document.body.appendChild(chapterIndicator);
 
   const showToast = (message) => {
     toast.textContent = message;
     toast.classList.add("show");
-    setTimeout(() => toast.classList.remove("show"), 2200);
+    clearTimeout(showToast.timer);
+    showToast.timer = setTimeout(() => toast.classList.remove("show"), 2200);
   };
 
-  const updateScroll = () => {
+  const buildChapterOffsets = () => {
+    chapterOffsets = chapterMap
+      .map(([selector, number, label]) => {
+        const el = document.querySelector(selector);
+        return el ? { top: el.offsetTop, number, label } : null;
+      })
+      .filter(Boolean);
+  };
+
+  const updateVisualScrollState = () => {
+    scrollTicking = false;
     const max = document.documentElement.scrollHeight - innerHeight;
     const pct = max > 0 ? (scrollY / max) * 100 : 0;
-    progress.style.width = pct + "%";
+    progress.style.transform = `scaleX(${pct / 100})`;
     nav.classList.toggle("scrolled", scrollY > 48);
-  };
-  addEventListener("scroll", updateScroll, { passive: true });
-  updateScroll();
 
-  if (heroVideo) {
-    heroVideo.play().catch(() => {});
+    const marker = scrollY + innerHeight * 0.34;
+    let current = chapterOffsets[0];
+    for (const item of chapterOffsets) {
+      if (item.top <= marker) current = item;
+      else break;
+    }
+    if (current) {
+      chapterIndicator.querySelector("span").textContent = current.number;
+      chapterIndicator.querySelector("b").textContent = current.label;
+    }
+    chapterIndicator.classList.toggle("visible", scrollY > innerHeight * 0.72);
+  };
+
+  const requestScrollUpdate = () => {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(updateVisualScrollState);
+  };
+
+  addEventListener("scroll", requestScrollUpdate, { passive: true });
+  addEventListener("resize", () => {
+    buildChapterOffsets();
+    requestScrollUpdate();
+  }, { passive: true });
+  buildChapterOffsets();
+  requestScrollUpdate();
+
+  if (heroVideo && !reducedMotion && !saveData) {
+    const playHero = () => heroVideo.play().catch(() => {});
+    if (document.readyState === "complete") playHero();
+    else addEventListener("load", playHero, { once: true });
     document.addEventListener("visibilitychange", () => {
       if (document.hidden) heroVideo.pause();
-      else heroVideo.play().catch(() => {});
+      else playHero();
     });
+  } else if (heroVideo) {
+    heroVideo.pause();
+    heroVideo.setAttribute("preload", "none");
   }
 
   const syncButtons = () => {
@@ -68,8 +133,13 @@
     };
   };
 
-  const saveDraft = () => {
+  const saveDraftNow = () => {
     try { localStorage.setItem(KEY, JSON.stringify(getData())); } catch {}
+  };
+
+  const scheduleSave = () => {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(saveDraftNow, 420);
   };
 
   const loadDraft = () => {
@@ -86,13 +156,25 @@
     syncButtons();
   };
 
-  const showStep = (index) => {
+  const showStep = (index, focus = false) => {
     currentStep = Math.max(0, Math.min(index, steps.length - 1));
-    steps.forEach((s, i) => s.classList.toggle("active", i === currentStep));
-    progressButtons.forEach((b, i) => {
-      b.classList.toggle("active", i === currentStep);
-      b.setAttribute("aria-current", i === currentStep ? "step" : "false");
+    steps.forEach((step, i) => {
+      step.classList.toggle("active", i === currentStep);
+      step.setAttribute("aria-hidden", i === currentStep ? "false" : "true");
     });
+    progressButtons.forEach((button, i) => {
+      button.classList.toggle("active", i === currentStep);
+      button.setAttribute("aria-current", i === currentStep ? "step" : "false");
+    });
+    if (focus) {
+      requestAnimationFrame(() => {
+        const heading = steps[currentStep].querySelector("h3");
+        if (heading) {
+          heading.setAttribute("tabindex", "-1");
+          heading.focus({ preventScroll: true });
+        }
+      });
+    }
   };
 
   const validateStep = () => {
@@ -108,18 +190,18 @@
 
   progressButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
-      if (index <= currentStep || validateStep()) showStep(index);
+      if (index <= currentStep || validateStep()) showStep(index, true);
     });
   });
 
   document.querySelectorAll("[data-next]").forEach((button) => button.addEventListener("click", () => {
     if (!validateStep()) return;
-    saveDraft();
-    showStep(currentStep + 1);
-    document.querySelector("#reflection").scrollIntoView({ behavior: "smooth", block: "start" });
+    saveDraftNow();
+    showStep(currentStep + 1, true);
   }));
+
   document.querySelectorAll("[data-prev]").forEach((button) => button.addEventListener("click", () => {
-    showStep(currentStep - 1);
+    showStep(currentStep - 1, true);
   }));
 
   interests.forEach((btn) => btn.addEventListener("click", () => {
@@ -128,16 +210,17 @@
       ? selectedInterests.filter((x) => x !== item)
       : [...selectedInterests, item];
     syncButtons();
-    saveDraft();
+    saveDraftNow();
   }));
 
   modes.forEach((btn) => btn.addEventListener("click", () => {
     workingStyle = btn.dataset.mode;
     syncButtons();
-    saveDraft();
+    saveDraftNow();
   }));
 
-  form.addEventListener("input", saveDraft);
+  form.addEventListener("input", scheduleSave);
+  addEventListener("pagehide", saveDraftNow);
 
   const modeLabel = (value) => ({
     breit: "Breit starten: möglichst viel kennenlernen",
@@ -174,9 +257,13 @@
   form.addEventListener("submit", (event) => {
     event.preventDefault();
     if (!validateStep()) return;
-    saveDraft();
+    saveDraftNow();
     sharePanel.classList.add("show");
-    sharePanel.scrollIntoView({ behavior: "smooth", block: "center" });
+    requestAnimationFrame(() => {
+      if (sharePanel.getBoundingClientRect().bottom > innerHeight) {
+        sharePanel.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "center" });
+      }
+    });
   });
 
   document.querySelector("#share-native").addEventListener("click", async () => {
@@ -218,7 +305,7 @@
     sharePanel.classList.remove("show");
     try { localStorage.removeItem(KEY); } catch {}
     syncButtons();
-    showStep(0);
+    showStep(0, true);
     showToast("Entwurf zurückgesetzt.");
   });
 
