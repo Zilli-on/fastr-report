@@ -204,7 +204,7 @@ img,video{display:block;max-width:100%}
 
 
 /* final UX polish */
-.progress>i{transform:scaleX(0);transform-origin:left center;will-change:transform}
+.progress>i{width:100%;transform:scaleX(0);transform-origin:left center;will-change:transform}
 .nav{will-change:background-color,backdrop-filter,color}
 .nav.scrolled{box-shadow:0 8px 30px rgba(11,11,12,.035)}
 .nav-links a,.links a,.resource-row,.interest,.mode,.btn{transition:transform .18s ease,background-color .18s ease,color .18s ease,border-color .18s ease,opacity .18s ease}
