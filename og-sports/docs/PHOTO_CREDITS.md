@@ -46,3 +46,13 @@ Diese Trennung ist auch über die Bildhinweise in der Website ersichtlich.
 
 ## Web review 1
 Both reference photographs are now served locally from site/assets. Source attribution and the existing rights caveats are retained. The default hero and original brand SVGs are unchanged. This review branch is public; noindex does not restrict access.
+
+## Review 4 additions — editorial run culture
+
+Three additional real photographs are used to move the public design review toward a more documentary, fashion/editorial rhythm. They remain reference photography, not OG SPORTS documentation or endorsement.
+
+- **David Moorhouse** — “Close-up of a runner's leg and athletic shoe” — https://unsplash.com/photos/close-up-of-a-runners-leg-and-athletic-shoe-GToHUINXOb4
+- **Mathias Reding** — “Runner's legs in motion with a long shadow” — https://unsplash.com/photos/runners-legs-in-motion-with-a-long-shadow-G96xGokbTUM
+- **Leviosa Hou** — “Runners gathered together on a city street” — https://unsplash.com/photos/runners-gathered-together-on-a-city-street-9ZXnEV7k2lI
+
+All three source pages identify the images as free to use under the Unsplash License. Personality, property, product-design and trademark clearances for an advertising launch have not been independently verified. The website therefore continues to identify real reference photography separately from existing AI campaign studies.

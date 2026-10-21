@@ -1,5 +1,5 @@
 {
-  "version": "Web review 1 / V21 visual baseline",
+  "version": "Review 4 / fashion-community direction",
   "verified": "2026-10-21",
   "photographs": [
     {
@@ -32,9 +32,46 @@
       "downloaded_copy_in_this_local_bundle": true,
       "local_file": "assets/cycling-photograph.webp",
       "sha256": "d608bd0f5bd1faff76544c3d3a8c17c56bc87f8222054818b56807eed056076c"
+    },
+    {
+      "key": "run-detail",
+      "photographer": "David Moorhouse",
+      "photo_id": "GToHUINXOb4",
+      "title": "Close-up of a runner's leg and athletic shoe",
+      "source_url": "https://unsplash.com/photos/close-up-of-a-runners-leg-and-athletic-shoe-GToHUINXOb4",
+      "published": "2026-02-07",
+      "license": "Unsplash License",
+      "license_url": "https://unsplash.com/license",
+      "local_file": "assets/run-detail.webp",
+      "sha256": "dcc5694b8245f1b3fa138ebb5b16d09172d20f4ab9817a89bf1097e33bd89b93"
+    },
+    {
+      "key": "run-shadow",
+      "photographer": "Mathias Reding",
+      "photo_id": "G96xGokbTUM",
+      "title": "Runner's legs in motion with a long shadow",
+      "source_url": "https://unsplash.com/photos/runners-legs-in-motion-with-a-long-shadow-G96xGokbTUM",
+      "published": "2025-09-22",
+      "location": "Montréal, QC, Canada",
+      "license": "Unsplash License",
+      "license_url": "https://unsplash.com/license",
+      "local_file": "assets/run-shadow.webp",
+      "sha256": "f1ffa9de0ca17daac7aca5a389b136c45dcdcab9fdbc849f17c62a71082b6469"
+    },
+    {
+      "key": "run-community",
+      "photographer": "Leviosa Hou",
+      "photo_id": "9ZXnEV7k2lI",
+      "title": "Runners gathered together on a city street",
+      "source_url": "https://unsplash.com/photos/runners-gathered-together-on-a-city-street-9ZXnEV7k2lI",
+      "published": "2026-03-26",
+      "license": "Unsplash License",
+      "license_url": "https://unsplash.com/license",
+      "local_file": "assets/run-community.webp",
+      "sha256": "546bdde1f8b68413484528b5d3b2cfa245fb2331b56bba41e8cf57dcb7c439f2"
     }
   ],
-  "rights_note": "Public design review, not a released advertising campaign. Model/property/trademark releases not independently verified. No implied endorsement. Noindex is not access protection.",
+  "rights_note": "Public design review. Unsplash photo licence does not itself verify model/property/trademark releases for advertising. No implied endorsement. Noindex is not access protection.",
   "existing_ai_hero": {
     "file": "assets/after-the-run.webp",
     "unchanged": true
