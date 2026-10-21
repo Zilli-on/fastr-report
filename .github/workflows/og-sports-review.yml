@@ -43,6 +43,9 @@ jobs:
       - name: Review 4 browser checks with third-party traffic blocked
         working-directory: og-sports
         run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/review4_smoke.py'
+      - name: Editorial typography visual checks across seven viewports
+        working-directory: og-sports
+        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/review5_visual.py'
       - name: Report exact review preview
         if: github.event_name == 'push'
         env:
@@ -56,5 +59,7 @@ jobs:
           path: |
             og-sports/qa/review4-smoke.json
             og-sports/qa/review4-*.png
+            og-sports/qa/review5-visual.json
+            og-sports/qa/visual5-*.png
             og-sports/dist/build-manifest.json
           retention-days: 7
