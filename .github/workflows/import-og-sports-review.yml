@@ -75,6 +75,8 @@ jobs:
           text = text.replace('(390, 768, 1440)', '(320, 390, 768, 1024, 1440, 1920)')
           target.write_text(text)
           (root/'docs/REVIEW_BRANCH.md').write_text('# OG SPORTS web review\n\nIsolated staging directory in Zilli-on/fastr-report on feat/og-sports-web. Existing root pages and main are untouched. No Vercel deployment or standalone repository has been created. Contact remains a local text draft, with no sending. The visual baseline is V21, including the exact first Meet image.\n\nRun npm run check from this directory. Browser reports must be produced by an actual browser run; no successful browser result is implied by this import.\n')
+          for target in root.rglob('*.md'):
+              target.write_text('\n'.join(line.rstrip() for line in target.read_text().splitlines())+'\n')
           print('Imported', len(list(root.rglob('*'))), 'entries under og-sports only.')
           PY
       - name: Check reviewed source and build
