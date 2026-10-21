@@ -101,3 +101,21 @@
   .fashion-projects .project-art img,
   .fashion-hero .hero-photo > img { transition:none!important; }
 }
+
+
+/* FASTR's editorial voice should read as two deliberate lines on desktop,
+   not four accidental narrow-column wraps. */
+@media (min-width: 761px) {
+  .fastr-world {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  }
+  .fastr-world-copy {
+    padding-left: clamp(32px, 4vw, 82px);
+    padding-right: clamp(28px, 3.4vw, 66px);
+  }
+  .fastr-world-copy h2 {
+    font-size: clamp(42px, 4.15vw, 74px);
+    line-height: 1.025;
+    letter-spacing: -.065em;
+  }
+}
