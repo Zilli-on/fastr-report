@@ -1,4 +1,4 @@
-name: Apply reviewed OG SPORTS composition
+name: Apply reviewed OG SPORTS brand direction
 on:
   push:
     branches: [feat/og-sports-web]
@@ -18,51 +18,46 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          ref: feat/og-sports-web
+          ref: ${{ github.sha }}
           persist-credentials: false
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '22'
-      - name: Link the reviewed stylesheet and correct preview notes
-        id: apply
+      - name: Apply only the exact locally reviewed source changes
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          import base64, hashlib, json, os, re
-          target = Path('og-sports/site/index.html')
-          original = target.read_bytes()
-          text = original.decode('utf-8')
-          if 'href="refinement.css"' in text:
-              with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
-                  output.write('changed=false\n')
-              raise SystemExit(0)
-          expected = 'edc7f03da1a0a42b02a9a5e2cebf55b5831636e3'
-          actual = hashlib.sha1(b'blob ' + str(len(original)).encode() + b'\0' + original).hexdigest()
-          if actual != expected:
-              raise SystemExit('Source changed since review; refusing to overwrite it.')
-          assert Path('og-sports/site/refinement.css').is_file()
-          assert Path('og-sports/scripts/composition_review.py').is_file()
-          anchor = '<link href="styles.css" rel="stylesheet"/>'
-          assert text.count(anchor) == 1
-          text = text.replace(anchor, anchor + '\n<link href="refinement.css" rel="stylesheet"/>')
-          text = text.replace('Webvorschau — Review 1', 'Webvorschau — Review 2').replace('Web preview — Review 1', 'Web preview — Review 2')
-          text = text.replace('Auftritt V21', 'Auftritt / Review 2').replace('Direction V21', 'Direction / Review 2')
-          text = text.replace('Die Website ist eine private Designvorschau, keine veröffentlichte Kampagne.', 'Die Website ist eine öffentliche Designvorschau, keine freigegebene Werbekampagne. Noindex ist kein Zugriffsschutz.')
-          text = text.replace('This website is a private design preview, not a published campaign.', 'This website is a public design review, not a cleared advertising campaign. Noindex is not access protection.')
-          de = 'Alle Bilder und Originalzeichen werden als Dateien aus derselben Website geladen. Die OG-SPORTS-Seite bindet keine externen Schriftdateien oder Analyse-Skripte ein. Die Bildnachweise verlinken zu den ursprünglichen Quellen. Reduzierte Bewegung wird berücksichtigt.'
-          en = 'All images and original marks are served as files from this website. The OG SPORTS page does not embed external fonts or analytics scripts. Image credits link to the original sources. Reduced-motion preferences are respected.'
-          pattern = r'<p\b[^>]*data-network-note=""[^>]*>.*?</p>'
-          assert len(re.findall(pattern, text, flags=re.S)) == 1
-          text = re.sub(pattern, '<p data-de="' + de + '" data-en="' + en + '" data-network-note="">' + de + '</p>', text, count=1, flags=re.S)
-          target.write_text(text, encoding='utf-8')
-          payload = {'message':'design: activate reviewed OG SPORTS composition and accurate hosting notes',
-                     'content':base64.b64encode(target.read_bytes()).decode('ascii'),
-                     'sha':expected, 'branch':'feat/og-sports-web'}
-          Path(os.environ['RUNNER_TEMP'], 'og-review-update.json').write_text(json.dumps(payload))
-          with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
-              output.write('changed=true\n')
+          import hashlib, json
+          root = Path('og-sports')
+          change = json.loads((root/'docs/review-3-changes.json').read_text())
+          allowed = {'index.html', 'refinement.css'}
+          assert set(change['before']) == allowed == set(change['after'])
+          digest = lambda data: hashlib.sha256(data).hexdigest()
+          current = {name: (root/'site'/name).read_bytes() for name in allowed}
+          if all(digest(current[name]) == change['after'][name] for name in allowed):
+              print('Reviewed source already applied; no changes needed.')
+          else:
+              for name in allowed:
+                  assert digest(current[name]) == change['before'][name], 'Source changed: ' + name
+              css = (root/'docs/review-3-design.css').read_bytes()
+              assert digest(css) == change['css_sha256'], 'CSS payload mismatch'
+              html = current['index.html'].decode('utf-8')
+              limit = len(html)
+              for start, end, replacement in reversed(change['html_edits']):
+                  assert isinstance(start, int) and isinstance(end, int)
+                  assert 0 <= start <= end <= limit
+                  html = html[:start] + replacement + html[end:]
+                  limit = start
+              proposed = {'index.html': html.encode('utf-8'),
+                          'refinement.css': current['refinement.css'] + css}
+              for name in allowed:
+                  assert digest(proposed[name]) == change['after'][name], 'Output mismatch: ' + name
+              for name in allowed:
+                  (root/'site'/name).write_bytes(proposed[name])
+              print('Exact reviewed HTML and CSS applied. Assets untouched.')
           PY
-      - name: Check the exact proposed source and build
+          git diff --check
+      - name: Source, asset-integrity, HTTP and build checks
         working-directory: og-sports
         run: npm run check
       - name: Prepare isolated browser tools
@@ -70,25 +65,54 @@ jobs:
           python3 -m venv "$RUNNER_TEMP/og-browser"
           "$RUNNER_TEMP/og-browser/bin/pip" install --disable-pip-version-check playwright==1.55.0
           "$RUNNER_TEMP/og-browser/bin/python" -m playwright install --with-deps chromium
-      - name: Check all existing interactions
+      - name: Existing interactions and image proportions
         working-directory: og-sports
-        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/browser_smoke.py'
-      - name: Check the new composition and record screenshots
+        run: |
+          "$RUNNER_TEMP/og-browser/bin/python" scripts/browser_smoke.py
+          "$RUNNER_TEMP/og-browser/bin/python" scripts/composition_review.py
+      - name: Bilingual brand chapters and closing composition
         working-directory: og-sports
-        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/composition_review.py'
-      - name: Commit only the tested HTML to the existing review branch
-        if: steps.apply.outputs.changed == 'true'
+        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/brand_review.py'
+      - name: Commit only the tested source to the existing review branch
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh api --method PUT repos/Zilli-on/fastr-report/contents/og-sports/site/index.html --input "$RUNNER_TEMP/og-review-update.json" --jq '.commit.sha'
+          set -euo pipefail
+          python3 - <<'PY'
+          import subprocess
+          changed = set(subprocess.check_output(['git','diff','--name-only'],text=True).splitlines())
+          allowed = {'og-sports/site/index.html','og-sports/site/refinement.css'}
+          assert changed <= allowed, changed
+          PY
+          if git diff --quiet -- og-sports/site/index.html og-sports/site/refinement.css; then
+            echo 'No source changes to commit.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- og-sports/site/index.html og-sports/site/refinement.css
+          git diff --cached --check
+          git commit -m 'design: reveal the brand narrative and sharpen each visual chapter'
+          cat > "$RUNNER_TEMP/og-askpass" <<'SH'
+          #!/bin/sh
+          case "$1" in
+            *Username*) printf '%s\n' 'x-access-token' ;;
+            *Password*) printf '%s\n' "$GH_TOKEN" ;;
+            *) exit 1 ;;
+          esac
+          SH
+          chmod 700 "$RUNNER_TEMP/og-askpass"
+          trap 'rm -f "$RUNNER_TEMP/og-askpass"' EXIT
+          GIT_ASKPASS="$RUNNER_TEMP/og-askpass" GIT_TERMINAL_PROMPT=0 git push origin HEAD:refs/heads/feat/og-sports-web
+          printf '## Tested OG SPORTS Review 3\n\nCommit: `%s`\n\n[Exact public review](https://raw.githack.com/Zilli-on/fastr-report/%s/og-sports/site/index.html)\n\nNo merge, no Vercel deployment, no change to main.\n' "$(git rev-parse HEAD)" "$(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: og-sports-composition-review
+          name: og-sports-brand-review
           path: |
-            og-sports/qa/composition-*.png
-            og-sports/qa/composition-review.json
             og-sports/qa/browser-smoke.json
+            og-sports/qa/composition-review.json
+            og-sports/qa/brand-review.json
+            og-sports/qa/brand-*.png
             og-sports/dist/
           retention-days: 7
