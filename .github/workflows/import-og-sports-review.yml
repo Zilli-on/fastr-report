@@ -1,0 +1,92 @@
+name: Import reviewed OG SPORTS website
+on:
+  push:
+    branches: [feat/og-sports-web]
+    paths: [.github/workflows/import-og-sports-review.yml]
+permissions:
+  contents: read
+concurrency:
+  group: og-sports-review-import
+  cancel-in-progress: false
+jobs:
+  import:
+    if: github.repository == 'Zilli-on/fastr-report' && github.ref == 'refs/heads/feat/og-sports-web'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: feat/og-sports-web
+      - name: Import exact reviewed source and photographs
+        shell: bash
+        run: |
+          set -euo pipefail
+          test ! -e og-sports
+          curl --fail --location --silent --show-error --max-time 60 'https://d2ol7oe51mr4n9.cloudfront.net/user_3F3NUVidPhiNDKfYWHhux0P34eP/2df4e21f-71dc-443f-b7af-f4f646272809.zip' -o /tmp/og-source.zip
+          curl --fail --location --silent --show-error --max-time 60 'https://d2ol7oe51mr4n9.cloudfront.net/user_3F3NUVidPhiNDKfYWHhux0P34eP/8a169287-6d17-4a10-9674-fed49f6dcb33.zip' -o /tmp/og-photos.zip
+          echo '84dfd26c6de13b52ed34b165187cb18b631a60cbbc95fbab7d48bfb5fbdb8a1e  /tmp/og-source.zip' | sha256sum --check
+          echo '4f0a9f2a970835ab8db0deb6e0560bbc6df8e8bfb350bd3c0ab28246c33781f9  /tmp/og-photos.zip' | sha256sum --check
+          python3 - <<'PY'
+          from pathlib import Path, PurePosixPath
+          import hashlib, json, stat, zipfile
+          root = Path('og-sports')
+          with zipfile.ZipFile('/tmp/og-source.zip') as archive:
+              for entry in archive.infolist():
+                  path = PurePosixPath(entry.filename)
+                  if path.is_absolute() or '..' in path.parts or path.parts[0] != 'og-sports-web':
+                      raise ValueError('Unexpected source path')
+                  if stat.S_ISLNK(entry.external_attr >> 16):
+                      raise ValueError('Symlinks are not accepted')
+                  target = root.joinpath(*path.parts[1:])
+                  if entry.is_dir():
+                      target.mkdir(parents=True, exist_ok=True)
+                  else:
+                      target.parent.mkdir(parents=True, exist_ok=True)
+                      target.write_bytes(archive.read(entry))
+          manifest = json.loads((root/'docs/photo_sources.json').read_text())
+          with zipfile.ZipFile('/tmp/og-photos.zip') as photos:
+              for photo in manifest['photographs']:
+                  key = photo['key']
+                  if key not in ('running', 'cycling'):
+                      raise ValueError('Unexpected photograph')
+                  relative = 'assets/' + key + '-photograph.webp'
+                  data = photos.read(key + '.webp')
+                  (root/'site'/relative).write_bytes(data)
+                  for name in ('index.html', 'script.js'):
+                      target = root/'site'/name
+                      text = target.read_text()
+                      text = text.replace(photo['url'], relative).replace(photo['url'].replace('&', '&amp;'), relative)
+                      target.write_text(text)
+                  photo.update(local_file=relative, downloaded_copy_in_this_local_bundle=True, sha256=hashlib.sha256(data).hexdigest())
+          manifest['version'] = 'Web review 1 / V21 visual baseline'
+          manifest['rights_note'] = 'Public design review, not a released advertising campaign. Model/property/trademark releases not independently verified. No implied endorsement. Noindex is not access protection.'
+          (root/'docs/photo_sources.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+'\n')
+          target = root/'site/index.html'
+          text = target.read_text().replace('Dieses Foto lädt mit Internetverbindung.', 'Dieses Foto konnte nicht geladen werden.').replace('This photograph loads with an internet connection.', 'This photograph could not be loaded.')
+          text = text.replace('Designvorschau — V21', 'Webvorschau — Review 1').replace('Design preview — V21', 'Web preview — Review 1')
+          target.write_text(text)
+          target = root/'docs/PHOTO_CREDITS.md'
+          target.write_text(target.read_text()+'\n\n## Web review 1\nBoth reference photographs are now served locally from site/assets. Source attribution and the existing rights caveats are retained. The default hero and original brand SVGs are unchanged. This review branch is public; noindex does not restrict access.\n')
+          target = root/'scripts/browser_smoke.py'
+          text = target.read_text().replace('import subprocess', 'import subprocess\nimport shutil')
+          text = text.replace('browser = p.chromium.launch(headless=True)', "browser = p.chromium.launch(headless=True, executable_path=os.environ.get('CHROMIUM_PATH') or shutil.which('chromium') or None)")
+          text = text.replace('(390, 768, 1440)', '(320, 390, 768, 1024, 1440, 1920)')
+          target.write_text(text)
+          (root/'docs/REVIEW_BRANCH.md').write_text('# OG SPORTS web review\n\nIsolated staging directory in Zilli-on/fastr-report on feat/og-sports-web. Existing root pages and main are untouched. No Vercel deployment or standalone repository has been created. Contact remains a local text draft, with no sending. The visual baseline is V21, including the exact first Meet image.\n\nRun npm run check from this directory. Browser reports must be produced by an actual browser run; no successful browser result is implied by this import.\n')
+          print('Imported', len(list(root.rglob('*'))), 'entries under og-sports only.')
+          PY
+      - name: Check reviewed source and build
+        working-directory: og-sports
+        run: npm run check
+      - name: Commit only the isolated website
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- og-sports
+          git diff --cached --check
+          git commit -m 'feat: import OG SPORTS web review with self-hosted photographs'
+          git push origin HEAD:refs/heads/feat/og-sports-web
