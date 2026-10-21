@@ -74,7 +74,8 @@ jobs:
           set -euo pipefail
           python3 - <<'PY'
           import subprocess
-          lines=subprocess.check_output(['git','status','--porcelain'],text=True).splitlines()\n          changed={line[3:] for line in lines if len(line)>=4}
+          lines=subprocess.check_output(['git','status','--porcelain'],text=True).splitlines()
+          changed={line[3:] for line in lines if len(line)>=4}
           allowed={
             'og-sports/site/index.html','og-sports/site/review4.css',
             'og-sports/site/assets/run-detail.webp','og-sports/site/assets/run-shadow.webp',
