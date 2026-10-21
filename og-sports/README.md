@@ -1,66 +1,64 @@
-# OG SPORTS — web project
+# OG SPORTS — web review
 
-One maintainable website project, migrated from V21. The approved hero, existing layout and interactions are retained. This is a development baseline, not a new visual release and not a live deployment.
+The approved V21 design is now a committed, maintainable website in **Zilli-on/fastr-report**, isolated under **og-sports/** on **feat/og-sports-web**. Existing FASTR pages and the main branch have not been replaced. This is staging, not a production launch or a newly created standalone repository.
 
-## Start
+## Open the reviewed website
 
-Node.js 22 or newer. The application and build use no third-party npm packages.
+[Verified online review](https://raw.githack.com/Zilli-on/fastr-report/5b30375d1b35adce354746ec63b20ea0608aa9c9/og-sports/site/index.html)
+
+The preview provider displays an external-content notice first; select **Open the page**. This link fixes the reviewed source commit rather than silently changing with the branch. The page, images and Apparel interaction were inspected in Chromium at desktop and mobile widths. This temporary public proxy is not a Vercel deployment and is not an availability or production-hosting guarantee. No passwords or real enquiry data are needed.
+
+## What is preserved and improved
+
+The first/default Meet image, `after-the-run.webp`, and original brand SVGs are unchanged, with SHA-256 regression checks. The direction remains unusual but clean: asymmetric composition, image-edge typography, open corners, whitespace and restrained lavender.
+
+The two real reference photographs are now **same-origin WebP assets in site/assets/**. Their loading no longer depends on Unsplash or Higgsfield. Photographer attribution, source links and non-endorsement notices remain. See `docs/PHOTO_CREDITS.md` and `docs/photo_sources.json`.
+
+The contact form only creates a local text draft. It sends nothing. Projects remain concepts or work in development, not products for sale or event bookings.
+
+## Develop and check
+
+Run these commands from the **og-sports/** directory. Node.js 22 or newer; the site and Node build have no third-party npm dependencies.
 
 ```sh
 npm ci --ignore-scripts
-npm run dev
+npm run dev       # http://127.0.0.1:4173
+npm run check     # 8 source/HTTP tests, original-asset checks and static build
+npm run preview   # serve the built dist/ directory
 ```
 
-Open `http://127.0.0.1:4173`. Edit `site/` and refresh the browser.
+Browser regression tests require Python Playwright and Chromium:
 
 ```sh
-npm run check     # source + HTTP checks, then static build
-npm run preview   # serve dist/ locally
-```
-
-Optional browser checks require Python Playwright and Chromium:
-
-```sh
-python -m pip install playwright
+python -m pip install playwright==1.55.0
 python -m playwright install chromium
+npm run build
 python scripts/browser_smoke.py
 ```
 
+The browser suite tests 320, 390, 768, 1024, 1440 and 1920 pixels, DE/EN, all image loading, hero selections, four project views, image attribution/original colour, gallery/index, navigation and local contact drafts. It blocks third-party network requests and fails on page errors. It writes an actual result, including failures, to `qa/browser-smoke.json`. A test being defined does not imply that its latest run passed: check the Actions run for the exact commit.
+
+## Repository workflow
+
+The active workflow is **../.github/workflows/og-sports-review.yml** at the repository root. It checks this directory on review-branch pushes and relevant pull requests, without deployment secrets. Evidence is attached to the Actions run. The nested `.github/workflows/quality.yml` is the original standalone-project template and is not active in this staging layout.
+
+The one-time import workflow checksummed the original archive and photograph pack before importing; it is restricted to its own file on this branch and refuses to overwrite an existing `og-sports/` directory. Normal site commits do not run it.
+
+No merge or production deployment is part of this review. A dedicated OG SPORTS repository can be created later without overwriting the existing FASTR site.
+
 ## Structure
 
-- `site/`: HTML, CSS, JavaScript, assets and preview robots.txt.
-- `scripts/`: dependency-free Node build/server and optional browser test.
-- `tests/`: static checks, HTTP checks and original-asset SHA-256 checks.
-- `.github/workflows/quality.yml`: checks on pushes and pull requests; no deployment secrets.
+- `site/`: HTML, CSS, JavaScript, local assets and preview robots.txt.
+- `scripts/`: dependency-free Node build/server and Chromium regression script.
+- `tests/`: source, HTTP and original-asset integrity checks.
 - `vercel.json`: static deployment configuration, output `dist/`.
-- `docs/`: image sources, prior baseline QA and deployment handoff.
-- `AGENTS.md`: confirmed design decisions and work rules for subsequent coding sessions.
+- `docs/`: image provenance, review scope and historical migration notes.
+- `AGENTS.md`: approved visual decisions and instructions for further development.
 
-## Proposed GitHub / Vercel workflow
+## Hosting and review limits
 
-Use one dedicated repository, provisionally named `og-sports`, rather than overwrite the unrelated content in `Zilli-on/fastr-report`.
+Vercel access to team `fdambock-5448s-projects` remained forbidden during this work; no existing Vercel project or production release was changed. Once authorized, the staging directory is `og-sports`, with framework **Other**, install `npm ci --ignore-scripts`, build `npm run check`, output `dist`. In a future standalone repository the project root would instead be the repository root.
 
-1. Import these files into the intended repository in a Git-enabled coding workspace.
-2. Connect that repository to one Vercel project in the intended account/team.
-3. Use feature branches and preview deployments for design iterations. Review before merging.
-4. Keep the existing main/production branch untouched until explicitly approved.
+The public preview is marked noindex; this is **not access protection**. Image-use permissions, model/property/trademark releases, company/contact/legal information, real form handling, browser coverage and real-device accessibility still require launch review. No font binaries are included.
 
-Vercel settings: Framework **Other**, root **repository root**, install `npm ci --ignore-scripts`, build `npm run check`, output `dist`. These settings are also in `vercel.json`.
-
-Official documentation: https://vercel.com/docs/git and https://vercel.com/docs/git/vercel-for-github
-
-The workflow has been prepared locally only. No GitHub repository has been created or pushed, and no Vercel deployment has been performed by this package.
-
-## Preview limits
-
-The two real photographs still load from the original documented Unsplash image URLs. That dependency is unchanged from V21. They are not included as local files. Source image rights and usage notes remain in `docs/PHOTO_CREDITS.md` and in the site.
-
-The first/default group photograph remains the existing AI image study. It and the original logos are byte-for-byte checked. Font files are not included.
-
-The contact form only generates a local text draft; it sends nothing. Product and event descriptions are concepts/in development, not a shop or booking system.
-
-`noindex` / robots restrictions are for the design preview. They do not provide access control. Before a public brand launch, verify the chosen image use, company/contact/legal information, submission handling and accessibility on real devices. Use deployment access protection for an internal review.
-
-Validation of this migration: eight source/HTTP tests passed and the static build succeeded. A new browser run could not be executed because Chromium is missing in the current environment. The optional browser script is supplied for the next coding workspace; it is not a claimed completed test. The historical V21 report is retained separately and must not be described as a new run.
-
-See `docs/HANDOFF.md` for the actual access status and `qa/` for tests performed on this package.
+`qa/migration-report.json`, `qa/node-checks.txt`, `docs/v21-previous-qa.json` and the original `docs/HANDOFF.md` describe the earlier local migration, not current remote deployment status. This README and the exact-commit Actions evidence supersede their old access/asset/test limitations. Do not describe historical reports as fresh checks.
