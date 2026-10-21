@@ -28,6 +28,13 @@ jobs:
       - name: Source, asset integrity, HTTP and build checks
         working-directory: og-sports
         run: npm run check
+      - name: Preserve the exact static review build
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: og-sports-review-build
+          path: og-sports/dist/
+          retention-days: 7
+          if-no-files-found: error
       - name: Install isolated browser test tools
         run: |
           python3 -m venv "$RUNNER_TEMP/og-browser"
