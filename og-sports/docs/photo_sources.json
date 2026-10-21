@@ -1,0 +1,43 @@
+{
+  "version": "Web review 1 / V21 visual baseline",
+  "verified": "2026-10-21",
+  "photographs": [
+    {
+      "key": "running",
+      "photographer": "Mathias Reding",
+      "photo_id": "MiRyAuFhepg",
+      "title": "Man running across a blurred city street",
+      "url": "https://images.unsplash.com/photo-1758506971986-b0d0edebd8d5?auto=format&fit=max&w=1800&q=85",
+      "source_url": "https://unsplash.com/photos/man-running-across-a-blurred-city-street-MiRyAuFhepg",
+      "published": "2025-09-22",
+      "location": "Montréal, Québec, Canada",
+      "license": "Unsplash License",
+      "license_url": "https://unsplash.com/license",
+      "downloaded_copy_in_this_local_bundle": true,
+      "local_file": "assets/running-photograph.webp",
+      "sha256": "9bad8592255e8d7ee646718f0a54db934a4e89e870f09ed30b8c654ba3adbeea"
+    },
+    {
+      "key": "cycling",
+      "photographer": "Coen van de Broek",
+      "photo_id": "OFyh9TpMyM8",
+      "title": "Man and woman riding road bikes at the road near shore",
+      "photographer_description": "Girls on Fons racebikes",
+      "url": "https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=max&w=1800&q=85",
+      "source_url": "https://unsplash.com/photos/man-and-woman-riding-road-bikes-at-the-road-near-shore-OFyh9TpMyM8",
+      "published": "2018-11-07",
+      "location": "Brouwersdam, Ouddorp, Netherlands",
+      "license": "Unsplash License",
+      "license_url": "https://unsplash.com/license",
+      "downloaded_copy_in_this_local_bundle": true,
+      "local_file": "assets/cycling-photograph.webp",
+      "sha256": "d608bd0f5bd1faff76544c3d3a8c17c56bc87f8222054818b56807eed056076c"
+    }
+  ],
+  "rights_note": "Public design review, not a released advertising campaign. Model/property/trademark releases not independently verified. No implied endorsement. Noindex is not access protection.",
+  "existing_ai_hero": {
+    "file": "assets/after-the-run.webp",
+    "unchanged": true
+  },
+  "treatment": "Only layout crops, resize and CSS desaturation/contrast. No generated additions or replacement branding."
+}
