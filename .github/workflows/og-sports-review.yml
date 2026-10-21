@@ -46,6 +46,9 @@ jobs:
       - name: Bilingual composition and uncropped photography checks
         working-directory: og-sports
         run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/composition_review.py'
+      - name: Visible brand narrative and closing chapter checks
+        working-directory: og-sports
+        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/brand_review.py'
       - name: Report exact review preview
         if: github.event_name == 'push'
         env:
@@ -61,5 +64,7 @@ jobs:
             og-sports/qa/hero-*.png
             og-sports/qa/composition-review.json
             og-sports/qa/composition-*.png
+            og-sports/qa/brand-review.json
+            og-sports/qa/brand-*.png
             og-sports/dist/build-manifest.json
           retention-days: 7
