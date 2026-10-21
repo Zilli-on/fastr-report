@@ -40,31 +40,21 @@ jobs:
           python3 -m venv "$RUNNER_TEMP/og-browser"
           "$RUNNER_TEMP/og-browser/bin/pip" install --disable-pip-version-check playwright==1.55.0
           "$RUNNER_TEMP/og-browser/bin/python" -m playwright install --with-deps chromium
-      - name: Browser checks with third-party traffic blocked
+      - name: Review 4 browser checks with third-party traffic blocked
         working-directory: og-sports
-        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/browser_smoke.py'
-      - name: Bilingual composition and uncropped photography checks
-        working-directory: og-sports
-        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/composition_review.py'
-      - name: Visible brand narrative and closing chapter checks
-        working-directory: og-sports
-        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/brand_review.py'
+        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/review4_smoke.py'
       - name: Report exact review preview
         if: github.event_name == 'push'
         env:
           REVIEW_SHA: ${{ github.sha }}
         run: |
-          printf '## OG SPORTS review\n\n[Open the exact commit preview](https://raw.githack.com/Zilli-on/fastr-report/%s/og-sports/site/index.html)\n\nPublic review only; not a Vercel or production deployment. The preview provider may show a confirmation page.\n' "$REVIEW_SHA" >> "$GITHUB_STEP_SUMMARY"
+          printf '## OG SPORTS Review 4\n\n[Open the exact commit preview](https://raw.githack.com/Zilli-on/fastr-report/%s/og-sports/site/index.html)\n\nPublic review only; not a Vercel or production deployment.\n' "$REVIEW_SHA" >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: og-sports-review-evidence
+          name: og-sports-review4-evidence
           path: |
-            og-sports/qa/browser-smoke.json
-            og-sports/qa/hero-*.png
-            og-sports/qa/composition-review.json
-            og-sports/qa/composition-*.png
-            og-sports/qa/brand-review.json
-            og-sports/qa/brand-*.png
+            og-sports/qa/review4-smoke.json
+            og-sports/qa/review4-*.png
             og-sports/dist/build-manifest.json
           retention-days: 7
