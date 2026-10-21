@@ -79,6 +79,12 @@ def main():
                           return {visible:r.bottom>0&&r.top<innerHeight,opacity:s.opacity,display:s.display,visibility:s.visibility,width:r.width,height:r.height,color:s.color,text:e.innerText.trim()};
                         }''')
                         assert detail['visible'] and detail['opacity']=='1' and detail['display']!='none' and detail['visibility']=='visible' and detail['width']>80 and detail['height']>0, (width,selector,detail)
+                        if selector == '#movement-title':
+                            visual_lines=el.evaluate("""e=>{
+                                const style=getComputedStyle(e),height=e.getBoundingClientRect().height;
+                                return Math.round(height/parseFloat(style.lineHeight));
+                            }""")
+                            assert visual_lines == 2, (width,selector,visual_lines)
                         if width in (390,1440):
                             path=out/f'visual5-{selector.lstrip("#")}-{width}.png'
                             page.screenshot(path=str(path))
