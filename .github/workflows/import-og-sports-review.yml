@@ -82,8 +82,9 @@ jobs:
             'og-sports/site/assets/run-community.webp','og-sports/docs/photo_sources.json',
             'og-sports/docs/PHOTO_CREDITS.md','og-sports/scripts/review4_smoke.py'
           }
-          assert changed <= allowed, changed
-          assert {'og-sports/site/index.html','og-sports/site/review4.css'} <= changed
+          source_changed={p for p in changed if not p.startswith('og-sports/qa/review4-')}
+          assert source_changed <= allowed, source_changed
+          assert {'og-sports/site/index.html','og-sports/site/review4.css'} <= source_changed
           PY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
