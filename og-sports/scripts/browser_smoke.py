@@ -97,8 +97,10 @@ def main() -> None:
                         assert not dialog.evaluate('(d) => d.open')
                         passed(width, 'photo attribution and original colour: ' + photo)
                     for view in ('index', 'gallery'):
-                        page.locator('[data-view="' + view + '"]').click()
-                        assert page.locator('[data-view="' + view + '"]').get_attribute('aria-pressed') == 'true'
+                        control = page.locator('button[data-view="' + view + '"]')
+                        control.click()
+                        assert control.get_attribute('aria-pressed') == 'true'
+                        assert page.locator('#project-gallery').get_attribute('data-view') == view
                         passed(width, 'project view ' + view)
                     page.evaluate('scrollTo(0,0)')
                     menu_trigger = page.locator('.site-header .menu-button')
