@@ -204,3 +204,181 @@
 @media (prefers-reduced-motion: reduce) {
   #project-gallery[data-view='gallery'] .project-art > img { transition: none; transform: none; }
 }
+
+/* REVIEW 3 — CULTURE, NOT A CATALOGUE.
+   One dominant gesture per chapter. No changes to the approved hero asset,
+   logo geometry, image attribution, or native scrolling model. */
+:root { --chapter-ink:#24251f; --chapter-lilac:#ddd8e7; --chapter-accent:#82768f; }
+body { color:var(--chapter-ink); }
+.section-label > .micro { letter-spacing:.11em; font-size:10px; }
+.hero-bottom { border-bottom:0; }
+.brand-manifesto { padding-top:110px; padding-bottom:116px; }
+.brand-manifesto .section-label { border-top:1px solid var(--rule); padding-top:25px; }
+.manifesto-intro { margin-top:66px; display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:20px; align-items:end; }
+.brand-manifesto h2 { grid-column:1/-1; font-size:clamp(60px,7.8vw,132px); letter-spacing:-.065em; line-height:1.04; }
+.brand-manifesto h2 > span { color:var(--chapter-accent); }
+.manifesto-note { grid-column:8/-1; max-width:410px; margin-top:20px; }
+.manifesto-note > .micro { font-size:9px; letter-spacing:.14em; }
+.manifesto-note > p { font-size:16px; line-height:1.75; margin-top:17px; max-width:39ch; }
+.brand-principles { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6%; margin-top:68px; }
+.brand-principles article { position:relative; border-top:1px solid #b9bcb2; padding-top:24px; min-width:0; }
+.principle-number { position:absolute; top:30px; right:0; color:#74776c; }
+.brand-principles h3 { font-size:42px; letter-spacing:-.055em; line-height:1.15; }
+.brand-principles p { font-size:14px; line-height:1.8; max-width:32ch; margin-top:18px; color:#5c6056; min-height:76px; }
+.brand-principles article > a,.brand-principles article > button { display:flex; align-items:center; justify-content:space-between; gap:20px; font-size:12px; min-height:48px; width:100%; max-width:230px; margin-top:15px; text-align:left; }
+.brand-principles article > a > span:last-child,.brand-principles article > button > span:last-child { font-size:20px; transition:transform .3s var(--ease); }
+.brand-principles article > a:hover > span:last-child,.brand-principles article > button:hover > span:last-child { transform:translate(3px,-3px); }
+/* The runner is the visual statement; the copy sits lower, like a magazine spread. */
+.photographic-movement { padding-bottom:128px; }
+.photographic-movement .movement-layout { gap:10%; grid-template-columns:minmax(0,1.05fr) minmax(0,.8fr); }
+.photographic-movement .movement-panel { padding-top:86px; }
+.photographic-movement .movement-panel h2 { font-size:clamp(45px,4.8vw,80px); line-height:1.02; }
+.photographic-movement .movement-brand-label { margin-bottom:37px; width:fit-content; }
+.photographic-movement .movement-panel > p { font-size:16px; line-height:1.8; max-width:32ch; }
+.photographic-movement .movement-panel .quiet-link { font-size:13px; margin-top:24px; }
+.photographic-movement .movement-signoff { margin-bottom:52px; }
+.movement-footnote { border-top:0; padding-top:0; }
+.movement-footnote p { font-size:18px!important; }
+/* Projects retain asymmetric proportions, but no longer repeat one poster treatment. */
+.projects { padding-bottom:112px; }
+.projects-heading { gap:6%; align-items:end; margin-top:60px; margin-bottom:74px; }
+.projects-heading h2 { font-size:clamp(55px,6.6vw,108px); letter-spacing:-.065em; line-height:1.05; max-width:70%; }
+.project-side { flex:0 0 230px; }
+.project-side > p { max-width:29ch; font-size:13px; line-height:1.75; }
+#project-gallery[data-view='gallery'] > .challenge-card { padding-top:90px; }
+#project-gallery[data-view='gallery'] .challenge-art { background:#d5cfe1; }
+#project-gallery[data-view='gallery'] .thirty-dot { color:#7b6d89; }
+#project-gallery[data-view='gallery'] .project-art::before,
+#project-gallery[data-view='gallery'] .project-art::after { display:none; }
+#project-gallery[data-view='gallery'] .apparel-copy { top:7%; right:5%; font-size:clamp(39px,4.65vw,76px); }
+#project-gallery[data-view='gallery'] .art-photo-caption { padding-top:11px; }
+#project-gallery[data-view='gallery'] .card-meta { border-top:1px solid var(--rule); padding-top:20px; margin-top:27px; }
+#project-gallery[data-view='gallery'] .project-card.photographic-apparel .card-meta { margin-top:15px; }
+#project-gallery[data-view='gallery'] .project-category { letter-spacing:.09em; font-size:9px; }
+#project-gallery[data-view='gallery'] .card-meta h3 { font-size:31px; margin-top:10px; }
+#project-gallery[data-view='gallery'] .card-status { color:#62665c; font-size:10px; }
+/* One immersive dark image, not a page-wide dark theme. */
+#project-gallery[data-view='gallery'] .live-art { background:#252a28; color:#fff; aspect-ratio:1.28; isolation:isolate; }
+#project-gallery[data-view='gallery'] .live-photograph { inset:0; width:100%; height:100%; }
+#project-gallery[data-view='gallery'] .live-photograph > img { object-fit:cover; object-position:50% 50%; filter:saturate(.45) brightness(.82); }
+#project-gallery[data-view='gallery'] .live-art::before { display:block; content:''; inset:0; width:100%; height:100%; border:0; opacity:1; background:linear-gradient(180deg,rgba(0,0,0,.24),transparent 42%,rgba(0,0,0,.44)); pointer-events:none; z-index:1; }
+#project-gallery[data-view='gallery'] .live-art .art-top { position:absolute; top:28px; left:29px; right:29px; z-index:3; font-size:9px; }
+#project-gallery[data-view='gallery'] .live-campaign { top:auto; bottom:13%; left:5%; font-size:clamp(52px,6.4vw,108px); color:#fff; mix-blend-mode:normal; letter-spacing:-.065em; z-index:3; }
+#project-gallery[data-view='gallery'] .live-bottom { bottom:25px; left:29px; font-size:8px; color:#fff; z-index:3; max-width:78%; line-height:1.6; }
+#project-gallery[data-view='gallery'] .live-art .art-open { z-index:4; color:#fff; border-color:rgba(255,255,255,.65); }
+#project-gallery[data-view='gallery'] .stick-art { background:#eeede7; border-top:1px solid #a7a99e; }
+#project-gallery[data-view='gallery'] .stick-campaign { font-size:clamp(35px,3.45vw,58px); }
+#project-gallery[data-view='gallery'] .stick-bottom { border-top:1px solid #cacbc2; padding-top:18px; }
+/* A real end to the story. One continuous lilac plane and the original mark. */
+.closing-chapter { background:var(--chapter-lilac); padding-top:37px; padding-bottom:0; margin-top:20px; }
+.closing-chapter .connect-inner { padding:0; background:none; }
+.closing-chapter .connect-top { border-top:0; padding-top:0; }
+.closing-chapter .connect-main { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:10%; margin-top:86px; align-items:start; }
+.closing-chapter h2 { font-size:clamp(66px,8vw,132px); line-height:.98; letter-spacing:-.07em; }
+.closing-chapter h2 > span { color:#776a87; }
+.closing-chapter .connect-copy { background:none; padding:0; width:100%; max-width:none; }
+.closing-chapter .connect-copy::before,.closing-chapter .connect-copy::after { display:none; }
+.closing-chapter .connect-copy > p { font-size:16px; max-width:36ch; line-height:1.7; margin:5px 0 32px; }
+.closing-chapter .invitation-path { border-color:#b2a9be; padding:21px 0; }
+.closing-chapter .path-copy strong { font-size:27px; font-weight:400; }
+.closing-chapter .path-copy small { color:#5c5664; font-size:12px; }
+.closing-chapter .path-number { color:#5d5368; }
+.closing-chapter .path-arrow { font-size:26px; }
+.brand-finale { background:var(--chapter-lilac); padding-top:114px; padding-bottom:26px; }
+.finale-mark { display:block; width:100%; max-width:1350px; margin:0 auto 70px; }
+.finale-mark img { width:100%; height:auto; }
+.brand-finale .footer-main { grid-template-columns:1fr auto; padding-bottom:30px; }
+.brand-finale .footer-main > p { justify-self:start; font-size:16px; line-height:1.5; }
+.brand-finale .back-top { align-self:end; }
+.brand-finale .footer-bottom { border-color:#b6afbf; color:#554d60; }
+/* Paper-like transitions: small image movement only on deliberate hover. */
+.project-art { transition:box-shadow .45s var(--ease); }
+@media(hover:hover) and (prefers-reduced-motion:no-preference) {
+  #project-gallery[data-view='gallery'] .project-art:hover { box-shadow:0 16px 40px -30px #171a174d; }
+  .invitation-path:hover .path-arrow { transform:translate(4px,-4px); }
+}
+@media(min-width:1700px) {
+  .manifesto-intro { margin-top:76px; }
+  .brand-manifesto { padding-top:130px; padding-bottom:140px; }
+  .brand-principles { gap:8%; }
+}
+@media(min-width:761px) and (max-width:1100px) {
+  .brand-manifesto { padding-top:80px; padding-bottom:90px; }
+  .manifesto-intro { margin-top:48px; }
+  .brand-manifesto h2 { font-size:7.6vw; }
+  .manifesto-note { grid-column:7/-1; }
+  .brand-principles { gap:5%; margin-top:48px; }
+  .brand-principles h3 { font-size:34px; }
+  .brand-principles p { font-size:13px; min-height:92px; }
+  .photographic-movement .movement-panel { padding-top:35px; }
+  .photographic-movement .movement-panel h2 { font-size:4.7vw; }
+  .photographic-movement .movement-panel > p { font-size:14px; }
+  .projects-heading { gap:5%; }
+  .projects-heading h2 { font-size:6vw; max-width:none; }
+  .project-side { flex-basis:210px; }
+  #project-gallery[data-view='gallery'] .apparel-copy { font-size:3.8vw; }
+  #project-gallery[data-view='gallery'] .live-campaign { font-size:5.7vw; }
+  #project-gallery[data-view='gallery'] .live-art .art-top { left:22px; right:22px; font-size:8px; }
+  #project-gallery[data-view='gallery'] .live-bottom { left:22px; bottom:20px; font-size:7px; }
+  .closing-chapter .connect-main { gap:7%; }
+  .closing-chapter h2 { font-size:7.6vw; }
+  .closing-chapter .connect-copy > p { font-size:14px; }
+  .closing-chapter .path-copy strong { font-size:24px; }
+}
+@media(max-width:760px) {
+  .brand-manifesto { padding-top:62px; padding-bottom:70px; }
+  .brand-manifesto .section-label { padding-top:22px; }
+  .section-label > .micro { font-size:8px; }
+  .manifesto-intro { margin-top:40px; grid-template-columns:minmax(0,1fr); gap:0; }
+  .brand-manifesto h2 { grid-column:1; font-size:clamp(36px,8.7vw,65px); letter-spacing:-.057em; line-height:1.08; }
+  .manifesto-note { grid-column:1; max-width:390px; margin-top:32px; padding-left:11%; }
+  .manifesto-note > p { font-size:14px; line-height:1.8; margin-top:12px; }
+  .brand-principles { grid-template-columns:1fr; gap:30px; margin-top:40px; }
+  .brand-principles article { display:grid; grid-template-columns:28% 1fr; column-gap:8%; padding-top:23px; }
+  .principle-number { position:static; grid-column:1; grid-row:1; font-size:8px; padding-top:2px; }
+  .brand-principles h3 { grid-column:1; grid-row:2; font-size:32px; align-self:start; margin-top:10px; }
+  .brand-principles p { grid-column:2; grid-row:1/3; min-height:0; font-size:13px; margin-top:0; line-height:1.7; }
+  .brand-principles article > a,.brand-principles article > button { grid-column:2; font-size:11px; margin-top:6px; }
+  .photographic-movement { padding-bottom:76px; }
+  .photographic-movement .movement-layout { grid-template-columns:minmax(0,1fr); gap:38px; }
+  .photographic-movement .movement-visual { width:92%; }
+  .photographic-movement .movement-panel { padding:0 0 0 10%; }
+  .photographic-movement .movement-panel h2 { font-size:clamp(38px,10vw,64px); }
+  .photographic-movement .movement-panel > p { font-size:14px; }
+  .photographic-movement .movement-signoff { margin-bottom:36px; }
+  .movement-footnote { margin-top:0; }
+  .projects { padding-bottom:76px; }
+  .projects-heading { display:block; margin-top:38px; margin-bottom:42px; }
+  .projects-heading h2 { font-size:clamp(38px,9.8vw,72px); max-width:none; }
+  .project-side { margin-top:24px; }
+  .project-side > p { font-size:13px; max-width:34ch; }
+  #project-gallery[data-view='gallery'] > .challenge-card { padding-top:0; width:87%; }
+  #project-gallery[data-view='gallery'] .card-meta h3 { font-size:27px; }
+  #project-gallery[data-view='gallery'] .apparel-copy { font-size:clamp(29px,8vw,52px); }
+  #project-gallery[data-view='gallery'] .live-art { aspect-ratio:.98; }
+  #project-gallery[data-view='gallery'] .live-art .art-top { left:20px; right:20px; top:22px; font-size:7px; }
+  #project-gallery[data-view='gallery'] .live-campaign { font-size:clamp(44px,12.5vw,80px); left:6%; bottom:17%; }
+  #project-gallery[data-view='gallery'] .live-bottom { left:20px; bottom:20px; font-size:7px; }
+  #project-gallery[data-view='gallery'] .stick-campaign { font-size:clamp(35px,11vw,61px); }
+  .closing-chapter { padding:27px var(--gutter) 0; margin-top:0; }
+  .closing-chapter .connect-main { grid-template-columns:1fr; margin-top:45px; gap:38px; }
+  .closing-chapter h2 { font-size:clamp(63px,16.5vw,110px); line-height:1; }
+  .closing-chapter .connect-copy { padding-left:10%; }
+  .closing-chapter .connect-copy > p { font-size:14px; margin-bottom:26px; }
+  .closing-chapter .path-copy strong { font-size:25px; }
+  .closing-chapter .path-copy small { font-size:11px; }
+  .brand-finale { padding-top:64px; padding-bottom:24px; }
+  .finale-mark { margin-bottom:40px; }
+  .brand-finale .footer-main { grid-template-columns:1fr auto; padding-bottom:25px; gap:18px; }
+  .brand-finale .footer-main > p { grid-column:1; grid-row:1; font-size:14px; }
+  .brand-finale .back-top { grid-column:2; grid-row:1; }
+  .brand-finale .footer-bottom > .micro { font-size:8px; }
+}
+@media(max-width:360px) {
+  .brand-manifesto h2 { font-size:8.5vw; }
+  .brand-principles h3 { font-size:29px; }
+  .closing-chapter h2 { font-size:16vw; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .project-art,.brand-principles article > a > span:last-child,.brand-principles article > button > span:last-child { transition:none; }
+}
