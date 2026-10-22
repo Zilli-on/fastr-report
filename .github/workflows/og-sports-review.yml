@@ -39,7 +39,7 @@ jobs:
         run: |
           python3 -m venv "$RUNNER_TEMP/og-browser"
           "$RUNNER_TEMP/og-browser/bin/pip" install --disable-pip-version-check playwright==1.55.0
-          "$RUNNER_TEMP/og-browser/bin/python" -m playwright install --with-deps chromium
+          "$RUNNER_TEMP/og-browser/bin/python" -m playwright install chromium
       - name: Seven viewport tests, project details, bilingual UI and photo boundary
         working-directory: og-sports
         run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/review7_visual.py'
