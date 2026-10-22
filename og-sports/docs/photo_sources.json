@@ -1,6 +1,6 @@
 {
-  "version": "Review 4 / fashion-community direction",
-  "verified": "2026-10-21",
+  "version": "Review 7 / editorial first, typographic after",
+  "verified": "2026-10-22",
   "photographs": [
     {
       "key": "running",
@@ -76,5 +76,27 @@
     "file": "assets/after-the-run.webp",
     "unchanged": true
   },
-  "treatment": "Only layout crops, resize and CSS desaturation/contrast. No generated additions or replacement branding."
+  "treatment": "Only layout crops, resize and CSS desaturation/contrast. No generated additions or replacement branding.",
+  "hero_display": {
+    "source": "assets/after-the-run.webp",
+    "output": "assets/after-the-run-display-4x.webp",
+    "original_size_px": [
+      1373,
+      485
+    ],
+    "display_size_px": [
+      5492,
+      1940
+    ],
+    "operation": "Pillow Lanczos 4× and mild UnsharpMask; not AI super-resolution",
+    "recovers_missing_detail": false,
+    "original_sha256": "807364cf90a7b283304707b93194110fe7c519ac6ae53a5f6b21f8ae43c02bfe",
+    "display_sha256": "63fe1536cc9ced2be55f86259be49fb0cbff1b2fa47c5429811029f524cfc3f2"
+  },
+  "visible_homepage_photographs": [
+    "run-detail",
+    "run-shadow",
+    "run-community"
+  ],
+  "below_culture_photography": "none"
 }

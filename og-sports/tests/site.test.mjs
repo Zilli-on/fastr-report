@@ -17,7 +17,19 @@ test('preserves the chosen first photograph and original brand assets byte for b
     assert.equal(createHash('sha256').update(bytes).digest('hex'), expected, name);
   }
   assert.match(html, /data-mode="meet"/);
-  assert.match(html, /id="hero-photo"[^>]+src="assets\/after-the-run\.webp"/);
+  assert.match(html, /id="hero-photo"[^>]+src="assets\/after-the-run-display-4x\.webp"/);
+  const original = await readFile(new URL('site/assets/after-the-run.webp', root));
+  const display = await readFile(new URL('site/assets/after-the-run-display-4x.webp', root));
+  assert.ok(display.length > original.length, 'display asset should be a larger derivative');
+});
+test('uses the three approved editorial photographs and no stock images below them', () => {
+  assert.equal((html.match(/class="culture-shot /g) || []).length, 3);
+  const main = html.split('</main>')[0];
+  const after = main.split('<section class="r7-movement"')[1];
+  assert.ok(after, 'movement chapter must exist');
+  assert.doesNotMatch(after, /<img\b[^>]+\.webp/i);
+  assert.match(main, /class="project-gallery r7-work-index"/);
+  assert.match(main, /r7-practice-rules/);
 });
 test('browser JavaScript is syntactically valid', () => assert.doesNotThrow(() => new Script(js)));
 test('all local artwork referenced by the source exists', async () => {

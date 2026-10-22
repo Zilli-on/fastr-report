@@ -19,7 +19,7 @@
     de: {
       challenge: {status:'CHALLENGE-KONZEPT',title:'FASTR30',lead:'30 Tage. 7 Standards. Dein Fortschritt.',body:'Ein tägliches System für Bewegung, Fokus und die Fähigkeit, in der du besser werden möchtest.',cta:'Über FASTR30 sprechen',note:'Dies sind die bestehenden Markenregeln des Challenge-Konzepts, keine individuell abgestimmten Gesundheitsempfehlungen.'},
       live: {status:'FORMATE IN PLANUNG',title:'Live Experiences',lead:'Sport bringt uns zusammen. Kultur lässt uns bleiben.',body:'Wir entwickeln Formate, in denen Running, Musik und Begegnungen zusammenkommen. Nicht nur zuschauen: selbst Teil des Moments werden.',extra:'Termine, Orte und Anmeldung folgen nach Bestätigung. Diese Vorschau kündigt kein buchbares Event an.',cta:'Ein Format gemeinsam gestalten'},
-      apparel: {status:'DESIGNENTWICKLUNG',title:'OG SPORTS Apparel',lead:'Für die Strecke. Und das Leben dazwischen.',body:'Eine eigene Bekleidungssprache für OG SPORTS. Aktuell stehen Cycling-Entwürfe im Mittelpunkt: Form, Farbe und Funktion werden gemeinsam gedacht.',extra:'Das Foto von Coen van de Broek dient als Referenz für unsere Sportkultur. Es zeigt keine OG-Produkte oder Teammitglieder. Kollektion und Produktion sind nicht freigegeben.',cta:'Über eine Zusammenarbeit sprechen'},
+      apparel: {status:'DESIGNENTWICKLUNG',title:'OG SPORTS Apparel',lead:'Für die Strecke. Und das Leben dazwischen.',body:'Eine eigene Bekleidungssprache für OG SPORTS. Aktuell stehen Cycling-Entwürfe im Mittelpunkt: Form, Farbe und Funktion werden gemeinsam gedacht.',extra:'Die gezeigte Farb- und Typografiestudie ist keine finale Kollektion. Entwürfe, Materialien und Produktion befinden sich in Entwicklung.',cta:'Über eine Zusammenarbeit sprechen'},
       stick: {status:'PROTOTYP IN ENTWICKLUNG',title:'FASTR STICK',lead:'Ein kleines Produkt. Eine konkrete Aufgabe.',body:'Ein Anti-Chafing-Stick für Ausdauersport. 30 ml, eine schlanke zylindrische Form und Einhandbedienung als Entwicklungsziel.',extra:'Aktueller Schwerpunkt: Gehäuse und Schraubvorschub. Die Typografie zeigt eine Projektnotiz, keinen Produkt- oder CAD-Render. Keine Vorbestellung.',cta:'Über die Entwicklung sprechen'},
       rules:[['RECOVER','6+ Stunden Schlaf. Vor 8:30 Uhr aufstehen.'],['OWN YOUR MORNING','15+ Minuten ohne Ablenkung. Drei Dinge, für die du dankbar bist.'],['MOVE','30+ Minuten Bewegung.'],['READ','6+ Seiten lesen.'],['GET FASTR','30+ Minuten an einer Fähigkeit arbeiten.'],['FUEL','2–3 Liter trinken.'],['REFLECT','10+ Minuten Journal schreiben.']],
       types:{community:'Dabei sein',create:'Zusammenarbeiten',partner:'Partnerschaft'},
@@ -133,19 +133,42 @@
     const calendar=Array.from({length:30},(_,i)=>'<span>'+String(i+1).padStart(2,'0')+'</span>').join('');
     let art='';
     if(key==='challenge'){
-      art=`<div class="story-cover practice-cover"><div class="story-poster"><div class="poster-top micro"><span>The daily practice.</span><span>FASTR30</span></div><span class="poster-thirty" aria-hidden="true">30<span>.</span></span><span class="poster-calendar" aria-hidden="true">${calendar}</span><div class="poster-bottom"><p>One day.<br>Then another.</p><span class="micro">30 days.<br>7 standards.</span></div></div><span class="cover-edge-note micro" aria-hidden="true">Progress, on your terms.</span></div>`;
+      art=`<div class="story-cover r7-story-cover r7-story-challenge">
+        <div class="r7-story-inner">
+          <div class="r7-story-eyebrow"><span>FASTR30 / FIELD EDITION</span><span>IN THE MAKING</span></div>
+          <p class="r7-story-title">30<em>.</em></p>
+          <span class="r7-story-outro">ONE DAY. THEN ANOTHER. / 07 STANDARDS</span>
+        </div>
+      </div>`;
     }else if(key==='apparel'){
-      art=`<div class="story-cover apparel-cover"><div class="story-photo-frame"><img src="assets/cycling-photograph.webp" width="1800" height="1200" referrerpolicy="no-referrer" alt="${lang==='de'?'Fotografie von Coen van de Broek: zwei Radfahrerinnen am Meer; keine OG-SPORTS-Produkte':'Photograph by Coen van de Broek: two cyclists by the sea; not OG SPORTS products'}"><span class="frame-corner corner-tl"></span><span class="frame-corner corner-br"></span></div><p class="story-campaign" data-campaign="Beyond&#10;the ride." aria-hidden="true">Beyond<br>the ride.</p><span class="cover-edge-note micro" aria-hidden="true">Culture in motion.</span></div>`;
+      art=`<div class="story-cover r7-story-cover r7-story-apparel">
+        <div class="r7-story-inner">
+          <div class="r7-story-eyebrow"><span>OG SPORTS / APPAREL</span><span>COLOUR STUDIES</span></div>
+          <p class="r7-story-title">FORM<br>IN MOTION.</p>
+          <span class="r7-story-outro">DESIGN EXPLORATION / NOT A FINISHED PRODUCT</span>
+        </div><div class="r7-story-swatches" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>`;
     }else if(key==='live'){
-      art=`<div class="story-cover live-cover"><div class="story-photo-frame"><img src="assets/movement-rooftop.webp" width="1536" height="1024" alt="${lang==='de'?'KI-Kampagnenstudie einer urbanen Laufgruppe, keine tatsächliche Veranstaltung':'AI campaign study of an urban running group, not an actual event'}"><span class="frame-corner corner-tl"></span><span class="frame-corner corner-br"></span></div><p class="story-campaign" aria-hidden="true">Out of the feed.<br>Into life.</p><span class="cover-edge-note micro" aria-hidden="true">Sport. Sound. People.</span></div>`;
+      art=`<div class="story-cover r7-story-cover r7-story-live">
+        <div class="r7-story-inner">
+          <div class="r7-story-eyebrow"><span>LIVE EXPERIENCES</span><span>FORMATS IN DEVELOPMENT</span></div>
+          <p class="r7-story-title">IN REAL<br><em>LIFE.</em></p>
+          <span class="r7-story-outro">SPORT / SOUND / PEOPLE — NOT A BOOKABLE EVENT</span>
+        </div>
+      </div>`;
     }else{
-      art=`<div class="story-cover product-cover"><div class="product-poster"><div class="poster-top micro"><span>FASTR STICK</span><span>Work in progress.</span></div><p class="product-campaign">Less<br>friction.</p><span class="product-volume" aria-hidden="true">30<small>ml</small></span><div class="poster-bottom"><span class="micro">Form. Function.<br>Iteration.</span><span class="product-lines" aria-hidden="true"></span></div></div><span class="cover-edge-note micro" aria-hidden="true">One purpose. Carefully considered.</span></div>`;
+      art=`<div class="story-cover r7-story-cover r7-story-stick">
+        <div class="r7-story-inner">
+          <div class="r7-story-eyebrow"><span>FASTR STICK</span><span>PROTOTYPE STUDY / 30 ML</span></div>
+          <p class="r7-story-title">LESS<br>FRICTION.</p>
+          <span class="r7-story-outro">A PRODUCT IN DEVELOPMENT / NO PRODUCTION RELEASE</span>
+        </div>
+      </div>`;
     }
     const ruleTitles=['Rest. Reset.','Make space.','Keep moving.','Stay curious.','Get better.','Refuel.','Look back.'];
     const rules=key==='challenge'?`<div class="practice-layout"><aside class="practice-aside"><span class="micro">${common.challenge.overline}</span><span class="practice-number" aria-hidden="true">01</span><p class="practice-phrase" aria-hidden="true">${ruleTitles[0]}</p><span class="practice-side-caption micro">A little, every day.</span></aside><ol class="rules-list">${copy[lang].rules.map((r,i)=>`<li><details class="standard-rule" ${i===0?'open':''} data-standard="${i}"><summary><span class="standard-index">${String(i+1).padStart(2,'0')}</span><span class="standard-name">${r[0]}</span><span class="standard-plus" aria-hidden="true"></span></summary><p>${r[1]}</p></details></li>`).join('')}</ol></div><p class="story-disclaimer">${c.note}</p>`:`<div class="story-principles">${s.pillars.map(p=>`<article><span class="micro">${p[0]}</span><h4>${p[1]}</h4><p>${p[2]}</p></article>`).join('')}</div>`;
     const nextName=storyText[lang][next].title.replace('<br>',' ');
-    const nextThumb=next==='apparel'?'assets/cycling-photograph.webp':next==='live'?'assets/movement-rooftop.webp':null;
-    const thumb=nextThumb?`<img src="${nextThumb}" alt="" loading="lazy">`:`<span>${next==='challenge'?'30.':'30<small>ml</small>'}</span>`;
+    const thumb='<span>'+String(order.indexOf(next)+1).padStart(2,'0')+'</span>';
     projectContent.innerHTML=`<article class="project-story story-${key}">
       <header class="story-heading"><div class="story-meta micro"><span>${count} / ${s.category}</span><span>${c.status}</span></div><div class="story-title-row"><h2 id="project-dialog-title" tabindex="-1">${s.title}</h2><p class="story-intro">${linebreak(s.intro)}</p></div></header>
       ${art}<div class="story-cover-caption"><span class="micro">${s.coverNote}</span><button type="button" class="story-jump" data-story-jump><span>${common.details}</span><span aria-hidden="true">↓</span></button></div>
@@ -220,7 +243,7 @@
   const photographs={
     running:{src:"assets/running-photograph.webp",name:'Mathias Reding',kind:{de:'Fotografie / Montréal',en:'Photography / Montréal'},description:{de:'Ein Läufer. Eine Straße. Der Moment dazwischen.',en:'A runner. A street. The moment in between.'},context:{de:'Echte Fotografie aus Montréal. Visuelle Referenz für Bewegung, kein OG-Event oder Teammitglied.',en:'Real photography from Montréal. A visual reference for movement, not an OG event or team member.'},source:'https://unsplash.com/photos/man-running-across-a-blurred-city-street-MiRyAuFhepg',alt:{de:'Läufer auf einer Straße in Montréal, fotografiert von Mathias Reding',en:'Runner on a street in Montréal, photographed by Mathias Reding'},license:'Unsplash License · 2025'},
     cycling:{src:"assets/cycling-photograph.webp",name:'Coen van de Broek',kind:{de:'Fotografie / Brouwersdam',en:'Photography / Brouwersdam'},description:{de:'Eine gemeinsame Ausfahrt. Nicht nur Kilometer.',en:'A shared ride. More than miles.'},context:{de:'Echte Fotografie an der niederländischen Küste. Die abgebildete Kleidung und Fahrräder sind keine OG-Produkte. Keine behauptete Partnerschaft.',en:'Real photography on the Dutch coast. The clothing and bicycles shown are not OG products. No partnership is implied.'},source:'https://unsplash.com/photos/man-and-woman-riding-road-bikes-at-the-road-near-shore-OFyh9TpMyM8',alt:{de:'Zwei Radfahrerinnen am Meer, fotografiert von Coen van de Broek',en:'Two cyclists by the sea, photographed by Coen van de Broek'},license:'Unsplash License · 2018'},
-    hero:{src:'assets/after-the-run.webp',name:'The moments\nin between.',kind:{de:'Bestehende KI-Bildstudie',en:'Existing AI image study'},description:{de:'Unser bestehendes Einstiegsmotiv. Unverändert beibehalten.',en:'Our existing opening image. Kept unchanged.'},context:{de:'Dieses Motiv ist eine KI-Bildstudie aus unserer bisherigen Gestaltung. Es ist keine dokumentarische Aufnahme von echten OG-Teammitgliedern.',en:'This image is an AI study from our previous design work. It is not a documentary photograph of actual OG team members.'},source:null,alt:{de:'Bestehende KI-Bildstudie einer Gruppe nach dem Sport',en:'Existing AI image study of a group after sport'},license:'OG SPORTS / Design study'},
+    hero:{src:'assets/after-the-run-display-4x.webp',name:'The moments\nin between.',kind:{de:'Bestehende KI-Bildstudie',en:'Existing AI image study'},description:{de:'Unser bestehendes KI-Einstiegsmotiv, originalgetreu auf größere Ausgabeabmessungen aufbereitet.',en:'Our existing AI opening image, conservatively resized for larger display dimensions.'},context:{de:'KI-Bildstudie, keine dokumentarische Aufnahme. Die 4-fach-Ausgabe nutzt Lanczos-Resampling mit zurückhaltender Schärfung; das 1.373 × 485 px Original ist weiterhin separat erhalten. Fehlende Details werden dadurch nicht wiederhergestellt.',en:'An AI image study, not a documentary photograph. The 4× display uses Lanczos resampling and modest sharpening; the 1,373 × 485 px original is retained separately. Missing detail is not recovered.'},source:null,alt:{de:'Bestehende KI-Bildstudie einer Gruppe nach dem Sport',en:'Existing AI image study of a group after sport'},license:'OG SPORTS / Design study'},
   };
   function setPhotoTreatment(tone){
     const original=tone==='original';photoDialog.classList.toggle('show-original',original);
@@ -478,7 +501,7 @@
   if(!image||!photo||!caption||!tabs)return;
   const scenes={
     move:{src:'assets/running-photograph.webp',caption:'The shared miles',de:'Fotografie von Mathias Reding: Läufer in Bewegung',en:'Photograph by Mathias Reding: a runner in motion',index:'01'},
-    meet:{src:'assets/after-the-run.webp',caption:'The moments in between',de:'KI-Kampagnenstudie: Freunde nach dem Sport',en:'AI campaign study: friends after sport',index:'02'},
+    meet:{src:'assets/after-the-run-display-4x.webp',caption:'The moments in between',de:'KI-Kampagnenstudie: Freunde nach dem Sport',en:'AI campaign study: friends after sport',index:'02'},
     make:{src:'assets/cycling-photograph.webp',caption:'Beyond the ride',de:'Fotografie von Coen van de Broek: gemeinsame Ausfahrt; keine OG-Produkte',en:'Photograph by Coen van de Broek: a shared ride; not OG products',index:'03'}
   };
   let active='meet',requestId=0;
@@ -691,7 +714,7 @@
   const image=document.getElementById('menu-photo'),stage=dialog.querySelector('.menu-stage');
   if(!image||!links.length)return;
   const scenes={
-    world:{src:'assets/after-the-run.webp',title:'In good\ncompany.',caption:'The moments in between.',number:'01'},
+    world:{src:'assets/after-the-run-display-4x.webp',title:'In good\ncompany.',caption:'The moments in between.',number:'01'},
     movement:{src:'assets/running-photograph.webp',title:'Go where\nyou grow.',caption:'Different paces. Same direction.',number:'02'},
     projects:{src:'assets/cycling-photograph.webp',title:'Make it\nyour own.',caption:'Ideas, in motion.',number:'03'},
     connect:{src:'assets/movement-rooftop.webp',title:'Come as\nyou are.',caption:'Good things start with people.',number:'04'}

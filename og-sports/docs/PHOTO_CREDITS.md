@@ -56,3 +56,15 @@ Three additional real photographs are used to move the public design review towa
 - **Leviosa Hou** — “Runners gathered together on a city street” — https://unsplash.com/photos/runners-gathered-together-on-a-city-street-9ZXnEV7k2lI
 
 All three source pages identify the images as free to use under the Unsplash License. Personality, property, product-design and trademark clearances for an advertising launch have not been independently verified. The website therefore continues to identify real reference photography separately from existing AI campaign studies.
+
+## Review 7 — rigorously curated image boundary (2026-10-22)
+
+In the public homepage, **only** the user's approved original composition and the next **three** editorial photographs appear. Everything below the three-photo culture sequence is typography, color studies and actual brand marks; no runner, cycling or rooftop stock/Event imagery is used below this boundary or inside the four project detail art covers.
+
+**Opening:** `after-the-run.webp` (1373×485 px, AI campaign study) remains unchanged. `after-the-run-display-4x.webp` (5492×1940 px) is a strictly source-based four-times Lanczos-resized and gently sharpened **display derivative**. This increases pixel dimensions but **does not recover details absent from the source**, nor prove documentary authenticity. The hero's composition, people and image content remain unchanged. A dedicated AI upscaling job did not yield a usable output; no fictional enhancement claim is made.
+
+**Only real photos on the visible homepage:** David Moorhouse, Mathias Reding (runner's legs/shadow), and Leviosa Hou — their Unsplash source URLs are listed in the Review 4 section above and visibly linked beneath each photo. They are **reference photography, not OG SPORTS people, events, clothing or partnerships**.
+
+Older runner, cycling and rooftop reference files remain in source history solely for rollback/legacy notes, and are not used in the Review 7 homepage or current project covers. After approval they can be separately removed in a cleanup commit.
+
+The website's `noindex` setting is not access control. The reference license does not establish model, location, logo or other third-party releases for a commercial brand launch. All production uses require review.
