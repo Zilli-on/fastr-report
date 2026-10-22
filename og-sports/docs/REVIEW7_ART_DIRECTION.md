@@ -27,3 +27,6 @@ All three editorial photos are Unsplash-sourced visual references with visible l
 ## Delivery
 Single GitHub feature branch `feat/og-sports-web`, existing draft PR, no merge, no Vercel production action.
 A visual regression script checks the real built website at multiple viewport widths, including the redesigned document, modal interactions and imagery boundary. Screenshots must be inspected visually. This document is a rationale, not approval or proof of perfection.
+
+## Review checkpoint (22 October 2026)
+The initial Review 7 GitHub Actions run started before `scripts/review7_visual.py` was committed and could not find that file. The script is now present in the branch. A fresh run is required before presenting CI as passing. Separate local Chromium checks confirmed the hero derivative loads, the three approved editorial photographs remain, no photographic assets appear below the culture chapter, all four project entries render, Apparel opens, and neither 390px nor 1440px has horizontal overflow. These checks are narrower than the complete CI test suite.
