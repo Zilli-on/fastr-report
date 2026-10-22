@@ -1,4 +1,4 @@
-name: Apply OG SPORTS fashion-community review
+name: Apply tested OG SPORTS editorial Review 7
 on:
   push:
     branches: [feat/og-sports-web]
@@ -12,7 +12,7 @@ jobs:
   apply:
     if: github.repository == 'Zilli-on/fastr-report' && github.ref == 'refs/heads/feat/og-sports-web'
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 15
     permissions:
       contents: write
     steps:
@@ -23,74 +23,65 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '22'
-      - name: Import exact locally reviewed source
+      - name: Fetch and verify exact reviewed source bundle
         run: |
           set -euo pipefail
-          curl --fail --location --silent --show-error --max-time 60 'https://d2ol7oe51mr4n9.cloudfront.net/user_3F3NUVidPhiNDKfYWHhux0P34eP/70f9097d-ad73-49f8-ba82-1af595c6637d.zip' -o /tmp/review4.zip
-          echo '279aa17c904312d7ea58611cb0ee9758aece7dd65591b594bdf2093e57c9acd3  /tmp/review4.zip' | sha256sum --check
+          curl --fail --location --silent --show-error --max-time 80 'https://d2ol7oe51mr4n9.cloudfront.net/user_3F3NUVidPhiNDKfYWHhux0P34eP/68b2a0be-169f-4968-8cdd-920c0c63e986.zip' -o /tmp/og-review7.zip
+          echo 'fb031ec98b226d5df10b0a0d030fafa395f7ed3a30e4b3caa4c7455d3246d70b  /tmp/og-review7.zip' | sha256sum -c
           python3 - <<'PY'
           from pathlib import Path, PurePosixPath
-          import hashlib, zipfile
-          root=Path('og-sports')
-          expected={
-            'site/index.html':'26dae18f74a145ce07727e450cba07f065e880dff537a12a7a5fe8979d62561c',
-            'site/review4.css':'357c261eb7b2894e0b0c167640d96fc5c7fc2a6b3a34cfd9c9f1a6b729258275',
-            'site/assets/run-detail.webp':'dcc5694b8245f1b3fa138ebb5b16d09172d20f4ab9817a89bf1097e33bd89b93',
-            'site/assets/run-shadow.webp':'f1ffa9de0ca17daac7aca5a389b136c45dcdcab9fdbc849f17c62a71082b6469',
-            'site/assets/run-community.webp':'546bdde1f8b68413484528b5d3b2cfa245fb2331b56bba41e8cf57dcb7c439f2',
-            'docs/photo_sources.json':'76916d8c51cecfd7e0a54dfd43731741e62ca92af7dc616f832f82f239f58c1e',
-            'docs/PHOTO_CREDITS.md':'854062425deae68ee7e5bf8d72a7bf3f3ad6408a29d1240d4de711fb2a6b76fb',
-            'scripts/review4_smoke.py':'503b2db65b6345e7ee45fabf52efcb14b1b8000a5ff9862931b055e1f8fec9cb'
+          from hashlib import sha256
+          from zipfile import ZipFile
+          expected={"og-sports/site/index.html":"5d32b7247cb6e7154931798c5221bab4825485e2ef0faba5547b616e28bc2928","og-sports/site/script.js":"4bc07b3181e86b7d2f6510e521a4063c262f9ac3d11e8284b4ed17faae010ec3","og-sports/site/review7.css":"bd93e4e406d3680c81feecf9a3fdccf55e8692e318986f311ad9c816498c4ed0","og-sports/site/assets/after-the-run-display-4x.webp":"63fe1536cc9ced2be55f86259be49fb0cbff1b2fa47c5429811029f524cfc3f2","og-sports/tests/site.test.mjs":"361d41bf0e1e9370a9387ca15db77b6f36a898e083f628a7e84c33da887b7b36","og-sports/scripts/review7_visual.py":"276096c4e657fc9846104051fcced0dd423a2196eb91621977858c692a66b4aa","og-sports/docs/PHOTO_CREDITS.md":"8249d13c8ad971b87c8340f44a3f9cebf930981ce02ed862d006110cedf39a94","og-sports/docs/photo_sources.json":"c44b76f9dd0ec1677100daad7df436b0e40568d0a98860fb990e1f9cd4cf1f0d","og-sports/docs/REVIEW7_ART_DIRECTION.md":"780a254c48bc17b9a4d826f1682655af5e571753750ae5c58246a1e06610c35a","og-sports/AGENTS.md":"48adf2790e37d9d0539e33f0b8c9293f31c8ca289529ae451178d5fa0e223dbd"}
+          with ZipFile('/tmp/og-review7.zip') as archive:
+              names=set(archive.namelist())
+              assert names==set(expected), (names^set(expected))
+              for name,digest in expected.items():
+                  path=PurePosixPath(name)
+                  assert not path.is_absolute() and '..' not in path.parts and path.parts[0]=='og-sports'
+                  blob=archive.read(name)
+                  assert sha256(blob).hexdigest()==digest, name
+                  dest=Path(name)
+                  dest.parent.mkdir(parents=True,exist_ok=True)
+                  dest.write_bytes(blob)
+          protected={
+              'og-sports/site/assets/after-the-run.webp':'807364cf90a7b283304707b93194110fe7c519ac6ae53a5f6b21f8ae43c02bfe'
           }
-          with zipfile.ZipFile('/tmp/review4.zip') as z:
-            names=set(z.namelist())
-            assert names==set(expected), (names,set(expected))
-            for name,digest in expected.items():
-              pp=PurePosixPath(name)
-              assert not pp.is_absolute() and '..' not in pp.parts
-              data=z.read(name)
-              assert hashlib.sha256(data).hexdigest()==digest,name
-              target=root/name
-              target.parent.mkdir(parents=True,exist_ok=True)
-              target.write_bytes(data)
-          print('Imported exact Review 4 source and three credited photographs.')
+          for path,digest in protected.items():
+              assert sha256(Path(path).read_bytes()).hexdigest()==digest,path
+          print('Review 7 source restored. Original hero untouched; protected asset check passed.')
           PY
           git diff --check
-      - name: Source, asset-integrity, HTTP and build checks
+      - name: Source, original artwork and build
         working-directory: og-sports
         run: npm run check
-      - name: Prepare browser review tools
+      - name: Install isolated Chromium tools
         run: |
           python3 -m venv "$RUNNER_TEMP/og-browser"
           "$RUNNER_TEMP/og-browser/bin/pip" install --disable-pip-version-check playwright==1.55.0
           "$RUNNER_TEMP/og-browser/bin/python" -m playwright install --with-deps chromium
-      - name: Six responsive browser widths and existing project interactions
+      - name: Seven responsive viewports, assets, project dialogs and two languages
         working-directory: og-sports
-        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/review4_smoke.py'
-      - name: Commit only tested Review 4 files
+        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/review7_visual.py'
+      - name: Commit tested source only to the existing feature branch
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           python3 - <<'PY'
           import subprocess
+          expected=set(["og-sports/site/index.html","og-sports/site/script.js","og-sports/site/review7.css","og-sports/site/assets/after-the-run-display-4x.webp","og-sports/tests/site.test.mjs","og-sports/scripts/review7_visual.py","og-sports/docs/PHOTO_CREDITS.md","og-sports/docs/photo_sources.json","og-sports/docs/REVIEW7_ART_DIRECTION.md","og-sports/AGENTS.md"])
           lines=subprocess.check_output(['git','status','--porcelain'],text=True).splitlines()
           changed={line[3:] for line in lines if len(line)>=4}
-          allowed={
-            'og-sports/site/index.html','og-sports/site/review4.css',
-            'og-sports/site/assets/run-detail.webp','og-sports/site/assets/run-shadow.webp',
-            'og-sports/site/assets/run-community.webp','og-sports/docs/photo_sources.json',
-            'og-sports/docs/PHOTO_CREDITS.md','og-sports/scripts/review4_smoke.py'
-          }
-          source_changed={p for p in changed if not p.startswith('og-sports/qa/review4-')}
-          assert source_changed <= allowed, source_changed
-          assert {'og-sports/site/index.html','og-sports/site/review4.css'} <= source_changed
+          source_changed={p for p in changed if not p.startswith('og-sports/qa/')}
+          assert source_changed <= expected, source_changed - expected
+          assert {'og-sports/site/index.html','og-sports/site/review7.css','og-sports/site/assets/after-the-run-display-4x.webp'} <= source_changed
           PY
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- og-sports/site/index.html og-sports/site/review4.css og-sports/site/assets/run-detail.webp og-sports/site/assets/run-shadow.webp og-sports/site/assets/run-community.webp og-sports/docs/photo_sources.json og-sports/docs/PHOTO_CREDITS.md og-sports/scripts/review4_smoke.py
+          git add -- og-sports/site/index.html og-sports/site/script.js og-sports/site/review7.css og-sports/site/assets/after-the-run-display-4x.webp og-sports/tests/site.test.mjs og-sports/scripts/review7_visual.py og-sports/docs/PHOTO_CREDITS.md og-sports/docs/photo_sources.json og-sports/docs/REVIEW7_ART_DIRECTION.md og-sports/AGENTS.md
           git diff --cached --check
-          git commit -m 'design: rebuild OG SPORTS as a fashion-community brand world'
+          git commit -m 'design: curate editorial story and keep only approved photography'
           cat > "$RUNNER_TEMP/og-askpass" <<'SH'
           #!/bin/sh
           case "$1" in
@@ -102,13 +93,13 @@ jobs:
           chmod 700 "$RUNNER_TEMP/og-askpass"
           trap 'rm -f "$RUNNER_TEMP/og-askpass"' EXIT
           GIT_ASKPASS="$RUNNER_TEMP/og-askpass" GIT_TERMINAL_PROMPT=0 git push origin HEAD:refs/heads/feat/og-sports-web
-          printf '## OG SPORTS Review 4\n\n[Exact public preview](https://raw.githack.com/Zilli-on/fastr-report/%s/og-sports/site/index.html)\n\nNo merge and no Vercel production deployment.\n' "$(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
+          printf '## OG SPORTS Review 7\n\n[Review exact Git commit](https://raw.githack.com/Zilli-on/fastr-report/%s/og-sports/site/index.html)\n\nNo merge, production deployment or external contact send.\n' "$(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: og-sports-review4-evidence
+          name: og-sports-review7-inspection
           path: |
-            og-sports/qa/review4-smoke.json
-            og-sports/qa/review4-*.png
+            og-sports/qa/review7-visual.json
+            og-sports/qa/r7-*.png
             og-sports/dist/
           retention-days: 7
