@@ -257,3 +257,20 @@ html { scroll-behavior:smooth; }
   .r7-row-stick .r7-work-title {margin-top:38px;font-size:clamp(44px,11.5vw,76px)}
   .r8-stick-visual {top:36%;height:53%;left:13%;right:13%;width:74%}
 }
+
+/* R8 final optical spacing after rendered mobile review:
+   full four-study colour sequence with generous, separate caption; technical
+   concept illustration starts below rather than behind the product title. */
+@media(max-width:760px) {
+  #project-gallery.r7-work-index>.r7-row-apparel {min-height:510px}
+  .r7-row-apparel .r7-work-trigger {min-height:510px}
+  .r8-apparel-visual {top:175px}
+  .r8-apparel-meta {top:clamp(345px,100vw,392px);bottom:auto}
+  #project-gallery.r7-work-index>.r7-row-stick {min-height:625px}
+  .r7-row-stick .r7-work-trigger {min-height:625px}
+  .r7-row-stick .r7-work-title {
+    position:absolute;left:18px;top:128px;margin:0;
+    font-size:clamp(44px,11.5vw,76px);z-index:6;
+  }
+  .r8-stick-visual {top:41%;height:50%;left:13%;right:13%;width:74%}
+}
