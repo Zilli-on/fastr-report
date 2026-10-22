@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Original graphic study for collective live experiences">
+<defs>
+<linearGradient id="gl" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#d5e57b"/><stop offset="1" stop-color="#adb768"/></linearGradient>
+<radialGradient id="rad"><stop stop-color="#edf3a8" stop-opacity=".22"/><stop offset=".6" stop-color="#d1e483" stop-opacity=".06"/><stop offset="1" stop-color="#d1e483" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1200" height="900" fill="#1a1e1a"/>
+<circle cx="600" cy="455" r="445" fill="url(#rad)"/>
+<g fill="none" stroke="#ced9bf" stroke-width="1.2" opacity=".28">
+  <circle cx="600" cy="455" r="94"/>
+  <circle cx="600" cy="455" r="153"/>
+  <circle cx="600" cy="455" r="214"/>
+  <circle cx="600" cy="455" r="275"/>
+  <circle cx="600" cy="455" r="338"/>
+  <circle cx="600" cy="455" r="407"/>
+  <circle cx="600" cy="455" r="478"/>
+</g>
+<g fill="none" stroke="url(#gl)" stroke-width="2.4" stroke-linecap="round">
+ <path d="M61 630C219 411 383 359 601 455S1000 608 1171 351"/>
+ <path d="M18 562C205 339 382 313 601 455S1026 655 1180 428" opacity=".43"/>
+</g>
+<g stroke="#d7dfb9" opacity=".30" stroke-width=".8">
+ <path d="M600 0V900"/>
+ <path d="M0 455H1200"/>
+</g>
+<g fill="#e3eba1">
+  <circle cx="196" cy="497" r="5"/>
+  <circle cx="367" cy="414" r="6"/>
+  <circle cx="600" cy="455" r="10"/>
+  <circle cx="813" cy="555" r="6"/>
+  <circle cx="1018" cy="526" r="5"/>
+</g>
+<g font-family="Arial,Helvetica,sans-serif" font-size="15" letter-spacing="3" fill="#ced4c4">
+ <text x="64" y="69">LIVE / FIELD STUDY 001</text>
+ <text x="920" y="844">THE MOMENT BETWEEN.</text>
+</g>
+</svg>
