@@ -1,4 +1,4 @@
-name: OG SPORTS review checks
+name: OG SPORTS website review
 on:
   push:
     branches: [feat/og-sports-web]
@@ -17,7 +17,7 @@ concurrency:
 jobs:
   website:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 13
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -25,46 +25,36 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '22'
-      - name: Source, asset integrity, HTTP and build checks
+      - name: Source, original asset integrity, HTTP and build
         working-directory: og-sports
         run: npm run check
-      - name: Preserve the exact static review build
+      - name: Preserve reviewed built website
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: og-sports-review-build
+          name: og-sports-r7-built-website
           path: og-sports/dist/
           retention-days: 7
           if-no-files-found: error
-      - name: Install isolated browser test tools
+      - name: Install isolated browser tools
         run: |
           python3 -m venv "$RUNNER_TEMP/og-browser"
           "$RUNNER_TEMP/og-browser/bin/pip" install --disable-pip-version-check playwright==1.55.0
           "$RUNNER_TEMP/og-browser/bin/python" -m playwright install --with-deps chromium
-      - name: Review 4 browser checks with third-party traffic blocked
+      - name: Seven viewport tests, project details, bilingual UI and photo boundary
         working-directory: og-sports
-        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/review4_smoke.py'
-      - name: Editorial typography visual checks across seven viewports
-        working-directory: og-sports
-        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/review5_visual.py'
-      - name: FASTR30 visual artifact and gallery hierarchy
-        working-directory: og-sports
-        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/review6_visual.py'
-      - name: Report exact review preview
+        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/review7_visual.py'
+      - name: Report exact review URL
         if: github.event_name == 'push'
         env:
           REVIEW_SHA: ${{ github.sha }}
         run: |
-          printf '## OG SPORTS Review 4\n\n[Open the exact commit preview](https://raw.githack.com/Zilli-on/fastr-report/%s/og-sports/site/index.html)\n\nPublic review only; not a Vercel or production deployment.\n' "$REVIEW_SHA" >> "$GITHUB_STEP_SUMMARY"
+          printf '## OG SPORTS R7\n\n[Exact commit web preview](https://raw.githack.com/Zilli-on/fastr-report/%s/og-sports/site/index.html)\n\nPublic design review, not Vercel or production. No merge or deployment.\n' "$REVIEW_SHA" >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: og-sports-review4-evidence
+          name: og-sports-r7-visual-evidence
           path: |
-            og-sports/qa/review4-smoke.json
-            og-sports/qa/review4-*.png
-            og-sports/qa/review5-visual.json
-            og-sports/qa/visual5-*.png
-            og-sports/qa/review6-visual.json
-            og-sports/qa/r6-*.png
+            og-sports/qa/review7-visual.json
+            og-sports/qa/r7-*.png
             og-sports/dist/build-manifest.json
           retention-days: 7
