@@ -46,6 +46,9 @@ jobs:
       - name: Editorial typography visual checks across seven viewports
         working-directory: og-sports
         run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/review5_visual.py'
+      - name: FASTR30 visual artifact and gallery hierarchy
+        working-directory: og-sports
+        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/review6_visual.py'
       - name: Report exact review preview
         if: github.event_name == 'push'
         env:
@@ -61,5 +64,7 @@ jobs:
             og-sports/qa/review4-*.png
             og-sports/qa/review5-visual.json
             og-sports/qa/visual5-*.png
+            og-sports/qa/review6-visual.json
+            og-sports/qa/r6-*.png
             og-sports/dist/build-manifest.json
           retention-days: 7
