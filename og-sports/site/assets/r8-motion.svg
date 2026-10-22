@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 940" fill="none" role="img" aria-label="Abstract converging motion paths">
+<defs>
+  <linearGradient id="fade" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e4e9db" stop-opacity=".12"/><stop offset=".44" stop-color="#dedee5" stop-opacity=".38"/><stop offset="1" stop-color="#e7e9dc" stop-opacity=".03"/></linearGradient>
+  <linearGradient id="acid" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#dce87d" stop-opacity=".08"/><stop offset=".47" stop-color="#e4f287" stop-opacity="1"/><stop offset="1" stop-color="#e2e887" stop-opacity=".34"/></linearGradient>
+  <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d9e776" stop-opacity=".13"/><stop offset=".5" stop-color="#d9e776" stop-opacity=".8"/><stop offset="1" stop-color="#d9e776" stop-opacity=".1"/></linearGradient>
+  <filter id="soft"><feGaussianBlur stdDeviation="12"/></filter>
+</defs>
+<g stroke="url(#fade)" stroke-width="1.2" opacity=".95">
+  <path d="M-60 35 C 330 130 402 280 568 433 S 948 652 1156 806"/>
+  <path d="M-65 69 C 289 155 401 310 543 450 S 930 685 1127 834"/>
+  <path d="M-60 108 C 261 192 394 337 527 472 S 924 715 1112 860"/>
+  <path d="M-50 151 C 242 229 378 365 505 490 S 920 750 1080 891"/>
+  <path d="M-40 201 C 214 273 369 401 483 515 S 895 772 1055 922"/>
+  <path d="M-40 246 C 203 309 349 430 468 535 S 855 783 1002 950"/>
+  <path d="M-40 299 C 178 357 337 472 444 569 S 810 798 944 950"/>
+  <path d="M-40 348 C 177 414 312 514 423 600 S 771 813 880 955"/>
+  <path d="M-40 405 C 156 460 280 562 393 623 S 704 854 815 963"/>
+</g>
+<g stroke="#fafbf2" stroke-width=".8" opacity=".16">
+  <circle cx="570" cy="460" r="270"/>
+  <circle cx="570" cy="460" r="345"/>
+  <circle cx="570" cy="460" r="422"/>
+  <circle cx="570" cy="460" r="501"/>
+  <circle cx="570" cy="460" r="578"/>
+</g>
+<path d="M-20 270 C 320 299 418 360 524 460 C 673 595 816 671 1080 727" stroke="url(#glow)" stroke-width="24" filter="url(#soft)"/>
+<path d="M-20 270 C 320 299 418 360 524 460 C 673 595 816 671 1080 727" stroke="url(#acid)" stroke-width="2.1"/>
+<path d="M-20 265 C 320 294 419 355 526 454 C 674 589 816 664 1080 720" stroke="#eef99c" stroke-width=".6" opacity=".4"/>
+<g fill="#e1ea99">
+  <circle cx="524" cy="460" r="4.2"/>
+  <circle cx="784" cy="654" r="3"/>
+  <circle cx="955" cy="714" r="2"/>
+</g>
+<g stroke="#dce8b9" opacity=".55" stroke-width=".75">
+  <path d="M524 437V483M501 460H547"/>
+  <path d="M785 639V671M769 655H801"/>
+</g>
+<g fill="#e4e8de" opacity=".63" font-family="Arial, sans-serif" font-size="13" letter-spacing="2.6">
+ <text x="539" y="435">OG / MOTION STUDY</text>
+ <text x="785" y="635">02 / CONNECTION</text>
+</g>
+</svg>
