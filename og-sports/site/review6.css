@@ -369,3 +369,8 @@
   #project-gallery[data-view='gallery'].fashion-projects>.live-card {order:2!important;width:100%!important;}
   #project-gallery[data-view='gallery'].fashion-projects>.stick-card {order:3!important;width:78%!important;justify-self:start;}
 }
+
+/* Keep the core FASTR story full width on phones. */
+@media(max-width:760px) {
+  .fastr-world { grid-template-columns:minmax(0,1fr); }
+}
