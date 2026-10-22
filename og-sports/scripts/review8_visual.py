@@ -80,6 +80,21 @@ def main():
                     assert all(s['loaded'] for s in info['studies']),info
                     assert not info['titleOverflow'],info
                     assert 'COLOUR STUDIES' in page.locator('.r8-apparel-meta').inner_text(),info
+                    if width<=760:
+                        spacing=page.evaluate("""() => {
+                          const r=s=>document.querySelector(s).getBoundingClientRect();
+                          return {
+                            apparelTitleEnd:r('.r7-row-apparel .r7-work-title').bottom,
+                            apparelImageTop:r('.r8-apparel-visual').top,
+                            apparelImageEnd:r('.r8-apparel-visual').bottom,
+                            apparelCreditTop:r('.r8-apparel-meta').top,
+                            stickTitleEnd:r('.r7-row-stick .r7-work-title').bottom,
+                            stickImageTop:r('.r8-stick-visual').top
+                          };
+                        }""")
+                        assert spacing['apparelTitleEnd'] <= spacing['apparelImageTop']+1, (width,spacing)
+                        assert spacing['apparelImageEnd'] <= spacing['apparelCreditTop']+1, (width,spacing)
+                        assert spacing['stickTitleEnd'] <= spacing['stickImageTop']+1, (width,spacing)
                     for label in ('#movement-title','#projects-title','#connect-title'):
                         page.locator(label).scroll_into_view_if_needed()
                         r=page.locator(label).evaluate('''e=>{const s=getComputedStyle(e),r=e.getBoundingClientRect();return {display:s.display,opacity:s.opacity,visible:r.top<innerHeight&&r.bottom>0}}''')
