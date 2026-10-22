@@ -17,7 +17,7 @@ concurrency:
 jobs:
   website:
     runs-on: ubuntu-latest
-    timeout-minutes: 13
+    timeout-minutes: 16
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -31,7 +31,7 @@ jobs:
       - name: Preserve reviewed built website
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: og-sports-r7-built-website
+          name: og-sports-r8-built-website
           path: og-sports/dist/
           retention-days: 7
           if-no-files-found: error
@@ -43,18 +43,23 @@ jobs:
       - name: Seven viewport tests, project details, bilingual UI and photo boundary
         working-directory: og-sports
         run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/review7_visual.py'
+      - name: R8 field atlas, original visual assets and interactive projects
+        working-directory: og-sports
+        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/review8_visual.py'
       - name: Report exact review URL
         if: github.event_name == 'push'
         env:
           REVIEW_SHA: ${{ github.sha }}
         run: |
-          printf '## OG SPORTS R7\n\n[Exact commit web preview](https://raw.githack.com/Zilli-on/fastr-report/%s/og-sports/site/index.html)\n\nPublic design review, not Vercel or production. No merge or deployment.\n' "$REVIEW_SHA" >> "$GITHUB_STEP_SUMMARY"
+          printf '## OG SPORTS R8\n\n[Exact commit web preview](https://raw.githack.com/Zilli-on/fastr-report/%s/og-sports/site/index.html)\n\nPublic design review, not Vercel or production. No merge or deployment.\n' "$REVIEW_SHA" >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: og-sports-r7-visual-evidence
+          name: og-sports-r8-visual-evidence
           path: |
             og-sports/qa/review7-visual.json
             og-sports/qa/r7-*.png
+            og-sports/qa/review8-visual.json
+            og-sports/qa/r8-*.png
             og-sports/dist/build-manifest.json
           retention-days: 7
