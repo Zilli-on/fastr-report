@@ -25,43 +25,52 @@ test('preserves the chosen first photograph and original brand assets byte for b
   assert.match(js, /assets\/after-the-run\.webp/, 'image notes show the unchanged original');
 });
 
-test('uses the three approved photographs and no photography below them', async () => {
+test('keeps the three approved photographs, retouched free of third-party brands', async () => {
   const photos = Array.from(section('brand').matchAll(/<img\b[^>]+src="(assets\/[^"]+)"/g), m => m[1]);
-  assert.deepEqual(photos, ['assets/run-detail.webp', 'assets/run-shadow.webp', 'assets/run-community.webp']);
-  const below = main.split('id="fastr"')[1];
-  assert.doesNotMatch(below, /<img\b[^>]+\.(?:webp|jpe?g|png)/i);
+  assert.deepEqual(photos, ['assets/frame-01-detail.webp', 'assets/run-shadow.webp', 'assets/frame-03-people.webp']);
   const assets = await readdir(new URL('site/assets/', root));
-  for (const retired of ['running-photograph.webp', 'cycling-photograph.webp', 'movement-rooftop.webp']) {
-    assert.ok(!assets.includes(retired), `${retired} was rejected and must not ship`);
+  for (const retired of ['running-photograph.webp', 'cycling-photograph.webp', 'movement-rooftop.webp', 'run-detail.webp', 'run-community.webp']) {
+    assert.ok(!assets.includes(retired), `${retired} was rejected or carries third-party marks and must not ship`);
     assert.ok(!(html + js + css).includes(retired), `${retired} must not be referenced`);
   }
 });
 
+test('labels every image below the photographs as AI study, AI visualisation or render', () => {
+  const below = main.split('id="fastr"')[1];
+  const figures = below.split('<figure').slice(1).map(f => f.split('</figure>')[0]);
+  const shown = [];
+  for (const figure of figures) {
+    const src = figure.match(/<img\b[^>]+src="assets\/([^"]+\.webp)"/)?.[1];
+    if (!src) continue;
+    shown.push(src);
+    const scope = main.slice(main.indexOf(figure), main.indexOf(figure) + figure.length + 1200);
+    assert.match(scope, /KI-(Kampagnenstudie|Bildstudie|Visualisierung|Raumstudie)|CAD-Entwurf V0/, `${src} needs a visible label`);
+  }
+  assert.deepEqual(shown, ['campaign-ramp.webp', 'campaign-spiral.webp', 'apparel-studies.webp', 'live-venue.webp', 'stick-studio.webp']);
+});
+
 test('keeps the seven FASTR30 standards in their fixed order', () => {
-  const rules = Array.from(main.matchAll(/<li style="--row:\d"><span class="std-num">\d+<\/span><span class="std-text"><strong>([^<]+)<\/strong>/g), m => m[1]);
+  const rules = Array.from(main.matchAll(/<li style="--row:\d"><span class="std-num">\d+<\/span><strong>([^<]+)<\/strong>/g), m => m[1]);
   assert.deepEqual(rules, ['RECOVER', 'OWN YOUR MORNING', 'MOVE', 'READ', 'GET FASTR', 'FUEL', 'REFLECT']);
 });
 
-test('presents four projects as authored plates with honest status captions', () => {
+test('presents four projects with their artefact and honest status captions', () => {
   const keys = Array.from(section('projects').matchAll(/<article [^>]*class="project [a-z]+" data-key="([a-z]+)"/g), m => m[1]);
   assert.deepEqual(keys, ['challenge', 'apparel', 'live', 'stick']);
   for (const key of keys) {
-    assert.match(main, new RegExp(`data-artefact="${key}"`), `plate for ${key}`);
+    assert.match(main, new RegExp(`data-artefact="${key}"`), `artefact for ${key}`);
     assert.match(main, new RegExp(`data-project="${key}"`), `story trigger for ${key}`);
   }
-  for (const status of ['Challenge-Konzept', 'Konzept-Flats', 'Formatskizze · noch kein Termin', 'CAD-Entwurf V0']) assert.ok(main.includes(status), status);
-  assert.match(html, /<symbol id="jersey-flat"/);
-  for (const name of ['jersey', 'routes', 'gather', 'stick']) {
-    const block = html.split(`<!-- art:${name} -->`)[1]?.split(`<!-- /art:${name} -->`)[0] || '';
-    assert.match(block, /<(svg|symbol)\b/, `generated art block ${name}`);
-  }
+  for (const status of ['Challenge-Konzept', 'keine Kollektion, kein Verkauf', 'noch kein Termin', 'ungeprüft, kein Produkt']) assert.ok(main.includes(status), status);
+  const block = html.split('<!-- art:stick -->')[1]?.split('<!-- /art:stick -->')[0] || '';
+  assert.match(block, /<svg class="stick-drawing"/, 'generated stick drawing');
 });
 
 test('browser JavaScript is syntactically valid', () => assert.doesNotThrow(() => new Script(js)));
 
 test('all local artwork referenced by the source exists', async () => {
-  const refs = new Set((html + css + js).match(/assets\/[A-Za-z0-9_.-]+\.(?:svg|webp|png|jpg)/g));
-  assert.ok(refs.size >= 8);
+  const refs = new Set((html + css + js).match(/(?:assets|fonts)\/[A-Za-z0-9_.-]+\.(?:svg|webp|png|jpg|woff2)/g));
+  assert.ok(refs.size >= 12);
   for (const file of refs) await access(new URL(`site/${file}`, root));
 });
 
@@ -94,9 +103,17 @@ test('keeps an accessible page outline and unique static IDs', () => {
   for (const [, label] of html.matchAll(/aria-labelledby="([^"]+)"/g)) assert.ok(ids.includes(label) || js.includes(`id="${label}"`), label);
 });
 
-test('has no bundled font binaries, remote fonts or third-party scripts', () => {
-  assert.doesNotMatch(html + css, /fonts\.(?:googleapis|gstatic)\.com|\.(?:woff2?|ttf|otf)(?:["')?]|$)/);
+test('self-hosts only OFL fonts and loads nothing from third parties', async () => {
+  assert.doesNotMatch(html + css, /fonts\.(?:googleapis|gstatic)\.com|https?:\/\/[^"')]+\.(?:woff2?|ttf|otf)/);
   assert.doesNotMatch(html, /<script[^>]+src="https?:/);
+  const fonts = await readdir(new URL('site/fonts/', root));
+  const binaries = fonts.filter(f => /\.(?:woff2?|ttf|otf)$/.test(f));
+  assert.deepEqual(binaries.sort(), ['archivo-var-latin.woff2', 'inter-var-latin.woff2']);
+  for (const family of ['Archivo', 'Inter']) {
+    const licence = await readFile(new URL(`site/fonts/OFL-${family}.txt`, root), 'utf8');
+    assert.match(licence, /SIL Open Font License, Version 1\.1/);
+  }
+  for (const file of binaries) assert.ok(css.includes(`fonts/${file}`), file);
 });
 
 test('serves the site with correct MIME types without exposing repo files', async () => {

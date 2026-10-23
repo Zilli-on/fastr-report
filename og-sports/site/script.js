@@ -30,26 +30,26 @@
         side: 'Der nächste Schritt muss nicht groß sein. Nur deiner.', note: '30 Tage. Sieben Standards. Ein eigener Rhythmus.', cta: 'Über FASTR30 sprechen', contact: 'community',
         extra: 'Dies sind die bestehenden Markenregeln des Challenge-Konzepts, keine individuell abgestimmten Gesundheitsempfehlungen.'},
       apparel: {category: 'Bekleidung', status: 'Designentwicklung', title: 'Wienerwald.', intro: 'Für die Strecke.\nUnd das Leben dazwischen.',
-        cover: 'Eine Form, vier Farbstudien · Konzept-Flats, keine Kollektion',
+        cover: 'Eine Form, vier Farbstudien · KI-Visualisierung, keine Kollektion',
         section: 'Nicht nur,\nwas du trägst.', body: 'Wir entwickeln eine eigene Bekleidungssprache für OG SPORTS. Die aktuellen Cycling-Entwürfe arbeiten mit wenigen, großen geometrischen Flächen statt mit Dekor. Form, Farbe und Funktion werden gemeinsam gedacht.',
         side: 'Weitere Farbkonzepte aus der Entwicklung: Hagebutte Winterbuche, Holunder Eiche, Elderberry Mist, Lime Blueberry, Willow Plum, Coral Blood Orange, Grau, Weiß und Schwarz.',
         pillars: [['01', 'Form.', 'Klare Flächen, präzise Proportionen und eine eigene grafische Sprache.'], ['02', 'Funktion.', 'Bewegung und Nutzung bestimmen den Entwurf — nicht nur seine Wirkung im Bild.'], ['03', 'Haltung.', 'Sportbekleidung mit Charakter. Für Menschen, die ihren eigenen Weg gehen.']],
         note: 'Cycling als Ausgangspunkt. Ein eigener Blick als Maßstab.', cta: 'Über eine Zusammenarbeit sprechen', contact: 'create',
-        extra: 'Die Flats sind Farb- und Formstudien, keine finale Kollektion. Farbwerte sind keine Produktionsvorgaben. Entwürfe, Materialien und Produktion befinden sich in Entwicklung.'},
+        extra: 'Das Bild ist eine KI-Visualisierung unserer Farbstudien, kein Foto eines Produkts. Farbwerte sind keine Produktionsvorgaben. Entwürfe, Materialien und Produktion befinden sich in Entwicklung.'},
       live: {category: 'Live', status: 'Formate in Planung', title: 'In real life.', intro: 'Sport bringt uns zusammen.\nKultur lässt uns bleiben.',
-        cover: 'Formatskizze · noch kein Termin, keine Eventdokumentation',
+        cover: 'KI-Raumstudie · noch kein Termin, keine Eventdokumentation',
         section: 'Mehr als\nder Moment.', body: 'Wir entwickeln Formate, in denen Bewegung, Musik und Begegnungen zusammenkommen. Der Sport ist der Anfang. Was zwischen den Menschen entsteht, gehört genauso dazu.',
         side: 'Die besten Verbindungen entstehen nicht im Feed.',
         pillars: [['01', 'Move.', 'Ein gemeinsamer Anlass. Raum, um selbst in Bewegung zu kommen.'], ['02', 'Meet.', 'Menschen, Musik und neue Perspektiven. Sport trifft auf Kultur.'], ['03', 'Come back.', 'Ein Format, zu dem man wegen der Menschen zurückkommen möchte.']],
         note: 'Nicht nur zuschauen. Teil des Moments werden.', cta: 'Ein Format gemeinsam gestalten', contact: 'create',
         extra: 'Termine, Orte und Anmeldung folgen nach Bestätigung. Diese Vorschau kündigt kein buchbares Event an.'},
       stick: {category: 'Objekt', status: 'Prototyp in Entwicklung', title: 'FASTR STICK', intro: 'Eine kleine Idee.\nFür lange Strecken.',
-        cover: 'Ansicht A und Halbschnitt A–A · nach CAD-Entwurf V0',
+        cover: 'Studio-Render aus CAD-Entwurf V0 · ungeprüft, kein Produkt',
         section: 'Weniger\ndazwischen.', body: 'Ein Anti-Chafing-Stick für Ausdauersport. Gedreht wird am Fuß: Die Gewindespindel hebt den Teller, der Balm kommt nach oben. Schlank, unkompliziert und mit einer Hand bedienbar — das ist das Entwicklungsziel.',
         side: 'Nicht mehr Funktionen. Eine Aufgabe, sorgfältig gelöst.',
         pillars: [['01', '30 ml.', 'Das geplante Volumen. In einer schlanken, zylindrischen Form.'], ['02', 'Eine Hand.', 'Einhandbedienung als Ziel. Die Mechanik wird schrittweise prototypisiert.'], ['03', 'Weiterdenken.', 'Aktuell im Fokus: Gehäuse, Führung und Schraubvorschub. Noch kein Serienprodukt.']],
         note: 'Form folgt Nutzung. Nicht umgekehrt.', cta: 'Über die Entwicklung sprechen', contact: 'create',
-        extra: 'Die Zeichnung folgt den vorgeschlagenen Proportionen unseres CAD-Entwurfs V0. Passung, Dichtheit und Füllmenge sind noch nicht geprüft. Keine Vorbestellung.'}
+        extra: 'Render und Zeichnung zeigen die Geometrie unseres CAD-Entwurfs V0 mit vorgeschlagenen Maßen. Material und Licht sind Gestaltung. Passung, Dichtheit und Füllmenge sind noch nicht geprüft. Keine Vorbestellung.'}
     },
     en: {
       ui: {project: 'Project', next: 'Next', conversation: 'Every idea starts a conversation.', approach: 'The approach',
@@ -62,26 +62,26 @@
         side: 'The next step does not have to be big. Just yours.', note: '30 days. Seven standards. Your own rhythm.', cta: 'Talk about FASTR30', contact: 'community',
         extra: 'These are the existing brand rules of the challenge concept, not individually tailored health recommendations.'},
       apparel: {category: 'Apparel', status: 'Design development', title: 'Wienerwald.', intro: 'For the ride.\nAnd everything in between.',
-        cover: 'One form, four colour studies · concept flats, not a collection',
+        cover: 'One form, four colour studies · AI visualisation, not a collection',
         section: 'More than\nwhat you wear.', body: 'We are developing an independent apparel language for OG SPORTS. The current cycling concepts work with a few large geometric planes instead of decoration. Form, colour and function are designed together.',
         side: 'Further colour concepts in development: Hagebutte Winterbuche, Holunder Eiche, Elderberry Mist, Lime Blueberry, Willow Plum, Coral Blood Orange, grey, white and black.',
         pillars: [['01', 'Shape.', 'Clear surfaces, precise proportions and an independent graphic language.'], ['02', 'Function.', 'Movement and use shape the design — not just how it looks in a picture.'], ['03', 'Character.', 'Sportswear with its own perspective. For people who find their own way.']],
         note: 'Cycling as a starting point. Our own perspective as a standard.', cta: 'Explore a collaboration', contact: 'create',
-        extra: 'The flats are colour and form studies, not a final collection. Colour values are not production specifications. Designs, materials and production are in development.'},
+        extra: 'The image is an AI visualisation of our colour studies, not a photograph of a product. Colour values are not production specifications. Designs, materials and production are in development.'},
       live: {category: 'Live', status: 'Formats in development', title: 'In real life.', intro: 'Sport brings us together.\nCulture makes us stay.',
-        cover: 'Format sketch · no date yet, not an event record',
+        cover: 'AI space study · no date yet, not an event record',
         section: 'Beyond\nthe moment.', body: 'We are developing formats where movement, music and new connections come together. Sport is the beginning. What happens between people matters just as much.',
         side: 'The best connections do not happen in a feed.',
         pillars: [['01', 'Move.', 'A reason to come together. Space to get moving yourself.'], ['02', 'Meet.', 'People, music and new perspectives. Sport meets culture.'], ['03', 'Come back.', 'A format you want to return to because of the people.']],
         note: 'More than watching. Being part of the moment.', cta: 'Create an experience together', contact: 'create',
         extra: 'Dates, venues and registration will follow once confirmed. This preview does not announce a bookable event.'},
       stick: {category: 'Object', status: 'Prototype in development', title: 'FASTR STICK', intro: 'A small idea.\nFor the long run.',
-        cover: 'View A and half section A–A · from CAD draft V0',
+        cover: 'Studio render from CAD draft V0 · untested, not a product',
         section: 'Less in\nthe way.', body: 'An anti-chafing stick for endurance sport. Turn the base: the threaded spindle lifts the cup and the balm comes up. Slim, uncomplicated and usable with one hand — that is the development goal.',
         side: 'Not more functions. One purpose, carefully considered.',
         pillars: [['01', '30 ml.', 'The planned capacity. In a slim, cylindrical form.'], ['02', 'One hand.', 'One-handed use as a goal. The mechanism is being prototyped step by step.'], ['03', 'Keep refining.', 'Current focus: housing, guide and screw-feed mechanism. Not a production product.']],
         note: 'Form follows use. Not the other way around.', cta: 'Talk about development', contact: 'create',
-        extra: 'The drawing follows the proposed proportions of our CAD draft V0. Fit, sealing and fill volume have not been tested yet. No preorders.'}
+        extra: 'Render and drawing show the geometry of our CAD draft V0 with proposed dimensions. Material and light are art direction. Fit, sealing and fill volume have not been tested yet. No preorders.'}
     }
   };
 
@@ -93,19 +93,14 @@
     const wrap = document.createElement('div');
     wrap.className = 'story-cover story-cover-' + key;
     if (!source) return wrap;
-    const part = key === 'challenge' ? source : source.querySelector('.line-sheet, .frame-image');
-    const clone = part.cloneNode(true);
+    const clone = source.cloneNode(true);
     clone.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+    clone.querySelectorAll('img').forEach(img => { img.loading = 'eager'; });
     clone.removeAttribute('data-artefact');
     clone.removeAttribute('data-motion');
     clone.classList.add('is-in');
     if (key === 'challenge') wrap.classList.add('story-cover-ink');
-    if (key === 'stick') {
-      const inner = document.createElement('div');
-      inner.className = 'frame-stick-cover';
-      inner.append(clone);
-      wrap.append(inner);
-    } else wrap.append(clone);
+    wrap.append(clone);
     return wrap;
   }
 
@@ -392,17 +387,17 @@
     }
   });
 
-  // Motion: three plates draw themselves once, when they come into view.
-  // Without JavaScript, or with reduced motion, every plate is shown complete.
+  // Motion: large images settle and the FASTR30 field fills once, when seen.
+  // Without JavaScript, or with reduced motion, everything is shown complete.
   if ('IntersectionObserver' in window && !reduced.matches) {
     root.classList.add('motion-ok');
     const seen = new IntersectionObserver(entries => entries.forEach(entry => {
       if (entry.isIntersecting) { entry.target.classList.add('is-in'); seen.unobserve(entry.target); }
     }), {threshold: .25});
-    document.querySelectorAll('main [data-motion]').forEach(el => seen.observe(el));
+    document.querySelectorAll('main [data-motion], main .bleed').forEach(el => seen.observe(el));
   }
   reduced.addEventListener?.('change', () => {
-    if (reduced.matches) { root.classList.remove('motion-ok'); document.querySelectorAll('[data-motion]').forEach(el => el.classList.add('is-in')); }
+    if (reduced.matches) { root.classList.remove('motion-ok'); document.querySelectorAll('[data-motion], .bleed').forEach(el => el.classList.add('is-in')); }
   });
 
   translate('de');

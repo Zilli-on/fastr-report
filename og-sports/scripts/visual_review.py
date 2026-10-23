@@ -6,8 +6,8 @@ Two parts, both against `dist/` served locally:
              approved photographs and nothing photographic below them, heading fit,
              hero composition, four project stories, DE/EN, contact draft, menu,
              contrast of body text, target sizes, section screenshots
-  artefacts  the authored plates (routes, practice field, jersey flats, gathering,
-             stick drawing), their one-time motion and its reduced-motion fallback,
+  artefacts  the campaign images and their labels, self-hosted fonts, practice field,
+             colourways, stick drawing, one-time motion and its reduced-motion fallback,
              keyboard paths (skip link, focus trap, arrow keys, Escape, deep links)
 
 Usage:  python scripts/visual_review.py [site|artefacts|all]
@@ -55,8 +55,8 @@ MEASURE = r"""() => {
   return {
     width: innerWidth, scrollWidth: document.documentElement.scrollWidth,
     hero: img.getAttribute('src'), natural: [img.naturalWidth, img.naturalHeight],
-    photos: [...document.querySelectorAll('#brand .frame-image img')].map(i => i.getAttribute('src')),
-    photosBelow: [...document.querySelectorAll('main img')].filter(i => /\.(webp|jpe?g|png)$/i.test(i.getAttribute('src') || '') && !i.closest('.hero, #brand')).length,
+    photos: [...document.querySelectorAll('#brand .tile img')].map(i => i.getAttribute('src')),
+    unlabelled: [...document.querySelectorAll('main img')].filter(i => /\.(webp|jpe?g|png)$/i.test(i.getAttribute('src') || '') && !i.closest('.hero, #brand')).filter(i => { const f = i.closest('figure, article'); return !/KI-|AI |CAD/.test((f && f.textContent) || ''); }).map(i => i.getAttribute('src')),
     rules: [...document.querySelectorAll('#projects .field-rows strong')].map(e => e.textContent.trim()),
     projects: [...document.querySelectorAll('#projects > .project')].map(e => e.dataset.key),
     headings: [...document.querySelectorAll('main h2:not(.sr-only), main h3')].map(e => ({text: e.textContent.trim().slice(0, 40), client: e.clientWidth, scroll: e.scrollWidth, right: e.getBoundingClientRect().right})),
@@ -171,13 +171,13 @@ def site(browser, base, report):
         check(
             m["photos"]
             == [
-                "assets/run-detail.webp",
+                "assets/frame-01-detail.webp",
                 "assets/run-shadow.webp",
-                "assets/run-community.webp",
+                "assets/frame-03-people.webp",
             ],
             (where, m["photos"]),
         )
-        check(m["photosBelow"] == 0, (where, "photographs below the culture sequence"))
+        check(not m["unlabelled"], (where, "image without AI/render label", m["unlabelled"]))
         check(m["rules"] == STANDARDS, (where, m["rules"]))
         check(m["projects"] == PROJECTS, (where, m["projects"]))
         check(
@@ -234,10 +234,12 @@ def site(browser, base, report):
             dialog = page.locator("#project-dialog")
             check(dialog.evaluate("e => e.open"), (where, key, "dialog did not open"))
             cover = dialog.locator(".story-cover")
-            check(
-                cover.count() == 1 and cover.locator("img").count() == 0,
-                (where, key, "cover"),
-            )
+            check(cover.count() == 1, (where, key, "cover"))
+            if key != "challenge":
+                check(
+                    cover.locator("img").first.evaluate("i => (i.complete && i.naturalWidth > 0) || new Promise(r => { i.onload = () => r(i.naturalWidth > 0); i.onerror = () => r(false); })"),
+                    (where, key, "cover image"),
+                )
             check(
                 dialog.evaluate("e => e.scrollWidth <= e.clientWidth + 1"),
                 (where, key, "dialog overflows"),
@@ -258,7 +260,7 @@ def site(browser, base, report):
         page.locator(".site-header .language").click()
         check(page.locator("html").get_attribute("lang") == "en", (where, "lang en"))
         check(
-            page.locator('#projects [data-project="challenge"]').inner_text().strip()
+            page.locator('#projects [data-project="challenge"]').text_content().strip()
             == "Explore FASTR30",
             (where, "EN copy"),
         )
@@ -341,58 +343,53 @@ def artefacts(browser, base, report):
         load(page, base)
         plates = page.evaluate(r"""() => ({
           motionClass: document.documentElement.classList.contains('motion-ok'),
-          routes: document.querySelectorAll('#fastr .routes path').length,
-          you: document.querySelectorAll('#fastr .routes .route-you').length,
+          images: [...document.querySelectorAll('main img[src$=".webp"]')].map(i => [i.getAttribute('src'), i.naturalWidth]),
           rows: document.querySelectorAll('.practice-field .field-rows li').length,
           cells: [...document.querySelectorAll('.practice-field .field-cells')].map(c => getComputedStyle(c, '::after').clipPath),
-          flats: [...document.querySelectorAll('.line-sheet .flat use')].map(u => u.getAttribute('href')),
-          symbol: !!document.querySelector('svg.sprite symbol#jersey-flat'),
-          flatNames: [...document.querySelectorAll('.line-sheet .flat p')].map(p => p.textContent.trim()),
-          people: document.querySelectorAll('.frame-live .gather circle').length,
-          youDot: document.querySelectorAll('.frame-live .gather .dot-you').length,
+          colourways: [...document.querySelectorAll('.colourways li')].map(l => l.textContent.trim()),
           callouts: [...document.querySelectorAll('.stick-drawing .s-call text')].map(t => t.textContent),
           legend: document.querySelectorAll('.stick-legend li').length,
-          captions: [...document.querySelectorAll('#projects .frame-caption')].map(c => c.textContent.trim())
+          fonts: [...document.fonts].filter(f => f.status === 'loaded').map(f => f.family.replace(/"/g, '')),
+          headingFont: getComputedStyle(document.querySelector('#movement-title')).fontFamily,
+          captions: [...document.querySelectorAll('main figcaption, main .frame-caption')].map(c => c.textContent.trim())
         })""")
-        check(
-            not plates["motionClass"], (where, "reduced motion must not arm animations")
-        )
-        check(plates["routes"] >= 20 and plates["you"] == 1, (where, plates["routes"]))
+        check(not plates["motionClass"], (where, "reduced motion must not arm animations"))
+        widths = dict(plates["images"])
+        for src, minimum in (
+            ("assets/frame-01-detail.webp", 1200),
+            ("assets/frame-03-people.webp", 2400),
+            ("assets/campaign-ramp.webp", 2400),
+            ("assets/campaign-spiral.webp", 1600),
+            ("assets/apparel-studies.webp", 2400),
+            ("assets/live-venue.webp", 2400),
+            ("assets/stick-studio.webp", 1600),
+        ):
+            check(widths.get(src, 0) >= minimum, (where, "image missing or too small", src, widths.get(src)))
         check(
             plates["rows"] == 7
-            and all(
-                c in ("none", "inset(0px)", "inset(0px 0px 0px 0px)")
-                for c in plates["cells"]
-            ),
+            and all(c in ("none", "inset(0px)", "inset(0px 0px 0px 0px)") for c in plates["cells"]),
             (where, plates["cells"]),
         )
         check(
-            plates["flats"] == ["#jersey-flat"] * 4 and plates["symbol"],
-            (where, plates["flats"]),
+            [c.split(None, 1)[1] for c in plates["colourways"]] == ["Apple Sky", "Pear Moss", "Rosehip Stone", "Black Design"],
+            (where, plates["colourways"]),
         )
         check(
-            [n.split(None, 1)[1] for n in plates["flatNames"]]
-            == ["Apple Sky", "Pear Moss", "Rosehip Stone", "Black Design"],
-            plates["flatNames"],
-        )
-        check(
-            plates["people"] >= 40 and plates["youDot"] == 1, (where, plates["people"])
-        )
-        check(
-            plates["callouts"] == ["01", "02", "03", "04", "05"]
-            and plates["legend"] == 5,
+            plates["callouts"] == ["01", "02", "03", "04", "05"] and plates["legend"] == 5,
             (where, plates["callouts"]),
         )
+        check({"Archivo", "Inter"} <= set(plates["fonts"]), (where, "self-hosted fonts not loaded", plates["fonts"]))
+        check(plates["headingFont"].startswith("Archivo"), (where, plates["headingFont"]))
         for needle in (
+            "KI-Kampagnenstudie",
+            "KI-Bildstudie",
             "Challenge-Konzept",
-            "Konzept-Flats",
-            "Formatskizze",
+            "KI-Visualisierung",
+            "KI-Raumstudie",
             "CAD-Entwurf V0",
+            "Unsplash",
         ):
-            check(
-                any(needle in c for c in plates["captions"]),
-                (where, "honest status caption missing", needle),
-            )
+            check(any(needle in c for c in plates["captions"]), (where, "honest caption missing", needle))
         # keyboard: skip link first, visible focus, trap, arrows, deep link
         page.keyboard.press("Tab")
         check(
@@ -420,7 +417,7 @@ def artefacts(browser, base, report):
             (where, "deep link"),
         )
         check(
-            page.locator("#project-dialog-title").inner_text().strip() == "FASTR STICK",
+            page.locator("#project-dialog-title").text_content().strip() == "FASTR STICK",
             (where, "deep link title"),
         )
         path = QA / f"{NAMES['artefacts'][1]}-story-stick-{width}.png"
@@ -434,35 +431,26 @@ def artefacts(browser, base, report):
             page.evaluate("document.documentElement.classList.contains('motion-ok')"),
             (where, "motion not armed"),
         )
-        before = page.evaluate(
-            "getComputedStyle(document.querySelector('#fastr .routes path')).strokeDashoffset"
-        )
-        check(before.startswith("1"), (where, "routes should wait off-screen", before))
-        for selector in ("#fastr .movement-stage", ".practice-field", ".frame-live"):
-            page.locator(selector).scroll_into_view_if_needed()
-            page.wait_for_timeout(200)
-        page.wait_for_timeout(5200)
-        done = page.evaluate(r"""() => ({
-          seen: [...document.querySelectorAll('main [data-motion]')].every(e => e.classList.contains('is-in')),
-          route: getComputedStyle(document.querySelector('#fastr .routes path')).strokeDashoffset,
-          cells: getComputedStyle(document.querySelector('.field-cells'), '::after').clipPath,
-          person: getComputedStyle(document.querySelector('.frame-live .gather circle')).opacity,
-          you: getComputedStyle(document.querySelector('.frame-live .gather .dot-you')).opacity
+        before = page.evaluate(r"""() => ({
+          field: getComputedStyle(document.querySelector('.field-cells'), '::after').clipPath
         })""")
-        check(
-            done["seen"]
-            and done["route"] in ("0", "0px")
-            and done["person"] == "1"
-            and done["you"] == "1",
-            (where, done),
-        )
+        check(before["field"].startswith("inset(0px 100%"), (where, "field should wait off-screen", before))
+        for selector in ("#fastr .bleed", ".practice-field", ".apparel .bleed", ".live .bleed"):
+            page.locator(selector).scroll_into_view_if_needed()
+            page.wait_for_timeout(250)
+        page.wait_for_timeout(3200)
+        done = page.evaluate(r"""() => ({
+          seen: [...document.querySelectorAll('main [data-motion], main .bleed')].every(e => e.classList.contains('is-in')),
+          cells: getComputedStyle(document.querySelector('.field-cells'), '::after').clipPath
+        })""")
+        check(done["seen"], (where, done))
         check(done["cells"] in ("inset(0px)", "inset(0px 0px 0px 0px)"), (where, done))
         for name, selector in (
-            ("routes", "#fastr .movement-stage"),
+            ("movement", "#fastr .bleed"),
             ("field", ".practice-field"),
-            ("live", ".frame-live"),
-            ("apparel", ".frame-apparel"),
-            ("stick", ".frame-stick"),
+            ("apparel", ".apparel .bleed"),
+            ("live", ".live .bleed"),
+            ("stick", ".stick"),
         ):
             path = QA / f"{NAMES['artefacts'][1]}-{name}-{width}.png"
             page.locator(selector).screenshot(path=str(path))

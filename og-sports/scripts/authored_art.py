@@ -1,11 +1,7 @@
 """Authored image plates for the OG SPORTS homepage.
 
-The plates below the three approved photographs are drawn, not photographed.
-Their geometry is generated here so it stays deterministic and reviewable:
+One generated plate remains next to the studio render of chapter 08:
 
-  routes  04 / OG FASTR     many routes, one direction
-  jersey  06 / Wienerwald   front flat of a road jersey (<symbol>, coloured via CSS)
-  gather  07 / Live         people arriving and gathering (format sketch)
   stick   08 / FASTR STICK  elevation + half section, proportions from CAD draft V0
 
 Usage (from og-sports/):
@@ -14,8 +10,6 @@ Usage (from og-sports/):
   python scripts/authored_art.py --check   # exit 1 if site/index.html differs from this generator
 """
 
-import math
-import random
 import re
 import sys
 from pathlib import Path
@@ -60,173 +54,6 @@ STICK_V0 = {
 
 def f(v):
     return f"{v:.1f}".rstrip("0").rstrip(".")
-
-
-# ------------------------------------------------------------------ routes
-def catmull(points):
-    d = f"M{f(points[0][0])} {f(points[0][1])}"
-    for i in range(len(points) - 1):
-        p0 = points[i - 1] if i else points[i]
-        p1, p2 = points[i], points[i + 1]
-        p3 = points[i + 2] if i + 2 < len(points) else p2
-        c1 = (p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6)
-        c2 = (p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6)
-        d += f"C{f(c1[0])} {f(c1[1])} {f(c2[0])} {f(c2[1])} {f(p2[0])} {f(p2[1])}"
-    return d
-
-
-def routes():
-    rnd = random.Random(30)
-    W, H, n = 1600, 640, 23
-    starts = [40 + i * (560 / (n - 1)) for i in range(n)]
-    rnd.shuffle(starts)
-    band = {s: 286 + (i / (n - 1)) * 68 for i, s in enumerate(sorted(starts))}
-    you_index = 17
-    paths = []
-    for idx, y0 in enumerate(starts):
-        y1 = band[y0]
-        amp = rnd.uniform(26, 70)
-        freq = rnd.uniform(0.9, 1.7)
-        phase = rnd.uniform(0, math.tau)
-        pts = []
-        for k in range(17):
-            t = k / 16
-            x = -30 + t * (W + 60)
-            ease = 1 - (1 - t) ** 2.2
-            settle = (1 - t) ** 1.35
-            y = (
-                y0
-                + (y1 - y0) * ease
-                + math.sin(freq * t * math.tau + phase) * amp * settle
-            )
-            pts.append((x, y))
-        cls = ' class="route-you"' if idx == you_index else ""
-        paths.append(
-            (
-                idx == you_index,
-                f'<path{cls} d="{catmull(pts)}" pathLength="1" style="--i:{idx}"/>',
-            )
-        )
-    # draw "you" last so it sits on top
-    body = [p for you, p in paths if not you] + [p for you, p in paths if you]
-    return (
-        f'<svg class="routes" viewBox="0 0 {W} {H}" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" focusable="false">\n'
-        + "\n".join(body)
-        + "\n</svg>"
-    )
-
-
-# ------------------------------------------------------------------ jersey
-def jersey():
-    """Front flat, 400 x 470 units, symmetric about x = 200."""
-    left = [
-        (160, 34),
-        (98, 54),
-        (30, 140),
-        (74, 178),
-        (113, 146),
-        (119, 300),
-        (112, 432),
-    ]
-    right = [(400 - x, y) for x, y in reversed(left)]
-    (n, s, st, sh, ua, w, h) = left
-    (hr, wr, uar, shr, str_, sr, nr) = right
-    body = (
-        f"M{n[0]} {n[1]}L{s[0]} {s[1]}L{st[0]} {st[1]}L{sh[0]} {sh[1]}L{ua[0]} {ua[1]}"
-        f"Q118 222 {w[0]} {w[1]}Q118 372 {h[0]} {h[1]}Q200 444 {hr[0]} {hr[1]}"
-        f"Q282 372 {wr[0]} {wr[1]}Q282 222 {uar[0]} {uar[1]}L{shr[0]} {shr[1]}"
-        f"L{str_[0]} {str_[1]}L{sr[0]} {sr[1]}L{nr[0]} {nr[1]}Q200 78 {n[0]} {n[1]}Z"
-    )
-    return f"""<symbol id="jersey-flat" viewBox="0 0 400 470">
-<clipPath id="jersey-clip"><path d="{body}"/></clipPath>
-<path d="{body}" style="fill:var(--base)"/>
-<g clip-path="url(#jersey-clip)">
-<path d="M-40 560L-40 380L440 92L440 560Z" style="fill:var(--plane)"/>
-<path d="M-40 352L-40 341L440 53L440 64Z" style="fill:var(--line)"/>
-<path d="M30 140L74 178L84 169L41 131ZM370 140L326 178L316 169L359 131Z" style="fill:var(--cuff)"/>
-<path d="M100 418Q200 430 300 418L300 440Q200 452 100 440Z" style="fill:var(--hem)"/>
-<path d="M113 146Q150 200 146 300Q142 380 150 438M287 146Q250 200 254 300Q258 380 250 438M98 54L113 146M302 54L287 146" fill="none" style="stroke:var(--seam)" stroke-width="1.2"/>
-</g>
-<path d="M160 34Q200 22 240 34Q200 78 160 34Z" style="fill:var(--collar)" opacity=".45"/>
-<path d="M160 34Q200 78 240 34L244 42Q200 92 156 42Z" style="fill:var(--collar)"/>
-<path d="M200 57V437" fill="none" style="stroke:var(--zip)" stroke-width="2.2"/>
-<path d="M196.5 60h7v15h-7z" style="fill:var(--zip)"/>
-<path d="{body}" fill="none" style="stroke:var(--edge)" stroke-width="1.4" stroke-linejoin="round"/>
-</symbol>"""
-
-
-# ------------------------------------------------------------------ gather
-def gather():
-    """After the run: people arrive from every side and stand together in small circles."""
-    rnd = random.Random(11)
-    W, H = 1200, 800
-    cx, cy = 600, 400
-    # (x, y, people) — small conversations around one larger group
-    groups = [
-        (250, 250, 4),
-        (448, 172, 3),
-        (628, 372, 9),
-        (884, 224, 5),
-        (1040, 400, 2),
-        (330, 500, 6),
-        (556, 612, 3),
-        (812, 560, 6),
-        (1012, 640, 3),
-        (176, 652, 2),
-    ]
-    dots = []
-    you = None
-    for gx, gy, count in groups:
-        main = count == 9
-        slots = count + 1 if main else count  # the large circle keeps one place open
-        radius = 14 + 13 * math.sqrt(slots)
-        turn = rnd.uniform(0, math.tau)
-        for k in range(slots):
-            a = turn + k * math.tau / slots + rnd.uniform(-0.18, 0.18)
-            r = radius * rnd.uniform(0.88, 1.1) if slots > 1 else 0
-            x, y = gx + math.cos(a) * r, gy + math.sin(a) * r * 0.86
-            if main and k == 0:
-                you = (x, y)
-                continue
-            # arrival from beyond the nearest frame edge, loosely
-            ang = math.atan2(gy - cy, gx - cx) + rnd.uniform(-0.7, 0.7)
-            dist = rnd.uniform(700, 1050)
-            dots.append(
-                (
-                    x,
-                    y,
-                    math.cos(ang) * dist,
-                    math.sin(ang) * dist * 0.75,
-                    rnd.uniform(0, 1.1),
-                )
-            )
-    # two people still on their way
-    for x, y in ((1128, 112), (90, 360)):
-        dots.append((x, y, (x - cx) * 0.9, (y - cy) * 0.9, rnd.uniform(0.9, 1.4)))
-    body = [
-        f'<circle cx="{f(x)}" cy="{f(y)}" r="10" style="--dx:{f(sx)}px;--dy:{f(sy)}px;--d:{d:.2f}s"/>'
-        for x, y, sx, sy, d in dots
-    ]
-    # "you": one route comes in from the edge of the frame, passes between two
-    # groups and closes the large circle
-    pts = [
-        (you[0] + 16, you[1] - 2),
-        (770, 364),
-        (880, 334),
-        (990, 298),
-        (1110, 244),
-        (1240, 172),
-    ]
-    route = catmull(list(reversed(pts)))
-    trail = f'<path class="route-you" d="{route}" pathLength="1"/>'
-    body.append(f'<circle class="dot-you" cx="{f(you[0])}" cy="{f(you[1])}" r="11"/>')
-    return (
-        f'<svg class="gather" viewBox="0 0 {W} {H}" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">\n'
-        + trail
-        + "\n"
-        + "\n".join(body)
-        + "\n</svg>"
-    )
 
 
 # ------------------------------------------------------------------ stick
@@ -382,7 +209,7 @@ def stick():
     )
 
 
-ART = {"jersey": jersey, "routes": routes, "gather": gather, "stick": stick}
+ART = {"stick": stick}
 
 
 def render(html):
