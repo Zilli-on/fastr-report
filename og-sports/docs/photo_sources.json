@@ -1,6 +1,6 @@
 {
-  "version": "Review 7 / editorial first, typographic after",
-  "verified": "2026-10-22",
+  "version": "2026-10-23 / every chapter is a frame",
+  "verified": "2026-10-23",
   "photographs": [
     {
       "key": "running",
@@ -13,9 +13,10 @@
       "location": "Montréal, Québec, Canada",
       "license": "Unsplash License",
       "license_url": "https://unsplash.com/license",
-      "downloaded_copy_in_this_local_bundle": true,
+      "downloaded_copy_in_this_local_bundle": false,
       "local_file": "assets/running-photograph.webp",
-      "sha256": "9bad8592255e8d7ee646718f0a54db934a4e89e870f09ed30b8c654ba3adbeea"
+      "sha256": "9bad8592255e8d7ee646718f0a54db934a4e89e870f09ed30b8c654ba3adbeea",
+      "status": "retired 2026-10-23: removed from site/assets, not shown; kept here for provenance"
     },
     {
       "key": "cycling",
@@ -29,9 +30,10 @@
       "location": "Brouwersdam, Ouddorp, Netherlands",
       "license": "Unsplash License",
       "license_url": "https://unsplash.com/license",
-      "downloaded_copy_in_this_local_bundle": true,
+      "downloaded_copy_in_this_local_bundle": false,
       "local_file": "assets/cycling-photograph.webp",
-      "sha256": "d608bd0f5bd1faff76544c3d3a8c17c56bc87f8222054818b56807eed056076c"
+      "sha256": "d608bd0f5bd1faff76544c3d3a8c17c56bc87f8222054818b56807eed056076c",
+      "status": "retired 2026-10-23: removed from site/assets, not shown; kept here for provenance"
     },
     {
       "key": "run-detail",
@@ -43,7 +45,8 @@
       "license": "Unsplash License",
       "license_url": "https://unsplash.com/license",
       "local_file": "assets/run-detail.webp",
-      "sha256": "dcc5694b8245f1b3fa138ebb5b16d09172d20f4ab9817a89bf1097e33bd89b93"
+      "sha256": "dcc5694b8245f1b3fa138ebb5b16d09172d20f4ab9817a89bf1097e33bd89b93",
+      "status": "shown on the homepage, culture sequence"
     },
     {
       "key": "run-shadow",
@@ -56,7 +59,8 @@
       "license": "Unsplash License",
       "license_url": "https://unsplash.com/license",
       "local_file": "assets/run-shadow.webp",
-      "sha256": "f1ffa9de0ca17daac7aca5a389b136c45dcdcab9fdbc849f17c62a71082b6469"
+      "sha256": "f1ffa9de0ca17daac7aca5a389b136c45dcdcab9fdbc849f17c62a71082b6469",
+      "status": "shown on the homepage, culture sequence"
     },
     {
       "key": "run-community",
@@ -68,7 +72,8 @@
       "license": "Unsplash License",
       "license_url": "https://unsplash.com/license",
       "local_file": "assets/run-community.webp",
-      "sha256": "546bdde1f8b68413484528b5d3b2cfa245fb2331b56bba41e8cf57dcb7c439f2"
+      "sha256": "546bdde1f8b68413484528b5d3b2cfa245fb2331b56bba41e8cf57dcb7c439f2",
+      "status": "shown on the homepage, culture sequence"
     }
   ],
   "rights_note": "Public design review. Unsplash photo licence does not itself verify model/property/trademark releases for advertising. No implied endorsement. Noindex is not access protection.",
@@ -76,7 +81,7 @@
     "file": "assets/after-the-run.webp",
     "unchanged": true
   },
-  "treatment": "Only layout crops, resize and CSS desaturation/contrast. No generated additions or replacement branding.",
+  "treatment": "Layout crops via CSS aspect ratios, resize, CSS grayscale for 01 and 02. 03 in original colour. No generated additions or replacement branding.",
   "hero_display": {
     "source": "assets/after-the-run.webp",
     "output": "assets/after-the-run-display-4x.webp",

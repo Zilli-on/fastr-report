@@ -10,7 +10,7 @@
 - Keep real photography, AI image studies and product concepts clearly distinguished. No invented partnerships, finished products, event dates or actual team membership.
 
 ## Work
-- One project, not one directory per visual version. Work in `site/`.
+- One project, not one directory per visual version. Work in `site/`. One stylesheet (`site/styles.css`); never add `reviewN.css` layers — change the rule where it lives.
 - Use a feature branch and a reviewed pull request. Do not overwrite unrelated FASTR projects.
 - Run `npm run check` and actual browser checks before describing a change as tested.
 - Do not claim a deployment, commit or completed test without the corresponding result.
@@ -24,7 +24,8 @@
 ## Commands
 `npm run dev` serves the working files. `npm test` runs source and HTTP checks.
 `npm run build` writes static output to `dist/`. `npm run preview` serves that output.
-`python scripts/browser_smoke.py` runs the optional Chromium check (requires Python Playwright + installed Chromium).
+`python scripts/visual_review.py [site|artefacts|all]` runs the Chromium review against `dist/` (requires Python Playwright + Chromium; run `npm run build` first). CI calls the same suite through `scripts/review7_visual.py` and `scripts/review8_visual.py`; keep those two file names, the workflow file names them and the token used here cannot change workflows.
+`python scripts/authored_art.py --write` regenerates the authored plates inside `site/index.html`; `--check` verifies they are in sync.
 
 ## Truthful delivery
 Separate local preparation from GitHub push and Vercel deployment. The migration package itself is not evidence of an online repository or a live website.
@@ -38,3 +39,13 @@ Separate local preparation from GitHub push and Vercel deployment. The migration
 - Protect parent brand OG SPORTS, OG FASTR as its movement, seven exact FASTR30 rule names, existing original brand SVGs, bilingual DE/EN, accessibility, project/contact flows, and preview disclaimer.
 - Every new visual direction must be reviewed as **actual rendered website screenshots** on desktop and mobile, not a speculative mockup. Test for horizontal clipping, accidental word wrapping, readable contrast, real images loading, and no JS errors.
 - The GitHub PR is a **draft**; never merge or overwrite `main` or the existing site without explicit approval. Vercel team permissions are separate and not assumed.
+
+## Final direction — every chapter is a frame (2026-10-23)
+Full rationale: `docs/ART_DIRECTION.md`.
+- The page is a sequence of frames 00–09 with one caption grammar (monospace, 11 px). Photographs where we have honest ones (00–03), authored plates after that (04 routes, 05 FASTR30 practice field, 06 Wienerwald jersey line sheet, 07 gathering, 08 STICK drawing). The caption's right side names the photographer or states the status.
+- Two grounds only (paper, night). One display voice for every chapter title: light, mixed case, tight — the voice of "Own greatness.". No uppercase poster headlines, no two-colour headline trick, no arrows on non-links, no corner brackets, no glow.
+- Lavender = OG SPORTS, lime `#E7FF1A` = OG FASTR world only.
+- Motion: only the three plates move, once, on first view; complete without JS and with reduced motion.
+- Project stories reuse the page plate as their cover (cloned in `script.js`), so there is one drawing per project, not two.
+- FASTR STICK is drawn from the CAD draft V0 proportions; print no dimensions, keep "untested, not a product".
+- The rejected stock photographs (`running-photograph`, `cycling-photograph`, `movement-rooftop`) were removed from `site/assets`; tests fail if they return.

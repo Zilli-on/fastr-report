@@ -1,3 +1,5 @@
+> Historical. Superseded by `ART_DIRECTION.md` (2026-10-23).
+
 # OG SPORTS / Review 8 — Field Atlas
 
 **Working creative direction:** extraordinary, but clean. A coherent sport-and-culture world rather than a sequence of generic website blocks.

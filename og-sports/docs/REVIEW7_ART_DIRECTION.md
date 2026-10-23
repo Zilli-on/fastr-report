@@ -1,3 +1,5 @@
+> Historical. Superseded by `ART_DIRECTION.md` (2026-10-23).
+
 # OG SPORTS — Review 7 / The brand after the photographs
 
 This iteration is a decisive response to direct art-direction feedback: the first image feels right, and so do exactly the three subsequent editorial photos; the rest of the homepage falls below that standard.

@@ -1,4 +1,26 @@
-# OG SPORTS V21 — Bildnachweise
+# OG SPORTS — Bildnachweise
+
+## Aktueller Stand (2026-10-23)
+
+Auf der Seite stehen genau vier Bilder, alle im Kultur-Einstieg:
+
+| Frame | Datei | Art | Quelle |
+|---|---|---|---|
+| 00 | `after-the-run-display-4x.webp` (Anzeige), `after-the-run.webp` (Original, im Bildhinweis) | bestehende KI-Bildstudie | OG SPORTS, Designstudie |
+| 01 | `run-detail.webp` | Fotografie, David Moorhouse | https://unsplash.com/photos/close-up-of-a-runners-leg-and-athletic-shoe-GToHUINXOb4 |
+| 02 | `run-shadow.webp` | Fotografie, Mathias Reding | https://unsplash.com/photos/runners-legs-in-motion-with-a-long-shadow-G96xGokbTUM |
+| 03 | `run-community.webp` | Fotografie, Leviosa Hou | https://unsplash.com/photos/runners-gathered-together-on-a-city-street-9ZXnEV7k2lI |
+
+Ab Frame 04 gibt es keine Fotografie, nur selbst gestaltete Bildtafeln (SVG, im Code erzeugt durch `scripts/authored_art.py`): Routen, FASTR30-Praxisfeld, Trikot-Flats, Formatskizze, STICK-Zeichnung nach CAD-Entwurf V0. Keine fremden Bilder, Logos oder Schriftdateien darin.
+
+Die früher abgelehnten Dateien `running-photograph.webp` (Mathias Reding), `cycling-photograph.webp` (Coen van de Broek) und `movement-rooftop.webp` (KI-Studie) wurden am 23.10.2026 aus `site/assets` entfernt; sie liegen nur noch in der Git-Historie. Ein Test verhindert ihre Rückkehr.
+
+Rechte: Die Unsplash License ist eine Urheberrechtslizenz, keine Model-, Property- oder Markenfreigabe. Sichtbar sind fremde Marken (On-Schuh in 01, Startnummern und Sponsorlogos in 03). Für eine Werbekampagne vor Launch gesondert prüfen oder ersetzen.
+
+---
+
+## Historie
+
 
 Quellseiten geprüft am 21. Oktober 2026. Keine behauptete Zugehörigkeit der abgebildeten Personen, Bekleidung oder Fahrräder zu OG SPORTS.
 

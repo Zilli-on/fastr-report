@@ -1,114 +1,126 @@
 {
-  "version": "OG SPORTS V21",
+  "version": "2026-10-23 / every chapter is a frame",
   "font_files_included": false,
-  "new_photos_generated_this_version": false,
+  "external_requests": false,
   "assets": [
+    {
+      "file": "assets/after-the-run-display-4x.webp",
+      "bytes": 218062,
+      "sha256": "63fe1536cc9ced2be55f86259be49fb0cbff1b2fa47c5429811029f524cfc3f2",
+      "use": "Opening image, frame 00",
+      "type": "Display derivative of the AI image study",
+      "source": "4x Lanczos resample with light sharpening of after-the-run.webp; larger, not more detailed"
+    },
     {
       "file": "assets/after-the-run.webp",
       "bytes": 41820,
       "sha256": "807364cf90a7b283304707b93194110fe7c519ac6ae53a5f6b21f8ae43c02bfe",
-      "use": "Hero, scene Meet",
-      "type": "AI campaign image study",
-      "source": "Existing V14 project asset",
-      "original_file_unchanged": true,
-      "unchanged_from_v17": true,
-      "unchanged_from_v18": true,
-      "unchanged_from_v19": true,
-      "unchanged_from_v20": true
+      "use": "Original of the opening image; shown in the image notes",
+      "type": "AI image study",
+      "source": "Existing V14 project asset, unchanged"
     },
     {
       "file": "assets/greatness.svg",
       "bytes": 2777,
       "sha256": "fe362832b8970a4fbac6101c34d975442ad5951c7d9845225bb2a5dde5ebfd8a",
-      "use": "Outlined campaign text, second line of H1",
-      "type": "Fixed campaign text paths",
-      "source": "Created for V16 from Inter Display Regular as fixed outlines; not a font file",
-      "original_file_unchanged": null,
-      "unchanged_from_v16": true,
-      "unchanged_from_v17": true,
-      "unchanged_from_v18": true,
-      "unchanged_from_v19": true,
-      "unchanged_from_v20": true
-    },
-    {
-      "file": "assets/movement-rooftop.webp",
-      "bytes": 172554,
-      "sha256": "a932a787eeba6b46421192a938e81807412315add1fb4ad352d8b7ed218ddecf",
-      "use": "Live Experiences gallery cover and project detail",
-      "type": "AI campaign image study",
-      "source": "Existing V14 project asset",
-      "original_file_unchanged": true,
-      "unchanged_from_v17": true,
-      "unchanged_from_v18": true,
-      "unchanged_from_v19": true,
-      "unchanged_from_v20": true
+      "use": "Opening title, second word",
+      "type": "Outlined campaign text",
+      "source": "Created for V16 from Inter Display outlines; not a font file"
     },
     {
       "file": "assets/og-fastr-wordmark-dark.svg",
       "bytes": 4824,
       "sha256": "cfc5bf702e0858038999e8c788f511ac88e2a33613ec7574e9f60dea9821a366",
-      "use": "Original OG FASTR wordmark, white/lime on dark panel",
-      "type": "Original brand vector",
-      "source": "Existing V14 project asset",
-      "original_file_unchanged": true,
-      "unchanged_from_v16": true,
-      "unchanged_from_v17": true,
-      "unchanged_from_v18": true,
-      "unchanged_from_v19": true,
-      "unchanged_from_v20": true
+      "use": "Frame 04 masthead",
+      "type": "Original OG FASTR wordmark",
+      "source": "Unchanged brand vector"
     },
     {
       "file": "assets/og-mark-black.svg",
       "bytes": 764,
       "sha256": "27e77efd890e4bf8b2c0def67640ad8f30e73b3313984542f4236cd4426105bf",
-      "use": "Original compact OG signet in small mobile header",
-      "type": "Original brand vector",
-      "source": "Existing V14 project asset",
-      "original_file_unchanged": true,
-      "unchanged_from_v16": true,
-      "unchanged_from_v17": true,
-      "unchanged_from_v18": true,
-      "unchanged_from_v19": true,
-      "unchanged_from_v20": true
+      "use": "Compact header, dialogs",
+      "type": "Original OG SPORTS symbol",
+      "source": "Unchanged brand vector"
     },
     {
       "file": "assets/og-sports-black.svg",
       "bytes": 2074,
       "sha256": "d0a99a2d62cc2304c73ef704baabdf3c82c9f6ead803c73ec7f259f0dffe9fea",
-      "use": "Original primary logo in header and footer",
-      "type": "Original brand vector",
-      "source": "Existing V14 project asset",
-      "original_file_unchanged": true,
-      "unchanged_from_v16": true,
-      "unchanged_from_v17": true,
-      "unchanged_from_v18": true,
-      "unchanged_from_v19": true,
-      "unchanged_from_v20": true
+      "use": "Header, footer signature",
+      "type": "Original OG SPORTS mark",
+      "source": "Unchanged brand vector"
     },
     {
       "file": "assets/own.svg",
       "bytes": 795,
       "sha256": "d07b2ceae7feea5cd54f5cebffbb9525ab5bf80b6d99e72a770fb993ea049cc2",
-      "use": "Outlined campaign text, first line of H1",
-      "type": "Fixed campaign text paths",
-      "source": "Created for V16 from Inter Display Regular as fixed outlines; not a font file",
-      "original_file_unchanged": null,
-      "unchanged_from_v16": true,
-      "unchanged_from_v17": true,
-      "unchanged_from_v18": true,
-      "unchanged_from_v19": true,
-      "unchanged_from_v20": true
+      "use": "Opening title, first word",
+      "type": "Outlined campaign text",
+      "source": "Created for V16 from Inter Display outlines; not a font file"
+    },
+    {
+      "file": "assets/run-community.webp",
+      "bytes": 153224,
+      "sha256": "546bdde1f8b68413484528b5d3b2cfa245fb2331b56bba41e8cf57dcb7c439f2",
+      "use": "Frame 03 / People",
+      "type": "Photograph",
+      "source": "Leviosa Hou, Unsplash License"
+    },
+    {
+      "file": "assets/run-detail.webp",
+      "bytes": 48110,
+      "sha256": "dcc5694b8245f1b3fa138ebb5b16d09172d20f4ab9817a89bf1097e33bd89b93",
+      "use": "Frame 01 / Detail",
+      "type": "Photograph",
+      "source": "David Moorhouse, Unsplash License"
+    },
+    {
+      "file": "assets/run-shadow.webp",
+      "bytes": 217624,
+      "sha256": "f1ffa9de0ca17daac7aca5a389b136c45dcdcab9fdbc849f17c62a71082b6469",
+      "use": "Frame 02 / Motion",
+      "type": "Photograph",
+      "source": "Mathias Reding, Unsplash License"
     }
   ],
-  "direction": "Continuation of established open-frame design with full-screen project stories and responsive chapter navigation",
-  "original_brand_vectors_byte_identical_to_v16": true,
-  "original_brand_vectors_byte_identical_to_v17": true,
-  "contact_mode": "local text draft only; no recipient address, no email app launch",
-  "original_brand_vectors_byte_identical_to_v18": true,
-  "real_photos": {
-    "count": 2,
-    "source_manifest": "photo_sources.json",
-    "delivery": "External HTTPS URLs; online connection required unless fetch_photos.py is run."
+  "authored_inline_plates": [
+    {
+      "marker": "art:routes",
+      "frame": "04",
+      "what": "23 routes settling into one direction",
+      "generator": "scripts/authored_art.py"
+    },
+    {
+      "marker": "art:jersey",
+      "frame": "06",
+      "what": "jersey flat <symbol>, four CSS colourways",
+      "generator": "scripts/authored_art.py"
+    },
+    {
+      "marker": "art:gather",
+      "frame": "07",
+      "what": "people arriving and gathering; format sketch",
+      "generator": "scripts/authored_art.py"
+    },
+    {
+      "marker": "art:stick",
+      "frame": "08",
+      "what": "view A and half section A-A, proportions from CAD draft V0 (unconfirmed, untested)",
+      "generator": "scripts/authored_art.py"
+    }
+  ],
+  "practice_field": {
+    "frame": "05",
+    "what": "30 x 7 field in HTML/CSS; the seven standards are the row labels"
   },
-  "original_default_hero_preserved": true
+  "removed_2026_10_23": [
+    "assets/running-photograph.webp",
+    "assets/cycling-photograph.webp",
+    "assets/movement-rooftop.webp",
+    "assets/r8-motion.svg",
+    "assets/r8-apparel.svg",
+    "assets/r8-live.svg",
+    "assets/r8-stick.svg"
+  ]
 }
