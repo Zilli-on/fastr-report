@@ -56,3 +56,7 @@ Full rationale: `docs/ART_DIRECTION.md` (v2). This replaces the v1 plate decisio
 - No third-party brands anywhere: marks retouched out of 01 and 03; originals must not ship.
 - Chapter titles in Archivo (wide, heavy, uppercase); copy in Inter; both self-hosted under SIL OFL in `site/fonts/`. The old "no font files" rule is replaced by "only self-hosted OFL fonts, licence next to the file, no font services".
 - Image pipeline: `scripts/prepare_images.py`, `scripts/render_stick.py`; FASTR30 rules are a seven-column grid.
+
+## Video loops (2026-10-23)
+- `site/media/*-loop.mp4` sit over the labelled stills (poster + `<img>` fallback); muted, no audio, loaded only when visible and motion is allowed, each with a pause button. Rebuild with `scripts/build_media.py`.
+- Do not use footage that shows other clubs' or companies' brands (Vali's Prater clips: "BREIT & SCHNELL" shirts) on OG SPORTS surfaces.

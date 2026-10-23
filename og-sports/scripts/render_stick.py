@@ -19,6 +19,7 @@ argv = sys.argv[sys.argv.index("--") + 1 :]
 cad = Path(argv[0])
 out = Path(argv[1])
 samples = int(argv[2]) if len(argv) > 2 else 160
+turntable = len(argv) > 3 and argv[3] == "turntable"  # 360 deg, 144 frames, Eevee, PNG sequence into <out> dir
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
 scene = bpy.context.scene
@@ -141,6 +142,28 @@ scene.render.film_transparent = False
 scene.view_settings.view_transform = "Khronos PBR Neutral"
 scene.view_settings.look = "None"
 scene.render.image_settings.file_format = "PNG"
-scene.render.filepath = str(out)
-bpy.ops.render.render(write_still=True)
+if turntable:
+    for name in ("BLENDER_EEVEE_NEXT", "BLENDER_EEVEE"):
+        try:
+            scene.render.engine = name
+            break
+        except TypeError:
+            continue
+    scene.eevee.taa_render_samples = samples
+    scene.render.resolution_x, scene.render.resolution_y = 1080, 1350
+    scene.frame_start, scene.frame_end = 1, 144
+    scene.render.fps = 24
+    root.rotation_euler = (0, 0, 0)
+    root.keyframe_insert("rotation_euler", frame=1)
+    root.rotation_euler = (0, 0, math.radians(360))
+    root.keyframe_insert("rotation_euler", frame=145)
+    for fc in root.animation_data.action.fcurves:
+        for kp in fc.keyframe_points:
+            kp.interpolation = "LINEAR"
+    out.mkdir(parents=True, exist_ok=True)
+    scene.render.filepath = str(out / "f_")
+    bpy.ops.render.render(animation=True)
+else:
+    scene.render.filepath = str(out)
+    bpy.ops.render.render(write_still=True)
 print("rendered", out)

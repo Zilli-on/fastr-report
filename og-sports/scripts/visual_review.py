@@ -354,6 +354,8 @@ def artefacts(browser, base, report):
           captions: [...document.querySelectorAll('main figcaption, main .frame-caption')].map(c => c.textContent.trim())
         })""")
         check(not plates["motionClass"], (where, "reduced motion must not arm animations"))
+        quiet = page.evaluate("[...document.querySelectorAll('video.loop')].map(v => [v.getAttribute('src'), v.parentElement.querySelector('.loop-toggle').hidden])")
+        check(len(quiet) == 4 and all(src is None and hidden for src, hidden in quiet), (where, "loops must not load with reduced motion", quiet))
         widths = dict(plates["images"])
         for src, minimum in (
             ("assets/frame-01-detail.webp", 1200),
@@ -444,6 +446,14 @@ def artefacts(browser, base, report):
           cells: getComputedStyle(document.querySelector('.field-cells'), '::after').clipPath
         })""")
         check(done["seen"], (where, done))
+        page.locator("#fastr .bleed").scroll_into_view_if_needed()
+        page.wait_for_function("(() => { const v = document.querySelector('#fastr video.loop'); return v && !v.paused && v.readyState >= 2 && v.classList.contains('is-playing'); })()", timeout=15000)
+        toggle = page.locator("#fastr .loop-toggle")
+        check(toggle.is_visible(), (where, "pause button"))
+        toggle.click()
+        check(page.evaluate("document.querySelector('#fastr video.loop').paused") and toggle.get_attribute("aria-pressed") == "true", (where, "pause"))
+        toggle.click()
+        page.wait_for_function("!document.querySelector('#fastr video.loop').paused", timeout=8000)
         check(done["cells"] in ("inset(0px)", "inset(0px 0px 0px 0px)"), (where, done))
         for name, selector in (
             ("movement", "#fastr .bleed"),

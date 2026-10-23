@@ -110,3 +110,14 @@ In the public homepage, **only** the user's approved original composition and th
 Older runner, cycling and rooftop reference files remain in source history solely for rollback/legacy notes, and are not used in the Review 7 homepage or current project covers. After approval they can be separately removed in a cleanup commit.
 
 The website's `noindex` setting is not access control. The reference license does not establish model, location, logo or other third-party releases for a commercial brand launch. All production uses require review.
+
+## Video loops (2026-10-23)
+
+| Datei | Art | Quelle |
+|---|---|---|
+| `media/ramp-loop.mp4` | KI-Video | Higgsfield Grok Video 1.5 aus `campaign-ramp` (eigenes Higgsfield-Material) |
+| `media/spiral-loop.mp4` | KI-Video | dto. aus `campaign-spiral` |
+| `media/apparel-loop.mp4` | KI-Video | dto. aus `apparel-studies` (KI-Visualisierung) |
+| `media/garage-loop.mp4` | KI-Video | dto. aus `live-venue` |
+
+Generiert 2026-10-23 über Fabis bestehendes Higgsfield-Abo (4 × 48 Credits). Schnitt, Farbe und Loop: `scripts/build_media.py`.
