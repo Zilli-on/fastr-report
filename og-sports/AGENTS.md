@@ -61,3 +61,4 @@ Handoff and open questions: `docs/NEXT-brand-alignment.md`. This replaces v2 whe
 - Build from assets that are or were really in use (FASTR deck / design, fastr30.com), not from idea dumps. No AI video on OG surfaces.
 - 08 STICK shows the fastr30.com shop renders (`fastr30-website/website/assets/img/stick-*.jpg`, 3D render delivery), copied byte for byte and hash-tested. Label: "Produktvisualisierung · Prototyp, kein Serienprodukt". The Blender render and the generated half section are gone.
 - The Higgsfield stills (04, 05, 07) and the apparel visual (06) count as idea dump: replace them only with in-use assets of at least the same quality.
+- Tokens follow the live FASTR surfaces (2026-10-24): lime `#E3FF23`, night `#0a0a0a`, copy in Space Grotesk (from fastr30.com), titles stay Archivo. This replaces `#E7FF1A` and Inter above. The `fastr-design` skill (`#DEFF00`, Arial Narrow) is not what is in use; see `docs/NEXT-brand-alignment.md`.

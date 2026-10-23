@@ -378,7 +378,7 @@ def artefacts(browser, base, report):
             plates["legend"] == 5,
             (where, plates["legend"]),
         )
-        check({"Archivo", "Inter"} <= set(plates["fonts"]), (where, "self-hosted fonts not loaded", plates["fonts"]))
+        check({"Archivo", "Space Grotesk"} <= set(plates["fonts"]), (where, "self-hosted fonts not loaded", plates["fonts"]))
         check(plates["headingFont"].startswith("Archivo"), (where, plates["headingFont"]))
         for needle in (
             "KI-Kampagnenstudie",

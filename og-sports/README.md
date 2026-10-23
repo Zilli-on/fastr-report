@@ -21,7 +21,7 @@ visualisation of the Wienerwald colour studies and a studio render of the FASTR 
 CAD, each labelled on the page. See `docs/ART_DIRECTION.md`.
 
 The contact flow prepares a local, copyable text draft only. Nothing is sent or stored.
-No analytics, commerce, booking or database. Fonts (Archivo, Inter, SIL OFL) are self-hosted.
+No analytics, commerce, booking or database. Fonts (Archivo, Space Grotesk, SIL OFL) are self-hosted.
 
 ## Develop and check
 

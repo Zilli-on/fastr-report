@@ -30,13 +30,14 @@ and say so in the caption, exactly where a photograph would name its author.
 ## System
 
 - **Type.** Chapter titles: Archivo, wide (font-stretch 112 %), weight 750,
-  uppercase, tight — the sport-brand voice. Copy: Inter. Captions and labels:
+  uppercase, tight — the sport-brand voice. Copy: Space Grotesk (2026-10-24, as on
+  fastr30.com and in the FASTR Brand Guidelines). Captions and labels:
   system monospace, 11 px, uppercase. The opening title stays the approved
   light outline "Own greatness." — light opening, heavy chapters.
 - **Fonts are self-hosted** (`site/fonts/`, latin subsets, SIL OFL 1.1,
   licences next to the files). No requests to font services.
-- **Grounds.** Paper `#f0efea` and night `#0f100e`; images run edge to edge.
-- **Accents.** Lime `#E7FF1A` (from the OG FASTR wordmark) only in the FASTR
+- **Grounds.** Paper `#f0efea` and night `#0a0a0a` (FASTR black, as on fastr30.com); images run edge to edge.
+- **Accents.** Lime `#E3FF23` (FASTR Brand Guidelines, fastr30.com, fastr-vienna) only in the FASTR
   world: FASTR30 title, rule numbers, the STICK. Lavender stays OG SPORTS.
 - **Links** are uppercase text with a short rule that grows on hover.
 - **Motion.** Large images settle once (slight scale) and the FASTR30 field

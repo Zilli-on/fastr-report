@@ -2,7 +2,7 @@
    v2 principle: campaign, not concept. Real images carry every chapter
    (00–03 photographs, then our own campaign studies, an AI visualisation of the
    apparel studies and the STICK product renders). One loud voice for chapter
-   titles (Archivo, wide, uppercase), one quiet voice for copy (Inter), one
+   titles (Archivo, wide, uppercase), one quiet voice for copy (Space Grotesk, as on fastr30.com), one
    caption voice (mono). Two grounds: paper and night. Lime only for FASTR.
 
    1 Fonts + tokens   2 Base   3 Shared parts   4 Header   5 Hero   6 Strip + statement
@@ -14,13 +14,13 @@
   src: url('fonts/archivo-var-latin.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Inter'; font-style: normal; font-weight: 100 900; font-display: swap;
-  src: url('fonts/inter-var-latin.woff2') format('woff2');
+  font-family: 'Space Grotesk'; font-style: normal; font-weight: 300 700; font-display: swap;
+  src: url('fonts/spacegrotesk-latin.woff2') format('woff2');
 }
 :root {
   --paper: #f0efea;
   --paper-deep: #e4e3dd;
-  --ink: #0f100e;
+  --ink: #0a0a0a;
   --ink-raised: #1a1c19;
   --text: #121411;
   --muted: #565951;
@@ -30,9 +30,9 @@
   --rule-ink: rgba(240, 239, 234, .16);
   --lavender: #6f6592;
   --lavender-light: #bdb4dc;
-  --lime: #e7ff1a;
+  --lime: #e3ff23;
 
-  --sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --sans: 'Space Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --wide: 'Archivo', 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
   --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
 
