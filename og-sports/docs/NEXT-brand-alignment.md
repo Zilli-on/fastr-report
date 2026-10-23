@@ -34,3 +34,26 @@
 2. Replace STICK chapter imagery with the real product images.
 3. Ask Fabi which other images count as "in use" before swapping 04/05/07.
 4. Re-run `npm run check` and `scripts/visual_review.py all`; screenshots before push.
+
+## Update 2026-10-24 — STICK chapter done
+
+- Fabi: Higgsfield stills (04 ramp, 05 spiral, 07 garage) = **idea dump** → replace with
+  in-use assets, but **never lower quality**: only swap when the replacement is at least
+  as strong. AI apparel visual (06) likewise is not an in-use asset.
+- 08 STICK now shows the fastr30.com shop renders **byte for byte** (`stick-lime.jpg`,
+  `stick-exploded.jpg`, sha256 pinned in `tests/original-assets.json`). A WebP re-encode
+  was tried and dropped: it lost edge detail on the small print. Provenance: 3D render
+  delivery `final-render.png` (fastr30-website commit `7afee2a`), not AI → label
+  "Produktvisualisierung · Prototyp, kein Serienprodukt".
+- The pink single shot was dropped: next to the exploded view it shrank to ~125 px on
+  desktop; the exploded view already shows both colourways.
+- Stale CAD wording removed from story texts, image notes and disclaimer; a test now
+  fails if "CAD-Entwurf" / "CAD draft" returns. Blender render, generated half section,
+  `authored_art.py` and `render_stick.py` are gone.
+
+## Open questions for Fabi
+
+1. fastr30.com takes **live pre-orders** for the STICK (€ 14,90, "Launch-Preis,
+   unverbindlich"). The OG page said "Keine Vorbestellung" — removed as contradictory.
+   Should the OG STICK chapter link to the fastr30.com pre-order? (outward-facing, his call)
+2. Which in-use assets may replace 04/05/06/07? (Brand comparison with deck + fastr-design: next.)

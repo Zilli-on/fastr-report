@@ -35,18 +35,18 @@ test('keeps the three approved photographs, retouched free of third-party brands
   }
 });
 
-test('labels every image below the photographs as AI study, AI visualisation or render', () => {
+test('labels every image below the photographs as AI study, AI visualisation or product visualisation', () => {
   const below = main.split('id="fastr"')[1];
   const figures = below.split('<figure').slice(1).map(f => f.split('</figure>')[0]);
   const shown = [];
   for (const figure of figures) {
-    const src = figure.match(/<img\b[^>]+src="assets\/([^"]+\.webp)"/)?.[1];
+    const src = figure.match(/<img\b[^>]+src="assets\/([^"]+\.(?:webp|jpg))"/)?.[1];
     if (!src) continue;
     shown.push(src);
     const scope = main.slice(main.indexOf(figure), main.indexOf(figure) + figure.length + 1200);
-    assert.match(scope, /KI-(Kampagnenstudie|Bildstudie|Visualisierung|Raumstudie)|CAD-Entwurf V0/, `${src} needs a visible label`);
+    assert.match(scope, /KI-(Kampagnenstudie|Bildstudie|Visualisierung|Raumstudie)|Produktvisualisierung/, `${src} needs a visible label`);
   }
-  assert.deepEqual(shown, ['campaign-ramp.webp', 'campaign-spiral.webp', 'apparel-studies.webp', 'live-venue.webp', 'stick-studio.webp']);
+  assert.deepEqual(shown, ['campaign-ramp.webp', 'campaign-spiral.webp', 'apparel-studies.webp', 'live-venue.webp', 'stick-lime.jpg', 'stick-exploded.jpg']);
 });
 
 test('keeps the seven FASTR30 standards in their fixed order', () => {
@@ -61,9 +61,9 @@ test('presents four projects with their artefact and honest status captions', ()
     assert.match(main, new RegExp(`data-artefact="${key}"`), `artefact for ${key}`);
     assert.match(main, new RegExp(`data-project="${key}"`), `story trigger for ${key}`);
   }
-  for (const status of ['Challenge-Konzept', 'keine Kollektion, kein Verkauf', 'noch kein Termin', 'ungeprüft, kein Produkt']) assert.ok(main.includes(status), status);
-  const block = html.split('<!-- art:stick -->')[1]?.split('<!-- /art:stick -->')[0] || '';
-  assert.match(block, /<svg class="stick-drawing"/, 'generated stick drawing');
+  for (const status of ['Challenge-Konzept', 'keine Kollektion, kein Verkauf', 'noch kein Termin', 'Prototyp, kein Serienprodukt']) assert.ok(main.includes(status), status);
+  for (const view of ['stick-lime', 'stick-exploded']) assert.ok(main.includes(`assets/${view}.jpg`), view);
+  assert.doesNotMatch(html + js, /CAD-Entwurf|CAD draft/, 'the STICK images are product renders, not the CAD draft');
 });
 
 test('browser JavaScript is syntactically valid', () => assert.doesNotThrow(() => new Script(js)));

@@ -56,7 +56,7 @@ MEASURE = r"""() => {
     width: innerWidth, scrollWidth: document.documentElement.scrollWidth,
     hero: img.getAttribute('src'), natural: [img.naturalWidth, img.naturalHeight],
     photos: [...document.querySelectorAll('#brand .tile img')].map(i => i.getAttribute('src')),
-    unlabelled: [...document.querySelectorAll('main img')].filter(i => /\.(webp|jpe?g|png)$/i.test(i.getAttribute('src') || '') && !i.closest('.hero, #brand')).filter(i => { const f = i.closest('figure, article'); return !/KI-|AI |CAD/.test((f && f.textContent) || ''); }).map(i => i.getAttribute('src')),
+    unlabelled: [...document.querySelectorAll('main img')].filter(i => /\.(webp|jpe?g|png)$/i.test(i.getAttribute('src') || '') && !i.closest('.hero, #brand')).filter(i => { const f = i.closest('figure, article'); return !/KI-|AI |Produktvisualisierung|Product visualisation/.test((f && f.textContent) || ''); }).map(i => i.getAttribute('src')),
     rules: [...document.querySelectorAll('#projects .field-rows strong')].map(e => e.textContent.trim()),
     projects: [...document.querySelectorAll('#projects > .project')].map(e => e.dataset.key),
     headings: [...document.querySelectorAll('main h2:not(.sr-only), main h3')].map(e => ({text: e.textContent.trim().slice(0, 40), client: e.clientWidth, scroll: e.scrollWidth, right: e.getBoundingClientRect().right})),
@@ -343,11 +343,10 @@ def artefacts(browser, base, report):
         load(page, base)
         plates = page.evaluate(r"""() => ({
           motionClass: document.documentElement.classList.contains('motion-ok'),
-          images: [...document.querySelectorAll('main img[src$=".webp"]')].map(i => [i.getAttribute('src'), i.naturalWidth]),
+          images: [...document.querySelectorAll('main img[src$=".webp"], main img[src$=".jpg"]')].map(i => [i.getAttribute('src'), i.naturalWidth]),
           rows: document.querySelectorAll('.practice-field .field-rows li').length,
           cells: [...document.querySelectorAll('.practice-field .field-cells')].map(c => getComputedStyle(c, '::after').clipPath),
           colourways: [...document.querySelectorAll('.colourways li')].map(l => l.textContent.trim()),
-          callouts: [...document.querySelectorAll('.stick-drawing .s-call text')].map(t => t.textContent),
           legend: document.querySelectorAll('.stick-legend li').length,
           fonts: [...document.fonts].filter(f => f.status === 'loaded').map(f => f.family.replace(/"/g, '')),
           headingFont: getComputedStyle(document.querySelector('#movement-title')).fontFamily,
@@ -362,7 +361,8 @@ def artefacts(browser, base, report):
             ("assets/campaign-spiral.webp", 1600),
             ("assets/apparel-studies.webp", 2400),
             ("assets/live-venue.webp", 2400),
-            ("assets/stick-studio.webp", 1600),
+            ("assets/stick-lime.jpg", 880),
+            ("assets/stick-exploded.jpg", 472),
         ):
             check(widths.get(src, 0) >= minimum, (where, "image missing or too small", src, widths.get(src)))
         check(
@@ -375,8 +375,8 @@ def artefacts(browser, base, report):
             (where, plates["colourways"]),
         )
         check(
-            plates["callouts"] == ["01", "02", "03", "04", "05"] and plates["legend"] == 5,
-            (where, plates["callouts"]),
+            plates["legend"] == 5,
+            (where, plates["legend"]),
         )
         check({"Archivo", "Inter"} <= set(plates["fonts"]), (where, "self-hosted fonts not loaded", plates["fonts"]))
         check(plates["headingFont"].startswith("Archivo"), (where, plates["headingFont"]))
@@ -386,7 +386,7 @@ def artefacts(browser, base, report):
             "Challenge-Konzept",
             "KI-Visualisierung",
             "KI-Raumstudie",
-            "CAD-Entwurf V0",
+            "Prototyp, kein Serienprodukt",
             "Unsplash",
         ):
             check(any(needle in c for c in plates["captions"]), (where, "honest caption missing", needle))

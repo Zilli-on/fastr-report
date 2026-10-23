@@ -34,8 +34,6 @@ SOURCES = {
     "apparel-studies.webp": ("apparel-ai.png", None, (2400, 1357), 82),
     # 07 OG FASTR AI venue study (own Higgsfield asset), empty space, no event
     "live-venue.webp": ("01_empty_garage.png", None, (2400, 1350), 80),
-    # 08 Blender studio render of the CAD draft V0 (scripts/render_stick.py)
-    "stick-studio.webp": ("stick-final.png", None, (1600, 2000), 84),
 }
 
 

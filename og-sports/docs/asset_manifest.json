@@ -115,12 +115,20 @@
       "source": "Unchanged"
     },
     {
-      "file": "assets/stick-studio.webp",
-      "bytes": 16894,
-      "sha256": "8fa53478321f37aa1ed60127f94f9f824770f4778017ec033cb2f3fc1650e03c",
-      "use": "Frame 08 STICK",
-      "type": "Render",
-      "source": "scripts/render_stick.py from CAD draft V0"
+      "file": "assets/stick-lime.jpg",
+      "bytes": 63841,
+      "sha256": "fd95b48a166e992b13a386c948efd2df908affd1bd7d77f8b6773078dd5cb190",
+      "use": "Frame 08 STICK, main image",
+      "type": "3D product render",
+      "source": "fastr30.com shop asset, unchanged"
+    },
+    {
+      "file": "assets/stick-exploded.jpg",
+      "bytes": 41989,
+      "sha256": "5c5f73cd1240543aad10c9990675dec72328bbfa72cc4cd1ddc33cee13f539b9",
+      "use": "Frame 08 STICK, exploded view in both colourways",
+      "type": "3D product render",
+      "source": "fastr30.com shop asset, unchanged"
     }
   ],
   "fonts": [
@@ -135,11 +143,5 @@
       "licence": "SIL OFL 1.1"
     }
   ],
-  "generated_inline": [
-    {
-      "marker": "art:stick",
-      "what": "STICK elevation + half section from CAD draft V0",
-      "generator": "scripts/authored_art.py"
-    }
-  ]
+  "generated_inline": []
 }

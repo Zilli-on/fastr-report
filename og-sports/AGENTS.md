@@ -25,7 +25,6 @@
 `npm run dev` serves the working files. `npm test` runs source and HTTP checks.
 `npm run build` writes static output to `dist/`. `npm run preview` serves that output.
 `python scripts/visual_review.py [site|artefacts|all]` runs the Chromium review against `dist/` (requires Python Playwright + Chromium; run `npm run build` first). CI calls the same suite through `scripts/review7_visual.py` and `scripts/review8_visual.py`; keep those two file names, the workflow file names them and the token used here cannot change workflows.
-`python scripts/authored_art.py --write` regenerates the authored plates inside `site/index.html`; `--check` verifies they are in sync.
 
 ## Truthful delivery
 Separate local preparation from GitHub push and Vercel deployment. The migration package itself is not evidence of an online repository or a live website.
@@ -55,4 +54,10 @@ Full rationale: `docs/ART_DIRECTION.md` (v2). This replaces the v1 plate decisio
 - Every chapter carries a real image: 01–03 photographs as an edge-to-edge strip, then our own Higgsfield campaign studies (04, 05, 07), an AI visualisation of the apparel colour studies (06) and a Blender render of the STICK CAD (08). Each image below the photographs carries a visible label (KI-…studie / KI-Visualisierung / Render aus CAD-Entwurf V0); a test enforces it.
 - No third-party brands anywhere: marks retouched out of 01 and 03; originals must not ship.
 - Chapter titles in Archivo (wide, heavy, uppercase); copy in Inter; both self-hosted under SIL OFL in `site/fonts/`. The old "no font files" rule is replaced by "only self-hosted OFL fonts, licence next to the file, no font services".
-- Image pipeline: `scripts/prepare_images.py`, `scripts/render_stick.py`; FASTR30 rules are a seven-column grid.
+- Image pipeline: `scripts/prepare_images.py`; FASTR30 rules are a seven-column grid.
+
+## Brand alignment — assets in use (2026-10-23 late, Fabi)
+Handoff and open questions: `docs/NEXT-brand-alignment.md`. This replaces v2 where they conflict.
+- Build from assets that are or were really in use (FASTR deck / design, fastr30.com), not from idea dumps. No AI video on OG surfaces.
+- 08 STICK shows the fastr30.com shop renders (`fastr30-website/website/assets/img/stick-*.jpg`, 3D render delivery), copied byte for byte and hash-tested. Label: "Produktvisualisierung · Prototyp, kein Serienprodukt". The Blender render and the generated half section are gone.
+- The Higgsfield stills (04, 05, 07) and the apparel visual (06) count as idea dump: replace them only with in-use assets of at least the same quality.

@@ -24,7 +24,7 @@ and say so in the caption, exactly where a photograph would name its author.
 | 05 | FASTR30 | spiral car park from above, own Higgsfield study + seven-column rule grid | KI-Bildstudie · Challenge-Konzept |
 | 06 | Apparel / Wienerwald | four jerseys on a rail, AI visualisation of the colour studies | KI-Visualisierung · keine Kollektion |
 | 07 | Live | empty glass-dome car park, own Higgsfield study | KI-Raumstudie · noch kein Termin |
-| 08 | FASTR STICK | Blender studio render of the CAD draft V0 + generated half section | Render aus CAD-Entwurf V0 · ungeprüft |
+| 08 | FASTR STICK | fastr30.com shop renders: lime product shot + exploded view in both colourways (unchanged) | Produktvisualisierung · Prototyp, kein Serienprodukt |
 | 09 | Invitation + signature | original OG SPORTS mark | — |
 
 ## System
@@ -48,24 +48,23 @@ and say so in the caption, exactly where a photograph would name its author.
 - 03: bibs, ribbons, club shirt and banner text removed with an AI-assisted
   retouch (Higgsfield, GPT Image 2.5, reference edit); faces, poses and light
   compared side by side and unchanged.
-- 02, campaign studies, apparel visual, render: checked, no legible marks.
+- 02, campaign studies, apparel visual: checked, no legible marks. The STICK renders carry only the FASTR mark.
 - Tests fail if `run-detail.webp` / `run-community.webp` (originals with marks)
   or the rejected stock files return.
 
 ## Sources and reproduction
 
 `scripts/prepare_images.py <sources>` writes every campaign image from its
-source (crop, size, quality listed in the script). `scripts/render_stick.py`
-renders the STICK from the CAD previews of the local prototype programme
-(`fastr-stick-prototype/output/preview/*_assembled.stl`).
-`scripts/authored_art.py` still generates the STICK half section.
+source (crop, size, quality listed in the script). The STICK images are
+the fastr30.com shop renders (`fastr30-website/website/assets/img/stick-*.jpg`, 3D render delivery), copied byte for byte and hash-tested
+(update 2026-10-23 late, replacing the Blender render of the CAD draft).
 
 ## Truthfulness boundaries
 
 - Hero and 04/05/07 are AI image studies. They show no event that took place
   and no OG team member.
 - 06 is an AI visualisation of colour studies, not a product photograph.
-- 08 shows CAD geometry with proposed dimensions; material and light are art
-  direction; fit, sealing and fill volume are untested; 30 ml is a target.
+- 08 are 3D product renders, not photographs of a manufactured stick; the
+  STICK is a prototype, not a production product; 30 ml is a target.
 - AI Act Art. 50: the AI labels are visible on the page, not only in notes.
 - Contact: local, copyable draft only.

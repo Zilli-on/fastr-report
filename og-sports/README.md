@@ -50,13 +50,8 @@ fallback, skip link, focus trap, arrow keys and deep links. Reports and screensh
 `qa/` (ignored by Git). CI runs the same suite via `scripts/review7_visual.py` and
 `scripts/review8_visual.py` (`../.github/workflows/og-sports-review.yml`).
 
-Images: `scripts/prepare_images.py <sources>` (crops and sizes) and `scripts/render_stick.py`
-(Blender, CAD previews). The STICK half section is generated into `site/index.html`:
-
-```sh
-python scripts/authored_art.py --write
-python scripts/authored_art.py --check
-```
+Images: `scripts/prepare_images.py <sources>` (crops and sizes). The STICK images are
+the fastr30.com shop renders (`fastr30-website/website/assets/img/stick-*.jpg`, 3D render delivery), copied byte for byte and hash-tested.
 
 ## Structure
 

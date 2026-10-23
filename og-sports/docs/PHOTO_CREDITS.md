@@ -12,7 +12,7 @@
 | 05 | `campaign-spiral.webp` | KI-Bildstudie | eigenes Higgsfield-Material `03_top_down.png` |
 | 06 | `apparel-studies.webp` | KI-Visualisierung | generiert 2026-10-23 (Higgsfield, GPT Image 2.5) aus unseren vier Farbstudien, ohne Logos |
 | 07 | `live-venue.webp` | KI-Raumstudie | eigenes Higgsfield-Material `01_empty_garage.png`, leerer Raum, keine Veranstaltung |
-| 08 | `stick-studio.webp` | Render | `scripts/render_stick.py` aus CAD-Entwurf V0 (fastr-stick-prototype) |
+| 08 | `stick-lime.jpg`, `stick-exploded.jpg` | 3D-Produktvisualisierung | unverändert von fastr30.com/shop (`fastr30-website/website/assets/img/`, aus der Render-Lieferung `final-render.png`); Hash-Test |
 
 Die Unsplash License erlaubt Bearbeitung; sie ist keine Model-, Property- oder Markenfreigabe. Fremde Marken sind aus 01 und 03 entfernt. Die KI-Bilder sind auf der Seite sichtbar gekennzeichnet (AI Act Art. 50). Die Originaldateien `run-detail.webp` und `run-community.webp` liegen nur noch in der Git-Historie.
 

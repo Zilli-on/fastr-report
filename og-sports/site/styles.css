@@ -1,7 +1,7 @@
 /* OG SPORTS — one stylesheet.
    v2 principle: campaign, not concept. Real images carry every chapter
    (00–03 photographs, then our own campaign studies, an AI visualisation of the
-   apparel studies and a render of the STICK CAD). One loud voice for chapter
+   apparel studies and the STICK product renders). One loud voice for chapter
    titles (Archivo, wide, uppercase), one quiet voice for copy (Inter), one
    caption voice (mono). Two grounds: paper and night. Lime only for FASTR.
 
@@ -250,28 +250,13 @@ ol, ul { padding: 0; list-style: none; }
 /* 08 — FASTR STICK */
 .stick { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); align-items: start; padding-bottom: var(--chapter); }
 .stick-render { grid-column: 1 / 7; position: relative; }
-.stick-render img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; background: var(--ink); }
+.stick-render img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; background: #000; }
 .stick-render figcaption { padding-top: 12px; color: var(--muted); }
 .stick-text { grid-column: 8 / 13; display: flex; flex-direction: column; align-items: flex-start; gap: 22px; position: sticky; top: 40px; }
 .stick h3 { font-size: clamp(2.5rem, 5.4vw, 5.75rem); }
 .stick-section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: var(--gap); align-items: center; width: 100%; margin-top: 8px; }
-.stick-drawing { width: 100%; height: auto; color: var(--ink); }
-.stick-drawing .s-body { fill: var(--lime); stroke: var(--ink); stroke-width: 1.3; }
-.stick-drawing .s-dark { fill: #1c1e1b; stroke: var(--ink); stroke-width: 1.3; }
-.stick-drawing .s-knurl { stroke: rgba(255, 255, 255, .22); stroke-width: 1; }
-.stick-drawing .s-cavity { fill: #d4d4ce; }
-.stick-drawing .s-cut { fill: url(#stick-hatch); stroke: var(--ink); stroke-width: 1.3; }
-.stick-drawing .s-cut-dark { fill: #2a2d29; }
-.stick-drawing .s-thread { fill: none; stroke: var(--ink); stroke-width: 1.1; }
-.stick-drawing .s-balm { fill: #f6f5ee; }
-.stick-drawing .s-spindle { fill: #a3a79f; stroke: var(--ink); stroke-width: 1.1; }
-.stick-drawing .s-helix { fill: none; stroke: #3d413b; stroke-width: 1.1; }
-.stick-drawing .s-cup { fill: #c3c6be; stroke: var(--ink); stroke-width: 1.3; }
-.stick-drawing .s-axis { fill: none; stroke: var(--ink); stroke-width: .8; stroke-dasharray: 14 4 3 4; opacity: .55; }
-.stick-drawing .s-dim { fill: none; stroke: var(--ink); stroke-width: 1.1; }
-.stick-drawing .s-call circle { fill: var(--ink); }
-.stick-drawing .s-call path { stroke: var(--ink); stroke-width: .8; }
-.stick-drawing text { font: 22px var(--mono); fill: var(--ink); letter-spacing: .04em; }
+.stick-build img { width: 100%; height: auto; background: #000; }
+.stick-build figcaption { padding-top: 10px; color: var(--muted); }
 .stick-legend { border-top: 1px solid var(--rule); }
 .stick-legend li { display: grid; grid-template-columns: 2.5rem 1fr; padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: .9375rem; }
 .stick-legend li span:first-child { font: 500 .6875rem/1.9 var(--mono); color: var(--muted); }
@@ -340,7 +325,7 @@ dialog::backdrop { background: rgba(14, 15, 13, .55); backdrop-filter: blur(6px)
 .story-cover-ink .label, .story-cover-ink .std-num { color: var(--on-ink-muted); }
 .story-cover-apparel { background: var(--paper-deep); }
 .story-cover-apparel .bleed-light { margin: 0; }
-.story-cover-stick { display: flex; justify-content: center; }
+.story-cover-stick { display: flex; justify-content: center; background: #000; }
 .story-cover-stick .stick-render { width: min(560px, 100%); }
 .story-cover-stick figcaption { display: none; }
 .story-body { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 32px; padding: clamp(56px, 7vw, 120px) 0 0; }
@@ -405,7 +390,7 @@ dialog::backdrop { background: rgba(14, 15, 13, .55); backdrop-filter: blur(6px)
   .field-rows li:nth-child(4) { border-right: 0; }
   .field-rows li:nth-child(5) { padding-left: 0; }
   .stick-section { grid-template-columns: 1fr; }
-  .stick-drawing-wrap { max-width: 360px; }
+  .stick-build { max-width: 360px; }
 }
 @media (max-width: 899px) {
   :root { --gutter: 22px; --t-xl: clamp(2.5rem, 10vw, 4.75rem); --t-hero: clamp(3rem, 13vw, 6rem); }

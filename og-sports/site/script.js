@@ -44,12 +44,12 @@
         note: 'Nicht nur zuschauen. Teil des Moments werden.', cta: 'Ein Format gemeinsam gestalten', contact: 'create',
         extra: 'Termine, Orte und Anmeldung folgen nach Bestätigung. Diese Vorschau kündigt kein buchbares Event an.'},
       stick: {category: 'Objekt', status: 'Prototyp in Entwicklung', title: 'FASTR STICK', intro: 'Eine kleine Idee.\nFür lange Strecken.',
-        cover: 'Studio-Render aus CAD-Entwurf V0 · ungeprüft, kein Produkt',
+        cover: 'Produktvisualisierung · Prototyp, kein Serienprodukt',
         section: 'Weniger\ndazwischen.', body: 'Ein Anti-Chafing-Stick für Ausdauersport. Gedreht wird am Fuß: Die Gewindespindel hebt den Teller, der Balm kommt nach oben. Schlank, unkompliziert und mit einer Hand bedienbar — das ist das Entwicklungsziel.',
         side: 'Nicht mehr Funktionen. Eine Aufgabe, sorgfältig gelöst.',
         pillars: [['01', '30 ml.', 'Das geplante Volumen. In einer schlanken, zylindrischen Form.'], ['02', 'Eine Hand.', 'Einhandbedienung als Ziel. Die Mechanik wird schrittweise prototypisiert.'], ['03', 'Weiterdenken.', 'Aktuell im Fokus: Gehäuse, Führung und Schraubvorschub. Noch kein Serienprodukt.']],
         note: 'Form folgt Nutzung. Nicht umgekehrt.', cta: 'Über die Entwicklung sprechen', contact: 'create',
-        extra: 'Render und Zeichnung zeigen die Geometrie unseres CAD-Entwurfs V0 mit vorgeschlagenen Maßen. Material und Licht sind Gestaltung. Passung, Dichtheit und Füllmenge sind noch nicht geprüft. Keine Vorbestellung.'}
+        extra: 'Die Bilder sind 3D-Produktvisualisierungen, dieselben wie auf fastr30.com. Der STICK ist ein Prototyp: Passung, Dichtheit und Füllmenge sind noch nicht geprüft.'}
     },
     en: {
       ui: {project: 'Project', next: 'Next', conversation: 'Every idea starts a conversation.', approach: 'The approach',
@@ -76,12 +76,12 @@
         note: 'More than watching. Being part of the moment.', cta: 'Create an experience together', contact: 'create',
         extra: 'Dates, venues and registration will follow once confirmed. This preview does not announce a bookable event.'},
       stick: {category: 'Object', status: 'Prototype in development', title: 'FASTR STICK', intro: 'A small idea.\nFor the long run.',
-        cover: 'Studio render from CAD draft V0 · untested, not a product',
+        cover: 'Product visualisation · prototype, not a production product',
         section: 'Less in\nthe way.', body: 'An anti-chafing stick for endurance sport. Turn the base: the threaded spindle lifts the cup and the balm comes up. Slim, uncomplicated and usable with one hand — that is the development goal.',
         side: 'Not more functions. One purpose, carefully considered.',
         pillars: [['01', '30 ml.', 'The planned capacity. In a slim, cylindrical form.'], ['02', 'One hand.', 'One-handed use as a goal. The mechanism is being prototyped step by step.'], ['03', 'Keep refining.', 'Current focus: housing, guide and screw-feed mechanism. Not a production product.']],
         note: 'Form follows use. Not the other way around.', cta: 'Talk about development', contact: 'create',
-        extra: 'Render and drawing show the geometry of our CAD draft V0 with proposed dimensions. Material and light are art direction. Fit, sealing and fill volume have not been tested yet. No preorders.'}
+        extra: 'The images are 3D product visualisations, the same as on fastr30.com. The STICK is a prototype: fit, sealing and fill volume have not been tested yet.'}
     }
   };
 
