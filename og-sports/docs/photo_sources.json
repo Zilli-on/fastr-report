@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-23 / every chapter is a frame",
+  "version": "v2 2026-10-23 / campaign, not concept",
   "verified": "2026-10-23",
   "photographs": [
     {
@@ -44,9 +44,10 @@
       "published": "2026-02-07",
       "license": "Unsplash License",
       "license_url": "https://unsplash.com/license",
-      "local_file": "assets/run-detail.webp",
-      "sha256": "dcc5694b8245f1b3fa138ebb5b16d09172d20f4ab9817a89bf1097e33bd89b93",
-      "status": "shown on the homepage, culture sequence"
+      "local_file": "assets/frame-01-detail.webp",
+      "sha256": "5ecf7c3baf75930cf09417a27e590693403c5846c1adfb5e583493915a021b01",
+      "status": "shown on the homepage, culture sequence",
+      "edit": "maker mark on the shoe heel removed by local inpainting (OpenCV)"
     },
     {
       "key": "run-shadow",
@@ -71,9 +72,10 @@
       "published": "2026-03-26",
       "license": "Unsplash License",
       "license_url": "https://unsplash.com/license",
-      "local_file": "assets/run-community.webp",
-      "sha256": "546bdde1f8b68413484528b5d3b2cfa245fb2331b56bba41e8cf57dcb7c439f2",
-      "status": "shown on the homepage, culture sequence"
+      "local_file": "assets/frame-03-people.webp",
+      "sha256": "8a1c8dac564fa4d3a08d137cddcf6dc995f02cf6cef83f663205fa2c2ca59b9b",
+      "status": "shown on the homepage, culture sequence",
+      "edit": "race bibs, ribbons, shirt prints and banner text removed by AI-assisted retouch (Higgsfield, GPT Image 2.5); faces compared, unchanged"
     }
   ],
   "rights_note": "Public design review. Unsplash photo licence does not itself verify model/property/trademark releases for advertising. No implied endorsement. Noindex is not access protection.",

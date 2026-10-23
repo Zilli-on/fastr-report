@@ -1,6 +1,26 @@
 # OG SPORTS — Bildnachweise
 
-## Aktueller Stand (2026-10-23)
+## Aktueller Stand (v2, 2026-10-23)
+
+| Frame | Datei | Art | Quelle / Bearbeitung |
+|---|---|---|---|
+| 00 | `after-the-run-display-4x.webp`, Original `after-the-run.webp` | bestehende KI-Bildstudie | OG SPORTS; 4× Lanczos-Kopie für die Anzeige |
+| 01 | `frame-01-detail.webp` | Fotografie David Moorhouse | https://unsplash.com/photos/close-up-of-a-runners-leg-and-athletic-shoe-GToHUINXOb4 — Herstellerzeichen am Schuh lokal entfernt (Inpainting) |
+| 02 | `run-shadow.webp` | Fotografie Mathias Reding | https://unsplash.com/photos/runners-legs-in-motion-with-a-long-shadow-G96xGokbTUM — unverändert |
+| 03 | `frame-03-people.webp` | Fotografie Leviosa Hou | https://unsplash.com/photos/runners-gathered-together-on-a-city-street-9ZXnEV7k2lI — Startnummern, Bänder, Shirt-Aufdrucke, Bannertext KI-gestützt retuschiert (Higgsfield, GPT Image 2.5), Gesichter verglichen und unverändert |
+| 04 | `campaign-ramp.webp` | KI-Kampagnenstudie | eigenes Higgsfield-Material `motion_zoom_ramp.png`, Ausschnitt ohne Plakattext |
+| 05 | `campaign-spiral.webp` | KI-Bildstudie | eigenes Higgsfield-Material `03_top_down.png` |
+| 06 | `apparel-studies.webp` | KI-Visualisierung | generiert 2026-10-23 (Higgsfield, GPT Image 2.5) aus unseren vier Farbstudien, ohne Logos |
+| 07 | `live-venue.webp` | KI-Raumstudie | eigenes Higgsfield-Material `01_empty_garage.png`, leerer Raum, keine Veranstaltung |
+| 08 | `stick-studio.webp` | Render | `scripts/render_stick.py` aus CAD-Entwurf V0 (fastr-stick-prototype) |
+
+Die Unsplash License erlaubt Bearbeitung; sie ist keine Model-, Property- oder Markenfreigabe. Fremde Marken sind aus 01 und 03 entfernt. Die KI-Bilder sind auf der Seite sichtbar gekennzeichnet (AI Act Art. 50). Die Originaldateien `run-detail.webp` und `run-community.webp` liegen nur noch in der Git-Historie.
+
+---
+
+## Historie
+
+## Stand v1 (2026-10-23, ersetzt)
 
 Auf der Seite stehen genau vier Bilder, alle im Kultur-Einstieg:
 

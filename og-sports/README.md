@@ -9,18 +9,19 @@ Static website for the OG SPORTS parent brand and its OG FASTR movement, staged 
 Branch preview (follows the branch):
 https://raw.githack.com/Zilli-on/fastr-report/refs/heads/feat/og-sports-web/og-sports/site/index.html
 
-The PR description links the exact reviewed commit. raw.githack shows a notice first;
+The PR description links the exact reviewed commit (v2 campaign pass). raw.githack shows a notice first;
 choose **Open the page**. It is a public proxy for review, not hosting; `noindex` is not
 access protection.
 
 ## What it is
 
-One page in ten frames: the approved opening image, three approved reference
-photographs, then authored image plates for OG FASTR, FASTR30, the Wienerwald apparel
-studies, live formats and the FASTR STICK. See `docs/ART_DIRECTION.md`.
+A campaign page: the approved opening image, three reference photographs edge to
+edge (third-party marks retouched out), then our own OG FASTR campaign studies, an AI
+visualisation of the Wienerwald colour studies and a studio render of the FASTR STICK
+CAD, each labelled on the page. See `docs/ART_DIRECTION.md`.
 
 The contact flow prepares a local, copyable text draft only. Nothing is sent or stored.
-No analytics, commerce, booking, database or external font.
+No analytics, commerce, booking or database. Fonts (Archivo, Inter, SIL OFL) are self-hosted.
 
 ## Develop and check
 
@@ -49,7 +50,8 @@ fallback, skip link, focus trap, arrow keys and deep links. Reports and screensh
 `qa/` (ignored by Git). CI runs the same suite via `scripts/review7_visual.py` and
 `scripts/review8_visual.py` (`../.github/workflows/og-sports-review.yml`).
 
-Authored plates are generated into `site/index.html`:
+Images: `scripts/prepare_images.py <sources>` (crops and sizes) and `scripts/render_stick.py`
+(Blender, CAD previews). The STICK half section is generated into `site/index.html`:
 
 ```sh
 python scripts/authored_art.py --write

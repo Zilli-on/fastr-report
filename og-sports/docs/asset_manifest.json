@@ -1,6 +1,5 @@
 {
-  "version": "2026-10-23 / every chapter is a frame",
-  "font_files_included": false,
+  "version": "v2 2026-10-23 / campaign, not concept",
   "external_requests": false,
   "assets": [
     {
@@ -9,31 +8,79 @@
       "sha256": "63fe1536cc9ced2be55f86259be49fb0cbff1b2fa47c5429811029f524cfc3f2",
       "use": "Opening image, frame 00",
       "type": "Display derivative of the AI image study",
-      "source": "4x Lanczos resample with light sharpening of after-the-run.webp; larger, not more detailed"
+      "source": "4x Lanczos resample with light sharpening"
     },
     {
       "file": "assets/after-the-run.webp",
       "bytes": 41820,
       "sha256": "807364cf90a7b283304707b93194110fe7c519ac6ae53a5f6b21f8ae43c02bfe",
-      "use": "Original of the opening image; shown in the image notes",
+      "use": "Original of the opening image; image notes",
       "type": "AI image study",
-      "source": "Existing V14 project asset, unchanged"
+      "source": "Existing project asset, unchanged"
+    },
+    {
+      "file": "assets/apparel-studies.webp",
+      "bytes": 157776,
+      "sha256": "eea22444dee927e1e9ce327d7ecef87769db58c16e4475a21e8172c119ca2d03",
+      "use": "Frame 06 Apparel",
+      "type": "AI visualisation",
+      "source": "Generated 2026-10-23 from the four colour studies, no logos"
+    },
+    {
+      "file": "assets/campaign-ramp.webp",
+      "bytes": 316838,
+      "sha256": "f88596a6b0a83da30982b85dad969b2783ce2dd74a4d1a17a5e814119d127756",
+      "use": "Frame 04 OG FASTR",
+      "type": "AI campaign study",
+      "source": "Own Higgsfield asset motion_zoom_ramp.png, cropped"
+    },
+    {
+      "file": "assets/campaign-spiral.webp",
+      "bytes": 347382,
+      "sha256": "71c109af2a5dcec2fcfb3394433bf9d81ff1ec838d90feb000d854762347782d",
+      "use": "Frame 05 FASTR30",
+      "type": "AI image study",
+      "source": "Own Higgsfield asset 03_top_down.png, cropped"
+    },
+    {
+      "file": "assets/frame-01-detail.webp",
+      "bytes": 44478,
+      "sha256": "5ecf7c3baf75930cf09417a27e590693403c5846c1adfb5e583493915a021b01",
+      "use": "Strip 01",
+      "type": "Photograph (David Moorhouse, Unsplash)",
+      "source": "Maker mark removed by inpainting"
+    },
+    {
+      "file": "assets/frame-03-people.webp",
+      "bytes": 244996,
+      "sha256": "8a1c8dac564fa4d3a08d137cddcf6dc995f02cf6cef83f663205fa2c2ca59b9b",
+      "use": "Strip 03",
+      "type": "Photograph (Leviosa Hou, Unsplash)",
+      "source": "Brand marks retouched, AI-assisted"
     },
     {
       "file": "assets/greatness.svg",
       "bytes": 2777,
       "sha256": "fe362832b8970a4fbac6101c34d975442ad5951c7d9845225bb2a5dde5ebfd8a",
-      "use": "Opening title, second word",
+      "use": "Opening title",
       "type": "Outlined campaign text",
-      "source": "Created for V16 from Inter Display outlines; not a font file"
+      "source": "Inter Display outlines"
+    },
+    {
+      "file": "assets/live-venue.webp",
+      "bytes": 222694,
+      "sha256": "e5c3b852b9cfce0b8f1df8ec770c16a6bfccba1f49b923975bbd66fb57197940",
+      "use": "Frame 07 Live",
+      "type": "AI space study",
+      "source": "Own Higgsfield asset 01_empty_garage.png"
     },
     {
       "file": "assets/og-fastr-wordmark-dark.svg",
       "bytes": 4824,
       "sha256": "cfc5bf702e0858038999e8c788f511ac88e2a33613ec7574e9f60dea9821a366",
-      "use": "Frame 04 masthead",
+      "use": "Frame 04",
       "type": "Original OG FASTR wordmark",
-      "source": "Unchanged brand vector"
+      "source": "Unchanged"
     },
     {
       "file": "assets/og-mark-black.svg",
@@ -41,7 +88,7 @@
       "sha256": "27e77efd890e4bf8b2c0def67640ad8f30e73b3313984542f4236cd4426105bf",
       "use": "Compact header, dialogs",
       "type": "Original OG SPORTS symbol",
-      "source": "Unchanged brand vector"
+      "source": "Unchanged"
     },
     {
       "file": "assets/og-sports-black.svg",
@@ -49,78 +96,50 @@
       "sha256": "d0a99a2d62cc2304c73ef704baabdf3c82c9f6ead803c73ec7f259f0dffe9fea",
       "use": "Header, footer signature",
       "type": "Original OG SPORTS mark",
-      "source": "Unchanged brand vector"
+      "source": "Unchanged"
     },
     {
       "file": "assets/own.svg",
       "bytes": 795,
       "sha256": "d07b2ceae7feea5cd54f5cebffbb9525ab5bf80b6d99e72a770fb993ea049cc2",
-      "use": "Opening title, first word",
+      "use": "Opening title",
       "type": "Outlined campaign text",
-      "source": "Created for V16 from Inter Display outlines; not a font file"
-    },
-    {
-      "file": "assets/run-community.webp",
-      "bytes": 153224,
-      "sha256": "546bdde1f8b68413484528b5d3b2cfa245fb2331b56bba41e8cf57dcb7c439f2",
-      "use": "Frame 03 / People",
-      "type": "Photograph",
-      "source": "Leviosa Hou, Unsplash License"
-    },
-    {
-      "file": "assets/run-detail.webp",
-      "bytes": 48110,
-      "sha256": "dcc5694b8245f1b3fa138ebb5b16d09172d20f4ab9817a89bf1097e33bd89b93",
-      "use": "Frame 01 / Detail",
-      "type": "Photograph",
-      "source": "David Moorhouse, Unsplash License"
+      "source": "Inter Display outlines"
     },
     {
       "file": "assets/run-shadow.webp",
       "bytes": 217624,
       "sha256": "f1ffa9de0ca17daac7aca5a389b136c45dcdcab9fdbc849f17c62a71082b6469",
-      "use": "Frame 02 / Motion",
-      "type": "Photograph",
-      "source": "Mathias Reding, Unsplash License"
+      "use": "Strip 02",
+      "type": "Photograph (Mathias Reding, Unsplash)",
+      "source": "Unchanged"
+    },
+    {
+      "file": "assets/stick-studio.webp",
+      "bytes": 16894,
+      "sha256": "8fa53478321f37aa1ed60127f94f9f824770f4778017ec033cb2f3fc1650e03c",
+      "use": "Frame 08 STICK",
+      "type": "Render",
+      "source": "scripts/render_stick.py from CAD draft V0"
     }
   ],
-  "authored_inline_plates": [
+  "fonts": [
     {
-      "marker": "art:routes",
-      "frame": "04",
-      "what": "23 routes settling into one direction",
-      "generator": "scripts/authored_art.py"
+      "file": "fonts/archivo-var-latin.woff2",
+      "bytes": 90104,
+      "licence": "SIL OFL 1.1"
     },
     {
-      "marker": "art:jersey",
-      "frame": "06",
-      "what": "jersey flat <symbol>, four CSS colourways",
-      "generator": "scripts/authored_art.py"
-    },
-    {
-      "marker": "art:gather",
-      "frame": "07",
-      "what": "people arriving and gathering; format sketch",
-      "generator": "scripts/authored_art.py"
-    },
+      "file": "fonts/inter-var-latin.woff2",
+      "bytes": 72920,
+      "licence": "SIL OFL 1.1"
+    }
+  ],
+  "generated_inline": [
     {
       "marker": "art:stick",
-      "frame": "08",
-      "what": "view A and half section A-A, proportions from CAD draft V0 (unconfirmed, untested)",
+      "what": "STICK elevation + half section from CAD draft V0",
       "generator": "scripts/authored_art.py"
     }
-  ],
-  "practice_field": {
-    "frame": "05",
-    "what": "30 x 7 field in HTML/CSS; the seven standards are the row labels"
-  },
-  "removed_2026_10_23": [
-    "assets/running-photograph.webp",
-    "assets/cycling-photograph.webp",
-    "assets/movement-rooftop.webp",
-    "assets/r8-motion.svg",
-    "assets/r8-apparel.svg",
-    "assets/r8-live.svg",
-    "assets/r8-stick.svg"
   ]
 }

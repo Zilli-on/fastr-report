@@ -49,3 +49,10 @@ Full rationale: `docs/ART_DIRECTION.md`.
 - Project stories reuse the page plate as their cover (cloned in `script.js`), so there is one drawing per project, not two.
 - FASTR STICK is drawn from the CAD draft V0 proportions; print no dimensions, keep "untested, not a product".
 - The rejected stock photographs (`running-photograph`, `cycling-photograph`, `movement-rooftop`) were removed from `site/assets`; tests fail if they return.
+
+## v2 — campaign, not concept (2026-10-23, Fabi: "noch nicht high end", "keine anderen Marken", SOM-Anfang + große Sportbrands/F1)
+Full rationale: `docs/ART_DIRECTION.md` (v2). This replaces the v1 plate decisions above where they conflict.
+- Every chapter carries a real image: 01–03 photographs as an edge-to-edge strip, then our own Higgsfield campaign studies (04, 05, 07), an AI visualisation of the apparel colour studies (06) and a Blender render of the STICK CAD (08). Each image below the photographs carries a visible label (KI-…studie / KI-Visualisierung / Render aus CAD-Entwurf V0); a test enforces it.
+- No third-party brands anywhere: marks retouched out of 01 and 03; originals must not ship.
+- Chapter titles in Archivo (wide, heavy, uppercase); copy in Inter; both self-hosted under SIL OFL in `site/fonts/`. The old "no font files" rule is replaced by "only self-hosted OFL fonts, licence next to the file, no font services".
+- Image pipeline: `scripts/prepare_images.py`, `scripts/render_stick.py`; FASTR30 rules are a seven-column grid.
