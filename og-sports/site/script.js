@@ -400,39 +400,6 @@
     if (reduced.matches) { root.classList.remove('motion-ok'); document.querySelectorAll('[data-motion], .bleed').forEach(el => el.classList.add('is-in')); }
   });
 
-  // og:loops — muted video loops over the campaign stills. Not loaded with reduced
-  // motion or without IntersectionObserver; play only while visible; each has a pause button.
-  const loops = [...document.querySelectorAll('main video.loop[data-src]')];
-  if (loops.length && 'IntersectionObserver' in window && !reduced.matches) {
-    const held = new WeakSet();
-    const toggleFor = video => video.parentElement.querySelector('.loop-toggle');
-    const setLabel = (button, paused) => {
-      button.setAttribute('aria-pressed', String(paused));
-      const de = paused ? 'Bewegtbild abspielen' : 'Bewegtbild anhalten', en = paused ? 'Play motion' : 'Pause motion';
-      button.dataset.labelDe = de; button.dataset.labelEn = en;
-      button.setAttribute('aria-label', lang === 'de' ? de : en);
-    };
-    const play = video => {
-      if (held.has(video)) return;
-      if (!video.src) video.src = video.dataset.srcWebm && video.canPlayType('video/webm; codecs="vp9"') ? video.dataset.srcWebm : video.dataset.src;
-      video.play().then(() => video.classList.add('is-playing')).catch(() => {});
-    };
-    const watch = new IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) play(entry.target); else entry.target.pause();
-    }), {threshold: .2});
-    loops.forEach(video => {
-      watch.observe(video);
-      const button = toggleFor(video);
-      if (!button) return;
-      button.hidden = false;
-      button.addEventListener('click', () => {
-        if (held.has(video)) { held.delete(video); setLabel(button, false); play(video); }
-        else { held.add(video); video.pause(); setLabel(button, true); }
-      });
-    });
-    reduced.addEventListener?.('change', () => { if (reduced.matches) loops.forEach(v => { v.pause(); v.classList.remove('is-playing'); }); });
-  }
-
   translate('de');
   updateContact();
 })();

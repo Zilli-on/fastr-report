@@ -7,7 +7,7 @@ const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 const types = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8',
   '.js':'text/javascript; charset=utf-8', '.svg':'image/svg+xml', '.webp':'image/webp',
   '.jpg':'image/jpeg', '.png':'image/png', '.json':'application/json; charset=utf-8',
-  '.txt':'text/plain; charset=utf-8', '.woff2':'font/woff2', '.mp4':'video/mp4', '.webm':'video/webm' };
+  '.txt':'text/plain; charset=utf-8', '.woff2':'font/woff2' };
 
 /** A local development/preview server. Never exposes repository metadata or dotfiles. */
 export async function startServer({ directory = path.join(projectRoot, 'site'), port = 4173, host = '127.0.0.1' } = {}) {

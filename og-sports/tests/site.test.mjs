@@ -66,24 +66,6 @@ test('presents four projects with their artefact and honest status captions', ()
   assert.match(block, /<svg class="stick-drawing"/, 'generated stick drawing');
 });
 
-test('adds muted, pausable video loops that never replace the labelled still', async () => {
-  const videos = Array.from(main.matchAll(/<video\b[^>]*>/g), m => m[0]);
-  assert.equal(videos.length, 4);
-  for (const tag of videos) {
-    for (const attr of ['muted=""', 'playsinline=""', 'loop=""', 'preload="none"', 'aria-hidden="true"']) assert.ok(tag.includes(attr), `${attr} in ${tag}`);
-    const clip = tag.match(/data-src="(media\/[^"]+\.mp4)"/)[1];
-    const webm = tag.match(/data-src-webm="(media\/[^"]+\.webm)"/)[1];
-    await access(new URL(`site/${webm}`, root));
-    const poster = tag.match(/poster="(assets\/[^"]+\.webp)"/)[1];
-    const size = (await readFile(new URL(`site/${clip}`, root))).length;
-    assert.ok(size > 100_000 && size < 5_000_000, `${clip} ${size}`);
-    await access(new URL(`site/${poster}`, root));
-    assert.ok(main.includes(`src="${poster}"`), `${poster} still shown as image`);
-  }
-  assert.equal((main.match(/class="loop-toggle"/g) || []).length, 4);
-  assert.match(js, /og:loops/);
-});
-
 test('browser JavaScript is syntactically valid', () => assert.doesNotThrow(() => new Script(js)));
 
 test('all local artwork referenced by the source exists', async () => {
