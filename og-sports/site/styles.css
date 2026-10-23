@@ -517,6 +517,7 @@ dialog::backdrop { background: rgba(14, 15, 13, .55); backdrop-filter: blur(6px)
 }
 @media (max-width: 600px) {
   :root { --gutter: 20px; }
+  .practice-head .practice-copy, .apparel .project-copy { align-self: flex-start; }
   .culture-frames { display: flex; flex-direction: column; gap: 40px; }
   .culture-col { display: contents; }
   .frame-detail { order: 1; width: 78%; }
