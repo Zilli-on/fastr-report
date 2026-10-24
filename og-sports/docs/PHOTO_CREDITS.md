@@ -1,6 +1,6 @@
 # OG SPORTS — Bildnachweise
 
-## Aktueller Stand (v2, 2026-10-23)
+## Aktueller Stand (v3 „Der Tempel“, 2026-10-24)
 
 | Frame | Datei | Art | Quelle / Bearbeitung |
 |---|---|---|---|
@@ -11,11 +11,11 @@
 | I OG FASTR | `race-01-stairs.webp`, `race-02-effort.webp`, `race-03-train.webp` | eigene Aufnahme | Standbilder aus dem Loop100-Lauf gegen die U6 (Insta360, 23.05.2026; 48 s, 115 s, 124 s), Marken an Shirt, Brille und Shorts lokal entfernt (OpenCV-Inpainting), Grade `bw` aus dem Content Studio. Frames mit Passanten wurden verworfen. Schuhgrafik in 03 nicht als Marke lesbar, nicht retuschiert. Stationsschild Thaliastraße bleibt (Ort). |
 | Manifest | `roof-morning.webp` | eigene Aufnahme | Standbild aus `IMG_1611.mov` (Dachterrasse Wien, Mi 30.09.2026, 8:32), Grade p50 aus dem Content Studio (`fcm/finish.py`), keine fremden Marken |
 | Säule I | `run-u6.webp` | eigene Aufnahme | Standbild aus dem Loop100-Lauf gegen die U6 (Insta360, 23.05.2026), Marken an Shirt, Brille und Shorts lokal entfernt (OpenCV-Inpainting), Grade p50 |
-| 06 | `apparel-studies.webp` | KI-Visualisierung | generiert 2026-10-23 (Higgsfield, GPT Image 2.5) aus unseren vier Farbstudien, ohne Logos |
-| 07 | `live-venue.webp` | KI-Raumstudie | eigenes Higgsfield-Material `01_empty_garage.png`, leerer Raum, keine Veranstaltung |
+| III Wear, Säule III | `merch-01-black.jpg` … `merch-06-butter-yellow.jpg` | Produktvisualisierung | unverändert von fastr30.com/merch (`fastr30-website/website/assets/img/`); Hash-Test |
+| IV Meet | — | keine Bilder | Lavendel-Typotafel: Es gibt noch keine Aufnahmen einer stattgefundenen Veranstaltung, also zeigen wir keine |
 | 08 | `stick-lime.jpg`, `stick-exploded.jpg` | 3D-Produktvisualisierung | unverändert von fastr30.com/shop (`fastr30-website/website/assets/img/`, aus der Render-Lieferung `final-render.png`); Hash-Test |
 
-Die Unsplash License erlaubt Bearbeitung; sie ist keine Model-, Property- oder Markenfreigabe. Fremde Marken sind aus 01 und 03 entfernt. Die KI-Bilder sind auf der Seite sichtbar gekennzeichnet (AI Act Art. 50). Die Originaldateien `run-detail.webp` und `run-community.webp` liegen nur noch in der Git-Historie.
+Die Unsplash License erlaubt Bearbeitung; sie ist keine Model-, Property- oder Markenfreigabe. Fremde Marken sind aus 01 und 03 entfernt. Das einzige verbliebene KI-Bild ist der Hero (00); er ist im Bildhinweis gekennzeichnet (AI Act Art. 50). Eigene Aufnahmen tragen sichtbar „Eigene Aufnahme“. Die Higgsfield-Studien (Rampe, Spirale, Garage) und die KI-Trikots sind seit v3 nicht mehr auf der Seite. Die Originaldateien `run-detail.webp` und `run-community.webp` liegen nur noch in der Git-Historie.
 
 ---
 

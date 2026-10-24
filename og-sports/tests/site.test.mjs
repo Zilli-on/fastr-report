@@ -55,7 +55,7 @@ test('labels every image below the photographs as own footage, AI study or visua
     const scope = main.slice(main.indexOf(figure), main.indexOf(figure) + figure.length + 1200);
     assert.match(scope, /Eigene Aufnahme|KI-(Kampagnenstudie|Bildstudie|Visualisierung|Raumstudie)|Produktvisualisierung/, `${src} needs a visible label`);
   }
-  assert.deepEqual(shown, ['race-01-stairs.webp', 'apparel-studies.webp', 'live-venue.webp', 'stick-lime.jpg', 'stick-exploded.jpg']);
+  assert.deepEqual(shown, ['race-01-stairs.webp', 'merch-01-black.jpg', 'stick-lime.jpg', 'stick-exploded.jpg']);
 });
 
 test('keeps the seven FASTR30 standards in their fixed order', () => {
@@ -70,7 +70,7 @@ test('presents four projects with their artefact and honest status captions', ()
     assert.match(main, new RegExp(`data-artefact="${key}"`), `artefact for ${key}`);
     assert.match(main, new RegExp(`data-project="${key}"`), `story trigger for ${key}`);
   }
-  for (const status of ['Challenge-Konzept', 'keine Kollektion, kein Verkauf', 'noch kein Termin', 'Prototyp, kein Serienprodukt']) assert.ok(main.includes(status), status);
+  for (const status of ['Challenge-Konzept', 'Pre-Order unverbindlich', 'keine Kollektion, kein Verkauf', 'noch kein Termin', 'Prototyp, kein Serienprodukt']) assert.ok(main.includes(status), status);
   for (const view of ['stick-lime', 'stick-exploded']) assert.ok(main.includes(`assets/${view}.jpg`), view);
   assert.doesNotMatch(html + js, /CAD-Entwurf|CAD draft/, 'the STICK images are product renders, not the CAD draft');
 });
@@ -138,4 +138,16 @@ test('serves the site with correct MIME types without exposing repo files', asyn
     assert.equal((await fetch(base, { method: 'POST' })).status, 405);
     assert.equal((await fetch(`${base}/%E0%A4%A`)).status, 400);
   } finally { await new Promise(resolve => server.close(resolve)); }
+});
+
+test('the temple shows five pillars that all lead somewhere and label their images', () => {
+  const temple = main.split('id="pillars"')[1].split('</section>')[0];
+  const pillars = temple.split('<li class="pillar ').slice(1);
+  assert.equal(pillars.length, 5);
+  for (const pillar of pillars) {
+    const href = pillar.match(/href="#([a-z]+)"/)?.[1];
+    assert.ok(href && html.includes(`id="${href}"`), `pillar target #${href} exists`);
+    if (pillar.includes('<img')) assert.match(pillar, /class="pillar-kind"/, 'image pillar carries a visible label');
+  }
+  assert.match(temple, /Own Greatness/); assert.match(temple, /Original Grind/);
 });

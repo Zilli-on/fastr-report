@@ -56,6 +56,14 @@ Full rationale: `docs/ART_DIRECTION.md` (v2). This replaces the v1 plate decisio
 - Chapter titles in Archivo (wide, heavy, uppercase); copy in Inter; both self-hosted under SIL OFL in `site/fonts/`. The old "no font files" rule is replaced by "only self-hosted OFL fonts, licence next to the file, no font services".
 - Image pipeline: `scripts/prepare_images.py`; FASTR30 rules are a seven-column grid.
 
+## v3 — the temple (2026-10-24, Fabi: "der Tempel, der alle Säulen vereint", Gänsehaut, Create your own luck)
+Full table: `docs/ART_DIRECTION.md` (v3). Replaces earlier sections where they conflict.
+- Order: opening, strip, manifest, temple (pillars I Run · II Practice · III Wear · IV Meet · V Make), chapters I–V, the way in, signature.
+- Pillars are written by `python scripts/pillars.py`; edit the rows there, not the HTML, and run `--check` before committing. A unit test guards the result (five pillars, every target exists, every image pillar labelled).
+- OG upright, FASTR italic (`.run`, `site/fonts/archivo-italic-latin.woff2` from fastr30.com). Lime = FASTR, lavender = OG SPORTS.
+- Images: own footage (rooftop 30.09.2026, Loop100 23.05.2026; marks inpainted, labelled "Eigene Aufnahme" with date and place) and fastr30.com shop assets (STICK, hoodies) byte for byte. No Higgsfield stills, no AI apparel, no AI venue. Live stays a type plate until real event photos exist.
+- Hover never reflows: rules and lines grow by transform, not width (a width change broke the 360 px layout).
+
 ## Brand alignment — assets in use (2026-10-23 late, Fabi)
 Handoff and open questions: `docs/NEXT-brand-alignment.md`. This replaces v2 where they conflict.
 - Build from assets that are or were really in use (FASTR deck / design, fastr30.com), not from idea dumps. No AI video on OG surfaces.

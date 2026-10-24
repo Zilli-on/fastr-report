@@ -1,4 +1,35 @@
-# OG SPORTS — Art direction (v2, 2026-10-23)
+# OG SPORTS — Art direction (v3 "the temple", 2026-10-24)
+
+Fabi: "Die Website muss der Tempel sein, der uns alle Säulen präsentiert und
+vereint." Goosebumps, closeness to sport, connection; *Create your own luck*.
+The brand claim read as architecture: **Original Grind is the foundation,
+Own Greatness is the roof, the projects are the pillars between.**
+
+| | Chapter | Image | Voice |
+|---|---|---|---|
+| 00–03 | Opening + strip | unchanged (protected) | — |
+| — | Manifest *Create your own luck.* | own footage, rooftop Vienna, Wed 30.09.2026, 8:32 (p50 grade) | the copy names that very moment |
+| — | The temple | five pillars: I image · II lime · III image · IV lavender · V image | the one symmetric chapter |
+| I | OG FASTR *Go where you grow.* | own footage, Loop100 race against the U6, three frames (bw grade) | |
+| II | FASTR30 | the lime band, Archivo italic, 7 rules as a 30-day tracker (example, day 17) | fastr30.com |
+| III | Wear *Not done dreaming.* | the six fastr30.com hoodies, unchanged | *Earned. Not given.* — the pre-order opens after 30 days |
+| IV | Meet *In real life.* | none — lavender type plate | no event has happened yet |
+| V | FASTR STICK | fastr30.com renders, unchanged | |
+| — | The way in | three doors: begin (fastr30.com/join), create, partner | symmetric like the temple |
+
+Rules that came out of v3:
+- **OG stands upright, FASTR runs in italic** (the Archivo italic fastr30.com ships).
+- Lime = FASTR, lavender = OG SPORTS. They are the two colour pillars and the door tops.
+- Only material that is real or in use: own footage, fastr30.com shop assets. Higgsfield
+  stills, AI jerseys and the AI garage are gone. Where nothing real exists (Live), the
+  chapter is type, not a stand-in picture.
+- Own footage carries a visible label and its real date and place (content studio rule).
+  Third-party marks on clothing are inpainted locally; frames with passers-by are dropped.
+- Grades come from the content studio (`fcm/finish.py`): p50 for colour, bw for the race.
+
+---
+
+# v2 (2026-10-23, superseded by v3 above)
 
 Supersedes the v1 "every chapter is a frame" plates (same day) and Review 7/8.
 

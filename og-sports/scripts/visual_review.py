@@ -235,7 +235,10 @@ def site(browser, base, report):
             check(dialog.evaluate("e => e.open"), (where, key, "dialog did not open"))
             cover = dialog.locator(".story-cover")
             check(cover.count() == 1, (where, key, "cover"))
-            if key != "challenge":
+            if key in ("challenge", "live"):
+                # type plates: the cover carries the plate's words, no photograph
+                check(len(cover.inner_text().strip()) > 20, (where, key, "cover plate text"))
+            else:
                 check(
                     cover.locator("img").first.evaluate("i => (i.complete && i.naturalWidth > 0) || new Promise(r => { i.onload = () => r(i.naturalWidth > 0); i.onerror = () => r(false); })"),
                     (where, key, "cover image"),
@@ -362,8 +365,8 @@ def artefacts(browser, base, report):
             ("assets/race-03-train.webp", 1080),
             ("assets/run-u6.webp", 480),
             ("assets/roof-morning.webp", 1080),
-            ("assets/apparel-studies.webp", 2400),
-            ("assets/live-venue.webp", 2400),
+            ("assets/merch-01-black.jpg", 660),
+            ("assets/merch-06-butter-yellow.jpg", 660),
             ("assets/stick-lime.jpg", 880),
             ("assets/stick-exploded.jpg", 472),
         ):
@@ -387,8 +390,8 @@ def artefacts(browser, base, report):
             "Loop100",
             "Eigene Aufnahme",
             "Challenge-Konzept",
-            "KI-Visualisierung",
-            "KI-Raumstudie",
+            "Pre-Order unverbindlich",
+            "noch kein Termin",
             "Prototyp, kein Serienprodukt",
             "Unsplash",
         ):
@@ -438,7 +441,7 @@ def artefacts(browser, base, report):
           field: getComputedStyle(document.querySelector('.field-cells'), '::after').clipPath
         })""")
         check(before["field"].startswith("inset(0px 100%"), (where, "field should wait off-screen", before))
-        for selector in (".manifest", "#pillars", "#fastr .bleed", ".practice-field", ".apparel .bleed", ".live .bleed"):
+        for selector in (".manifest", "#pillars", "#fastr .bleed", ".practice-field", ".rail", ".live-plate"):
             page.locator(selector).scroll_into_view_if_needed()
             page.wait_for_timeout(250)
         page.wait_for_timeout(3200)
@@ -453,8 +456,8 @@ def artefacts(browser, base, report):
             ("temple", "#pillars"),
             ("movement", "#fastr .bleed"),
             ("field", ".practice-field"),
-            ("apparel", ".apparel .bleed"),
-            ("live", ".live .bleed"),
+            ("apparel", ".rail"),
+            ("live", ".live-plate"),
             ("stick", ".stick"),
         ):
             path = QA / f"{NAMES['artefacts'][1]}-{name}-{width}.png"

@@ -19,14 +19,6 @@
       "source": "Existing project asset, unchanged"
     },
     {
-      "file": "assets/apparel-studies.webp",
-      "bytes": 157776,
-      "sha256": "eea22444dee927e1e9ce327d7ecef87769db58c16e4475a21e8172c119ca2d03",
-      "use": "Frame 06 Apparel",
-      "type": "AI visualisation",
-      "source": "Generated 2026-10-23 from the four colour studies, no logos"
-    },
-    {
       "file": "assets/frame-01-detail.webp",
       "bytes": 44478,
       "sha256": "5ecf7c3baf75930cf09417a27e590693403c5846c1adfb5e583493915a021b01",
@@ -49,14 +41,6 @@
       "use": "Opening title",
       "type": "Outlined campaign text",
       "source": "Inter Display outlines"
-    },
-    {
-      "file": "assets/live-venue.webp",
-      "bytes": 222694,
-      "sha256": "e5c3b852b9cfce0b8f1df8ec770c16a6bfccba1f49b923975bbd66fb57197940",
-      "use": "Frame 07 Live",
-      "type": "AI space study",
-      "source": "Own Higgsfield asset 01_empty_garage.png"
     },
     {
       "file": "assets/og-fastr-wordmark-dark.svg",
@@ -153,6 +137,54 @@
       "use": "Chapter I OG FASTR, race sequence (beside the train)",
       "type": "Own footage (still)",
       "source": "Loop100 Insta360 23.05.2026, frame 124.0 s, third-party marks inpainted (OpenCV), fcm bw grade + grain"
+    },
+    {
+      "file": "assets/merch-01-black.jpg",
+      "bytes": 40265,
+      "sha256": "f56bee7097995f0e6604dc9365a43741095cb64780729769189b0287f8f597c8",
+      "use": "Chapter III Wear, hoodie rail (Black) and temple pillar III",
+      "type": "Product visualisation",
+      "source": "fastr30.com/merch asset, unchanged"
+    },
+    {
+      "file": "assets/merch-02-cherry-red.jpg",
+      "bytes": 53962,
+      "sha256": "96abaf3c558db2aa7ca801621f8d40e299232a70d4c4bf80f92c8a5275a81cef",
+      "use": "Chapter III Wear, hoodie rail (Cherry Red)",
+      "type": "Product visualisation",
+      "source": "fastr30.com/merch asset, unchanged"
+    },
+    {
+      "file": "assets/merch-03-cobalt-blue.jpg",
+      "bytes": 54063,
+      "sha256": "9c44b4fdd9a539697eb58961740b12c8eac64ce4a6446816b96354de049e5cee",
+      "use": "Chapter III Wear, hoodie rail (Cobalt Blue)",
+      "type": "Product visualisation",
+      "source": "fastr30.com/merch asset, unchanged"
+    },
+    {
+      "file": "assets/merch-04-emerald-green.jpg",
+      "bytes": 48570,
+      "sha256": "4204859ede7260632352d0d57eb82929d20b2f9be99c28b13a177983b979fcd2",
+      "use": "Chapter III Wear, hoodie rail (Emerald Green)",
+      "type": "Product visualisation",
+      "source": "fastr30.com/merch asset, unchanged"
+    },
+    {
+      "file": "assets/merch-05-lavender.jpg",
+      "bytes": 46967,
+      "sha256": "fba34be577dc8b9c0738aa98d41fa0e676ab13795b2455be6a88995adf8bf748",
+      "use": "Chapter III Wear, hoodie rail (Lavender)",
+      "type": "Product visualisation",
+      "source": "fastr30.com/merch asset, unchanged"
+    },
+    {
+      "file": "assets/merch-06-butter-yellow.jpg",
+      "bytes": 49103,
+      "sha256": "6d491ec6cf854e6e5792e4f23252e9344184e8ff3e4f4e9c1322451263e580e0",
+      "use": "Chapter III Wear, hoodie rail (Butter Yellow)",
+      "type": "Product visualisation",
+      "source": "fastr30.com/merch asset, unchanged"
     }
   ],
   "fonts": [
