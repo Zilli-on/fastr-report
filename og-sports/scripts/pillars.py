@@ -19,53 +19,21 @@ START, END = "<!--pillars-->", "<!--/pillars-->"
 # media: ("img", src, object-position, kind label (DE, EN), alt (DE, EN))
 #     or ("type", figure text, size in container-inline units)
 PILLARS = [
-    (
-        "I",
-        "Run",
-        True,
-        "#fastr",
-        "OG FASTR",
-        (
-            "img",
-            "assets/run-u6.webp",
-            "50% 40%",
-            ("Eigene Aufnahme · U6, Wien", "Own footage · U6, Vienna"),
-            (
-                "Sprint am Bahnsteig der U6 in Wien",
-                "Sprinting along a U6 platform in Vienna",
-            ),
-        ),
-    ),
-    ("II", "Practice", True, "#practice", "FASTR30", ("type", "30", 54)),
-    (
-        "III",
-        "Wear",
-        True,
-        "#apparel",
-        "Apparel",
-        (
-            "img",
-            "assets/merch-01-black.jpg",
-            "50% 30%",
-            ("Produktvisualisierung", "Product visualisation"),
-            ("FASTR30 Graphic Hoodie in Black", "FASTR30 Graphic Hoodie in black"),
-        ),
-    ),
-    ("IV", "Meet", False, "#live", "Live", ("type", "IRL.", 40)),
-    (
-        "V",
-        "Make",
-        True,
-        "#stick",
-        "FASTR STICK",
-        (
-            "img",
-            "assets/stick-lime.jpg",
-            "50% 50%",
-            ("Produktvisualisierung", "Product visualisation"),
-            ("FASTR STICK in Lime", "FASTR STICK in lime"),
-        ),
-    ),
+    ("I", "Run", True, "#fastr", "OG FASTR",
+     ("img", "assets/pillar-run.webp", "50% 45%", ("Nick Gosset / Unsplash", "Nick Gosset / Unsplash"),
+      ("Läufer in Bewegung, unscharf", "Runner in motion, blurred"))),
+    ("II", "Practice", True, "#practice", "FASTR30",
+     ("img", "assets/pillar-practice.webp", "50% 55%", ("Red John / Unsplash", "Red John / Unsplash"),
+      ("Läufer auf einer Betontreppe im Abendlicht", "Runner on concrete stairs in evening light"))),
+    ("III", "Wear", True, "#apparel", "Apparel",
+     ("img", "assets/merch-05-lavender.jpg", "50% 35%", ("Produktvisualisierung", "Product visualisation"),
+      ("FASTR30 Graphic Hoodie in Lavender", "FASTR30 Graphic Hoodie in lavender"))),
+    ("IV", "Meet", False, "#live", "Live",
+     ("img", "assets/pillar-meet.webp", "55% 50%", ("Gabin Vallet / Unsplash", "Gabin Vallet / Unsplash"),
+      ("Gruppe beim Aufwärmen im Gegenlicht", "A group warming up against the low sun"))),
+    ("V", "Make", True, "#stick", "FASTR STICK",
+     ("img", "assets/stick-lime.jpg", "50% 45%", ("Produktvisualisierung", "Product visualisation"),
+      ("FASTR STICK in Lime", "FASTR STICK in lime"))),
 ]
 
 

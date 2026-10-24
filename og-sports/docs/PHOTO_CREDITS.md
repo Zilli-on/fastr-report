@@ -1,6 +1,6 @@
 # OG SPORTS — Bildnachweise
 
-## Aktueller Stand (v3 „Der Tempel“, 2026-10-24)
+## Aktueller Stand (v4, 2026-10-24)
 
 | Frame | Datei | Art | Quelle / Bearbeitung |
 |---|---|---|---|
@@ -8,11 +8,16 @@
 | 01 | `frame-01-detail.webp` | Fotografie David Moorhouse | https://unsplash.com/photos/close-up-of-a-runners-leg-and-athletic-shoe-GToHUINXOb4 — Herstellerzeichen am Schuh lokal entfernt (Inpainting) |
 | 02 | `run-shadow.webp` | Fotografie Mathias Reding | https://unsplash.com/photos/runners-legs-in-motion-with-a-long-shadow-G96xGokbTUM — unverändert |
 | 03 | `frame-03-people.webp` | Fotografie Leviosa Hou | https://unsplash.com/photos/runners-gathered-together-on-a-city-street-9ZXnEV7k2lI — Startnummern, Bänder, Shirt-Aufdrucke, Bannertext KI-gestützt retuschiert (Higgsfield, GPT Image 2.5), Gesichter verglichen und unverändert |
-| I OG FASTR | `race-01-stairs.webp`, `race-02-effort.webp`, `race-03-train.webp` | eigene Aufnahme | Standbilder aus dem Loop100-Lauf gegen die U6 (Insta360, 23.05.2026; 48 s, 115 s, 124 s), Marken an Shirt, Brille und Shorts lokal entfernt (OpenCV-Inpainting), Grade `bw` aus dem Content Studio. Frames mit Passanten wurden verworfen. Schuhgrafik in 03 nicht als Marke lesbar, nicht retuschiert. Stationsschild Thaliastraße bleibt (Ort). |
-| Manifest | `roof-morning.webp` | eigene Aufnahme | Standbild aus `IMG_1611.mov` (Dachterrasse Wien, Mi 30.09.2026, 8:32), Grade p50 aus dem Content Studio (`fcm/finish.py`), keine fremden Marken |
-| Säule I | `run-u6.webp` | eigene Aufnahme | Standbild aus dem Loop100-Lauf gegen die U6 (Insta360, 23.05.2026), Marken an Shirt, Brille und Shorts lokal entfernt (OpenCV-Inpainting), Grade p50 |
+| Manifest | `photo-ritual.webp` | Symbolbild, Unsplash License | Ulf Meyer, https://unsplash.com/photos/cS0W4GvUUDM — Grade p50, Größe angepasst |
+| Säule I | `pillar-run.webp` | Symbolbild, Unsplash License | Nick Gosset, https://unsplash.com/photos/3DJfakd6VoU — Grade p50, Größe angepasst |
+| Säule II | `pillar-practice.webp` | Symbolbild, Unsplash License | Red John, https://unsplash.com/photos/mZixsK8OnmE — Grade p50, Größe angepasst |
+| Säule IV | `pillar-meet.webp` | Symbolbild, Unsplash License | Gabin Vallet, https://unsplash.com/photos/J154nEkpzlQ — Grade p50, Größe angepasst |
+| I Run | `run-night.webp` | Symbolbild, Unsplash License | Hansheng Zhao, https://unsplash.com/photos/9FcKpisH7Bo — Grade p50, Größe angepasst |
+| II Practice | `practice-start.webp` | Symbolbild, Pexels License | Thomas Ronveaux, https://www.pexels.com/photo/a-close-up-shot-of-an-athlete-on-a-race-track-13159243/ — Grade p50, Größe angepasst |
+| III Wienerwald | `wienerwald-ride.webp` | Symbolbild, Unsplash License | Greg Rosenke, https://unsplash.com/photos/lf3g1p-7FP8 — Grade p50, Größe angepasst |
+| IV Meet | `meet-night.webp` | Symbolbild, Pexels License | liathyrax, https://www.pexels.com/photo/group-of-men-running-on-track-at-night-35005203/ — Grade p50, Größe angepasst, Schriftzug „EASY RUN“ und Brust-Logo lokal entfernt |
+| Eingang | `track-night.webp` | Symbolbild, Unsplash License | Mikhail K, https://unsplash.com/photos/jsNI0bh5D-o — Grade p50, Größe angepasst |
 | III Wear, Säule III | `merch-01-black.jpg` … `merch-06-butter-yellow.jpg` | Produktvisualisierung | unverändert von fastr30.com/merch (`fastr30-website/website/assets/img/`); Hash-Test |
-| IV Meet | — | keine Bilder | Lavendel-Typotafel: Es gibt noch keine Aufnahmen einer stattgefundenen Veranstaltung, also zeigen wir keine |
 | 08 | `stick-lime.jpg`, `stick-exploded.jpg` | 3D-Produktvisualisierung | unverändert von fastr30.com/shop (`fastr30-website/website/assets/img/`, aus der Render-Lieferung `final-render.png`); Hash-Test |
 
 Die Unsplash License erlaubt Bearbeitung; sie ist keine Model-, Property- oder Markenfreigabe. Fremde Marken sind aus 01 und 03 entfernt. Das einzige verbliebene KI-Bild ist der Hero (00); er ist im Bildhinweis gekennzeichnet (AI Act Art. 50). Eigene Aufnahmen tragen sichtbar „Eigene Aufnahme“. Die Higgsfield-Studien (Rampe, Spirale, Garage) und die KI-Trikots sind seit v3 nicht mehr auf der Seite. Die Originaldateien `run-detail.webp` und `run-community.webp` liegen nur noch in der Git-Historie.
@@ -111,3 +116,5 @@ In the public homepage, **only** the user's approved original composition and th
 Older runner, cycling and rooftop reference files remain in source history solely for rollback/legacy notes, and are not used in the Review 7 homepage or current project covers. After approval they can be separately removed in a cleanup commit.
 
 The website's `noindex` setting is not access control. The reference license does not establish model, location, logo or other third-party releases for a commercial brand launch. All production uses require review.
+
+v4: Fabi gab fremdes Material aus dem Internet frei. Unsplash/Pexels-Lizenzen erlauben kommerzielle Nutzung, enthalten aber keine Model- oder Markenfreigabe; die abgebildeten Personen dürfen nicht als Unterstützer von OG SPORTS erscheinen, deshalb steht bei jedem Bild „Symbolbild“. Pool und Quellen: `C:/Users/Fabien/og-sports-sources/v4-candidates/manifest.json`, Aufbereitung `prepare_v4.py`.

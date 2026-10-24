@@ -36,12 +36,12 @@ test('keeps the three approved photographs, retouched free of third-party brands
   }
 });
 
-test('the manifest carries our own footage with its real date and place', () => {
+test('the manifest credits its photograph and claims no moment it does not show', () => {
   const manifest = section('brand').split('<div class="manifest"')[1] || '';
-  assert.match(manifest, /src="assets\/roof-morning\.webp"/);
-  assert.match(manifest, /Eigene Aufnahme/);
-  assert.match(manifest, /30\.09\.2026, 8:32/);
-  assert.match(manifest, /Mittwoch um 8:32/, 'the copy names the moment the photograph shows');
+  assert.match(manifest, /src="assets\/photo-ritual\.webp"/);
+  assert.match(manifest, /Ulf Meyer \/ Unsplash/);
+  assert.match(manifest, /Symbolbild/);
+  assert.doesNotMatch(manifest, /8:32|30\.09\.2026/, 'no date or time that belonged to another picture');
 });
 
 test('labels every image below the photographs as own footage, AI study or visualisation', () => {
@@ -53,9 +53,9 @@ test('labels every image below the photographs as own footage, AI study or visua
     if (!src) continue;
     shown.push(src);
     const scope = main.slice(main.indexOf(figure), main.indexOf(figure) + figure.length + 1200);
-    assert.match(scope, /Eigene Aufnahme|KI-(Kampagnenstudie|Bildstudie|Visualisierung|Raumstudie)|Produktvisualisierung/, `${src} needs a visible label`);
+    assert.match(scope, /Unsplash|Pexels|Eigene Aufnahme|KI-(Kampagnenstudie|Bildstudie|Visualisierung|Raumstudie)|Produktvisualisierung/, `${src} needs a visible label`);
   }
-  assert.deepEqual(shown, ['race-01-stairs.webp', 'merch-01-black.jpg', 'stick-lime.jpg', 'stick-exploded.jpg']);
+  assert.deepEqual(shown, ['run-night.webp', 'practice-start.webp', 'merch-01-black.jpg', 'wienerwald-ride.webp', 'meet-night.webp', 'stick-lime.jpg', 'stick-exploded.jpg', 'track-night.webp']);
 });
 
 test('keeps the seven FASTR30 standards in their fixed order', () => {

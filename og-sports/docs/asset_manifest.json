@@ -1,5 +1,5 @@
 {
-  "version": "v3 2026-10-24 / the temple",
+  "version": "v4 2026-10-24 / photography carries every chapter",
   "external_requests": false,
   "assets": [
     {
@@ -99,46 +99,6 @@
       "source": "fastr30.com shop asset, unchanged"
     },
     {
-      "file": "assets/roof-morning.webp",
-      "bytes": 110150,
-      "sha256": "20252ee1a5a7c95e011e8cfb8596bc503e81732b86e8979d1d3ff1a6f402b154",
-      "use": "Manifest",
-      "type": "Own footage (still)",
-      "source": "IMG_1611.mov 30.09.2026 08:32, frame 16.8 s, 4:5 crop, fcm p50 grade + grain"
-    },
-    {
-      "file": "assets/run-u6.webp",
-      "bytes": 50480,
-      "sha256": "df9107b30c295e59a0627f4e1a3021f26105524bdf6487695c0d99e52a827c7d",
-      "use": "Temple pillar I",
-      "type": "Own footage (still)",
-      "source": "Loop100 Insta360 23.05.2026, frame 116.5 s, third-party marks inpainted (OpenCV), fcm p50 grade + grain"
-    },
-    {
-      "file": "assets/race-01-stairs.webp",
-      "bytes": 152498,
-      "sha256": "5e7405599b20ad63085d858abedbbeb5f4e385dfe43fccfc5a8001e2bed65c9b",
-      "use": "Chapter I OG FASTR, race sequence (station stairs)",
-      "type": "Own footage (still)",
-      "source": "Loop100 Insta360 23.05.2026, frame 48.0 s, third-party marks inpainted (OpenCV), fcm bw grade + grain"
-    },
-    {
-      "file": "assets/race-02-effort.webp",
-      "bytes": 111670,
-      "sha256": "0e51053d82227631dfe0f94c0f8e1c40829e0c9c6673953710adf7940dab96c9",
-      "use": "Chapter I OG FASTR, race sequence (U6 platform, arched roof)",
-      "type": "Own footage (still)",
-      "source": "Loop100 Insta360 23.05.2026, frame 115.0 s, third-party marks inpainted (OpenCV), fcm bw grade + grain"
-    },
-    {
-      "file": "assets/race-03-train.webp",
-      "bytes": 142956,
-      "sha256": "479a1781e1c0aa15e868a390c130ea28e675b584d8e0edbd8e9cc9ec11afe574",
-      "use": "Chapter I OG FASTR, race sequence (beside the train)",
-      "type": "Own footage (still)",
-      "source": "Loop100 Insta360 23.05.2026, frame 124.0 s, third-party marks inpainted (OpenCV), fcm bw grade + grain"
-    },
-    {
       "file": "assets/merch-01-black.jpg",
       "bytes": 40265,
       "sha256": "f56bee7097995f0e6604dc9365a43741095cb64780729769189b0287f8f597c8",
@@ -185,6 +145,78 @@
       "use": "Chapter III Wear, hoodie rail (Butter Yellow)",
       "type": "Product visualisation",
       "source": "fastr30.com/merch asset, unchanged"
+    },
+    {
+      "file": "assets/photo-ritual.webp",
+      "bytes": 198532,
+      "sha256": "d8bc403f0e4b3244cded3d2b403ca287cd5faa1b62188447e895990391b29b7c",
+      "use": "Manifest",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Ulf Meyer, https://unsplash.com/photos/cS0W4GvUUDM"
+    },
+    {
+      "file": "assets/pillar-run.webp",
+      "bytes": 39570,
+      "sha256": "dd45457562b709a1df6f6dcbebe10fbc4b39d853b21768c1c516ca7e8b77a8ad",
+      "use": "Säule I",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Nick Gosset, https://unsplash.com/photos/3DJfakd6VoU"
+    },
+    {
+      "file": "assets/pillar-practice.webp",
+      "bytes": 89208,
+      "sha256": "86875c5b7fce6132a90b2af57afa9b39df54868256cefb208a9d24baa2d90b6c",
+      "use": "Säule II",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Red John, https://unsplash.com/photos/mZixsK8OnmE"
+    },
+    {
+      "file": "assets/pillar-meet.webp",
+      "bytes": 356784,
+      "sha256": "f0dc6d25afc016ad01bd8d099fdf26b3eec26d3ef8dad3374952d868c7f7e334",
+      "use": "Säule IV",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Gabin Vallet, https://unsplash.com/photos/J154nEkpzlQ"
+    },
+    {
+      "file": "assets/run-night.webp",
+      "bytes": 71498,
+      "sha256": "d4f520c1ca951d3084fb62885c67be81c158d051bbac3d92171fdaf4b904fd7e",
+      "use": "I Run",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Hansheng Zhao, https://unsplash.com/photos/9FcKpisH7Bo"
+    },
+    {
+      "file": "assets/practice-start.webp",
+      "bytes": 194054,
+      "sha256": "2c098ada7650452477f6917daf9537ec6e493976a56ddbcea9a4c55954133840",
+      "use": "II Practice",
+      "type": "Licensed photograph (Pexels License), illustrative",
+      "source": "Thomas Ronveaux, https://www.pexels.com/photo/a-close-up-shot-of-an-athlete-on-a-race-track-13159243/"
+    },
+    {
+      "file": "assets/wienerwald-ride.webp",
+      "bytes": 320624,
+      "sha256": "b64e4e749809399ae9481b5716ca346ea4311472bc2a4154e626312592dee22d",
+      "use": "III Wienerwald",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Greg Rosenke, https://unsplash.com/photos/lf3g1p-7FP8"
+    },
+    {
+      "file": "assets/meet-night.webp",
+      "bytes": 51430,
+      "sha256": "37e419367529f4c6d6a52faa60cb41115eee777c86dde4fa50e923496cd03ee8",
+      "use": "IV Meet",
+      "type": "Licensed photograph (Pexels License), illustrative",
+      "source": "liathyrax, https://www.pexels.com/photo/group-of-men-running-on-track-at-night-35005203/"
+    },
+    {
+      "file": "assets/track-night.webp",
+      "bytes": 527198,
+      "sha256": "010b38d27ac8fd2e6b165f16fb83e6b8eac42f50be98a390e6685280d221e9f8",
+      "use": "Eingang",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Mikhail K, https://unsplash.com/photos/jsNI0bh5D-o"
     }
   ],
   "fonts": [

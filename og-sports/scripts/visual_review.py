@@ -56,7 +56,7 @@ MEASURE = r"""() => {
     width: innerWidth, scrollWidth: document.documentElement.scrollWidth,
     hero: img.getAttribute('src'), natural: [img.naturalWidth, img.naturalHeight],
     photos: [...document.querySelectorAll('#brand .tile img')].map(i => i.getAttribute('src')),
-    unlabelled: [...document.querySelectorAll('main img')].filter(i => /\.(webp|jpe?g|png)$/i.test(i.getAttribute('src') || '') && !i.closest('.hero, #brand')).filter(i => { const f = i.closest('figure, article, .pillar'); return !/KI-|AI |Produktvisualisierung|Product visualisation|Unsplash|Eigene Aufnahme|Own footage/.test((f && f.textContent) || ''); }).map(i => i.getAttribute('src')),
+    unlabelled: [...document.querySelectorAll('main img')].filter(i => /\.(webp|jpe?g|png)$/i.test(i.getAttribute('src') || '') && !i.closest('.hero, #brand')).filter(i => { const f = i.closest('figure, article, .pillar'); return !/KI-|AI |Produktvisualisierung|Product visualisation|Unsplash|Pexels|Eigene Aufnahme|Own footage/.test((f && f.textContent) || ''); }).map(i => i.getAttribute('src')),
     rules: [...document.querySelectorAll('#projects .field-rows strong')].map(e => e.textContent.trim()),
     projects: [...document.querySelectorAll('#projects > .project')].map(e => e.dataset.key),
     headings: [...document.querySelectorAll('main h2:not(.sr-only), main h3')].map(e => ({text: e.textContent.trim().slice(0, 40), client: e.clientWidth, scroll: e.scrollWidth, right: e.getBoundingClientRect().right})),
@@ -235,7 +235,7 @@ def site(browser, base, report):
             check(dialog.evaluate("e => e.open"), (where, key, "dialog did not open"))
             cover = dialog.locator(".story-cover")
             check(cover.count() == 1, (where, key, "cover"))
-            if key in ("challenge", "live"):
+            if key == "challenge":
                 # type plates: the cover carries the plate's words, no photograph
                 check(len(cover.inner_text().strip()) > 20, (where, key, "cover plate text"))
             else:
@@ -360,11 +360,11 @@ def artefacts(browser, base, report):
         for src, minimum in (
             ("assets/frame-01-detail.webp", 1200),
             ("assets/frame-03-people.webp", 2400),
-            ("assets/race-01-stairs.webp", 1080),
-            ("assets/race-02-effort.webp", 1080),
-            ("assets/race-03-train.webp", 1080),
-            ("assets/run-u6.webp", 480),
-            ("assets/roof-morning.webp", 1080),
+            ("assets/run-night.webp", 2400),
+            ("assets/meet-night.webp", 2400),
+            ("assets/track-night.webp", 2000),
+            ("assets/pillar-run.webp", 1400),
+            ("assets/photo-ritual.webp", 1600),
             ("assets/merch-01-black.jpg", 660),
             ("assets/merch-06-butter-yellow.jpg", 660),
             ("assets/stick-lime.jpg", 880),
@@ -387,8 +387,8 @@ def artefacts(browser, base, report):
         check({"Archivo", "Space Grotesk"} <= set(plates["fonts"]), (where, "self-hosted fonts not loaded", plates["fonts"]))
         check(plates["headingFont"].startswith("Archivo"), (where, plates["headingFont"]))
         for needle in (
-            "Loop100",
-            "Eigene Aufnahme",
+            "Pexels",
+            "Unsplash",
             "Challenge-Konzept",
             "Pre-Order unverbindlich",
             "noch kein Termin",
@@ -438,16 +438,16 @@ def artefacts(browser, base, report):
             (where, "motion not armed"),
         )
         before = page.evaluate(r"""() => ({
-          field: getComputedStyle(document.querySelector('.field-cells'), '::after').clipPath
+          field: getComputedStyle(document.querySelector('.temple .pillar')).clipPath
         })""")
-        check(before["field"].startswith("inset(0px 100%"), (where, "field should wait off-screen", before))
-        for selector in (".manifest", "#pillars", "#fastr .bleed", ".practice-field", ".rail", ".live-plate"):
+        check(before["field"].startswith("inset(100%"), (where, "temple pillars should wait off-screen", before))
+        for selector in (".manifest", "#pillars", "#fastr .bleed", ".practice-field", ".rail", ".live-photo"):
             page.locator(selector).scroll_into_view_if_needed()
             page.wait_for_timeout(250)
         page.wait_for_timeout(3200)
         done = page.evaluate(r"""() => ({
           seen: [...document.querySelectorAll('main [data-motion], main .bleed')].every(e => e.classList.contains('is-in')),
-          cells: getComputedStyle(document.querySelector('.field-cells'), '::after').clipPath
+          cells: getComputedStyle(document.querySelector('.temple .pillar')).clipPath
         })""")
         check(done["seen"], (where, done))
         check(done["cells"] in ("inset(0px)", "inset(0px 0px 0px 0px)"), (where, done))
@@ -457,7 +457,7 @@ def artefacts(browser, base, report):
             ("movement", "#fastr .bleed"),
             ("field", ".practice-field"),
             ("apparel", ".rail"),
-            ("live", ".live-plate"),
+            ("live", ".live-photo"),
             ("stick", ".stick"),
         ):
             path = QA / f"{NAMES['artefacts'][1]}-{name}-{width}.png"
