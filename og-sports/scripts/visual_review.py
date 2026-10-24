@@ -56,7 +56,7 @@ MEASURE = r"""() => {
     width: innerWidth, scrollWidth: document.documentElement.scrollWidth,
     hero: img.getAttribute('src'), natural: [img.naturalWidth, img.naturalHeight],
     photos: [...document.querySelectorAll('#brand .tile img')].map(i => i.getAttribute('src')),
-    unlabelled: [...document.querySelectorAll('main img')].filter(i => /\.(webp|jpe?g|png)$/i.test(i.getAttribute('src') || '') && !i.closest('.hero, #brand')).filter(i => { const f = i.closest('figure, article'); return !/KI-|AI |Produktvisualisierung|Product visualisation/.test((f && f.textContent) || ''); }).map(i => i.getAttribute('src')),
+    unlabelled: [...document.querySelectorAll('main img')].filter(i => /\.(webp|jpe?g|png)$/i.test(i.getAttribute('src') || '') && !i.closest('.hero, #brand')).filter(i => { const f = i.closest('figure, article, .pillar'); return !/KI-|AI |Produktvisualisierung|Product visualisation|Unsplash|Eigene Aufnahme|Own footage/.test((f && f.textContent) || ''); }).map(i => i.getAttribute('src')),
     rules: [...document.querySelectorAll('#projects .field-rows strong')].map(e => e.textContent.trim()),
     projects: [...document.querySelectorAll('#projects > .project')].map(e => e.dataset.key),
     headings: [...document.querySelectorAll('main h2:not(.sr-only), main h3')].map(e => ({text: e.textContent.trim().slice(0, 40), client: e.clientWidth, scroll: e.scrollWidth, right: e.getBoundingClientRect().right})),
@@ -358,7 +358,8 @@ def artefacts(browser, base, report):
             ("assets/frame-01-detail.webp", 1200),
             ("assets/frame-03-people.webp", 2400),
             ("assets/campaign-ramp.webp", 2400),
-            ("assets/campaign-spiral.webp", 1600),
+            ("assets/run-u6.webp", 480),
+            ("assets/roof-morning.webp", 1080),
             ("assets/apparel-studies.webp", 2400),
             ("assets/live-venue.webp", 2400),
             ("assets/stick-lime.jpg", 880),
@@ -382,7 +383,7 @@ def artefacts(browser, base, report):
         check(plates["headingFont"].startswith("Archivo"), (where, plates["headingFont"]))
         for needle in (
             "KI-Kampagnenstudie",
-            "KI-Bildstudie",
+            "Eigene Aufnahme",
             "Challenge-Konzept",
             "KI-Visualisierung",
             "KI-Raumstudie",
@@ -435,7 +436,7 @@ def artefacts(browser, base, report):
           field: getComputedStyle(document.querySelector('.field-cells'), '::after').clipPath
         })""")
         check(before["field"].startswith("inset(0px 100%"), (where, "field should wait off-screen", before))
-        for selector in ("#fastr .bleed", ".practice-field", ".apparel .bleed", ".live .bleed"):
+        for selector in (".manifest", "#pillars", "#fastr .bleed", ".practice-field", ".apparel .bleed", ".live .bleed"):
             page.locator(selector).scroll_into_view_if_needed()
             page.wait_for_timeout(250)
         page.wait_for_timeout(3200)
@@ -446,6 +447,8 @@ def artefacts(browser, base, report):
         check(done["seen"], (where, done))
         check(done["cells"] in ("inset(0px)", "inset(0px 0px 0px 0px)"), (where, done))
         for name, selector in (
+            ("manifest", ".manifest"),
+            ("temple", "#pillars"),
             ("movement", "#fastr .bleed"),
             ("field", ".practice-field"),
             ("apparel", ".apparel .bleed"),

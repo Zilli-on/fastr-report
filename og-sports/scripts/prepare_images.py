@@ -28,8 +28,6 @@ SOURCES = {
         (2400, 1350),
         80,
     ),
-    # 05 OG FASTR AI architecture study (own Higgsfield asset)
-    "campaign-spiral.webp": ("03_top_down.png", (360, 0, 2840, 2480), (1600, 1600), 80),
     # 06 AI visualisation of the four Wienerwald colour studies (generated 2026-10-23, no logos)
     "apparel-studies.webp": ("apparel-ai.png", None, (2400, 1357), 82),
     # 07 OG FASTR AI venue study (own Higgsfield asset), empty space, no event

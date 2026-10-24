@@ -1,5 +1,5 @@
 {
-  "version": "v2 2026-10-23 / campaign, not concept",
+  "version": "v3 2026-10-24 / the temple",
   "external_requests": false,
   "assets": [
     {
@@ -33,14 +33,6 @@
       "use": "Frame 04 OG FASTR",
       "type": "AI campaign study",
       "source": "Own Higgsfield asset motion_zoom_ramp.png, cropped"
-    },
-    {
-      "file": "assets/campaign-spiral.webp",
-      "bytes": 347382,
-      "sha256": "71c109af2a5dcec2fcfb3394433bf9d81ff1ec838d90feb000d854762347782d",
-      "use": "Frame 05 FASTR30",
-      "type": "AI image study",
-      "source": "Own Higgsfield asset 03_top_down.png, cropped"
     },
     {
       "file": "assets/frame-01-detail.webp",
@@ -129,6 +121,22 @@
       "use": "Frame 08 STICK, exploded view in both colourways",
       "type": "3D product render",
       "source": "fastr30.com shop asset, unchanged"
+    },
+    {
+      "file": "assets/roof-morning.webp",
+      "bytes": 110150,
+      "sha256": "20252ee1a5a7c95e011e8cfb8596bc503e81732b86e8979d1d3ff1a6f402b154",
+      "use": "Manifest",
+      "type": "Own footage (still)",
+      "source": "IMG_1611.mov 30.09.2026 08:32, frame 16.8 s, 4:5 crop, fcm p50 grade + grain"
+    },
+    {
+      "file": "assets/run-u6.webp",
+      "bytes": 50480,
+      "sha256": "df9107b30c295e59a0627f4e1a3021f26105524bdf6487695c0d99e52a827c7d",
+      "use": "Temple pillar I",
+      "type": "Own footage (still)",
+      "source": "Loop100 Insta360 23.05.2026, frame 116.5 s, third-party marks inpainted (OpenCV), fcm p50 grade + grain"
     }
   ],
   "fonts": [

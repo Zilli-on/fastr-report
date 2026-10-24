@@ -26,13 +26,22 @@ test('preserves the chosen first photograph and original brand assets byte for b
 });
 
 test('keeps the three approved photographs, retouched free of third-party brands', async () => {
-  const photos = Array.from(section('brand').matchAll(/<img\b[^>]+src="(assets\/[^"]+)"/g), m => m[1]);
+  const strip = section('brand').split('<div class="strip">')[1].split('</div>')[0];
+  const photos = Array.from(strip.matchAll(/<img\b[^>]+src="(assets\/[^"]+)"/g), m => m[1]);
   assert.deepEqual(photos, ['assets/frame-01-detail.webp', 'assets/run-shadow.webp', 'assets/frame-03-people.webp']);
   const assets = await readdir(new URL('site/assets/', root));
   for (const retired of ['running-photograph.webp', 'cycling-photograph.webp', 'movement-rooftop.webp', 'run-detail.webp', 'run-community.webp']) {
     assert.ok(!assets.includes(retired), `${retired} was rejected or carries third-party marks and must not ship`);
     assert.ok(!(html + js + css).includes(retired), `${retired} must not be referenced`);
   }
+});
+
+test('the manifest carries our own footage with its real date and place', () => {
+  const manifest = section('brand').split('<div class="manifest"')[1] || '';
+  assert.match(manifest, /src="assets\/roof-morning\.webp"/);
+  assert.match(manifest, /Eigene Aufnahme/);
+  assert.match(manifest, /30\.09\.2026, 8:32/);
+  assert.match(manifest, /Mittwoch um 8:32/, 'the copy names the moment the photograph shows');
 });
 
 test('labels every image below the photographs as AI study, AI visualisation or product visualisation', () => {
@@ -46,7 +55,7 @@ test('labels every image below the photographs as AI study, AI visualisation or 
     const scope = main.slice(main.indexOf(figure), main.indexOf(figure) + figure.length + 1200);
     assert.match(scope, /KI-(Kampagnenstudie|Bildstudie|Visualisierung|Raumstudie)|Produktvisualisierung/, `${src} needs a visible label`);
   }
-  assert.deepEqual(shown, ['campaign-ramp.webp', 'campaign-spiral.webp', 'apparel-studies.webp', 'live-venue.webp', 'stick-lime.jpg', 'stick-exploded.jpg']);
+  assert.deepEqual(shown, ['campaign-ramp.webp', 'apparel-studies.webp', 'live-venue.webp', 'stick-lime.jpg', 'stick-exploded.jpg']);
 });
 
 test('keeps the seven FASTR30 standards in their fixed order', () => {
@@ -108,7 +117,7 @@ test('self-hosts only OFL fonts and loads nothing from third parties', async () 
   assert.doesNotMatch(html, /<script[^>]+src="https?:/);
   const fonts = await readdir(new URL('site/fonts/', root));
   const binaries = fonts.filter(f => /\.(?:woff2?|ttf|otf)$/.test(f));
-  assert.deepEqual(binaries.sort(), ['archivo-var-latin.woff2', 'spacegrotesk-latin.woff2']);
+  assert.deepEqual(binaries.sort(), ['archivo-italic-latin.woff2', 'archivo-var-latin.woff2', 'spacegrotesk-latin.woff2']);
   for (const family of ['Archivo', 'SpaceGrotesk']) {
     const licence = await readFile(new URL(`site/fonts/OFL-${family}.txt`, root), 'utf8');
     assert.match(licence, /SIL Open Font License, Version 1\.1/);

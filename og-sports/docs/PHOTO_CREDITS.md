@@ -9,7 +9,8 @@
 | 02 | `run-shadow.webp` | Fotografie Mathias Reding | https://unsplash.com/photos/runners-legs-in-motion-with-a-long-shadow-G96xGokbTUM — unverändert |
 | 03 | `frame-03-people.webp` | Fotografie Leviosa Hou | https://unsplash.com/photos/runners-gathered-together-on-a-city-street-9ZXnEV7k2lI — Startnummern, Bänder, Shirt-Aufdrucke, Bannertext KI-gestützt retuschiert (Higgsfield, GPT Image 2.5), Gesichter verglichen und unverändert |
 | 04 | `campaign-ramp.webp` | KI-Kampagnenstudie | eigenes Higgsfield-Material `motion_zoom_ramp.png`, Ausschnitt ohne Plakattext |
-| 05 | `campaign-spiral.webp` | KI-Bildstudie | eigenes Higgsfield-Material `03_top_down.png` |
+| Manifest | `roof-morning.webp` | eigene Aufnahme | Standbild aus `IMG_1611.mov` (Dachterrasse Wien, Mi 30.09.2026, 8:32), Grade p50 aus dem Content Studio (`fcm/finish.py`), keine fremden Marken |
+| Säule I | `run-u6.webp` | eigene Aufnahme | Standbild aus dem Loop100-Lauf gegen die U6 (Insta360, 23.05.2026), Marken an Shirt, Brille und Shorts lokal entfernt (OpenCV-Inpainting), Grade p50 |
 | 06 | `apparel-studies.webp` | KI-Visualisierung | generiert 2026-10-23 (Higgsfield, GPT Image 2.5) aus unseren vier Farbstudien, ohne Logos |
 | 07 | `live-venue.webp` | KI-Raumstudie | eigenes Higgsfield-Material `01_empty_garage.png`, leerer Raum, keine Veranstaltung |
 | 08 | `stick-lime.jpg`, `stick-exploded.jpg` | 3D-Produktvisualisierung | unverändert von fastr30.com/shop (`fastr30-website/website/assets/img/`, aus der Render-Lieferung `final-render.png`); Hash-Test |
