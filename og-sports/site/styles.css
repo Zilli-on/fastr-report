@@ -403,6 +403,8 @@ dialog::backdrop { background: rgba(14, 15, 13, .55); backdrop-filter: blur(6px)
 .story-cover-apparel { background: #000; }
 .story-cover-apparel .rail { margin: 0; }
 .story-cover-apparel .rail .frame-caption { display: none; }
+.story-cover-live .live-plate { padding-top: clamp(28px, 4vw, 56px); }
+.story-cover-live .live-verbs { margin-top: 12px; }
 .story-cover-stick { display: flex; justify-content: center; background: #000; }
 .story-cover-stick .stick-render { width: min(560px, 100%); }
 .story-cover-stick figcaption { display: none; }
