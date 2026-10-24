@@ -1,0 +1,235 @@
+{
+  "version": "v4 2026-10-24 / photography carries every chapter",
+  "external_requests": false,
+  "assets": [
+    {
+      "file": "assets/after-the-run-display-4x.webp",
+      "bytes": 218062,
+      "sha256": "63fe1536cc9ced2be55f86259be49fb0cbff1b2fa47c5429811029f524cfc3f2",
+      "use": "Opening image, frame 00",
+      "type": "Display derivative of the AI image study",
+      "source": "4x Lanczos resample with light sharpening"
+    },
+    {
+      "file": "assets/after-the-run.webp",
+      "bytes": 41820,
+      "sha256": "807364cf90a7b283304707b93194110fe7c519ac6ae53a5f6b21f8ae43c02bfe",
+      "use": "Original of the opening image; image notes",
+      "type": "AI image study",
+      "source": "Existing project asset, unchanged"
+    },
+    {
+      "file": "assets/frame-01-detail.webp",
+      "bytes": 44478,
+      "sha256": "5ecf7c3baf75930cf09417a27e590693403c5846c1adfb5e583493915a021b01",
+      "use": "Strip 01",
+      "type": "Photograph (David Moorhouse, Unsplash)",
+      "source": "Maker mark removed by inpainting"
+    },
+    {
+      "file": "assets/frame-03-people.webp",
+      "bytes": 244996,
+      "sha256": "8a1c8dac564fa4d3a08d137cddcf6dc995f02cf6cef83f663205fa2c2ca59b9b",
+      "use": "Strip 03",
+      "type": "Photograph (Leviosa Hou, Unsplash)",
+      "source": "Brand marks retouched, AI-assisted"
+    },
+    {
+      "file": "assets/greatness.svg",
+      "bytes": 2777,
+      "sha256": "fe362832b8970a4fbac6101c34d975442ad5951c7d9845225bb2a5dde5ebfd8a",
+      "use": "Opening title",
+      "type": "Outlined campaign text",
+      "source": "Inter Display outlines"
+    },
+    {
+      "file": "assets/og-fastr-wordmark-dark.svg",
+      "bytes": 4824,
+      "sha256": "cfc5bf702e0858038999e8c788f511ac88e2a33613ec7574e9f60dea9821a366",
+      "use": "Frame 04",
+      "type": "Original OG FASTR wordmark",
+      "source": "Unchanged"
+    },
+    {
+      "file": "assets/og-mark-black.svg",
+      "bytes": 764,
+      "sha256": "27e77efd890e4bf8b2c0def67640ad8f30e73b3313984542f4236cd4426105bf",
+      "use": "Compact header, dialogs",
+      "type": "Original OG SPORTS symbol",
+      "source": "Unchanged"
+    },
+    {
+      "file": "assets/og-sports-black.svg",
+      "bytes": 2074,
+      "sha256": "d0a99a2d62cc2304c73ef704baabdf3c82c9f6ead803c73ec7f259f0dffe9fea",
+      "use": "Header, footer signature",
+      "type": "Original OG SPORTS mark",
+      "source": "Unchanged"
+    },
+    {
+      "file": "assets/own.svg",
+      "bytes": 795,
+      "sha256": "d07b2ceae7feea5cd54f5cebffbb9525ab5bf80b6d99e72a770fb993ea049cc2",
+      "use": "Opening title",
+      "type": "Outlined campaign text",
+      "source": "Inter Display outlines"
+    },
+    {
+      "file": "assets/run-shadow.webp",
+      "bytes": 217624,
+      "sha256": "f1ffa9de0ca17daac7aca5a389b136c45dcdcab9fdbc849f17c62a71082b6469",
+      "use": "Strip 02",
+      "type": "Photograph (Mathias Reding, Unsplash)",
+      "source": "Unchanged"
+    },
+    {
+      "file": "assets/stick-lime.jpg",
+      "bytes": 63841,
+      "sha256": "fd95b48a166e992b13a386c948efd2df908affd1bd7d77f8b6773078dd5cb190",
+      "use": "Frame 08 STICK, main image",
+      "type": "3D product render",
+      "source": "fastr30.com shop asset, unchanged"
+    },
+    {
+      "file": "assets/stick-exploded.jpg",
+      "bytes": 41989,
+      "sha256": "5c5f73cd1240543aad10c9990675dec72328bbfa72cc4cd1ddc33cee13f539b9",
+      "use": "Frame 08 STICK, exploded view in both colourways",
+      "type": "3D product render",
+      "source": "fastr30.com shop asset, unchanged"
+    },
+    {
+      "file": "assets/merch-01-black.jpg",
+      "bytes": 40265,
+      "sha256": "f56bee7097995f0e6604dc9365a43741095cb64780729769189b0287f8f597c8",
+      "use": "Chapter III Wear, hoodie rail (Black) and temple pillar III",
+      "type": "Product visualisation",
+      "source": "fastr30.com/merch asset, unchanged"
+    },
+    {
+      "file": "assets/merch-02-cherry-red.jpg",
+      "bytes": 53962,
+      "sha256": "96abaf3c558db2aa7ca801621f8d40e299232a70d4c4bf80f92c8a5275a81cef",
+      "use": "Chapter III Wear, hoodie rail (Cherry Red)",
+      "type": "Product visualisation",
+      "source": "fastr30.com/merch asset, unchanged"
+    },
+    {
+      "file": "assets/merch-03-cobalt-blue.jpg",
+      "bytes": 54063,
+      "sha256": "9c44b4fdd9a539697eb58961740b12c8eac64ce4a6446816b96354de049e5cee",
+      "use": "Chapter III Wear, hoodie rail (Cobalt Blue)",
+      "type": "Product visualisation",
+      "source": "fastr30.com/merch asset, unchanged"
+    },
+    {
+      "file": "assets/merch-04-emerald-green.jpg",
+      "bytes": 48570,
+      "sha256": "4204859ede7260632352d0d57eb82929d20b2f9be99c28b13a177983b979fcd2",
+      "use": "Chapter III Wear, hoodie rail (Emerald Green)",
+      "type": "Product visualisation",
+      "source": "fastr30.com/merch asset, unchanged"
+    },
+    {
+      "file": "assets/merch-05-lavender.jpg",
+      "bytes": 46967,
+      "sha256": "fba34be577dc8b9c0738aa98d41fa0e676ab13795b2455be6a88995adf8bf748",
+      "use": "Chapter III Wear, hoodie rail (Lavender)",
+      "type": "Product visualisation",
+      "source": "fastr30.com/merch asset, unchanged"
+    },
+    {
+      "file": "assets/merch-06-butter-yellow.jpg",
+      "bytes": 49103,
+      "sha256": "6d491ec6cf854e6e5792e4f23252e9344184e8ff3e4f4e9c1322451263e580e0",
+      "use": "Chapter III Wear, hoodie rail (Butter Yellow)",
+      "type": "Product visualisation",
+      "source": "fastr30.com/merch asset, unchanged"
+    },
+    {
+      "file": "assets/photo-ritual.webp",
+      "bytes": 198532,
+      "sha256": "d8bc403f0e4b3244cded3d2b403ca287cd5faa1b62188447e895990391b29b7c",
+      "use": "Manifest",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Ulf Meyer, https://unsplash.com/photos/cS0W4GvUUDM"
+    },
+    {
+      "file": "assets/pillar-run.webp",
+      "bytes": 39570,
+      "sha256": "dd45457562b709a1df6f6dcbebe10fbc4b39d853b21768c1c516ca7e8b77a8ad",
+      "use": "Säule I",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Nick Gosset, https://unsplash.com/photos/3DJfakd6VoU"
+    },
+    {
+      "file": "assets/pillar-practice.webp",
+      "bytes": 89208,
+      "sha256": "86875c5b7fce6132a90b2af57afa9b39df54868256cefb208a9d24baa2d90b6c",
+      "use": "Säule II",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Red John, https://unsplash.com/photos/mZixsK8OnmE"
+    },
+    {
+      "file": "assets/pillar-meet.webp",
+      "bytes": 356784,
+      "sha256": "f0dc6d25afc016ad01bd8d099fdf26b3eec26d3ef8dad3374952d868c7f7e334",
+      "use": "Säule IV",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Gabin Vallet, https://unsplash.com/photos/J154nEkpzlQ"
+    },
+    {
+      "file": "assets/run-night.webp",
+      "bytes": 71498,
+      "sha256": "d4f520c1ca951d3084fb62885c67be81c158d051bbac3d92171fdaf4b904fd7e",
+      "use": "I Run",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Hansheng Zhao, https://unsplash.com/photos/9FcKpisH7Bo"
+    },
+    {
+      "file": "assets/practice-start.webp",
+      "bytes": 194054,
+      "sha256": "2c098ada7650452477f6917daf9537ec6e493976a56ddbcea9a4c55954133840",
+      "use": "II Practice",
+      "type": "Licensed photograph (Pexels License), illustrative",
+      "source": "Thomas Ronveaux, https://www.pexels.com/photo/a-close-up-shot-of-an-athlete-on-a-race-track-13159243/"
+    },
+    {
+      "file": "assets/wienerwald-ride.webp",
+      "bytes": 320624,
+      "sha256": "b64e4e749809399ae9481b5716ca346ea4311472bc2a4154e626312592dee22d",
+      "use": "III Wienerwald",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Greg Rosenke, https://unsplash.com/photos/lf3g1p-7FP8"
+    },
+    {
+      "file": "assets/meet-night.webp",
+      "bytes": 51430,
+      "sha256": "37e419367529f4c6d6a52faa60cb41115eee777c86dde4fa50e923496cd03ee8",
+      "use": "IV Meet",
+      "type": "Licensed photograph (Pexels License), illustrative",
+      "source": "liathyrax, https://www.pexels.com/photo/group-of-men-running-on-track-at-night-35005203/"
+    },
+    {
+      "file": "assets/track-night.webp",
+      "bytes": 527198,
+      "sha256": "010b38d27ac8fd2e6b165f16fb83e6b8eac42f50be98a390e6685280d221e9f8",
+      "use": "Eingang",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Mikhail K, https://unsplash.com/photos/jsNI0bh5D-o"
+    }
+  ],
+  "fonts": [
+    {
+      "file": "fonts/archivo-var-latin.woff2",
+      "bytes": 90104,
+      "licence": "SIL OFL 1.1"
+    },
+    {
+      "file": "fonts/spacegrotesk-latin.woff2",
+      "bytes": 22320,
+      "licence": "SIL OFL 1.1"
+    }
+  ],
+  "generated_inline": []
+}
