@@ -96,3 +96,28 @@ full-bleed chapter without losing quality, so nothing was swapped.
 4. 06 apparel: switch to the merch hoodies once fastr30 PR #3 is live? (The lavender
    hoodie matches the OG lavender.)
 5. Where are `hero-road`, `corridor`, `texture-fabric` from (own shoot, stock, AI)?
+
+## v3 — the temple (2026-10-24, Fabi: "entwickle weiter … der Tempel, der alle Säulen vereint")
+
+Built and pushed (see `docs/ART_DIRECTION.md` v3 for the table): manifest *Create your
+own luck* with our rooftop footage; the temple (Own Greatness / five pillars / Original
+Grind); chapter I as a real Loop100 race in three frames; FASTR30 in the fastr30.com voice;
+III Wear = the live fastr30.com hoodies (*Earned. Not given.*); IV Meet = lavender type
+plate; the way in = three doors (fastr30.com/join, create, partner).
+
+How the earlier questions were settled (decided here, reversible):
+1. Shop links: the hoodie and the STICK now link to their live fastr30.com pages.
+2. Yellow: `#E3FF23` on the site. The logo files (`#DEFF00` / `#E7FF1A`) are untouched.
+3. Real run photos: none exist; own footage of Fabi (rooftop 30.09., Loop100 23.05.) carries
+   chapter I, the manifest and pillar I. All Higgsfield stills and AI apparel/venue are gone.
+4. Merch: in use (fastr30.com/merch is live), now chapter III.
+5. hero-road / corridor / texture: not used.
+
+Still open for Fabi:
+- He is the person in all own footage (shirtless on the roof, racing). Fine to carry the
+  parent brand with himself? Faces of others are never shown.
+- The hero (00) is the last AI image; replace once a real group photo after a FASTR run exists
+  (Garage Sprints folder `Auswahl Post/` is still empty).
+- Live (IV) becomes a photo chapter as soon as a real event is documented.
+- Master yellow for the logo files and `fastr-design` skill (recommendation `#E3FF23`).
+- The strip 01–03 is still Unsplash reference photography (approved, credited).

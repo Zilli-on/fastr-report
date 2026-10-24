@@ -289,8 +289,9 @@ ol, ul { padding: 0; list-style: none; }
 .apparel .project-head .project-copy { grid-column: 8 / 13; }
 .apparel-earned { grid-column: 8 / 13; font: italic 800 var(--t-m)/1 var(--wide); font-stretch: 125%; text-transform: uppercase; letter-spacing: -.01em; }
 .apparel-actions { grid-column: 8 / 13; display: flex; flex-wrap: wrap; gap: 0 28px; }
-.apparel-actions a.text-action::after { display: none; }
-.apparel-actions a.text-action span + span { font-size: 1rem; }
+.apparel-actions a.text-action::after, .stick-actions a.text-action::after { display: none; }
+.apparel-actions a.text-action span + span, .stick-actions a.text-action span + span { font-size: 1rem; }
+.stick-actions { display: flex; flex-wrap: wrap; gap: 0 28px; }
 .rail { margin: 0 calc(-1 * var(--gutter)); }
 .rail-items { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 3px; background: #000; }
 .rail-items li { position: relative; overflow: hidden; background: #000; color: rgba(255, 255, 255, .82); }
