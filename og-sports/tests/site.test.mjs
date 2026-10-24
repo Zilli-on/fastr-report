@@ -44,7 +44,7 @@ test('the manifest carries our own footage with its real date and place', () => 
   assert.match(manifest, /Mittwoch um 8:32/, 'the copy names the moment the photograph shows');
 });
 
-test('labels every image below the photographs as AI study, AI visualisation or product visualisation', () => {
+test('labels every image below the photographs as own footage, AI study or visualisation', () => {
   const below = main.split('id="fastr"')[1];
   const figures = below.split('<figure').slice(1).map(f => f.split('</figure>')[0]);
   const shown = [];
@@ -53,9 +53,9 @@ test('labels every image below the photographs as AI study, AI visualisation or 
     if (!src) continue;
     shown.push(src);
     const scope = main.slice(main.indexOf(figure), main.indexOf(figure) + figure.length + 1200);
-    assert.match(scope, /KI-(Kampagnenstudie|Bildstudie|Visualisierung|Raumstudie)|Produktvisualisierung/, `${src} needs a visible label`);
+    assert.match(scope, /Eigene Aufnahme|KI-(Kampagnenstudie|Bildstudie|Visualisierung|Raumstudie)|Produktvisualisierung/, `${src} needs a visible label`);
   }
-  assert.deepEqual(shown, ['campaign-ramp.webp', 'apparel-studies.webp', 'live-venue.webp', 'stick-lime.jpg', 'stick-exploded.jpg']);
+  assert.deepEqual(shown, ['race-01-stairs.webp', 'apparel-studies.webp', 'live-venue.webp', 'stick-lime.jpg', 'stick-exploded.jpg']);
 });
 
 test('keeps the seven FASTR30 standards in their fixed order', () => {

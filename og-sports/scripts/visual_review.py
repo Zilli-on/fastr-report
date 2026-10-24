@@ -357,7 +357,9 @@ def artefacts(browser, base, report):
         for src, minimum in (
             ("assets/frame-01-detail.webp", 1200),
             ("assets/frame-03-people.webp", 2400),
-            ("assets/campaign-ramp.webp", 2400),
+            ("assets/race-01-stairs.webp", 1080),
+            ("assets/race-02-effort.webp", 1080),
+            ("assets/race-03-train.webp", 1080),
             ("assets/run-u6.webp", 480),
             ("assets/roof-morning.webp", 1080),
             ("assets/apparel-studies.webp", 2400),
@@ -382,7 +384,7 @@ def artefacts(browser, base, report):
         check({"Archivo", "Space Grotesk"} <= set(plates["fonts"]), (where, "self-hosted fonts not loaded", plates["fonts"]))
         check(plates["headingFont"].startswith("Archivo"), (where, plates["headingFont"]))
         for needle in (
-            "KI-Kampagnenstudie",
+            "Loop100",
             "Eigene Aufnahme",
             "Challenge-Konzept",
             "KI-Visualisierung",

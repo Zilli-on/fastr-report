@@ -27,14 +27,6 @@
       "source": "Generated 2026-10-23 from the four colour studies, no logos"
     },
     {
-      "file": "assets/campaign-ramp.webp",
-      "bytes": 316838,
-      "sha256": "f88596a6b0a83da30982b85dad969b2783ce2dd74a4d1a17a5e814119d127756",
-      "use": "Frame 04 OG FASTR",
-      "type": "AI campaign study",
-      "source": "Own Higgsfield asset motion_zoom_ramp.png, cropped"
-    },
-    {
       "file": "assets/frame-01-detail.webp",
       "bytes": 44478,
       "sha256": "5ecf7c3baf75930cf09417a27e590693403c5846c1adfb5e583493915a021b01",
@@ -137,6 +129,30 @@
       "use": "Temple pillar I",
       "type": "Own footage (still)",
       "source": "Loop100 Insta360 23.05.2026, frame 116.5 s, third-party marks inpainted (OpenCV), fcm p50 grade + grain"
+    },
+    {
+      "file": "assets/race-01-stairs.webp",
+      "bytes": 152498,
+      "sha256": "5e7405599b20ad63085d858abedbbeb5f4e385dfe43fccfc5a8001e2bed65c9b",
+      "use": "Chapter I OG FASTR, race sequence (station stairs)",
+      "type": "Own footage (still)",
+      "source": "Loop100 Insta360 23.05.2026, frame 48.0 s, third-party marks inpainted (OpenCV), fcm bw grade + grain"
+    },
+    {
+      "file": "assets/race-02-effort.webp",
+      "bytes": 111670,
+      "sha256": "0e51053d82227631dfe0f94c0f8e1c40829e0c9c6673953710adf7940dab96c9",
+      "use": "Chapter I OG FASTR, race sequence (U6 platform, arched roof)",
+      "type": "Own footage (still)",
+      "source": "Loop100 Insta360 23.05.2026, frame 115.0 s, third-party marks inpainted (OpenCV), fcm bw grade + grain"
+    },
+    {
+      "file": "assets/race-03-train.webp",
+      "bytes": 142956,
+      "sha256": "479a1781e1c0aa15e868a390c130ea28e675b584d8e0edbd8e9cc9ec11afe574",
+      "use": "Chapter I OG FASTR, race sequence (beside the train)",
+      "type": "Own footage (still)",
+      "source": "Loop100 Insta360 23.05.2026, frame 124.0 s, third-party marks inpainted (OpenCV), fcm bw grade + grain"
     }
   ],
   "fonts": [

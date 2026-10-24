@@ -21,13 +21,6 @@ SOURCES = {
     "frame-01-detail.webp": ("run-detail-clean.png", None, (1200, 1800), 84),
     # 03 photograph Leviosa Hou (Unsplash), bibs, ribbons, shirt marks and banner retouched (AI-assisted)
     "frame-03-people.webp": ("community-ai.png", None, (2400, 1357), 82),
-    # 04 OG FASTR AI campaign study (own Higgsfield asset), crop removes poster text and frame
-    "campaign-ramp.webp": (
-        "motion_zoom_ramp.png",
-        (60, 520, 2820, 2072),
-        (2400, 1350),
-        80,
-    ),
     # 06 AI visualisation of the four Wienerwald colour studies (generated 2026-10-23, no logos)
     "apparel-studies.webp": ("apparel-ai.png", None, (2400, 1357), 82),
     # 07 OG FASTR AI venue study (own Higgsfield asset), empty space, no event

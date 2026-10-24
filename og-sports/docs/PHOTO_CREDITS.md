@@ -8,7 +8,7 @@
 | 01 | `frame-01-detail.webp` | Fotografie David Moorhouse | https://unsplash.com/photos/close-up-of-a-runners-leg-and-athletic-shoe-GToHUINXOb4 — Herstellerzeichen am Schuh lokal entfernt (Inpainting) |
 | 02 | `run-shadow.webp` | Fotografie Mathias Reding | https://unsplash.com/photos/runners-legs-in-motion-with-a-long-shadow-G96xGokbTUM — unverändert |
 | 03 | `frame-03-people.webp` | Fotografie Leviosa Hou | https://unsplash.com/photos/runners-gathered-together-on-a-city-street-9ZXnEV7k2lI — Startnummern, Bänder, Shirt-Aufdrucke, Bannertext KI-gestützt retuschiert (Higgsfield, GPT Image 2.5), Gesichter verglichen und unverändert |
-| 04 | `campaign-ramp.webp` | KI-Kampagnenstudie | eigenes Higgsfield-Material `motion_zoom_ramp.png`, Ausschnitt ohne Plakattext |
+| I OG FASTR | `race-01-stairs.webp`, `race-02-effort.webp`, `race-03-train.webp` | eigene Aufnahme | Standbilder aus dem Loop100-Lauf gegen die U6 (Insta360, 23.05.2026; 48 s, 115 s, 124 s), Marken an Shirt, Brille und Shorts lokal entfernt (OpenCV-Inpainting), Grade `bw` aus dem Content Studio. Frames mit Passanten wurden verworfen. Schuhgrafik in 03 nicht als Marke lesbar, nicht retuschiert. Stationsschild Thaliastraße bleibt (Ort). |
 | Manifest | `roof-morning.webp` | eigene Aufnahme | Standbild aus `IMG_1611.mov` (Dachterrasse Wien, Mi 30.09.2026, 8:32), Grade p50 aus dem Content Studio (`fcm/finish.py`), keine fremden Marken |
 | Säule I | `run-u6.webp` | eigene Aufnahme | Standbild aus dem Loop100-Lauf gegen die U6 (Insta360, 23.05.2026), Marken an Shirt, Brille und Shorts lokal entfernt (OpenCV-Inpainting), Grade p50 |
 | 06 | `apparel-studies.webp` | KI-Visualisierung | generiert 2026-10-23 (Higgsfield, GPT Image 2.5) aus unseren vier Farbstudien, ohne Logos |
