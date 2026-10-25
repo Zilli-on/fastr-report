@@ -305,6 +305,10 @@ ol, ul { padding: 0; list-style: none; }
 .live-foot { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 20px; align-items: end; padding: clamp(40px, 5vw, 72px) var(--gutter) var(--chapter); }
 .live-foot .project-copy { grid-column: 1 / 7; color: var(--muted); }
 .live-foot .text-action { grid-column: 10 / 13; justify-self: end; }
+@media (min-width: 900px) {
+  /* Separate Meet and Make headlines by a full 900px viewport at 1440px. */
+  .live-foot { padding-bottom: calc(var(--chapter) + 36svh); }
+}
 
 /* 08 — FASTR STICK */
 .stick { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); align-items: start; padding-bottom: var(--chapter); }
