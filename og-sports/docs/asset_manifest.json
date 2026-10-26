@@ -86,7 +86,7 @@
       "file": "assets/stick-lime.jpg",
       "bytes": 63841,
       "sha256": "fd95b48a166e992b13a386c948efd2df908affd1bd7d77f8b6773078dd5cb190",
-      "use": "Frame 08 STICK, main image",
+      "use": "V Make: static fallback and dialog cover; temple pillar V",
       "type": "3D product render",
       "source": "fastr30.com shop asset, unchanged"
     },
@@ -94,7 +94,7 @@
       "file": "assets/stick-exploded.jpg",
       "bytes": 41989,
       "sha256": "5c5f73cd1240543aad10c9990675dec72328bbfa72cc4cd1ddc33cee13f539b9",
-      "use": "Frame 08 STICK, exploded view in both colourways",
+      "use": "Reference asset only; no longer requested by the homepage",
       "type": "3D product render",
       "source": "fastr30.com shop asset, unchanged"
     },
@@ -195,14 +195,6 @@
       "source": "Thomas Ronveaux, https://www.pexels.com/photo/a-close-up-shot-of-an-athlete-on-a-race-track-13159243/"
     },
     {
-      "file": "assets/wienerwald-ride.webp",
-      "bytes": 320624,
-      "sha256": "b64e4e749809399ae9481b5716ca346ea4311472bc2a4154e626312592dee22d",
-      "use": "III Wienerwald",
-      "type": "Licensed photograph (Unsplash License), illustrative",
-      "source": "Greg Rosenke, https://unsplash.com/photos/lf3g1p-7FP8"
-    },
-    {
       "file": "assets/meet-night.webp",
       "bytes": 51430,
       "sha256": "37e419367529f4c6d6a52faa60cb41115eee777c86dde4fa50e923496cd03ee8",
@@ -217,6 +209,14 @@
       "use": "Eingang",
       "type": "Licensed photograph (Unsplash License), illustrative",
       "source": "Mikhail K, https://unsplash.com/photos/jsNI0bh5D-o"
+    },
+    {
+      "file": "assets/stick.glb",
+      "bytes": 428320,
+      "sha256": "e98271bb1b5f1274e5153dd2f4843c5772eb2a4914bc0ce9c77f44ae31235ab0",
+      "use": "V Make: lazy interactive product visualization",
+      "type": "Quantized GLB, five actual prototype meshes",
+      "source": "fastr-stick-prototype/output/preview/*_assembled.stl; build_stick_model.py; see stick-model.json"
     }
   ],
   "fonts": [

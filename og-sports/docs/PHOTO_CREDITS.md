@@ -1,6 +1,6 @@
 # OG SPORTS — Bildnachweise
 
-## Aktueller Stand (v4, 2026-10-24)
+## Aktueller Stand (RC4, 2026-10-26)
 
 | Frame | Datei | Art | Quelle / Bearbeitung |
 |---|---|---|---|
@@ -14,11 +14,11 @@
 | Säule IV | `pillar-meet.webp` | Symbolbild, Unsplash License | Gabin Vallet, https://unsplash.com/photos/J154nEkpzlQ — Grade p50, Größe angepasst |
 | I Run | `run-night.webp` | Symbolbild, Unsplash License | Hansheng Zhao, https://unsplash.com/photos/9FcKpisH7Bo — Grade p50, Größe angepasst |
 | II Practice | `practice-start.webp` | Symbolbild, Pexels License | Thomas Ronveaux, https://www.pexels.com/photo/a-close-up-shot-of-an-athlete-on-a-race-track-13159243/ — Grade p50, Größe angepasst |
-| III Wienerwald | `wienerwald-ride.webp` | Symbolbild, Unsplash License | Greg Rosenke, https://unsplash.com/photos/lf3g1p-7FP8 — Grade p50, Größe angepasst |
 | IV Meet | `meet-night.webp` | Symbolbild, Pexels License | liathyrax, https://www.pexels.com/photo/group-of-men-running-on-track-at-night-35005203/ — Grade p50, Größe angepasst, Schriftzug „EASY RUN“ und Brust-Logo lokal entfernt |
 | Eingang | `track-night.webp` | Symbolbild, Unsplash License | Mikhail K, https://unsplash.com/photos/jsNI0bh5D-o — Grade p50, Größe angepasst |
 | III Wear, Säule III | `merch-01-black.jpg` … `merch-06-butter-yellow.jpg` | Produktvisualisierung | unverändert von fastr30.com/merch (`fastr30-website/website/assets/img/`); Hash-Test |
-| 08 | `stick-lime.jpg`, `stick-exploded.jpg` | 3D-Produktvisualisierung | unverändert von fastr30.com/shop (`fastr30-website/website/assets/img/`, aus der Render-Lieferung `final-render.png`); Hash-Test |
+| V Make, Säule V | `stick-lime.jpg` | 3D-Produktvisualisierung / statischer Fallback | unverändert von fastr30.com/shop; Hash-Test. `stick-exploded.jpg` bleibt als unverändertes Referenzasset erhalten, wird nicht mehr auf der Hauptseite geladen. |
+| V Make | `stick.glb` | interaktive 3D-Produktvisualisierung eines Prototyps | fünf bereitgestellte Montage-STLs aus `fastr-stick-prototype/output/preview/`; reduziert und quantisiert mit `scripts/build_stick_model.py`. Originalkonturen der bestehenden OG-FASTR-Wortmarke als Gehäuseaufdruck; keine KI-Erzeugung. Hashes und Geometrieinventur in `stick-model.json`. Bewegung und Schnittansicht illustrieren das Prinzip, keine physikalische Validierung. |
 
 Die Unsplash License erlaubt Bearbeitung; sie ist keine Model-, Property- oder Markenfreigabe. Fremde Marken sind aus 01 und 03 entfernt. Das einzige verbliebene KI-Bild ist der Hero (00); er ist im Bildhinweis gekennzeichnet (AI Act Art. 50). Eigene Aufnahmen tragen sichtbar „Eigene Aufnahme“. Die Higgsfield-Studien (Rampe, Spirale, Garage) und die KI-Trikots sind seit v3 nicht mehr auf der Seite. Die Originaldateien `run-detail.webp` und `run-community.webp` liegen nur noch in der Git-Historie.
 

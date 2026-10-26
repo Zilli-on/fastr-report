@@ -27,7 +27,6 @@ REVIEW = {
  'photo-ritual.webp': (12, 'Manifest', 'nein / nein', 'stark', 'Klarer stiller Moment; bestehender 4:5-Quellausschnitt passt auf beiden Breiten.'),
  'pillar-practice.webp': (13, 'Tempel II', 'nein / nein', 'stark', 'Zentrale Figur und Treppenrichtung sind eindeutig; ausreichend Quellauflösung.'),
  'practice-start.webp': (14, 'II Practice', 'nein / nein: Hand als bewusstes Detailmotiv', 'stark', 'Hand und Bahntextur bleiben lesbar; gute materielle Nähe.'),
- 'wienerwald-ride.webp': (15, 'III Wienerwald', 'nein / nein', 'stark', 'Zwei kleine, vollständige Radfahrer im Nebel; das Motiv passt bereits in 4:5.'),
 }
 for i, color in enumerate(('black', 'cherry-red', 'cobalt-blue', 'emerald-green', 'lavender', 'butter-yellow'), 1):
     name = f'merch-{i:02}-{color}.jpg'

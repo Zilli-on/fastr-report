@@ -32,7 +32,6 @@ JOBS = {
     'pillar-practice.webp': ('unsplash_mZixsK8OnmE.jpg', None, None),
     'pillar-meet.webp': ('unsplash_J154nEkpzlQ.jpg', None, None),
     'practice-start.webp': ('pexels_13159243.jpg', None, None),
-    'wienerwald-ride.webp': ('unsplash_lf3g1p-7FP8.jpg', None, None),
     'meet-night.webp': ('pexels_35005203.jpg', (0, 1250, 4000, 3500), (0, 0, 4000, 5000)),
     'track-night.webp': ('unsplash_jsNI0bh5D-o.jpg', None, None),
 }

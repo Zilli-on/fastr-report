@@ -164,7 +164,7 @@ def site(browser, base, report):
           candidates: (i.closest('picture') && innerWidth < 768 ? i.closest('picture').querySelector('source').srcset : i.srcset),
           sized: !!i.sizes && +i.getAttribute('width') > 0 && +i.getAttribute('height') > 0
         }))''')
-        check(len(responsive) == 20, (where, 'all photo/render instances responsive', len(responsive)))
+        check(len(responsive) == 19, (where, 'all photo/render instances responsive', len(responsive)))
         for image in responsive:
             check(image['sized'] and image['selected'] in image['candidates'], (where, image))
             if image['src'] in ('assets/run-night.webp', 'assets/meet-night.webp'):
@@ -393,7 +393,6 @@ def artefacts(browser, base, report):
             "assets/merch-01-black.jpg",
             "assets/merch-06-butter-yellow.jpg",
             "assets/stick-lime.jpg",
-            "assets/stick-exploded.jpg",
         ):
             check(loaded.get(src, False), (where, "image missing or broken", src))
         check(
@@ -402,7 +401,7 @@ def artefacts(browser, base, report):
             (where, plates["cells"]),
         )
         check(
-            [c.split(None, 1)[1] for c in plates["colourways"]] == ["Apple Sky", "Pear Moss", "Rosehip Stone", "Black Design"],
+            plates["colourways"] == [],
             (where, plates["colourways"]),
         )
         check(

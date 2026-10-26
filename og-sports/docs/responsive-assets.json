@@ -561,61 +561,6 @@
       132.09
     ]
   },
-  "assets/wienerwald-ride.webp": {
-    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_lf3g1p-7FP8.jpg",
-    "source_sha256": "22f1e6c58aac24f91955521a4e4a4c39b04b5451a7ab8da36dc3468dda75e417",
-    "source_pixels": [
-      3561,
-      4451
-    ],
-    "crop": null,
-    "mobile_crop": null,
-    "grade": "p50 (v4)",
-    "crop_pixels": [
-      3561,
-      4451
-    ],
-    "variants": [
-      {
-        "file": "assets/responsive/wienerwald-ride-640.webp",
-        "width": 640,
-        "height": 800,
-        "bytes": 86750
-      },
-      {
-        "file": "assets/responsive/wienerwald-ride-1080.webp",
-        "width": 1080,
-        "height": 1350,
-        "bytes": 207952
-      },
-      {
-        "file": "assets/responsive/wienerwald-ride-1600.webp",
-        "width": 1600,
-        "height": 2000,
-        "bytes": 398476
-      },
-      {
-        "file": "assets/responsive/wienerwald-ride-2400.webp",
-        "width": 2400,
-        "height": 3000,
-        "bytes": 752250
-      },
-      {
-        "file": "assets/responsive/wienerwald-ride-2880.webp",
-        "width": 2880,
-        "height": 3600,
-        "bytes": 1002060
-      }
-    ],
-    "old_mean_luma_saturation": [
-      57.24,
-      102.8
-    ],
-    "mean_luma_saturation": [
-      57.22,
-      103.1
-    ]
-  },
   "assets/meet-night.webp": {
     "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\pexels_35005203.jpg",
     "source_sha256": "d378f5041557dbd6e25e156b8bd52e81f01889c08adfd05048f7d38fc0e4d10b",

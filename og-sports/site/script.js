@@ -32,10 +32,10 @@
       apparel: {category: 'Bekleidung', status: 'Pre-Order nach 30 Tagen', title: 'Not done dreaming.', intro: 'Erst laufen.\nDann tragen.',
         cover: 'FASTR30 Graphic Hoodie · Produktvisualisierung, wie auf fastr30.com',
         section: 'Nicht gekauft.\nVerdient.', body: 'Der FASTR30 Graphic Hoodie ist heavyweight und oversized, in sechs Farben. Die Pre-Order öffnet erst, wenn jemand 30 vollständige Tage hinter sich hat; Preis und Drop-Termin folgen danach per Mail.',
-        side: 'Als Nächstes in Arbeit: Wienerwald, Radbekleidung aus wenigen, großen Flächen. Weitere Farbkonzepte: Hagebutte Winterbuche, Holunder Eiche, Elderberry Mist, Lime Blueberry, Willow Plum, Coral Blood Orange.',
-        pillars: [['01', 'Verdient.', 'Die Pre-Order öffnet nach 30 vollständigen Tagen FASTR30.'], ['02', 'Sechs Farben.', 'Black, Cherry Red, Cobalt Blue, Emerald Green, Lavender, Butter Yellow.'], ['03', 'Wienerwald.', 'Die nächste Linie: Radbekleidung aus großen geometrischen Flächen.']],
+        side: 'Was man sich verdient, trägt man anders.',
+        pillars: [['01', 'Verdient.', 'Die Pre-Order öffnet nach 30 vollständigen Tagen FASTR30.'], ['02', 'Sechs Farben.', 'Black, Cherry Red, Cobalt Blue, Emerald Green, Lavender, Butter Yellow.']],
         note: 'Was man sich verdient, trägt man anders.', cta: 'Über eine Zusammenarbeit sprechen', contact: 'create',
-        extra: 'Die Hoodie-Bilder sind Produktvisualisierungen, dieselben wie auf fastr30.com. Die Pre-Order ist unverbindlich, Preis und Drop-Termin folgen. Wienerwald ist eine Designentwicklung, keine Kollektion und kein Verkauf.'},
+        extra: 'Die Hoodie-Bilder sind Produktvisualisierungen, dieselben wie auf fastr30.com. Die Pre-Order ist unverbindlich, Preis und Drop-Termin folgen.'},
       live: {category: 'Live', status: 'Formate in Planung', title: 'In real life.', intro: 'Sport bringt uns zusammen.\nKultur lässt uns bleiben.',
         cover: 'Formate in Entwicklung · noch kein Termin',
         section: 'Mehr als\nder Moment.', body: 'Wir entwickeln Formate, in denen Bewegung, Musik und Begegnungen zusammenkommen. Der Sport ist der Anfang. Was zwischen den Menschen entsteht, gehört genauso dazu.',
@@ -64,10 +64,10 @@
       apparel: {category: 'Apparel', status: 'Pre-order after 30 days', title: 'Not done dreaming.', intro: 'Run first.\nThen wear it.',
         cover: 'FASTR30 Graphic Hoodie · product visualisation, as on fastr30.com',
         section: 'Not bought.\nEarned.', body: 'The FASTR30 Graphic Hoodie is heavyweight and oversized, in six colours. The pre-order opens only once someone has 30 complete days behind them; price and drop date follow by email.',
-        side: 'Next in progress: Wienerwald, cycling apparel built from a few large planes. Further colour concepts: Hagebutte Winterbuche, Holunder Eiche, Elderberry Mist, Lime Blueberry, Willow Plum, Coral Blood Orange.',
-        pillars: [['01', 'Earned.', 'The pre-order opens after 30 complete days of FASTR30.'], ['02', 'Six colours.', 'Black, Cherry Red, Cobalt Blue, Emerald Green, Lavender, Butter Yellow.'], ['03', 'Wienerwald.', 'The next line: cycling apparel built from large geometric planes.']],
+        side: 'What you earn, you wear differently.',
+        pillars: [['01', 'Earned.', 'The pre-order opens after 30 complete days of FASTR30.'], ['02', 'Six colours.', 'Black, Cherry Red, Cobalt Blue, Emerald Green, Lavender, Butter Yellow.']],
         note: 'What you earn, you wear differently.', cta: 'Explore a collaboration', contact: 'create',
-        extra: 'The hoodie images are product visualisations, the same as on fastr30.com. The pre-order is not binding; price and drop date will follow. Wienerwald is design development, not a collection and not for sale.'},
+        extra: 'The hoodie images are product visualisations, the same as on fastr30.com. The pre-order is not binding; price and drop date will follow.'},
       live: {category: 'Live', status: 'Formats in development', title: 'In real life.', intro: 'Sport brings us together.\nCulture makes us stay.',
         cover: 'Formats in development · no date yet',
         section: 'Beyond\nthe moment.', body: 'We are developing formats where movement, music and new connections come together. Sport is the beginning. What happens between people matters just as much.',
@@ -402,4 +402,23 @@
 
   translate('de');
   updateContact();
+})();
+
+// The module graph and model are requested only near the Make chapter.
+(() => {
+  const chapter = document.getElementById('stick');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  if (!chapter || !('IntersectionObserver' in window)) return;
+  let started = false;
+  const near = new IntersectionObserver(entries => {
+    if (started || reduced.matches || !entries.some(e => e.isIntersecting)) return;
+    started = true;
+    near.disconnect();
+    import('./stick-viewer.js').then(module => module.mountStick(chapter, reduced))
+      .catch(() => { chapter.dataset.viewer = 'fallback'; });
+  }, { rootMargin: '500px 0px' });
+  near.observe(chapter);
+  reduced.addEventListener('change', () => {
+    if (!reduced.matches && !started) { near.unobserve(chapter); near.observe(chapter); }
+  });
 })();

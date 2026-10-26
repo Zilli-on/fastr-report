@@ -88,7 +88,7 @@ test('labels every image below the photographs as own footage, AI study or visua
     const scope = main.slice(main.indexOf(figure), main.indexOf(figure) + figure.length + 1200);
     assert.match(scope, /Unsplash|Pexels|Eigene Aufnahme|KI-(Kampagnenstudie|Bildstudie|Visualisierung|Raumstudie)|Produktvisualisierung/, `${src} needs a visible label`);
   }
-  assert.deepEqual(shown, ['run-night.webp', 'practice-start.webp', 'merch-01-black.jpg', 'wienerwald-ride.webp', 'meet-night.webp', 'stick-lime.jpg', 'stick-exploded.jpg', 'track-night.webp']);
+  assert.deepEqual(shown, ['run-night.webp', 'practice-start.webp', 'merch-01-black.jpg', 'meet-night.webp', 'stick-lime.jpg', 'track-night.webp']);
 });
 
 test('keeps the seven FASTR30 standards in their fixed order', () => {
@@ -103,8 +103,8 @@ test('presents four projects with their artefact and honest status captions', ()
     assert.match(main, new RegExp(`data-artefact="${key}"`), `artefact for ${key}`);
     assert.match(main, new RegExp(`data-project="${key}"`), `story trigger for ${key}`);
   }
-  for (const status of ['Challenge-Konzept', 'Pre-Order unverbindlich', 'keine Kollektion, kein Verkauf', 'noch kein Termin', 'Prototyp, kein Serienprodukt']) assert.ok(main.includes(status), status);
-  for (const view of ['stick-lime', 'stick-exploded']) assert.ok(main.includes(`assets/${view}.jpg`), view);
+  for (const status of ['Challenge-Konzept', 'Pre-Order unverbindlich', 'noch kein Termin', 'Prototyp, kein Serienprodukt']) assert.ok(main.includes(status), status);
+  for (const view of ['stick-lime']) assert.ok(main.includes(`assets/${view}.jpg`), view);
   assert.doesNotMatch(html + js, /CAD-Entwurf|CAD draft/, 'the STICK images are product renders, not the CAD draft');
 });
 
@@ -166,6 +166,7 @@ test('serves the site with correct MIME types without exposing repo files', asyn
     assert.match(await home.text(), /Own greatness/);
     const script = await fetch(`${base}/script.js`); assert.equal(script.status, 200); assert.match(script.headers.get('content-type'), /javascript/);
     const asset = await fetch(`${base}/assets/after-the-run.webp`); assert.equal(asset.status, 200); assert.equal(asset.headers.get('content-type'), 'image/webp');
+    const model = await fetch(`${base}/assets/stick.glb`); assert.equal(model.status, 200); assert.equal(model.headers.get('content-type'), 'model/gltf-binary');
     assert.equal((await fetch(`${base}/.git/config`)).status, 403);
     assert.equal((await fetch(`${base}/package.json`)).status, 404);
     assert.equal((await fetch(base, { method: 'POST' })).status, 405);

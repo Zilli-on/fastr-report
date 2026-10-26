@@ -2,6 +2,10 @@
 
 Stand: 2026-10-26. Lokal gerendert und visuell geprüft; keine Aussage über ein Deployment.
 
+RC4-Nachtrag: Die folgenden Messwerte bleiben der historische RC3-Snapshot.
+Kapitel V verwendet jetzt `stick.glb`; `stick-lime.jpg` bleibt Fallback und Säulenbild,
+`stick-exploded.jpg` ist nur noch Referenzbestand. Aktuelle Messungen: `RC4_RESULT.md`.
+
 ## Messverfahren
 
 Chromium, leere Browserkontexte, 390×844 @3x und 1440×900 @2x. Vollständig in 500-CSS-px-Schritten gescrollt; Netzwerk-Summe aller Bildantworten (inklusive SVG, ohne Schriften/HTML/HTTP-Header). Keine Dialoge geöffnet. 768×900 @2x zusätzlich fotografiert. Screenshots in CSS-Pixeln, Bildauswahl mit echtem DPR.
@@ -330,21 +334,6 @@ Evidenz: `C:\Users\Fabien\AppData\Local\Temp\og-rc3-evidence/before/` und `C:\Us
 | 390 @3x | 1050×1312 | 1050×1575 | practice-start-1080.webp | 0.30 / 0.97 |
 
 - Original/Fallback: 194,054 Bytes. Derivate: practice-start-640.webp: 58,576 B; practice-start-1080.webp: 130,410 B; practice-start-1600.webp: 243,750 B; practice-start-2400.webp: 661,352 B; practice-start-2880.webp: 952,196 B
-
-### wienerwald-ride.webp — stark
-
-- Kapitel: III Wienerwald. Zwei kleine, vollständige Radfahrer im Nebel; das Motiv passt bereits in 4:5.
-- Quelle: Greg Rosenke / Unsplash License (https://unsplash.com/license) / https://unsplash.com/photos/lf3g1p-7FP8.
-- Quell-Pixel: 3561×4451. Quelle: `C:\Users\Fabien\og-sports-sources\v4-candidates\web\unsplash_lf3g1p-7FP8.jpg`.
-- Gesicht/Motiv angeschnitten (390 / 1440): nein / nein.
-- Grade: L/S 57.2/103.1; Δ zur p50-Referenz +17.0/+34.7; Δ zur bisherigen Datei -0.0/+0.3.
-
-| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
-|---|---:|---:|---|---:|
-| 1440 @2x | 864×1080 | 864×1080 | wienerwald-ride-1600.webp | 0.24 / 0.54 |
-| 390 @3x | 1050×1312 | 1050×1312 | wienerwald-ride-1080.webp | 0.29 / 0.97 |
-
-- Original/Fallback: 245,900 Bytes. Derivate: wienerwald-ride-640.webp: 86,750 B; wienerwald-ride-1080.webp: 207,952 B; wienerwald-ride-1600.webp: 398,476 B; wienerwald-ride-2400.webp: 752,250 B; wienerwald-ride-2880.webp: 1,002,060 B
 
 ## Reproduktion und Grenzen
 

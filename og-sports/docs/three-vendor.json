@@ -1,0 +1,45 @@
+{
+  "version": "0.170.0",
+  "files": [
+    {
+      "file": "three.module.min.js",
+      "source": "https://raw.githubusercontent.com/mrdoob/three.js/r170/build/three.module.min.js",
+      "upstream_sha256": "08fd7545d13d2c7fb65ab691530a802dafefd638596501854f267d0fb13c39e7",
+      "sha256": "08fd7545d13d2c7fb65ab691530a802dafefd638596501854f267d0fb13c39e7",
+      "bytes": 691648,
+      "gzip_bytes": 170881
+    },
+    {
+      "file": "GLTFLoader.js",
+      "source": "https://raw.githubusercontent.com/mrdoob/three.js/r170/examples/jsm/loaders/GLTFLoader.js",
+      "upstream_sha256": "45139faddd5aaf48ed2d62203d976e5cbd703db1a592de40527f9f6cf58abd44",
+      "sha256": "d6b517ee599c974f9b3648b11621dc23d41de24adcac3c826b3985a9313f6b84",
+      "bytes": 110282,
+      "gzip_bytes": 23564
+    },
+    {
+      "file": "BufferGeometryUtils.js",
+      "source": "https://raw.githubusercontent.com/mrdoob/three.js/r170/examples/jsm/utils/BufferGeometryUtils.js",
+      "upstream_sha256": "c25b7930e570e9ec56173cd3b866ec8d2e10016630db3937efb439daf1cedbf6",
+      "sha256": "b9ea77ef3aacbf82d386c33311067e6ea4a3aac4190b32e001bdd11d063fb6ae",
+      "bytes": 31784,
+      "gzip_bytes": 6901
+    },
+    {
+      "file": "RoomEnvironment.js",
+      "source": "https://raw.githubusercontent.com/mrdoob/three.js/r170/examples/jsm/environments/RoomEnvironment.js",
+      "upstream_sha256": "85869bdd22f7cf0b22e68dcefe6cb710480af0f5c901a76f7a7764fd07fc8014",
+      "sha256": "625d0d8ac8690a73799ea0e2c577d6260162e0da97698c4fe9b03715909ac214",
+      "bytes": 3622,
+      "gzip_bytes": 1159
+    },
+    {
+      "file": "LICENSE.txt",
+      "source": "https://raw.githubusercontent.com/mrdoob/three.js/r170/LICENSE",
+      "upstream_sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454",
+      "sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454",
+      "bytes": 1081,
+      "gzip_bytes": 661
+    }
+  ]
+}

@@ -40,7 +40,6 @@ def main():
         'frame-03-people.webp': '(max-width: 600px) 150.4vw, (max-width: 899px) 110.6vw, max(37.5vw, 116.7vh)',
         'photo-ritual.webp': '(max-width: 899px) calc(100vw - 44px), 42vw',
         'practice-start.webp': '(max-width: 899px) calc(100vw - 44px), 42vw',
-        'wienerwald-ride.webp': '(max-width: 899px) calc(100vw - 44px), 42vw',
         'run-night.webp': 'max(100vw, min(150.25svh, 1623px))',
         'meet-night.webp': 'max(100vw, min(163.56svh, 1778px))',
         'track-night.webp': '100vw',

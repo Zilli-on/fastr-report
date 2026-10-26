@@ -263,7 +263,7 @@ ol, ul { padding: 0; list-style: none; }
 .std-rule { font-size: .875rem; line-height: 1.4; color: var(--on-ink-muted); }
 .practice > .frame-caption { margin-top: 18px; }
 
-/* 06 — Wear: the hoodie you earn on paper, black product tiles like the STICK; Wienerwald in progress */
+/* 06 — Wear: the hoodie you earn on paper, black product tiles like the STICK */
 .apparel { padding-bottom: var(--chapter); }
 .apparel .project-head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 22px; align-items: end; margin-bottom: clamp(36px, 4.5vw, 72px); }
 .apparel .project-head > .label { grid-column: 1 / -1; }
@@ -284,18 +284,6 @@ ol, ul { padding: 0; list-style: none; }
 .rail-items span:first-of-type { left: 12px; }
 .rail-items span:last-of-type { right: 12px; }
 .rail .frame-caption { padding-left: var(--gutter); padding-right: var(--gutter); }
-.apparel-next { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 18px; align-items: start; margin-top: clamp(72px, 9vw, 144px); padding-top: 22px; border-top: 1px solid var(--rule); }
-.wienerwald-photo { grid-column: 1 / 5; grid-row: 1 / 6; }
-.wienerwald-photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
-.wienerwald-photo figcaption { display: flex; justify-content: space-between; gap: 12px; padding-top: 10px; color: var(--muted); }
-.apparel-next > .label { grid-column: 6 / 13; }
-.apparel-next-title { grid-column: 6 / 13; font: 750 clamp(2rem, 3.6vw, 3.75rem)/.95 var(--wide); font-stretch: 112%; text-transform: uppercase; letter-spacing: -.02em; }
-.apparel-next .project-copy { grid-column: 6 / 12; max-width: 52ch; }
-.apparel-next .colourways, .apparel-next .frame-caption { grid-column: 6 / 13; }
-.colourways { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap); padding-top: 18px; }
-.colourways li { display: flex; align-items: center; gap: 10px; font: 500 .6875rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
-.colourways i { width: 28px; height: 28px; flex: none; background: linear-gradient(135deg, var(--a) 50%, var(--b) 50%); }
-.colourways span { color: var(--muted); }
 
 /* 07 — Meet: the OG SPORTS lavender. No pictures of events that have not happened yet. */
 .live { padding: 0; }
@@ -311,19 +299,64 @@ ol, ul { padding: 0; list-style: none; }
   .live-foot { padding-bottom: calc(var(--chapter) + 36svh); }
 }
 
-/* 08 — FASTR STICK */
-.stick { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); align-items: start; padding-bottom: var(--chapter); }
-.stick-render { grid-column: 1 / 7; position: relative; }
-.stick-render img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; background: #000; }
-.stick-render figcaption { padding-top: 12px; color: var(--muted); }
-.stick-text { grid-column: 8 / 13; display: flex; flex-direction: column; align-items: flex-start; gap: 22px; position: sticky; top: 40px; }
-.stick h3 { font-size: clamp(2.5rem, 5.4vw, 5.75rem); }
-.stick-section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: var(--gap); align-items: center; width: 100%; margin-top: 8px; }
-.stick-build img { width: 100%; height: auto; background: #000; }
-.stick-build figcaption { padding-top: 10px; color: var(--muted); }
-.stick-legend { border-top: 1px solid var(--rule); }
-.stick-legend li { display: grid; grid-template-columns: 2.5rem 1fr; padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: .9375rem; }
-.stick-legend li span:first-child { font: 500 .6875rem/1.9 var(--mono); color: var(--muted); }
+/* V — Make: one pinned product stage, with real DOM copy alongside. */
+.stick { padding-bottom: var(--chapter); }
+.stick-heading { padding-bottom: 36px; display: grid; gap: 18px; }
+.stick h3 { font-size: clamp(2.5rem, 6.5vw, 7rem); font-style: italic; }
+.stick-stage { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 88px); align-items: center; }
+.stick-visual { min-width: 0; }
+.stick-viewport { position: relative; height: min(70svh, 690px); min-height: 320px; background: #e4e3dd; overflow: hidden; }
+.stick-render { margin: 0; height: 100%; }
+.stick-render img { width: 100%; height: 100%; object-fit: contain; background: #000; }
+.stick-caption { color: var(--muted); margin-top: 14px; max-width: 55ch; }
+.stick-canvas { display: none; position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y pinch-zoom; cursor: grab; }
+.stick-canvas:active { cursor: grabbing; }
+.stick-canvas:focus-visible { outline: 2px solid var(--text); outline-offset: -4px; }
+.stick-legend { position: absolute; inset: 0; pointer-events: none; }
+.stick-legend li { position: absolute; z-index: 2; left: 16px; font: 500 .6875rem/1.4 var(--mono); transform: translateY(-50%); background: #e4e3dd; padding: 5px 0; }
+.stick-legend li:nth-child(odd) { left: auto; right: 16px; }
+.stick-legend li::after { content: ''; position: absolute; top: 50%; left: calc(100% + 8px); width: var(--lead, 20px); height: 1px; background: #81847b; }
+.stick-legend li:nth-child(odd)::after { left: auto; right: calc(100% + 8px); }
+.stick-gesture { display: none; position: absolute; bottom: 18px; left: 0; width: 100%; text-align: center; color: var(--muted); pointer-events: none; }
+.stick-text { display: flex; flex-direction: column; align-items: stretch; gap: 28px; min-width: 0; }
+.stick-controls { display: none; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.stick-controls button { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; padding: 12px 0; border-top: 2px solid var(--rule); min-height: 64px; text-align: left; }
+.stick-controls button[aria-pressed=true] { border-color: var(--text); }
+.stick-controls button[aria-pressed=false] { color: var(--muted); }
+.stick-step h4 { font: 650 clamp(1.5rem, 2.5vw, 2.5rem)/1.08 var(--wide); letter-spacing: -.035em; max-width: 13ch; margin: 16px 0; }
+.stick-step > p:last-child { color: var(--muted); max-width: 35ch; }
+.stick-step + .stick-step { margin-top: 24px; }
+.stick.is-ready .stick-track { height: 310svh; }
+.stick.is-ready .stick-stage { position: sticky; top: 24px; height: calc(100svh - 48px); }
+.stick.is-ready .stick-render { visibility: hidden; }
+.stick.is-ready .stick-canvas, .stick.is-ready .stick-gesture { display: block; }
+.stick.is-ready .stick-controls { display: grid; }
+.stick.is-ready .stick-steps { min-height: 220px; }
+.stick.is-ready .stick-step { margin: 0; }
+.stick:not(.is-ready) .stick-legend { display: none; }
+@media (max-width: 767px) {
+  .stick-stage { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .stick-heading { gap: 12px; padding-bottom: 24px; }
+  .stick-viewport { height: 52svh; min-height: 240px; }
+  .stick-text { gap: 14px; }
+  .stick.is-ready .stick-stage { top: 12px; height: calc(100svh - 24px); align-content: start; gap: 16px; }
+  .stick.is-ready .stick-viewport { height: min(47svh, calc(100svh - 370px)); min-height: 180px; }
+  .stick-caption { font-size: .5625rem; margin-top: 8px; }
+  .stick-controls { gap: 12px; }
+  .stick-controls button { min-height: 42px; flex-direction: row; align-items: center; gap: 8px; padding: 8px 0; font-size: .8125rem; }
+  .stick.is-ready .stick-steps { min-height: 143px; }
+  .stick-step h4 { margin: 7px 0; max-width: none; font-size: 1.55rem; }
+  .stick-step > p:last-child { font-size: .875rem; line-height: 1.45; }
+  .stick-actions { gap: 0 18px; }
+  .stick-actions .text-action { font-size: .6875rem; }
+  .stick-gesture { font-size: .5rem; bottom: 12px; }
+  .stick-legend li { font-size: .5625rem; left: 10px; }
+  .stick-legend li:nth-child(odd) { right: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stick.is-ready .stick-track { height: auto; }
+  .stick.is-ready .stick-stage { position: static; height: auto; }
+}
 
 /* 9 ─ The way in, and the signature. Symmetric like the temple; three doors, lime for FASTR30, lavender for OG SPORTS */
 .connect { padding: var(--chapter) var(--gutter) clamp(80px, 9vw, 150px); background: var(--ink); color: var(--on-ink); text-align: center; }
@@ -451,8 +484,6 @@ dialog::backdrop { background: rgba(14, 15, 13, .55); backdrop-filter: blur(6px)
 /* 12 ─ Responsive */
 @media (max-width: 1180px) {
   .field-rows li { grid-template-columns: 3.75rem minmax(0, 1fr) minmax(0, 1fr); row-gap: 10px; }
-  .stick-section { grid-template-columns: 1fr; }
-  .stick-build { max-width: 360px; }
 }
 @media (max-width: 899px) {
   :root { --gutter: 22px; --t-xl: clamp(2.5rem, 10vw, 4.75rem); --t-hero: clamp(3rem, 13vw, 6rem); }
@@ -485,17 +516,13 @@ dialog::backdrop { background: rgba(14, 15, 13, .55); backdrop-filter: blur(6px)
   .apparel h3, .apparel .project-head .project-copy, .apparel-earned, .apparel-actions { grid-column: 1 / -1; grid-row: auto; }
   .apparel h3 { font-size: clamp(2rem, 11vw, 5rem); }
   .rail-items { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .apparel-next > .label, .apparel-next-title, .apparel-next .project-copy, .apparel-next .colourways, .apparel-next .frame-caption { grid-column: 1 / -1; }
-  .colourways { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 12px; }
   .live-verbs-line { grid-column: 1 / -1; }
-  .practice-photo, .practice-intro > .label, .wienerwald-photo, .apparel-next > .label, .apparel-next-title, .apparel-next .project-copy, .apparel-next .colourways, .apparel-next .frame-caption { grid-column: 1 / -1; grid-row: auto; }
+  .practice-photo, .practice-intro > .label { grid-column: 1 / -1; grid-row: auto; }
   .pillars { grid-template-columns: 1fr 1fr; }
   .pillar, .pillar:nth-child(-n+2) { grid-column: span 1; aspect-ratio: 4 / 5; }
   .pillar:first-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
   .connect-photo img { aspect-ratio: 16 / 10; }
   .live-foot .project-copy, .live-foot .text-action { grid-column: 1 / -1; justify-self: start; }
-  .stick-render, .stick-text { grid-column: 1 / -1; }
-  .stick-text { position: static; padding-top: 40px; }
   .connect-ways { grid-template-columns: 1fr; }
   .way { min-height: 0; padding: 22px 20px 20px; }
   .way-go { margin-top: 10px; }
