@@ -1,5 +1,13 @@
 # RC3 Bild-Inventur — schwächste zuerst
 
+RC5-Nachtrag (2026-10-26): Die unten genannten `merch-*`-Dateien und ihre
+660-px-Varianten wurden entfernt. Wear und Säule III verwenden jetzt die
+bereitgestellten Hoodie-KI-Masters (1792×2240), responsive als WebP in 480,
+800, 1200, 1600 und 1792 px. Kein Hochskalieren, kein zusätzliches Grading.
+Die alte Bewertung dieser Bilder bleibt ausschließlich als RC3-Historie bestehen.
+Aktuelle Quellen: `responsive-assets.json`, `PHOTO_CREDITS.md`.
+Aktuelle Browsermessungen und Screenshot-Pfade: `RC5_RESULT.md`.
+
 Stand: 2026-10-26. Lokal gerendert und visuell geprüft; keine Aussage über ein Deployment.
 
 RC4-Nachtrag: Die folgenden Messwerte bleiben der historische RC3-Snapshot.

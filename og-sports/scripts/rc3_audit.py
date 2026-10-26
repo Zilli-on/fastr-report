@@ -14,7 +14,6 @@ EVIDENCE = Path(os.environ['TEMP']) / 'og-rc3-evidence'
 REVIEW = {
  'after-the-run.webp': (0, '00 Opening', 'ja / ja: Randpersonen; geschützter CSS-Ausschnitt', 'schwach', 'Nur 1373×485 echte Quellpixel; sehr starke Retina-Vergrößerung. Emotional geschützt, keine erfundene Schärfe.'),
  'stick-exploded.jpg': (1, 'V Make / Aufbau', 'nein / nein', 'schwach', '472×708 begrenzt die technischen Details deutlich; Original darf nicht neu kodiert werden.'),
- 'merch-05-lavender.jpg': (2, 'Tempel III + III Wear', 'nein / nein', 'schwach', '660×825 reicht für die kleine Produktreihe, aber nicht für die große Retina-Tempelkachel.'),
  'stick-lime.jpg': (3, 'Tempel V + V Make', 'nein / nein', 'ok', 'Klares Produktmotiv, aber 880×1100 begrenzt die große Darstellung; Original unverändert.'),
  'frame-03-people.webp': (4, '03 People', 'ja / ja: Randpersonen, zentrale Gesichter erhalten', 'ok', 'Lebendiger Moment; Randpersonen angeschnitten. Geschützter Ausschnitt und bestehende Retusche bleiben.'),
  'meet-night.webp': (5, 'IV Meet', 'ja / ja: Randläufer; Hauptgruppe vollständig im Handybild', 'ok', '4:5 zeigt wieder die drei Hauptpersonen, sehr dunkle Kleidung bleibt wenig differenziert. Desktop behält seinen bisherigen engeren Ausschnitt.'),
@@ -28,9 +27,7 @@ REVIEW = {
  'pillar-practice.webp': (13, 'Tempel II', 'nein / nein', 'stark', 'Zentrale Figur und Treppenrichtung sind eindeutig; ausreichend Quellauflösung.'),
  'practice-start.webp': (14, 'II Practice', 'nein / nein: Hand als bewusstes Detailmotiv', 'stark', 'Hand und Bahntextur bleiben lesbar; gute materielle Nähe.'),
 }
-for i, color in enumerate(('black', 'cherry-red', 'cobalt-blue', 'emerald-green', 'lavender', 'butter-yellow'), 1):
-    name = f'merch-{i:02}-{color}.jpg'
-    REVIEW.setdefault(name, (20+i, 'III Wear', 'nein / nein', 'ok', 'Kleine Produktreihe: 660×825 genügt hier; eigenständige Shop-Farbwelt, kein p50-Fotograde.'))
+# The retired shop hoodies are no longer inputs. RC5 owns their replacement audit.
 
 def main():
     data = json.loads((ROOT/'docs/responsive-assets.json').read_text(encoding='utf-8'))

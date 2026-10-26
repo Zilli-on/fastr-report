@@ -30,12 +30,12 @@
         side: 'Der nächste Schritt muss nicht groß sein. Nur deiner.', note: '30 Tage. Sieben Standards. Ein eigener Rhythmus.', cta: 'Über FASTR30 sprechen', contact: 'community',
         extra: 'Dies sind die bestehenden Markenregeln des Challenge-Konzepts, keine individuell abgestimmten Gesundheitsempfehlungen.'},
       apparel: {category: 'Bekleidung', status: 'Pre-Order nach 30 Tagen', title: 'Not done dreaming.', intro: 'Erst laufen.\nDann tragen.',
-        cover: 'FASTR30 Graphic Hoodie · Produktvisualisierung, wie auf fastr30.com',
+        cover: 'FASTR30 Graphic Hoodie · KI-Visualisierung',
         section: 'Nicht gekauft.\nVerdient.', body: 'Der FASTR30 Graphic Hoodie ist heavyweight und oversized, in sechs Farben. Die Pre-Order öffnet erst, wenn jemand 30 vollständige Tage hinter sich hat; Preis und Drop-Termin folgen danach per Mail.',
         side: 'Was man sich verdient, trägt man anders.',
         pillars: [['01', 'Verdient.', 'Die Pre-Order öffnet nach 30 vollständigen Tagen FASTR30.'], ['02', 'Sechs Farben.', 'Black, Cherry Red, Cobalt Blue, Emerald Green, Lavender, Butter Yellow.']],
         note: 'Was man sich verdient, trägt man anders.', cta: 'Über eine Zusammenarbeit sprechen', contact: 'create',
-        extra: 'Die Hoodie-Bilder sind Produktvisualisierungen, dieselben wie auf fastr30.com. Die Pre-Order ist unverbindlich, Preis und Drop-Termin folgen.'},
+        extra: 'Die Hoodie-Bilder sind KI-Visualisierungen auf Basis der fastr30.com-Produktrenderings, mit angeglichener Stofffarbe. Die Pre-Order ist unverbindlich, Preis und Drop-Termin folgen.'},
       live: {category: 'Live', status: 'Formate in Planung', title: 'In real life.', intro: 'Sport bringt uns zusammen.\nKultur lässt uns bleiben.',
         cover: 'Formate in Entwicklung · noch kein Termin',
         section: 'Mehr als\nder Moment.', body: 'Wir entwickeln Formate, in denen Bewegung, Musik und Begegnungen zusammenkommen. Der Sport ist der Anfang. Was zwischen den Menschen entsteht, gehört genauso dazu.',
@@ -62,12 +62,12 @@
         side: 'The next step does not have to be big. Just yours.', note: '30 days. Seven standards. Your own rhythm.', cta: 'Talk about FASTR30', contact: 'community',
         extra: 'These are the existing brand rules of the challenge concept, not individually tailored health recommendations.'},
       apparel: {category: 'Apparel', status: 'Pre-order after 30 days', title: 'Not done dreaming.', intro: 'Run first.\nThen wear it.',
-        cover: 'FASTR30 Graphic Hoodie · product visualisation, as on fastr30.com',
+        cover: 'FASTR30 Graphic Hoodie · AI visualisation',
         section: 'Not bought.\nEarned.', body: 'The FASTR30 Graphic Hoodie is heavyweight and oversized, in six colours. The pre-order opens only once someone has 30 complete days behind them; price and drop date follow by email.',
         side: 'What you earn, you wear differently.',
         pillars: [['01', 'Earned.', 'The pre-order opens after 30 complete days of FASTR30.'], ['02', 'Six colours.', 'Black, Cherry Red, Cobalt Blue, Emerald Green, Lavender, Butter Yellow.']],
         note: 'What you earn, you wear differently.', cta: 'Explore a collaboration', contact: 'create',
-        extra: 'The hoodie images are product visualisations, the same as on fastr30.com. The pre-order is not binding; price and drop date will follow.'},
+        extra: 'The hoodie images are AI visualisations based on the fastr30.com product renders, with colour-matched fabric. The pre-order is not binding; price and drop date will follow.'},
       live: {category: 'Live', status: 'Formats in development', title: 'In real life.', intro: 'Sport brings us together.\nCulture makes us stay.',
         cover: 'Formats in development · no date yet',
         section: 'Beyond\nthe moment.', body: 'We are developing formats where movement, music and new connections come together. Sport is the beginning. What happens between people matters just as much.',
@@ -96,6 +96,9 @@
     const clone = source.cloneNode(true);
     clone.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
     clone.querySelectorAll('img').forEach(img => { img.loading = 'eager'; });
+    clone.querySelector('.hoodie-colors')?.remove();
+    clone.querySelector('.hoodie-error')?.remove();
+    clone.querySelector('.hoodie-previous')?.remove();
     clone.removeAttribute('data-artefact');
     clone.removeAttribute('data-motion');
     clone.classList.add('is-in');
@@ -135,6 +138,77 @@
       projectContent.animate([{opacity: .3, transform: 'translateY(8px)'}, {opacity: 1, transform: 'none'}], {duration: 300, easing: 'cubic-bezier(.2,.7,.2,1)'});
     }
   }
+
+  // Keep the current image until the requested responsive candidate has decoded.
+  // A request token prevents slow earlier selections from winning a rapid switch.
+  const hoodie = document.querySelector('main .hoodie-stage');
+  const hoodieImage = hoodie.querySelector('.hoodie-image');
+  const hoodieButtons = [...hoodie.querySelectorAll('[data-hoodie]')];
+  const hoodieCache = new Map();
+  let hoodieRequest = 0;
+  let hoodieSelected = 'black';
+  function loadHoodie(button) {
+    const color = button.dataset.hoodie;
+    if (hoodieCache.has(color)) return hoodieCache.get(color);
+    const img = new Image();
+    img.width = 1792;
+    img.height = 2240;
+    img.decoding = 'async';
+    img.sizes = '(max-width: 899px) 100vw, 50vw';
+    img.srcset = [480, 800, 1200, 1600, 1792].map(w => `assets/responsive/hoodie-${color}-${w}.webp ${w}w`).join(', ');
+    img.src = `assets/responsive/hoodie-${color}-800.webp`;
+    img.alt = `Graphic Hoodie in ${button.textContent.trim()}`;
+    img.dataset.altDe = img.dataset.altEn = img.alt;
+    const promise = img.decode().then(() => img).catch(error => {
+      hoodieCache.delete(color);
+      throw error;
+    });
+    hoodieCache.set(color, promise);
+    return promise;
+  }
+  hoodieButtons.forEach(button => {
+    for (const event of ['pointerenter', 'focus']) button.addEventListener(event, () => {
+      if (button.dataset.hoodie !== hoodieSelected) loadHoodie(button).catch(() => {});
+    });
+    button.addEventListener('click', async () => {
+      const request = ++hoodieRequest;
+      const error = hoodie.querySelector('.hoodie-error');
+      error.hidden = true;
+      if (button.dataset.hoodie === hoodieSelected) {
+        hoodieImage.removeAttribute('aria-busy');
+        return;
+      }
+      hoodieImage.setAttribute('aria-busy', 'true');
+      try {
+        const loaded = await loadHoodie(button);
+        if (request !== hoodieRequest) return;
+        hoodieImage.querySelector('.hoodie-previous')?.remove();
+        const old = hoodieImage.querySelector('img');
+        const next = loaded.cloneNode();
+        old.replaceWith(next);
+        hoodieSelected = button.dataset.hoodie;
+        hoodieButtons.forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+        hoodie.querySelector('.hoodie-selection').textContent = button.textContent.trim();
+        if (!reduced.matches) {
+          old.className = 'hoodie-previous';
+          old.alt = '';
+          old.setAttribute('aria-hidden', 'true');
+          hoodieImage.append(old);
+          const fade = old.animate([{opacity: 1}, {opacity: 0}], {duration: 220, easing: 'ease-out'});
+          const stop = () => { fade.cancel(); old.remove(); };
+          reduced.addEventListener('change', stop, {once: true});
+          fade.finished.catch(() => {}).finally(() => {
+            old.remove();
+            reduced.removeEventListener('change', stop);
+          });
+        }
+      } catch {
+        if (request === hoodieRequest) error.hidden = false;
+      } finally {
+        if (request === hoodieRequest) hoodieImage.removeAttribute('aria-busy');
+      }
+    });
+  });
 
   function translate(next) {
     lang = next === 'en' ? 'en' : 'de';

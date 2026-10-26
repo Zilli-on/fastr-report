@@ -128,8 +128,13 @@ export async function mountStick(chapter, reduced) {
     const section = new THREE.Plane(new THREE.Vector3(0, 0, -1), .002);
     const sectionNormal = new THREE.Vector3();
     const anchors = { Schraubkappe: .13, Gehaeuse: .075, Hubteller: .03, Spindel: .067, Drehfuss: .006 };
-    const exploded = { Schraubkappe: .145, Gehaeuse: -.025, Hubteller: .18, Spindel: -.14, Drehfuss: -.165 };
+    const exploded = { Schraubkappe: .055, Gehaeuse: 0, Hubteller: .12, Spindel: -.135, Drehfuss: -.153 };
     const position = new THREE.Vector3();
+    const bounds = new THREE.Box3();
+    const center = new THREE.Vector3();
+    const corner = new THREE.Vector3();
+    const viewCorner = new THREE.Vector3();
+    const corners = [];
     const size = () => {
       const { width, height } = viewport.getBoundingClientRect();
       if (!width || !height) return;
@@ -177,24 +182,54 @@ export async function mountStick(chapter, reduced) {
       parts.Gehaeuse.material.clippingPlanes = opening > .1 ? [section] : [];
       parts.Gehaeuse.material.clipShadows = true;
       parts.Gehaeuse.material.side = THREE.DoubleSide;
-      ground.position.y = -.088 - explosion * .165;
+      ground.position.y = -.088 - explosion * .153;
       ground.material.opacity = .14 * (1 - explosion);
-      const distance = .39 + explosion * .72 + opening * .12;
-      camera.position.set(.06, .045 + opening * .025, distance);
-      camera.lookAt(0, explosion * -.015 + opening * .02, 0);
       pivot.updateMatrixWorld(true);
+      // Fit the current transformed part bounds, continuously through all phases.
+      // Camera-space corner constraints include depth, aspect and drag rotation.
+      bounds.setFromObject(pivot);
+      bounds.getCenter(center);
+      camera.position.copy(center).add(new THREE.Vector3(0, 0, 1));
+      camera.lookAt(center);
+      camera.updateMatrixWorld(true);
+      const tan = Math.tan(THREE.MathUtils.degToRad(camera.fov / 2));
+      let distance = 0;
+      corners.length = 0;
+      for (const part of Object.values(parts)) {
+        if (!part.geometry.boundingBox) part.geometry.computeBoundingBox();
+        const box = part.geometry.boundingBox;
+        for (const x of [box.min.x, box.max.x]) for (const y of [box.min.y, box.max.y]) for (const z of [box.min.z, box.max.z]) {
+          corner.set(x, y, z).applyMatrix4(part.matrixWorld);
+          corners.push(corner.clone());
+          viewCorner.copy(corner).sub(center);
+          distance = Math.max(distance,
+            Math.abs(viewCorner.y) / (tan * .8) + viewCorner.z,
+            Math.abs(viewCorner.x) / (tan * camera.aspect * .82) + viewCorner.z);
+        }
+      }
+      camera.position.copy(center).add(new THREE.Vector3(0, 0, distance));
+      camera.updateMatrixWorld(true);
+      const projected = corners.map(c => c.project(camera).y);
+      chapter.dataset.fill = ((Math.max(...projected) - Math.min(...projected)) / 2).toFixed(4);
       renderer.render(scene, camera);
-      labels.forEach(label => {
+      const placed = labels.map(label => {
         const name = label.dataset.part;
         // Mesh node scales decode normalized integer coordinates, so anchor in
         // model space rather than multiplying by that decoding scale twice.
         position.set(0, anchors[name] + parts[name].position.y, 0);
         model.localToWorld(position).project(camera);
         const y = clamp((1 - position.y) * viewport.clientHeight / 2, 20, viewport.clientHeight - 28);
-        label.style.top = `${y}px`;
         label.style.setProperty('--lead', `${Math.max(12, viewport.clientWidth * .12)}px`);
         label.hidden = explosion < .7;
+        return {label, y};
       });
+      // Resolve close anchors per side; keep every label within the canvas.
+      for (const side of [0, 1]) {
+        const column = placed.filter((_, i) => i % 2 === side).sort((a, b) => a.y - b.y);
+        for (let i = 1; i < column.length; i++) column[i].y = Math.max(column[i].y, column[i-1].y + 34);
+        const overflow = Math.max(0, column.at(-1).y - viewport.clientHeight + 22);
+        column.forEach(({label, y}) => { label.style.top = `${y - overflow}px`; });
+      }
       chapter.dataset.frames = String(++frames);
       chapter.dataset.viewer = 'ready';
     }
@@ -234,7 +269,7 @@ export async function mountStick(chapter, reduced) {
     controls.forEach((button, i) => listen(button, 'click', () => {
       const points = [.1, .5, .97];
       const rect = track.getBoundingClientRect();
-      window.scrollTo({ top: scrollY + rect.top - (innerWidth < 768 ? 12 : 24) + points[i] * (rect.height - chapter.querySelector('.stick-stage').offsetHeight), behavior: 'instant' });
+      window.scrollTo({ top: scrollY + rect.top - (innerWidth < 768 ? 12 : 24) + points[i] * (rect.height - chapter.querySelector('.stick-stage').offsetHeight), behavior: 'smooth' });
     }));
     size();
     // Dispose GPU resources when leaving the document, without breaking bfcache.

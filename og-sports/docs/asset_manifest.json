@@ -99,54 +99,6 @@
       "source": "fastr30.com shop asset, unchanged"
     },
     {
-      "file": "assets/merch-01-black.jpg",
-      "bytes": 40265,
-      "sha256": "f56bee7097995f0e6604dc9365a43741095cb64780729769189b0287f8f597c8",
-      "use": "Chapter III Wear, hoodie rail (Black) and temple pillar III",
-      "type": "Product visualisation",
-      "source": "fastr30.com/merch asset, unchanged"
-    },
-    {
-      "file": "assets/merch-02-cherry-red.jpg",
-      "bytes": 53962,
-      "sha256": "96abaf3c558db2aa7ca801621f8d40e299232a70d4c4bf80f92c8a5275a81cef",
-      "use": "Chapter III Wear, hoodie rail (Cherry Red)",
-      "type": "Product visualisation",
-      "source": "fastr30.com/merch asset, unchanged"
-    },
-    {
-      "file": "assets/merch-03-cobalt-blue.jpg",
-      "bytes": 54063,
-      "sha256": "9c44b4fdd9a539697eb58961740b12c8eac64ce4a6446816b96354de049e5cee",
-      "use": "Chapter III Wear, hoodie rail (Cobalt Blue)",
-      "type": "Product visualisation",
-      "source": "fastr30.com/merch asset, unchanged"
-    },
-    {
-      "file": "assets/merch-04-emerald-green.jpg",
-      "bytes": 48570,
-      "sha256": "4204859ede7260632352d0d57eb82929d20b2f9be99c28b13a177983b979fcd2",
-      "use": "Chapter III Wear, hoodie rail (Emerald Green)",
-      "type": "Product visualisation",
-      "source": "fastr30.com/merch asset, unchanged"
-    },
-    {
-      "file": "assets/merch-05-lavender.jpg",
-      "bytes": 46967,
-      "sha256": "fba34be577dc8b9c0738aa98d41fa0e676ab13795b2455be6a88995adf8bf748",
-      "use": "Chapter III Wear, hoodie rail (Lavender)",
-      "type": "Product visualisation",
-      "source": "fastr30.com/merch asset, unchanged"
-    },
-    {
-      "file": "assets/merch-06-butter-yellow.jpg",
-      "bytes": 49103,
-      "sha256": "6d491ec6cf854e6e5792e4f23252e9344184e8ff3e4f4e9c1322451263e580e0",
-      "use": "Chapter III Wear, hoodie rail (Butter Yellow)",
-      "type": "Product visualisation",
-      "source": "fastr30.com/merch asset, unchanged"
-    },
-    {
       "file": "assets/photo-ritual.webp",
       "bytes": 198532,
       "sha256": "d8bc403f0e4b3244cded3d2b403ca287cd5faa1b62188447e895990391b29b7c",
@@ -217,6 +169,60 @@
       "use": "V Make: lazy interactive product visualization",
       "type": "Quantized GLB, five actual prototype meshes",
       "source": "fastr-stick-prototype/output/preview/*_assembled.stl; build_stick_model.py; see stick-model.json"
+    },
+    {
+      "file": "assets/responsive/hoodie-black-800.webp",
+      "bytes": 30024,
+      "sha256": "efc4e84c4cb0998b5f6e6c14385fb1252c267028d45c013d9a1a69960f59bb8f",
+      "use": "Wear product stage; Black also in temple III",
+      "type": "AI visualisation",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-black.png",
+      "responsive_manifest": "docs/responsive-assets.json"
+    },
+    {
+      "file": "assets/responsive/hoodie-butter-yellow-800.webp",
+      "bytes": 35856,
+      "sha256": "8325df82a1da3bdb0d15579974fa516be2c3719925cf2d84a69c59f7cade0bfc",
+      "use": "Wear product stage; Black also in temple III",
+      "type": "AI visualisation",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-butter-yellow.png",
+      "responsive_manifest": "docs/responsive-assets.json"
+    },
+    {
+      "file": "assets/responsive/hoodie-cherry-red-800.webp",
+      "bytes": 41406,
+      "sha256": "ade269c0d058639396d7506437d9f2f991585eabb59ca8ae2dd10af1093582bf",
+      "use": "Wear product stage; Black also in temple III",
+      "type": "AI visualisation",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-cherry-red.png",
+      "responsive_manifest": "docs/responsive-assets.json"
+    },
+    {
+      "file": "assets/responsive/hoodie-cobalt-blue-800.webp",
+      "bytes": 50102,
+      "sha256": "ad6b792fda87115da119ab9e34ae74ddc27a3e0c81b95497f7b112ecf8cf1791",
+      "use": "Wear product stage; Black also in temple III",
+      "type": "AI visualisation",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-cobalt-blue.png",
+      "responsive_manifest": "docs/responsive-assets.json"
+    },
+    {
+      "file": "assets/responsive/hoodie-emerald-green-800.webp",
+      "bytes": 46036,
+      "sha256": "06da6748a60c8f82e8e46d0dc830afb24fad930ce1710b23da6242cb964353bc",
+      "use": "Wear product stage; Black also in temple III",
+      "type": "AI visualisation",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-emerald-green.png",
+      "responsive_manifest": "docs/responsive-assets.json"
+    },
+    {
+      "file": "assets/responsive/hoodie-lavender-800.webp",
+      "bytes": 37614,
+      "sha256": "addbfdcc687e89218906f6b7451ed28943e0ff6ec59c04bb7ea6bda78539b619",
+      "use": "Wear product stage; Black also in temple III",
+      "type": "AI visualisation",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-lavender.png",
+      "responsive_manifest": "docs/responsive-assets.json"
     }
   ],
   "fonts": [

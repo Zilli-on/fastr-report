@@ -54,8 +54,8 @@ def main():
             return tag
         name = src[1].split('/')[-1]
         size = sizes.get(name)
-        if name.startswith('merch-'):
-            size = '(max-width: 600px) 50vw, (max-width: 899px) 33.33vw, 16.67vw'
+        if name.startswith('hoodie-'):
+            size = '(max-width: 899px) 100vw, 50vw'
         return enhance(tag, size) if size else tag
     # Remove existing mobile wrappers so reruns are idempotent.
     def update(part):

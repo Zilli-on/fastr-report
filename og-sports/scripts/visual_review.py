@@ -164,7 +164,8 @@ def site(browser, base, report):
           candidates: (i.closest('picture') && innerWidth < 768 ? i.closest('picture').querySelector('source').srcset : i.srcset),
           sized: !!i.sizes && +i.getAttribute('width') > 0 && +i.getAttribute('height') > 0
         }))''')
-        check(len(responsive) == 19, (where, 'all photo/render instances responsive', len(responsive)))
+        # RC5 replaces the six-image rail with one responsive product stage.
+        check(len(responsive) == 14, (where, 'all photo/render instances responsive', len(responsive)))
         for image in responsive:
             check(image['sized'] and image['selected'] in image['candidates'], (where, image))
             if image['src'] in ('assets/run-night.webp', 'assets/meet-night.webp'):
@@ -390,8 +391,7 @@ def artefacts(browser, base, report):
             "assets/track-night.webp",
             "assets/pillar-run.webp",
             "assets/photo-ritual.webp",
-            "assets/merch-01-black.jpg",
-            "assets/merch-06-butter-yellow.jpg",
+            "assets/responsive/hoodie-black-800.webp",
             "assets/stick-lime.jpg",
         ):
             check(loaded.get(src, False), (where, "image missing or broken", src))
@@ -465,7 +465,7 @@ def artefacts(browser, base, report):
           field: getComputedStyle(document.querySelector('.temple .pillar')).clipPath
         })""")
         check(before["field"].startswith("inset(100%"), (where, "temple pillars should wait off-screen", before))
-        for selector in (".manifest", "#pillars", "#fastr .bleed", ".practice-field", ".rail", ".live-photo"):
+        for selector in (".manifest", "#pillars", "#fastr .bleed", ".practice-field", ".hoodie-stage", ".live-photo"):
             page.locator(selector).scroll_into_view_if_needed()
             page.wait_for_timeout(250)
         page.wait_for_timeout(3200)
@@ -480,7 +480,7 @@ def artefacts(browser, base, report):
             ("temple", "#pillars"),
             ("movement", "#fastr .bleed"),
             ("field", ".practice-field"),
-            ("apparel", ".rail"),
+            ("apparel", ".hoodie-stage"),
             ("live", ".live-photo"),
             ("stick", ".stick"),
         ):

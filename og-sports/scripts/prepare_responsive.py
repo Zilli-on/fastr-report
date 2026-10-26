@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'site/assets'
 OUT = ASSETS / 'responsive'
 SOURCES = Path(os.environ.get('OG_MASTERS', 'C:/Users/Fabien/og-sports-sources/masters'))
+HOODIES = Path(os.environ.get('OG_HOODIE_MASTERS', 'C:/Users/Fabien/og-sports-sources/higgsfield-hoodies/final'))
 P50 = 'eq=saturation=0.6:contrast=1.1:gamma=0.86:brightness=-0.015,colorbalance=rm=0.03:gm=0.01:bm=-0.03:rh=0.04:gh=0.02:bh=-0.04,noise=alls=4:allf=u'
 # Same desktop crop and masks as prepare_v4.py. Mobile uses source coordinates.
 JOBS = {
@@ -49,7 +50,7 @@ def retouch(im):
 
 def variants(im, stem, grade=False, mobile=False, product=False):
     maximum = min(im.width, 1600 if mobile else 2880)
-    steps = (320, 640) if product else ((640, 1080, 1280, 1600) if mobile else (640, 1080, 1600, 2400, 2880))
+    steps = (480, 800, 1200, 1600) if product else ((640, 1080, 1280, 1600) if mobile else (640, 1080, 1600, 2400, 2880))
     widths = sorted({w for w in steps if w <= maximum} | {maximum})
     result = []
     for width in widths:
@@ -105,7 +106,7 @@ def main():
                  'frame-03-people.webp': SOURCES / 'community-ai.png'}
     inputs = [(name, path, None, None, False) for name, path in protected.items()]
     inputs += [(name, args.pool / 'web' / src, crop, mobile, True) for name, (src, crop, mobile) in JOBS.items()]
-    inputs += [(p.name, p, None, None, False) for p in sorted(ASSETS.glob('merch-*.jpg'))]
+    inputs += [(p.stem + '.webp', p, None, None, False) for p in sorted(HOODIES.glob('hoodie-*.png'))]
     for name, source, crop, mobile, grade in inputs:
         if args.only and name not in args.only:
             continue
@@ -117,7 +118,7 @@ def main():
             im = retouch(im)
         desktop = im.crop(crop) if crop else im
         entry['crop_pixels'] = list(desktop.size)
-        entry['variants'] = variants(desktop, Path(name).stem, grade, product=name.startswith('merch-'))
+        entry['variants'] = variants(desktop, Path(name).stem, grade, product=name.startswith('hoodie-'))
         if mobile:
             entry['mobile'] = variants(im.crop(mobile), Path(name).stem, grade, mobile=True)
         # Compare encoded samples at identical small size: descriptive, not a quality score.
@@ -125,9 +126,12 @@ def main():
             image = image.resize((128,128)).convert('RGB')
             return [round(ImageStat.Stat(image.convert('L')).mean[0], 2),
                     round(ImageStat.Stat(image.convert('HSV')).mean[1], 2)]
-        entry['old_mean_luma_saturation'] = stats(Image.open(ASSETS / name))
+        if (ASSETS / name).exists():
+            entry['old_mean_luma_saturation'] = stats(Image.open(ASSETS / name))
         entry['mean_luma_saturation'] = stats(Image.open(ROOT / 'site' / entry['variants'][-1]['file']))
-        manifest['assets/' + name] = entry
+        # Hoodie fallbacks are actual 800px variants; do not ship duplicate masters.
+        key = 'assets/responsive/' + Path(name).stem + '-800.webp' if name.startswith('hoodie-') else 'assets/' + name
+        manifest[key] = entry
         print(name, len(entry['variants']), 'desktop variants', flush=True)
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
 

@@ -707,262 +707,310 @@
       114.43
     ]
   },
-  "assets/merch-01-black.jpg": {
-    "source": "site/assets/merch-01-black.jpg",
-    "source_sha256": "f56bee7097995f0e6604dc9365a43741095cb64780729769189b0287f8f597c8",
+  "assets/responsive/hoodie-black-800.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-black.png",
+    "source_sha256": "f127cd4e8bdef21295d28791465bbecddccba92d8ce5135895dfd57148116908",
     "source_pixels": [
-      660,
-      825
+      1792,
+      2240
     ],
     "crop": null,
     "mobile_crop": null,
     "grade": "preserved; CSS unchanged",
     "crop_pixels": [
-      660,
-      825
+      1792,
+      2240
     ],
     "variants": [
       {
-        "file": "assets/responsive/merch-01-black-320.webp",
-        "width": 320,
-        "height": 400,
-        "bytes": 6812
+        "file": "assets/responsive/hoodie-black-480.webp",
+        "width": 480,
+        "height": 600,
+        "bytes": 13034
       },
       {
-        "file": "assets/responsive/merch-01-black-640.webp",
-        "width": 640,
-        "height": 800,
-        "bytes": 15176
+        "file": "assets/responsive/hoodie-black-800.webp",
+        "width": 800,
+        "height": 1000,
+        "bytes": 29542
       },
       {
-        "file": "assets/responsive/merch-01-black-660.webp",
-        "width": 660,
-        "height": 825,
-        "bytes": 15796
+        "file": "assets/responsive/hoodie-black-1200.webp",
+        "width": 1200,
+        "height": 1500,
+        "bytes": 72258
+      },
+      {
+        "file": "assets/responsive/hoodie-black-1600.webp",
+        "width": 1600,
+        "height": 2000,
+        "bytes": 141512
+      },
+      {
+        "file": "assets/responsive/hoodie-black-1792.webp",
+        "width": 1792,
+        "height": 2240,
+        "bytes": 189452
       }
     ],
-    "old_mean_luma_saturation": [
-      28.17,
-      13.22
-    ],
     "mean_luma_saturation": [
-      28.3,
-      15.34
+      26.24,
+      114.41
     ]
   },
-  "assets/merch-02-cherry-red.jpg": {
-    "source": "site/assets/merch-02-cherry-red.jpg",
-    "source_sha256": "96abaf3c558db2aa7ca801621f8d40e299232a70d4c4bf80f92c8a5275a81cef",
+  "assets/responsive/hoodie-butter-yellow-800.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-butter-yellow.png",
+    "source_sha256": "d4abf49913553ccfecf30cb841bdf7b406f037d4be4490704f709016a71749f8",
     "source_pixels": [
-      660,
-      825
+      1792,
+      2240
     ],
     "crop": null,
     "mobile_crop": null,
     "grade": "preserved; CSS unchanged",
     "crop_pixels": [
-      660,
-      825
+      1792,
+      2240
     ],
     "variants": [
       {
-        "file": "assets/responsive/merch-02-cherry-red-320.webp",
-        "width": 320,
-        "height": 400,
-        "bytes": 10482
+        "file": "assets/responsive/hoodie-butter-yellow-480.webp",
+        "width": 480,
+        "height": 600,
+        "bytes": 16730
       },
       {
-        "file": "assets/responsive/merch-02-cherry-red-640.webp",
-        "width": 640,
-        "height": 800,
-        "bytes": 22886
+        "file": "assets/responsive/hoodie-butter-yellow-800.webp",
+        "width": 800,
+        "height": 1000,
+        "bytes": 35388
       },
       {
-        "file": "assets/responsive/merch-02-cherry-red-660.webp",
-        "width": 660,
-        "height": 825,
-        "bytes": 24030
+        "file": "assets/responsive/hoodie-butter-yellow-1200.webp",
+        "width": 1200,
+        "height": 1500,
+        "bytes": 80612
+      },
+      {
+        "file": "assets/responsive/hoodie-butter-yellow-1600.webp",
+        "width": 1600,
+        "height": 2000,
+        "bytes": 136802
+      },
+      {
+        "file": "assets/responsive/hoodie-butter-yellow-1792.webp",
+        "width": 1792,
+        "height": 2240,
+        "bytes": 178106
       }
     ],
-    "old_mean_luma_saturation": [
-      60.01,
-      127.9
-    ],
     "mean_luma_saturation": [
-      60.02,
-      127.34
+      136.11,
+      44.2
     ]
   },
-  "assets/merch-03-cobalt-blue.jpg": {
-    "source": "site/assets/merch-03-cobalt-blue.jpg",
-    "source_sha256": "9c44b4fdd9a539697eb58961740b12c8eac64ce4a6446816b96354de049e5cee",
+  "assets/responsive/hoodie-cherry-red-800.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-cherry-red.png",
+    "source_sha256": "a053c6cfe626879b944bb027b8126af93aa11f6d6c154c486a9d49a330fef9f6",
     "source_pixels": [
-      660,
-      825
+      1792,
+      2240
     ],
     "crop": null,
     "mobile_crop": null,
     "grade": "preserved; CSS unchanged",
     "crop_pixels": [
-      660,
-      825
+      1792,
+      2240
     ],
     "variants": [
       {
-        "file": "assets/responsive/merch-03-cobalt-blue-320.webp",
-        "width": 320,
-        "height": 400,
-        "bytes": 10606
+        "file": "assets/responsive/hoodie-cherry-red-480.webp",
+        "width": 480,
+        "height": 600,
+        "bytes": 18578
       },
       {
-        "file": "assets/responsive/merch-03-cobalt-blue-640.webp",
-        "width": 640,
-        "height": 800,
-        "bytes": 23228
+        "file": "assets/responsive/hoodie-cherry-red-800.webp",
+        "width": 800,
+        "height": 1000,
+        "bytes": 39674
       },
       {
-        "file": "assets/responsive/merch-03-cobalt-blue-660.webp",
-        "width": 660,
-        "height": 825,
-        "bytes": 24454
+        "file": "assets/responsive/hoodie-cherry-red-1200.webp",
+        "width": 1200,
+        "height": 1500,
+        "bytes": 86416
+      },
+      {
+        "file": "assets/responsive/hoodie-cherry-red-1600.webp",
+        "width": 1600,
+        "height": 2000,
+        "bytes": 151394
+      },
+      {
+        "file": "assets/responsive/hoodie-cherry-red-1792.webp",
+        "width": 1792,
+        "height": 2240,
+        "bytes": 189212
       }
     ],
-    "old_mean_luma_saturation": [
-      62.68,
-      127.27
-    ],
     "mean_luma_saturation": [
-      62.72,
-      126.54
+      54.71,
+      137.23
     ]
   },
-  "assets/merch-04-emerald-green.jpg": {
-    "source": "site/assets/merch-04-emerald-green.jpg",
-    "source_sha256": "4204859ede7260632352d0d57eb82929d20b2f9be99c28b13a177983b979fcd2",
+  "assets/responsive/hoodie-cobalt-blue-800.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-cobalt-blue.png",
+    "source_sha256": "539ee80b9b909b7559f190e93beb077478f7efcf07befb58fee5be7edbd6bf16",
     "source_pixels": [
-      660,
-      825
+      1792,
+      2240
     ],
     "crop": null,
     "mobile_crop": null,
     "grade": "preserved; CSS unchanged",
     "crop_pixels": [
-      660,
-      825
+      1792,
+      2240
     ],
     "variants": [
       {
-        "file": "assets/responsive/merch-04-emerald-green-320.webp",
-        "width": 320,
-        "height": 400,
-        "bytes": 8962
+        "file": "assets/responsive/hoodie-cobalt-blue-480.webp",
+        "width": 480,
+        "height": 600,
+        "bytes": 20182
       },
       {
-        "file": "assets/responsive/merch-04-emerald-green-640.webp",
-        "width": 640,
-        "height": 800,
-        "bytes": 19832
+        "file": "assets/responsive/hoodie-cobalt-blue-800.webp",
+        "width": 800,
+        "height": 1000,
+        "bytes": 49418
       },
       {
-        "file": "assets/responsive/merch-04-emerald-green-660.webp",
-        "width": 660,
-        "height": 825,
-        "bytes": 20624
+        "file": "assets/responsive/hoodie-cobalt-blue-1200.webp",
+        "width": 1200,
+        "height": 1500,
+        "bytes": 138492
+      },
+      {
+        "file": "assets/responsive/hoodie-cobalt-blue-1600.webp",
+        "width": 1600,
+        "height": 2000,
+        "bytes": 279946
+      },
+      {
+        "file": "assets/responsive/hoodie-cobalt-blue-1792.webp",
+        "width": 1792,
+        "height": 2240,
+        "bytes": 385796
       }
     ],
-    "old_mean_luma_saturation": [
-      55.66,
-      115.64
-    ],
     "mean_luma_saturation": [
-      55.69,
-      115.61
+      54.83,
+      154.8
     ]
   },
-  "assets/merch-05-lavender.jpg": {
-    "source": "site/assets/merch-05-lavender.jpg",
-    "source_sha256": "fba34be577dc8b9c0738aa98d41fa0e676ab13795b2455be6a88995adf8bf748",
+  "assets/responsive/hoodie-emerald-green-800.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-emerald-green.png",
+    "source_sha256": "55c7b153536a462bd6e21d773c3f56f62010748ade687de989dd5b141f5b8d87",
     "source_pixels": [
-      660,
-      825
+      1792,
+      2240
     ],
     "crop": null,
     "mobile_crop": null,
     "grade": "preserved; CSS unchanged",
     "crop_pixels": [
-      660,
-      825
+      1792,
+      2240
     ],
     "variants": [
       {
-        "file": "assets/responsive/merch-05-lavender-320.webp",
-        "width": 320,
-        "height": 400,
-        "bytes": 7800
+        "file": "assets/responsive/hoodie-emerald-green-480.webp",
+        "width": 480,
+        "height": 600,
+        "bytes": 18976
       },
       {
-        "file": "assets/responsive/merch-05-lavender-640.webp",
-        "width": 640,
-        "height": 800,
-        "bytes": 19018
+        "file": "assets/responsive/hoodie-emerald-green-800.webp",
+        "width": 800,
+        "height": 1000,
+        "bytes": 45608
       },
       {
-        "file": "assets/responsive/merch-05-lavender-660.webp",
-        "width": 660,
-        "height": 825,
-        "bytes": 20354
+        "file": "assets/responsive/hoodie-emerald-green-1200.webp",
+        "width": 1200,
+        "height": 1500,
+        "bytes": 101432
+      },
+      {
+        "file": "assets/responsive/hoodie-emerald-green-1600.webp",
+        "width": 1600,
+        "height": 2000,
+        "bytes": 183234
+      },
+      {
+        "file": "assets/responsive/hoodie-emerald-green-1792.webp",
+        "width": 1792,
+        "height": 2240,
+        "bytes": 244596
       }
     ],
-    "old_mean_luma_saturation": [
-      120.6,
-      36.99
-    ],
     "mean_luma_saturation": [
-      120.69,
-      36.53
+      48.14,
+      145.02
     ]
   },
-  "assets/merch-06-butter-yellow.jpg": {
-    "source": "site/assets/merch-06-butter-yellow.jpg",
-    "source_sha256": "6d491ec6cf854e6e5792e4f23252e9344184e8ff3e4f4e9c1322451263e580e0",
+  "assets/responsive/hoodie-lavender-800.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-lavender.png",
+    "source_sha256": "c14fb105e6b398f4d5b31979735c14f7984099a06e76d2900758638ce7d3de56",
     "source_pixels": [
-      660,
-      825
+      1792,
+      2240
     ],
     "crop": null,
     "mobile_crop": null,
     "grade": "preserved; CSS unchanged",
     "crop_pixels": [
-      660,
-      825
+      1792,
+      2240
     ],
     "variants": [
       {
-        "file": "assets/responsive/merch-06-butter-yellow-320.webp",
-        "width": 320,
-        "height": 400,
-        "bytes": 9118
+        "file": "assets/responsive/hoodie-lavender-480.webp",
+        "width": 480,
+        "height": 600,
+        "bytes": 15408
       },
       {
-        "file": "assets/responsive/merch-06-butter-yellow-640.webp",
-        "width": 640,
-        "height": 800,
-        "bytes": 21528
+        "file": "assets/responsive/hoodie-lavender-800.webp",
+        "width": 800,
+        "height": 1000,
+        "bytes": 36910
       },
       {
-        "file": "assets/responsive/merch-06-butter-yellow-660.webp",
-        "width": 660,
-        "height": 825,
-        "bytes": 22842
+        "file": "assets/responsive/hoodie-lavender-1200.webp",
+        "width": 1200,
+        "height": 1500,
+        "bytes": 103120
+      },
+      {
+        "file": "assets/responsive/hoodie-lavender-1600.webp",
+        "width": 1600,
+        "height": 2000,
+        "bytes": 231676
+      },
+      {
+        "file": "assets/responsive/hoodie-lavender-1792.webp",
+        "width": 1792,
+        "height": 2240,
+        "bytes": 335728
       }
     ],
-    "old_mean_luma_saturation": [
-      137.16,
-      36.42
-    ],
     "mean_luma_saturation": [
-      137.29,
-      35.83
+      118.59,
+      56.44
     ]
   }
 }

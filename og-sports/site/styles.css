@@ -205,7 +205,7 @@ ol, ul { padding: 0; list-style: none; }
 .pillar a::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, .42), transparent 32%, transparent 58%, rgba(0, 0, 0, .58)); pointer-events: none; }
 .pillar-num, .pillar-kind, .pillar-name, .pillar-word { position: absolute; z-index: 1; }
 /* small labels on photographs keep a soft dark halo so they stay legible on light ground (sky, lavender hoodie) */
-.pillar-num, .pillar-kind, .pillar-name, .rail-items span { text-shadow: 0 0 8px rgba(0, 0, 0, .6), 0 1px 2px rgba(0, 0, 0, .55); }
+.pillar-num, .pillar-kind, .pillar-name { text-shadow: 0 0 8px rgba(0, 0, 0, .6), 0 1px 2px rgba(0, 0, 0, .55); }
 .pillar-num { top: 16px; left: 18px; font: 600 .75rem/1 var(--wide); font-stretch: 125%; letter-spacing: .2em; }
 .pillar-kind { top: 16px; right: 16px; max-width: calc(100% - 62px); font: 500 .5625rem/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; text-align: right; }
 .pillar-word { left: 18px; bottom: 40px; font: 750 clamp(1.5rem, 2.6vw, 2.75rem)/.9 var(--wide); font-stretch: 112%; text-transform: uppercase; letter-spacing: -.01em; }
@@ -263,27 +263,33 @@ ol, ul { padding: 0; list-style: none; }
 .std-rule { font-size: .875rem; line-height: 1.4; color: var(--on-ink-muted); }
 .practice > .frame-caption { margin-top: 18px; }
 
-/* 06 — Wear: the hoodie you earn on paper, black product tiles like the STICK */
-.apparel { padding-bottom: var(--chapter); }
-.apparel .project-head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 22px; align-items: end; margin-bottom: clamp(36px, 4.5vw, 72px); }
-.apparel .project-head > .label { grid-column: 1 / -1; }
-.apparel h3 { grid-column: 1 / 8; grid-row: 2 / 5; align-self: end; font-style: italic; font-weight: 800; font-stretch: 125%; font-size: clamp(2.75rem, 7.2vw, 7.25rem); line-height: .86; }
-.apparel .project-head .project-copy { grid-column: 8 / 13; }
-.apparel-earned { grid-column: 8 / 13; font: italic 800 var(--t-m)/1 var(--wide); font-stretch: 125%; text-transform: uppercase; letter-spacing: -.01em; }
-.apparel-actions { grid-column: 8 / 13; display: flex; flex-wrap: wrap; gap: 0 28px; }
+/* III — Wear: one full-size product, six explicit colour choices. */
+.apparel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: center; padding-bottom: var(--chapter); }
+.apparel .project-head { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; margin: 0; }
+.apparel h3 { font-style: italic; font-weight: 800; font-stretch: 125%; font-size: clamp(2.75rem, 5.8vw, 6rem); line-height: .9; }
+.apparel-earned { font: italic 800 var(--t-m)/1 var(--wide); text-transform: uppercase; letter-spacing: -.01em; }
+.apparel-actions { display: flex; flex-wrap: wrap; gap: 0 28px; }
 .apparel-actions a.text-action::after, .stick-actions a.text-action::after { display: none; }
 .apparel-actions a.text-action span + span, .stick-actions a.text-action span + span { font-size: 1rem; }
 .stick-actions { display: flex; flex-wrap: wrap; gap: 0 28px; }
-.rail { margin: 0 calc(-1 * var(--gutter)); }
-.rail-items { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 3px; background: #000; }
-.rail-items li { position: relative; overflow: hidden; background: #000; color: rgba(255, 255, 255, .82); }
-.rail-items img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; transition: transform 1.2s var(--ease); }
-.rail-items li:hover img { transform: scale(1.04); }
-.rail-items li::after { content: ''; position: absolute; inset: 72% 0 0; background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .55)); pointer-events: none; }
-.rail-items span { position: absolute; z-index: 1; bottom: 12px; font: 500 .625rem/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
-.rail-items span:first-of-type { left: 12px; }
-.rail-items span:last-of-type { right: 12px; }
-.rail .frame-caption { padding-left: var(--gutter); padding-right: var(--gutter); }
+.hoodie-stage { min-width: 0; width: 100%; margin: 0; }
+.hoodie-image { position: relative; aspect-ratio: 4 / 5; background: #171717; overflow: hidden; }
+.hoodie-image img { width: 100%; height: 100%; object-fit: contain; }
+.hoodie-image .hoodie-previous { position: absolute; inset: 0; pointer-events: none; }
+.hoodie-disclosure { position: absolute; bottom: 16px; left: 16px; padding: 6px 9px; background: #171717; color: #fff; font: 500 .6875rem/1.4 var(--mono); }
+.hoodie-colors { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; margin-top: 16px; }
+.hoodie-colors button { display: flex; flex-direction: column; align-items: center; gap: 9px; min-width: 44px; min-height: 68px; padding: 8px 2px; border-bottom: 2px solid transparent; font: 500 .6875rem/1.3 var(--sans); text-align: center; }
+.hoodie-colors button[aria-pressed=true] { border-color: var(--text); }
+.hoodie-colors button:focus-visible { outline: 2px solid var(--text); outline-offset: 1px; }
+.hoodie-swatch { width: 22px; height: 22px; border-radius: 50%; background: var(--swatch); border: 1px solid #777; }
+.hoodie-stage .frame-caption { gap: 18px; margin-top: 14px; }
+.hoodie-error { font-size: .875rem; margin-top: 12px; }
+@media (max-width: 899px) {
+  .apparel { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .hoodie-stage { width: calc(100% + 2 * var(--gutter)); margin-left: calc(-1 * var(--gutter)); }
+  .hoodie-colors, .hoodie-stage .frame-caption, .hoodie-error { margin-left: var(--gutter); margin-right: var(--gutter); }
+  .hoodie-colors { gap: 2px; }
+}
 
 /* 07 — Meet: the OG SPORTS lavender. No pictures of events that have not happened yet. */
 .live { padding: 0; }
@@ -350,7 +356,7 @@ ol, ul { padding: 0; list-style: none; }
   .stick-actions { gap: 0 18px; }
   .stick-actions .text-action { font-size: .6875rem; }
   .stick-gesture { font-size: .5rem; bottom: 12px; }
-  .stick-legend li { font-size: .5625rem; left: 10px; }
+  .stick-legend li { font-size: .6875rem; left: 10px; }
   .stick-legend li:nth-child(odd) { right: 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -422,8 +428,8 @@ dialog::backdrop { background: rgba(14, 15, 13, .55); backdrop-filter: blur(6px)
 .story-cover-ink .practice-field { margin-top: 0; }
 .story-cover-ink .label, .story-cover-ink .std-num { color: var(--on-ink-muted); }
 .story-cover-apparel { background: #000; }
-.story-cover-apparel .rail { margin: 0; }
-.story-cover-apparel .rail .frame-caption { display: none; }
+.story-cover-apparel .hoodie-stage { width: min(100%, 640px); margin: 0 auto; }
+.story-cover-apparel .hoodie-stage .frame-caption { display: none; }
 
 .story-cover-stick { display: flex; justify-content: center; background: #000; }
 .story-cover-stick .stick-render { width: min(560px, 100%); }
@@ -515,7 +521,6 @@ dialog::backdrop { background: rgba(14, 15, 13, .55); backdrop-filter: blur(6px)
   .std-rule { grid-column: 2 / -1; }
   .apparel h3, .apparel .project-head .project-copy, .apparel-earned, .apparel-actions { grid-column: 1 / -1; grid-row: auto; }
   .apparel h3 { font-size: clamp(2rem, 11vw, 5rem); }
-  .rail-items { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .live-verbs-line { grid-column: 1 / -1; }
   .practice-photo, .practice-intro > .label { grid-column: 1 / -1; grid-row: auto; }
   .pillars { grid-template-columns: 1fr 1fr; }
@@ -547,7 +552,6 @@ dialog::backdrop { background: rgba(14, 15, 13, .55); backdrop-filter: blur(6px)
   .tile-people { aspect-ratio: 4 / 3.4; }
   .tile-people img { object-position: 40% 50%; }
   .live h3 { bottom: 96px; } /* clear the two- to three-line caption below it */
-  .rail-items { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bleed-caption { flex-direction: column; gap: 2px; }
   .footer-row { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
   .footer-row p:first-child { margin-bottom: 12px; }

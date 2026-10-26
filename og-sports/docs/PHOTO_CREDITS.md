@@ -1,6 +1,6 @@
 # OG SPORTS — Bildnachweise
 
-## Aktueller Stand (RC4, 2026-10-26)
+## Aktueller Stand (RC5, 2026-10-26)
 
 | Frame | Datei | Art | Quelle / Bearbeitung |
 |---|---|---|---|
@@ -16,11 +16,13 @@
 | II Practice | `practice-start.webp` | Symbolbild, Pexels License | Thomas Ronveaux, https://www.pexels.com/photo/a-close-up-shot-of-an-athlete-on-a-race-track-13159243/ — Grade p50, Größe angepasst |
 | IV Meet | `meet-night.webp` | Symbolbild, Pexels License | liathyrax, https://www.pexels.com/photo/group-of-men-running-on-track-at-night-35005203/ — Grade p50, Größe angepasst, Schriftzug „EASY RUN“ und Brust-Logo lokal entfernt |
 | Eingang | `track-night.webp` | Symbolbild, Unsplash License | Mikhail K, https://unsplash.com/photos/jsNI0bh5D-o — Grade p50, Größe angepasst |
-| III Wear, Säule III | `merch-01-black.jpg` … `merch-06-butter-yellow.jpg` | Produktvisualisierung | unverändert von fastr30.com/merch (`fastr30-website/website/assets/img/`); Hash-Test |
+| III Wear, Säule III | `responsive/hoodie-*-{480,800,1200,1600,1792}.webp` | KI-Visualisierung | KI-Visualisierung (Higgsfield, GPT Image 2.5) auf Basis der fastr30.com-Produktrenderings, Stofffarbe an das Original angeglichen, 2026-10-26 |
 | V Make, Säule V | `stick-lime.jpg` | 3D-Produktvisualisierung / statischer Fallback | unverändert von fastr30.com/shop; Hash-Test. `stick-exploded.jpg` bleibt als unverändertes Referenzasset erhalten, wird nicht mehr auf der Hauptseite geladen. |
 | V Make | `stick.glb` | interaktive 3D-Produktvisualisierung eines Prototyps | fünf bereitgestellte Montage-STLs aus `fastr-stick-prototype/output/preview/`; reduziert und quantisiert mit `scripts/build_stick_model.py`. Originalkonturen der bestehenden OG-FASTR-Wortmarke als Gehäuseaufdruck; keine KI-Erzeugung. Hashes und Geometrieinventur in `stick-model.json`. Bewegung und Schnittansicht illustrieren das Prinzip, keine physikalische Validierung. |
 
-Die Unsplash License erlaubt Bearbeitung; sie ist keine Model-, Property- oder Markenfreigabe. Fremde Marken sind aus 01 und 03 entfernt. Das einzige verbliebene KI-Bild ist der Hero (00); er ist im Bildhinweis gekennzeichnet (AI Act Art. 50). Eigene Aufnahmen tragen sichtbar „Eigene Aufnahme“. Die Higgsfield-Studien (Rampe, Spirale, Garage) und die KI-Trikots sind seit v3 nicht mehr auf der Seite. Die Originaldateien `run-detail.webp` und `run-community.webp` liegen nur noch in der Git-Historie.
+Die Unsplash License erlaubt Bearbeitung; sie ist keine Model-, Property- oder Markenfreigabe. Fremde Marken sind aus 01 und 03 entfernt. Hero (00) und Hoodies sind als KI-Bilder gekennzeichnet. Die Higgsfield-Studien (Rampe, Spirale, Garage) und die KI-Trikots sind seit v3 nicht mehr auf der Seite. Die Originaldateien `run-detail.webp` und `run-community.webp` liegen nur noch in der Git-Historie.
+
+Hoodie-Masters: `C:/Users/Fabien/og-sports-sources/higgsfield-hoodies/final/hoodie-*.png`, je 1792×2240. Bereitgestellt und farblich abgeglichen durch die Leitstelle; lokale Auslieferung ausschließlich als verkleinerte WebPs ohne erneutes Grading oder Hochskalierung. Quellen-Hashes und Abmessungen stehen in `responsive-assets.json`. Black ist die Standardfarbe und das Motiv der Säule III; andere Farben werden erst auf Anforderung geladen.
 
 ---
 
