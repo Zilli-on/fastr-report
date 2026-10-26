@@ -9,7 +9,7 @@ of a photograph, so no people are implied where we have no picture of them.
 """
 
 import sys
-from responsive_markup import attributes
+from responsive_markup import attributes, enhance
 from html import escape
 from pathlib import Path
 
@@ -30,8 +30,8 @@ PILLARS = [
      ("img", "assets/responsive/hoodie-black-800.webp", "50% 50%", ("KI-Visualisierung", "AI visualisation"),
       ("FASTR30 Graphic Hoodie in Black", "FASTR30 Graphic Hoodie in black"))),
     ("IV", "Meet", False, "#live", "Live",
-     ("img", "assets/pillar-meet.webp", "55% 50%", ("Gabin Vallet / Unsplash", "Gabin Vallet / Unsplash"),
-      ("Gruppe beim Aufwärmen im Gegenlicht", "A group warming up against the low sun"))),
+     ("img", "assets/pillar-meet.webp", "55% 50%", ("Victoria Prymak / Unsplash", "Victoria Prymak / Unsplash"),
+      ("Gruppe als Silhouetten auf einem Dach in der Abenddämmerung", "Group silhouetted on a rooftop at dusk"))),
     ("V", "Make", True, "#stick", "FASTR STICK",
      ("img", "assets/stick-lime.jpg", "50% 45%", ("Produktvisualisierung", "Product visualisation"),
       ("FASTR STICK in Lime", "FASTR STICK in lime"))),
@@ -58,12 +58,11 @@ def pillar(i, row):
         phone = '(max-width: 600px) calc(100vw - 40px), (max-width: 767px) calc(100vw - 44px), '
         tablet = '(max-width: 899px) 100vw, ' if i == 0 else '(max-width: 899px) 50vw, '
         sizes = phone + tablet + ('50vw' if i < 2 else '33.33vw')
-        if word == 'Meet':
-            sizes = '(max-width: 600px) calc(187.5vw - 75px), (max-width: 767px) calc(187.5vw - 82.5px), (max-width: 899px) 93.75vw, 62.5vw'
-        parts.append(
+        image_tag = (
             f'<img alt="{escape(alt[0])}" data-alt-de="{escape(alt[0])}" data-alt-en="{escape(alt[1])}" '
             f'loading="lazy" src="{src}" {attributes(src, sizes)} style="object-position:{pos}"/>'
         )
+        parts.append(enhance(image_tag, sizes) if word == 'Meet' else image_tag)
     else:
         _, figure, size = media
         kind = None

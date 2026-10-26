@@ -76,6 +76,64 @@
       "sha256": "8a1c8dac564fa4d3a08d137cddcf6dc995f02cf6cef83f663205fa2c2ca59b9b",
       "status": "shown on the homepage, culture sequence",
       "edit": "race bibs, ribbons, shirt prints and banner text removed by AI-assisted retouch (Higgsfield, GPT Image 2.5); faces compared, unchanged"
+    },
+    {
+      "key": "run-night",
+      "photographer": "Iliya Jokic (@iliya9)",
+      "source_url": "https://unsplash.com/photos/BcJyBN4jDHY",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "label": "Symbolbild",
+      "local_file": "assets/run-night.webp",
+      "sha256": "b7c4d31e23b5ccb08e3b30c8f0c3169193df7dc2244d6d939f4e935b1df44870",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\rc7-candidates\\run-night\\R3_unsplash_BcJyBN4jDHY.jpg",
+      "source_sha256": "f7664240f972220aa6cd9db3edb25835a2fd7285ee6a502254150cd0d3e53940",
+      "source_pixels": [
+        5184,
+        3456
+      ],
+      "crop": [
+        0,
+        0,
+        5184,
+        3456
+      ],
+      "mobile_crop": [
+        1100,
+        0,
+        3864,
+        3455
+      ],
+      "edit": "p50 (v4), resize then grade, WebP Q82/method 6; no retouch",
+      "status": "shown on the homepage; illustrative photo, no OG event or membership implied"
+    },
+    {
+      "key": "pillar-meet",
+      "photographer": "Victoria Prymak (@vprmk)",
+      "source_url": "https://unsplash.com/photos/T8Lxr7LFN74",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "label": "Symbolbild",
+      "local_file": "assets/pillar-meet.webp",
+      "sha256": "6ef472398fb8dcd4e7b9f569121dad65983e72e5a6831c9723bf287d1ca2c6d8",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\rc7-candidates\\pillar-meet\\M2_unsplash_T8Lxr7LFN74.jpg",
+      "source_sha256": "99a47422e1de780eeabac8768c655248cc49ba33b84c55b37752b28602f04002",
+      "source_pixels": [
+        7008,
+        4672
+      ],
+      "crop": [
+        1715,
+        0,
+        5451,
+        4670
+      ],
+      "mobile_crop": [
+        1715,
+        0,
+        5451,
+        4670
+      ],
+      "edit": "p50 (v4), resize then grade, WebP Q82/method 6; no retouch",
+      "status": "shown on the homepage; illustrative photo, no OG event or membership implied"
     }
   ],
   "rights_note": "Public design review. Unsplash photo licence does not itself verify model/property/trademark releases for advertising. No implied endorsement. Noindex is not access protection.",

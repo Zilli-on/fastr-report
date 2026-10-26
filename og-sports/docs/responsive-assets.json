@@ -316,54 +316,70 @@
     ]
   },
   "assets/run-night.webp": {
-    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_9FcKpisH7Bo.jpg",
-    "source_sha256": "89062a5769fda664b663bef99d5045edba34924500dc566a90e8f04cca009ff2",
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\rc7-candidates\\run-night\\R3_unsplash_BcJyBN4jDHY.jpg",
+    "source_sha256": "f7664240f972220aa6cd9db3edb25835a2fd7285ee6a502254150cd0d3e53940",
     "source_pixels": [
-      9520,
-      6336
+      5184,
+      3456
     ],
-    "crop": null,
-    "mobile_crop": [
-      2600,
+    "crop": [
       0,
-      7668,
-      6335
+      0,
+      5184,
+      3456
+    ],
+    "mobile_crop": [
+      1100,
+      0,
+      3864,
+      3455
     ],
     "grade": "p50 (v4)",
+    "source_url": "https://unsplash.com/photos/BcJyBN4jDHY",
+    "photographer": "Iliya Jokic (@iliya9)",
+    "license": "Unsplash License (https://unsplash.com/license)",
+    "label": "Symbolbild",
+    "candidate": "R3",
     "crop_pixels": [
-      9520,
-      6336
+      5184,
+      3456
     ],
     "variants": [
       {
         "file": "assets/responsive/run-night-640.webp",
         "width": 640,
-        "height": 426,
-        "bytes": 12492
+        "height": 427,
+        "bytes": 19436
       },
       {
         "file": "assets/responsive/run-night-1080.webp",
         "width": 1080,
-        "height": 719,
-        "bytes": 24840
+        "height": 720,
+        "bytes": 47946
       },
       {
         "file": "assets/responsive/run-night-1600.webp",
         "width": 1600,
-        "height": 1065,
-        "bytes": 42086
+        "height": 1067,
+        "bytes": 88752
       },
       {
         "file": "assets/responsive/run-night-2400.webp",
         "width": 2400,
-        "height": 1597,
-        "bytes": 71450
+        "height": 1600,
+        "bytes": 174278
       },
       {
         "file": "assets/responsive/run-night-2880.webp",
         "width": 2880,
-        "height": 1917,
-        "bytes": 90808
+        "height": 1920,
+        "bytes": 240360
+      },
+      {
+        "file": "assets/responsive/run-night-3200.webp",
+        "width": 3200,
+        "height": 2133,
+        "bytes": 283952
       }
     ],
     "mobile": [
@@ -371,25 +387,25 @@
         "file": "assets/responsive/run-night-mobile-640.webp",
         "width": 640,
         "height": 800,
-        "bytes": 15686
+        "bytes": 32486
       },
       {
         "file": "assets/responsive/run-night-mobile-1080.webp",
         "width": 1080,
         "height": 1350,
-        "bytes": 31464
+        "bytes": 74116
       },
       {
         "file": "assets/responsive/run-night-mobile-1280.webp",
         "width": 1280,
         "height": 1600,
-        "bytes": 38588
+        "bytes": 96928
       },
       {
         "file": "assets/responsive/run-night-mobile-1600.webp",
         "width": 1600,
         "height": 2000,
-        "bytes": 53264
+        "bytes": 138210
       }
     ],
     "old_mean_luma_saturation": [
@@ -397,9 +413,15 @@
       43.1
     ],
     "mean_luma_saturation": [
-      32.67,
-      47.74
-    ]
+      95.91,
+      83.7
+    ],
+    "fallback": {
+      "file": "assets/run-night.webp",
+      "width": 2400,
+      "height": 1600,
+      "bytes": 174278
+    }
   },
   "assets/pillar-run.webp": {
     "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_3DJfakd6VoU.jpg",
@@ -512,49 +534,90 @@
     ]
   },
   "assets/pillar-meet.webp": {
-    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_J154nEkpzlQ.jpg",
-    "source_sha256": "0d61bf99ae0389f3a530131d358705b14e030bd382afeca8cea02c3943d62916",
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\rc7-candidates\\pillar-meet\\M2_unsplash_T8Lxr7LFN74.jpg",
+    "source_sha256": "99a47422e1de780eeabac8768c655248cc49ba33b84c55b37752b28602f04002",
     "source_pixels": [
-      5377,
-      3585
+      7008,
+      4672
     ],
-    "crop": null,
-    "mobile_crop": null,
+    "crop": [
+      1715,
+      0,
+      5451,
+      4670
+    ],
+    "mobile_crop": [
+      1715,
+      0,
+      5451,
+      4670
+    ],
     "grade": "p50 (v4)",
+    "source_url": "https://unsplash.com/photos/T8Lxr7LFN74",
+    "photographer": "Victoria Prymak (@vprmk)",
+    "license": "Unsplash License (https://unsplash.com/license)",
+    "label": "Symbolbild",
+    "candidate": "M2",
     "crop_pixels": [
-      5377,
-      3585
+      3736,
+      4670
     ],
     "variants": [
       {
         "file": "assets/responsive/pillar-meet-640.webp",
         "width": 640,
-        "height": 427,
-        "bytes": 70312
+        "height": 800,
+        "bytes": 8590
       },
       {
         "file": "assets/responsive/pillar-meet-1080.webp",
         "width": 1080,
-        "height": 720,
-        "bytes": 179718
+        "height": 1350,
+        "bytes": 18018
       },
       {
         "file": "assets/responsive/pillar-meet-1600.webp",
         "width": 1600,
-        "height": 1067,
-        "bytes": 353456
+        "height": 2000,
+        "bytes": 32286
       },
       {
         "file": "assets/responsive/pillar-meet-2400.webp",
         "width": 2400,
-        "height": 1600,
-        "bytes": 725114
+        "height": 3000,
+        "bytes": 71306
       },
       {
         "file": "assets/responsive/pillar-meet-2880.webp",
         "width": 2880,
-        "height": 1920,
-        "bytes": 987080
+        "height": 3600,
+        "bytes": 122242
+      }
+    ],
+    "mobile": [
+      {
+        "file": "assets/responsive/pillar-meet-mobile-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 8590
+      },
+      {
+        "file": "assets/responsive/pillar-meet-mobile-1080.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 18018
+      },
+      {
+        "file": "assets/responsive/pillar-meet-mobile-1280.webp",
+        "width": 1280,
+        "height": 1600,
+        "bytes": 22682
+      },
+      {
+        "file": "assets/responsive/pillar-meet-mobile-1600.webp",
+        "width": 1600,
+        "height": 2000,
+        "bytes": 32286
       }
     ],
     "old_mean_luma_saturation": [
@@ -562,9 +625,15 @@
       55.89
     ],
     "mean_luma_saturation": [
-      101.5,
-      56.27
-    ]
+      71.75,
+      23.23
+    ],
+    "fallback": {
+      "file": "assets/pillar-meet.webp",
+      "width": 2400,
+      "height": 3000,
+      "bytes": 71306
+    }
   },
   "assets/practice-start.webp": {
     "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\pexels_13159243.jpg",

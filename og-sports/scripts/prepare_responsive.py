@@ -29,13 +29,18 @@ OPENING_SHA256 = 'a253cfcdacf2aa7fcd6e08caa3769b75fc78899bce0e106701cde1521b500d
 OPENING_CROP = (2767, 0, 3765, 2160)
 OPENING_ORIGIN = 'Existing AI campaign study (1373x485); Higgsfield ByteDance 4K upscale 2026-10-26; cap logo and glasses-temple lettering removed locally with og-sports-sources/opening-upscale/retouch.py. Same people and grade; no new image concept.'
 P50 = 'eq=saturation=0.6:contrast=1.1:gamma=0.86:brightness=-0.015,colorbalance=rm=0.03:gm=0.01:bm=-0.03:rh=0.04:gh=0.02:bh=-0.04,noise=alls=4:allf=u'
-# Same desktop crop and masks as prepare_v4.py. Mobile uses source coordinates.
+RC7_POOL = Path('C:/Users/Fabien/og-sports-sources/rc7-candidates')
+RC7 = {
+    'run-night.webp': ('R3', (0, 0, 5184, 3456), (1100, 0, 3864, 3455)),
+    'pillar-meet.webp': ('M2', (1715, 0, 5451, 4670), (1715, 0, 5451, 4670)),
+}
+# Remaining desktop crops and masks match prepare_v4.py.
 JOBS = {
     'photo-ritual.webp': ('unsplash_cS0W4GvUUDM.jpg', (2300, 0, 5500, 4000), None),
-    'run-night.webp': ('unsplash_9FcKpisH7Bo.jpg', None, (2600, 0, 7668, 6335)),
+    'run-night.webp': (str(RC7_POOL / 'run-night/R3_unsplash_BcJyBN4jDHY.jpg'), RC7['run-night.webp'][1], RC7['run-night.webp'][2]),
     'pillar-run.webp': ('unsplash_3DJfakd6VoU.jpg', None, None),
     'pillar-practice.webp': ('unsplash_mZixsK8OnmE.jpg', None, None),
-    'pillar-meet.webp': ('unsplash_J154nEkpzlQ.jpg', None, None),
+    'pillar-meet.webp': (str(RC7_POOL / 'pillar-meet/M2_unsplash_T8Lxr7LFN74.jpg'), RC7['pillar-meet.webp'][1], RC7['pillar-meet.webp'][2]),
     'practice-start.webp': ('pexels_13159243.jpg', None, None),
     'meet-night.webp': ('pexels_35005203.jpg', (0, 1250, 4000, 3500), (0, 0, 4000, 5000)),
     'track-night.webp': ('unsplash_jsNI0bh5D-o.jpg', None, None),
@@ -58,6 +63,9 @@ def variants(im, stem, grade=False, mobile=False, product=False):
     if stem == 'after-the-run':
         maximum = min(im.width, 998 if mobile else 5120)
         steps = (480, 800, 998) if mobile else (960, 1440, 1920, 2560, 3840, 5120)
+    if stem == 'run-night' and not mobile:
+        maximum = min(im.width, 3200)
+        steps = (*steps, 3200)
     widths = sorted({w for w in steps if w <= maximum} | {maximum})
     result = []
     for width in widths:
@@ -124,12 +132,24 @@ def main():
         if name == 'after-the-run.webp':
             assert hashlib.sha256(source.read_bytes()).hexdigest() == OPENING_SHA256, 'RC6 source hash mismatch; abort'
             mobile = OPENING_CROP
+        candidate = None
+        if name in RC7:
+            candidate_id, crop, mobile = RC7[name]
+            candidates = json.loads((RC7_POOL / 'manifest.json').read_text(encoding='utf-8'))
+            candidate = next(c for c in candidates['kandidaten'] if c['id'] == candidate_id)
+            source = RC7_POOL / candidate['datei']
+            assert hashlib.sha256(source.read_bytes()).hexdigest() == candidate['sha256'], 'RC7 source hash mismatch; abort'
         im = Image.open(source).convert('RGB')
+        if candidate:
+            assert list(im.size) == candidate['px'], 'RC7 source dimensions mismatch'
         if name == 'after-the-run.webp':
             assert im.size == (6122, 2160), 'RC6 source dimensions mismatch'
         entry = {'source': source.relative_to(ROOT).as_posix() if source.is_relative_to(ROOT) else str(source), 'source_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
                  'source_pixels': list(im.size), 'crop': crop, 'mobile_crop': mobile,
                  'grade': 'p50 (v4)' if grade else 'preserved; CSS unchanged'}
+        if candidate:
+            entry.update(source_url=candidate['quelle_url'], photographer=candidate['fotograf'],
+                         license=candidate['lizenz'], label='Symbolbild', candidate=candidate['id'])
         if name == 'meet-night.webp':
             im = retouch(im)
         desktop = im.crop(crop) if crop else im
@@ -151,6 +171,10 @@ def main():
         entry['mean_luma_saturation'] = stats(Image.open(ROOT / 'site' / entry['variants'][-1]['file']))
         if name == 'after-the-run.webp':
             (ASSETS / name).write_bytes((ROOT / 'site' / fallback['file']).read_bytes())
+        if candidate:
+            fallback = next(v for v in entry['variants'] if v['width'] == 2400)
+            (ASSETS / name).write_bytes((ROOT / 'site' / fallback['file']).read_bytes())
+            entry['fallback'] = dict(fallback, file='assets/' + name)
         # Hoodie fallbacks are actual 800px variants; do not ship duplicate masters.
         key = 'assets/responsive/' + Path(name).stem + '-800.webp' if name.startswith('hoodie-') else 'assets/' + name
         manifest[key] = entry

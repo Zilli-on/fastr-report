@@ -11,7 +11,7 @@ Frühere Aussagen „unverändert“/1373×485 unten sind historische Stände, d
 
 # OG SPORTS — Bildnachweise
 
-## Aktueller Stand (RC5, 2026-10-26)
+## Aktueller Stand (RC7, 2026-10-26)
 
 | Frame | Datei | Art | Quelle / Bearbeitung |
 |---|---|---|---|
@@ -22,8 +22,8 @@ Frühere Aussagen „unverändert“/1373×485 unten sind historische Stände, d
 | Manifest | `photo-ritual.webp` | Symbolbild, Unsplash License | Ulf Meyer, https://unsplash.com/photos/cS0W4GvUUDM — Grade p50, Größe angepasst |
 | Säule I | `pillar-run.webp` | Symbolbild, Unsplash License | Nick Gosset, https://unsplash.com/photos/3DJfakd6VoU — Grade p50, Größe angepasst |
 | Säule II | `pillar-practice.webp` | Symbolbild, Unsplash License | Red John, https://unsplash.com/photos/mZixsK8OnmE — Grade p50, Größe angepasst |
-| Säule IV | `pillar-meet.webp` | Symbolbild, Unsplash License | Gabin Vallet, https://unsplash.com/photos/J154nEkpzlQ — Grade p50, Größe angepasst |
-| I Run | `run-night.webp` | Symbolbild, Unsplash License | Hansheng Zhao, https://unsplash.com/photos/9FcKpisH7Bo — Grade p50, Größe angepasst |
+| Säule IV | `pillar-meet.webp` | Symbolbild, Unsplash License | Victoria Prymak, https://unsplash.com/photos/T8Lxr7LFN74 — Grade p50, Größe angepasst |
+| I Run | `run-night.webp` | Symbolbild, Unsplash License | Iliya Jokic, https://unsplash.com/photos/BcJyBN4jDHY — Grade p50, Größe angepasst |
 | II Practice | `practice-start.webp` | Symbolbild, Pexels License | Thomas Ronveaux, https://www.pexels.com/photo/a-close-up-shot-of-an-athlete-on-a-race-track-13159243/ — Grade p50, Größe angepasst |
 | IV Meet | `meet-night.webp` | Symbolbild, Pexels License | liathyrax, https://www.pexels.com/photo/group-of-men-running-on-track-at-night-35005203/ — Grade p50, Größe angepasst, Schriftzug „EASY RUN“ und Brust-Logo lokal entfernt |
 | Eingang | `track-night.webp` | Symbolbild, Unsplash License | Mikhail K, https://unsplash.com/photos/jsNI0bh5D-o — Grade p50, Größe angepasst |
@@ -135,3 +135,10 @@ Older runner, cycling and rooftop reference files remain in source history solel
 The website's `noindex` setting is not access control. The reference license does not establish model, location, logo or other third-party releases for a commercial brand launch. All production uses require review.
 
 v4: Fabi gab fremdes Material aus dem Internet frei. Unsplash/Pexels-Lizenzen erlauben kommerzielle Nutzung, enthalten aber keine Model- oder Markenfreigabe; die abgebildeten Personen dürfen nicht als Unterstützer von OG SPORTS erscheinen, deshalb steht bei jedem Bild „Symbolbild“. Pool und Quellen: `C:/Users/Fabien/og-sports-sources/v4-candidates/manifest.json`, Aufbereitung `prepare_v4.py`.
+
+## RC7 – Quellenprüfung und Ausschnitte (26.10.2026)
+
+- `run-night.webp`: Symbolbild · Iliya Jokic (@iliya9) / Unsplash. Quelle: https://unsplash.com/photos/BcJyBN4jDHY; Unsplash License. Externe Datei `C:\Users\Fabien\og-sports-sources\rc7-candidates\run-night\R3_unsplash_BcJyBN4jDHY.jpg`, SHA-256 `f7664240f972220aa6cd9db3edb25835a2fd7285ee6a502254150cd0d3e53940` vor Benutzung gegen Kandidatenmanifest geprüft. Desktop-Crop `[0, 0, 5184, 3456]`, Handy-Crop `[1100, 0, 3864, 3455]` (Quellpixel). Keine Retusche; p50 wie im Bestand.
+- `pillar-meet.webp`: Symbolbild · Victoria Prymak (@vprmk) / Unsplash. Quelle: https://unsplash.com/photos/T8Lxr7LFN74; Unsplash License. Externe Datei `C:\Users\Fabien\og-sports-sources\rc7-candidates\pillar-meet\M2_unsplash_T8Lxr7LFN74.jpg`, SHA-256 `99a47422e1de780eeabac8768c655248cc49ba33b84c55b37752b28602f04002` vor Benutzung gegen Kandidatenmanifest geprüft. Desktop-Crop `[1715, 0, 5451, 4670]`, Handy-Crop `[1715, 0, 5451, 4670]` (Quellpixel). Keine Retusche; p50 wie im Bestand.
+
+Quellseiten und Lizenzangaben aus dem bereitgestellten Kandidatenmanifest übernommen; in diesem Lauf keine Netzabfrage. Quellen bleiben außerhalb des Repos.

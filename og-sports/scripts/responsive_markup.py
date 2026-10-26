@@ -26,7 +26,7 @@ def enhance(tag, sizes):
         w, h = entry['mobile_crop'][2:]
         w -= entry['mobile_crop'][0]
         h -= entry['mobile_crop'][1]
-        mobile_sizes = 'max(100vw, 46.2037svh)' if src == 'assets/after-the-run.webp' else '100vw'
+        mobile_sizes = 'max(100vw, 46.2037svh)' if src == 'assets/after-the-run.webp' else (sizes if src == 'assets/pillar-meet.webp' else '100vw')
         tag = f'<picture><source media="(max-width: 767px)" width="{w}" height="{h}" srcset="{candidates}" sizes="{mobile_sizes}"/>{tag}</picture>'
     return tag
 
@@ -41,7 +41,7 @@ def main():
         'frame-03-people.webp': '(max-width: 600px) 150.4vw, (max-width: 899px) 110.6vw, max(37.5vw, 116.7vh)',
         'photo-ritual.webp': '(max-width: 899px) calc(100vw - 44px), 42vw',
         'practice-start.webp': '(max-width: 899px) calc(100vw - 44px), 42vw',
-        'run-night.webp': 'max(100vw, min(150.25svh, 1623px))',
+        'run-night.webp': 'max(102vw, min(153svh, 1652.4px))',
         'meet-night.webp': 'max(100vw, min(163.56svh, 1778px))',
         'track-night.webp': '100vw',
     }
