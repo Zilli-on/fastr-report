@@ -81,7 +81,31 @@
   "rights_note": "Public design review. Unsplash photo licence does not itself verify model/property/trademark releases for advertising. No implied endorsement. Noindex is not access protection.",
   "existing_ai_hero": {
     "file": "assets/after-the-run.webp",
-    "unchanged": true
+    "unchanged": false,
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\opening-upscale\\after-the-run-4k-retouched.png",
+    "source_sha256": "a253cfcdacf2aa7fcd6e08caa3769b75fc78899bce0e106701cde1521b500d52",
+    "source_pixels": [
+      6122,
+      2160
+    ],
+    "original_study_pixels": [
+      1373,
+      485
+    ],
+    "provenance": "Existing AI campaign study (1373x485); Higgsfield ByteDance 4K upscale 2026-10-26; cap logo and glasses-temple lettering removed locally with og-sports-sources/opening-upscale/retouch.py. Same people and grade; no new image concept.",
+    "fallback": {
+      "file": "assets/after-the-run.webp",
+      "width": 1920,
+      "height": 677,
+      "bytes": 67734,
+      "sha256": "fd0eb53be2bd1186b1fe48b43e9680d702f1cad115931672c34006cbdf74d5d5"
+    },
+    "mobile_crop": [
+      2767,
+      0,
+      3765,
+      2160
+    ]
   },
   "treatment": "Layout crops via CSS aspect ratios, resize, CSS grayscale for 01 and 02. 03 in original colour. No generated additions or replacement branding.",
   "hero_display": {
@@ -99,7 +123,7 @@
     "recovers_missing_detail": false,
     "original_sha256": "807364cf90a7b283304707b93194110fe7c519ac6ae53a5f6b21f8ae43c02bfe",
     "display_sha256": "63fe1536cc9ced2be55f86259be49fb0cbff1b2fa47c5429811029f524cfc3f2",
-    "status": "Historical interpolated asset, no longer used on the homepage. RC3 serves source-based WebPs up to 1373x485; see responsive-assets.json."
+    "status": "Historical interpolated asset, unused. RC6 uses the externally provided Higgsfield/ByteDance upscale and local retouch, with WebPs up to 5120 pixels and a mobile source crop; see responsive-assets.json."
   },
   "visible_homepage_photographs": [
     "run-detail",

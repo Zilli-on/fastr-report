@@ -1,10 +1,21 @@
+# RC6 – Herkunft des Openings (26.10.2026)
+
+Bestehende KI-Kampagnenstudie (1373×485), am 26.10.2026 mit Higgsfield-Upscaler
+(ByteDance, 4K) hochgerechnet; anschließend Kappen-Logo und Schrift am Brillenbügel
+lokal entfernt. Retusche-Skript laut Übergabe: `og-sports-sources/opening-upscale/retouch.py`
+(Skript selbst ungeprüft). Keine neue Bildidee, gleiche Personen, gleicher Grade.
+Der externe Master wurde nur gelesen und nicht ins Repo kopiert.
+SHA-256: `a253cfcdacf2aa7fcd6e08caa3769b75fc78899bce0e106701cde1521b500d52`.
+AI-Upscaling ist keine wiedergewonnene dokumentarische Originalinformation.
+Frühere Aussagen „unverändert“/1373×485 unten sind historische Stände, durch RC6 ersetzt.
+
 # OG SPORTS — Bildnachweise
 
 ## Aktueller Stand (RC5, 2026-10-26)
 
 | Frame | Datei | Art | Quelle / Bearbeitung |
 |---|---|---|---|
-| 00 | `after-the-run.webp`, `responsive/after-the-run-*.webp` | bestehende KI-Bildstudie | OG SPORTS; RC3 bis zur Originalauflösung 1373×485, keine Hochskalierung |
+| 00 | `after-the-run.webp`, `responsive/after-the-run-*.webp` | bestehende KI-Bildstudie | OG SPORTS; RC6: Studie 1373×485, Higgsfield/ByteDance 4K-Upscale am 26.10.2026, Master 6122×2160; zwei Marken lokal entfernt; Auslieferung bis 5120 px, keine weitere Hochskalierung |
 | 01 | `frame-01-detail.webp` | Fotografie David Moorhouse | https://unsplash.com/photos/close-up-of-a-runners-leg-and-athletic-shoe-GToHUINXOb4 — Herstellerzeichen am Schuh lokal entfernt (Inpainting) |
 | 02 | `run-shadow.webp` | Fotografie Mathias Reding | https://unsplash.com/photos/runners-legs-in-motion-with-a-long-shadow-G96xGokbTUM — unverändert |
 | 03 | `frame-03-people.webp` | Fotografie Leviosa Hou | https://unsplash.com/photos/runners-gathered-together-on-a-city-street-9ZXnEV7k2lI — Startnummern, Bänder, Shirt-Aufdrucke, Bannertext KI-gestützt retuschiert (Higgsfield, GPT Image 2.5), Gesichter verglichen und unverändert |

@@ -1,45 +1,105 @@
 {
   "assets/after-the-run.webp": {
-    "source": "site/assets/after-the-run.webp",
-    "source_sha256": "807364cf90a7b283304707b93194110fe7c519ac6ae53a5f6b21f8ae43c02bfe",
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\opening-upscale\\after-the-run-4k-retouched.png",
+    "source_sha256": "a253cfcdacf2aa7fcd6e08caa3769b75fc78899bce0e106701cde1521b500d52",
     "source_pixels": [
-      1373,
-      485
+      6122,
+      2160
     ],
     "crop": null,
-    "mobile_crop": null,
+    "mobile_crop": [
+      2767,
+      0,
+      3765,
+      2160
+    ],
     "grade": "preserved; CSS unchanged",
     "crop_pixels": [
-      1373,
-      485
+      6122,
+      2160
     ],
     "variants": [
       {
-        "file": "assets/responsive/after-the-run-640.webp",
-        "width": 640,
-        "height": 226,
-        "bytes": 14436
+        "file": "assets/responsive/after-the-run-960.webp",
+        "width": 960,
+        "height": 339,
+        "bytes": 25288,
+        "sha256": "158c95581400bbd06cc347e41da0b30b13f3e17a22b03b5ef571546af8dbc008"
       },
       {
-        "file": "assets/responsive/after-the-run-1080.webp",
-        "width": 1080,
-        "height": 382,
-        "bytes": 23876
+        "file": "assets/responsive/after-the-run-1440.webp",
+        "width": 1440,
+        "height": 508,
+        "bytes": 45116,
+        "sha256": "0c5f99d4095ffa88c6b8f0069a90cc2efee7e53c362a3044ba39293c31956ef3"
       },
       {
-        "file": "assets/responsive/after-the-run-1373.webp",
-        "width": 1373,
-        "height": 485,
-        "bytes": 32484
+        "file": "assets/responsive/after-the-run-1920.webp",
+        "width": 1920,
+        "height": 677,
+        "bytes": 67734,
+        "sha256": "fd0eb53be2bd1186b1fe48b43e9680d702f1cad115931672c34006cbdf74d5d5"
+      },
+      {
+        "file": "assets/responsive/after-the-run-2560.webp",
+        "width": 2560,
+        "height": 903,
+        "bytes": 99398,
+        "sha256": "bdbb879fdbc0a6f87984fcb39f40f4dba1e8975c37976cbb1a067d4adbcdfc6d"
+      },
+      {
+        "file": "assets/responsive/after-the-run-3840.webp",
+        "width": 3840,
+        "height": 1355,
+        "bytes": 173562,
+        "sha256": "94598ededf221376b2f4736c211b18cca4429f1322bbe12a01f4e419c5c9c5c9"
+      },
+      {
+        "file": "assets/responsive/after-the-run-5120.webp",
+        "width": 5120,
+        "height": 1806,
+        "bytes": 251396,
+        "sha256": "e8a736ca49cb8cb2c2f1de0451f5ed47d731010f504933d4303fa610a930b3c7"
       }
     ],
+    "mobile": [
+      {
+        "file": "assets/responsive/after-the-run-mobile-480.webp",
+        "width": 480,
+        "height": 1039,
+        "bytes": 21440,
+        "sha256": "452e6def3ddede8cb299ea4803ac2f64277a1b8be55ccc4a775eec0b1128a371"
+      },
+      {
+        "file": "assets/responsive/after-the-run-mobile-800.webp",
+        "width": 800,
+        "height": 1731,
+        "bytes": 41198,
+        "sha256": "fd3408377e4cfdc3db8ccef70bd348e21e31edb77924469c26a9279b3ae6077a"
+      },
+      {
+        "file": "assets/responsive/after-the-run-mobile-998.webp",
+        "width": 998,
+        "height": 2160,
+        "bytes": 55582,
+        "sha256": "ba32f3a6830e78f06561c2bc8ad9e735a0d2e600011e839b81ad87b84ce1426e"
+      }
+    ],
+    "provenance": "Existing AI campaign study (1373x485); Higgsfield ByteDance 4K upscale 2026-10-26; cap logo and glasses-temple lettering removed locally with og-sports-sources/opening-upscale/retouch.py. Same people and grade; no new image concept.",
+    "fallback": {
+      "file": "assets/after-the-run.webp",
+      "width": 1920,
+      "height": 677,
+      "bytes": 67734,
+      "sha256": "fd0eb53be2bd1186b1fe48b43e9680d702f1cad115931672c34006cbdf74d5d5"
+    },
     "old_mean_luma_saturation": [
       111.51,
       28.29
     ],
     "mean_luma_saturation": [
-      111.57,
-      30.89
+      110.66,
+      26.37
     ]
   },
   "assets/frame-01-detail.webp": {

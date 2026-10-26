@@ -26,7 +26,8 @@ def enhance(tag, sizes):
         w, h = entry['mobile_crop'][2:]
         w -= entry['mobile_crop'][0]
         h -= entry['mobile_crop'][1]
-        tag = f'<picture><source media="(max-width: 767px)" width="{w}" height="{h}" srcset="{candidates}" sizes="100vw"/>{tag}</picture>'
+        mobile_sizes = 'max(100vw, 46.2037svh)' if src == 'assets/after-the-run.webp' else '100vw'
+        tag = f'<picture><source media="(max-width: 767px)" width="{w}" height="{h}" srcset="{candidates}" sizes="{mobile_sizes}"/>{tag}</picture>'
     return tag
 
 def main():

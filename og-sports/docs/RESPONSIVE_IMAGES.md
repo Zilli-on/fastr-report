@@ -1,3 +1,15 @@
+# RC6-Ergänzung (26.10.2026)
+
+Opening 00 ersetzt die unten dokumentierte RC3-Quelle durch den externen,
+SHA-256-geprüften retuschierten 6122×2160-Master. Desktop: 960/1440/1920/2560/3840/5120;
+Handy: Quellcrop [2767,0,3765,2160], 480/800/998 px, maximal 2160 px hoch.
+WebP Q82/method 6; keine weitere Hochskalierung, keine erneute Retusche oder Grading.
+Reproduktion: `prepare_responsive.py --only after-the-run.webp`, anschließend
+`responsive_markup.py`; `prepare_responsive.py --check` prüft auch Derivat-Hashes.
+Messung: `rc6_evidence.py rc5` und `rc6_evidence.py rc6`, mit ogpw-Python und
+installiertem Chrome. Rechenweg, Einschränkungen und Ergebnis: `RC6_RESULT.md`.
+Die folgenden RC3-Angaben zum Opening und „nur Run/Meet“ sind historisch.
+
 # RC3 responsive image pipeline
 
 `scripts/prepare_responsive.py` reads original files, never the deployed v4 WebPs.

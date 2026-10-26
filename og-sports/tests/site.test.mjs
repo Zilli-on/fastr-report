@@ -13,14 +13,14 @@ const originals = JSON.parse(await readFile(new URL('tests/original-assets.json'
 const main = html.split('<main id="main">')[1].split('</main>')[0];
 const section = id => main.split(`id="${id}"`)[1].split('</section>')[0];
 
-test('preserves the chosen first photograph and original brand assets byte for byte', async () => {
+test('protects the RC6 opening fallback and original brand assets by hash', async () => {
   for (const [name, expected] of Object.entries(originals)) {
     const bytes = await readFile(new URL(`site/assets/${name}`, root));
     assert.equal(createHash('sha256').update(bytes).digest('hex'), expected, name);
   }
   assert.match(html, /id="hero-photo"[^>]+src="assets\/after-the-run\.webp"/);
   assert.match(html.match(/<img[^>]+id="hero-photo"[^>]*>/)[0], /fetchpriority="high"/);
-  assert.match(js, /assets\/after-the-run\.webp/, 'image notes show the unchanged original');
+  assert.match(js, /assets\/after-the-run\.webp/, 'image notes reference the approved opening fallback');
 });
 
 test('responsive assets come from recorded sources, never upscale, and all photos opt in', async () => {
@@ -43,7 +43,10 @@ test('responsive assets come from recorded sources, never upscale, and all photo
   }
   for (const src of ['after-the-run.webp', 'frame-01-detail.webp', 'run-shadow.webp', 'frame-03-people.webp']) {
     assert.equal(manifest['assets/'+src].crop, null, 'protected composition');
-    assert.equal(manifest['assets/'+src].mobile_crop, null, 'no protected mobile crop');
+    if (src === 'after-the-run.webp') {
+      assert.deepEqual(manifest['assets/'+src].mobile_crop, [2767, 0, 3765, 2160]);
+      assert.deepEqual(manifest['assets/'+src].source_pixels, [6122, 2160]);
+    } else assert.equal(manifest['assets/'+src].mobile_crop, null, 'no protected mobile crop');
   }
   for (const [tag] of main.matchAll(/<img\b[^>]*>/g)) {
     const src = tag.match(/\bsrc="([^"]+)"/)?.[1];

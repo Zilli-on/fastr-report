@@ -1,0 +1,357 @@
+{
+  "390@3x": {
+    "image_bytes": 2127397,
+    "requests": [
+      {
+        "file": "after-the-run-1373.webp",
+        "bytes": 32484,
+        "status": 200
+      },
+      {
+        "file": "own.svg",
+        "bytes": 795,
+        "status": 200
+      },
+      {
+        "file": "greatness.svg",
+        "bytes": 2777,
+        "status": 200
+      },
+      {
+        "file": "og-sports-black.svg",
+        "bytes": 2074,
+        "status": 200
+      },
+      {
+        "file": "og-mark-black.svg",
+        "bytes": 764,
+        "status": 200
+      },
+      {
+        "file": "og-fastr-wordmark-dark.svg",
+        "bytes": 4824,
+        "status": 200
+      },
+      {
+        "file": "frame-01-detail-1200.webp",
+        "bytes": 42234,
+        "status": 200
+      },
+      {
+        "file": "run-shadow-1600.webp",
+        "bytes": 187706,
+        "status": 200
+      },
+      {
+        "file": "frame-03-people-2400.webp",
+        "bytes": 244996,
+        "status": 200
+      },
+      {
+        "file": "photo-ritual-1080.webp",
+        "bytes": 98274,
+        "status": 200
+      },
+      {
+        "file": "pillar-run-1080.webp",
+        "bytes": 27498,
+        "status": 200
+      },
+      {
+        "file": "pillar-practice-1080.webp",
+        "bytes": 61382,
+        "status": 200
+      },
+      {
+        "file": "hoodie-black-1200.webp",
+        "bytes": 72258,
+        "status": 200
+      },
+      {
+        "file": "pillar-meet-2400.webp",
+        "bytes": 725114,
+        "status": 200
+      },
+      {
+        "file": "stick-lime.jpg",
+        "bytes": 63841,
+        "status": 200
+      },
+      {
+        "file": "run-night-mobile-1280.webp",
+        "bytes": 38588,
+        "status": 200
+      },
+      {
+        "file": "practice-start-1080.webp",
+        "bytes": 130410,
+        "status": 200
+      },
+      {
+        "file": "meet-night-mobile-1280.webp",
+        "bytes": 85410,
+        "status": 200
+      },
+      {
+        "file": "track-night-1600.webp",
+        "bytes": 305968,
+        "status": 200
+      }
+    ],
+    "hero": {
+      "current": "after-the-run-1373.webp",
+      "box": [
+        390,
+        844
+      ],
+      "position": "54% 50%",
+      "fit": "cover",
+      "filter": "grayscale(0.95) contrast(0.88) brightness(0.72)",
+      "alt": "KI-Kampagnenstudie: Freunde nach dem Sport",
+      "complete": true
+    },
+    "screenshot": "qa/rc6-rc5-390.png",
+    "errors": [],
+    "blocked": []
+  },
+  "768@2x": {
+    "image_bytes": 2123241,
+    "requests": [
+      {
+        "file": "after-the-run-1373.webp",
+        "bytes": 32484,
+        "status": 200
+      },
+      {
+        "file": "own.svg",
+        "bytes": 795,
+        "status": 200
+      },
+      {
+        "file": "greatness.svg",
+        "bytes": 2777,
+        "status": 200
+      },
+      {
+        "file": "og-fastr-wordmark-dark.svg",
+        "bytes": 4824,
+        "status": 200
+      },
+      {
+        "file": "og-sports-black.svg",
+        "bytes": 2074,
+        "status": 200
+      },
+      {
+        "file": "og-mark-black.svg",
+        "bytes": 764,
+        "status": 200
+      },
+      {
+        "file": "run-shadow-1600.webp",
+        "bytes": 187706,
+        "status": 200
+      },
+      {
+        "file": "frame-03-people-2400.webp",
+        "bytes": 244996,
+        "status": 200
+      },
+      {
+        "file": "frame-01-detail-1080.webp",
+        "bytes": 32878,
+        "status": 200
+      },
+      {
+        "file": "photo-ritual-1600.webp",
+        "bytes": 198532,
+        "status": 200
+      },
+      {
+        "file": "pillar-run-1600.webp",
+        "bytes": 48556,
+        "status": 200
+      },
+      {
+        "file": "pillar-practice-1080.webp",
+        "bytes": 61382,
+        "status": 200
+      },
+      {
+        "file": "hoodie-black-800.webp",
+        "bytes": 29542,
+        "status": 200
+      },
+      {
+        "file": "pillar-meet-1600.webp",
+        "bytes": 353456,
+        "status": 200
+      },
+      {
+        "file": "stick-lime.jpg",
+        "bytes": 63841,
+        "status": 200
+      },
+      {
+        "file": "run-night-2880.webp",
+        "bytes": 90808,
+        "status": 200
+      },
+      {
+        "file": "practice-start-1600.webp",
+        "bytes": 243750,
+        "status": 200
+      },
+      {
+        "file": "hoodie-black-1600.webp",
+        "bytes": 141512,
+        "status": 200
+      },
+      {
+        "file": "meet-night-2880.webp",
+        "bytes": 76596,
+        "status": 200
+      },
+      {
+        "file": "track-night-1600.webp",
+        "bytes": 305968,
+        "status": 200
+      }
+    ],
+    "hero": {
+      "current": "after-the-run-1373.webp",
+      "box": [
+        768,
+        900
+      ],
+      "position": "54% 50%",
+      "fit": "cover",
+      "filter": "grayscale(0.95) contrast(0.88) brightness(0.72)",
+      "alt": "KI-Kampagnenstudie: Freunde nach dem Sport",
+      "complete": true
+    },
+    "screenshot": "qa/rc6-rc5-768.png",
+    "errors": [],
+    "blocked": []
+  },
+  "1440@2x": {
+    "image_bytes": 3723563,
+    "requests": [
+      {
+        "file": "after-the-run-1373.webp",
+        "bytes": 32484,
+        "status": 200
+      },
+      {
+        "file": "own.svg",
+        "bytes": 795,
+        "status": 200
+      },
+      {
+        "file": "greatness.svg",
+        "bytes": 2777,
+        "status": 200
+      },
+      {
+        "file": "og-fastr-wordmark-dark.svg",
+        "bytes": 4824,
+        "status": 200
+      },
+      {
+        "file": "og-sports-black.svg",
+        "bytes": 2074,
+        "status": 200
+      },
+      {
+        "file": "og-mark-black.svg",
+        "bytes": 764,
+        "status": 200
+      },
+      {
+        "file": "frame-01-detail-1080.webp",
+        "bytes": 32878,
+        "status": 200
+      },
+      {
+        "file": "run-shadow-2400.webp",
+        "bytes": 391804,
+        "status": 200
+      },
+      {
+        "file": "frame-03-people-2400.webp",
+        "bytes": 244996,
+        "status": 200
+      },
+      {
+        "file": "photo-ritual-1600.webp",
+        "bytes": 198532,
+        "status": 200
+      },
+      {
+        "file": "pillar-run-1600.webp",
+        "bytes": 48556,
+        "status": 200
+      },
+      {
+        "file": "pillar-practice-1600.webp",
+        "bytes": 106162,
+        "status": 200
+      },
+      {
+        "file": "hoodie-black-1200.webp",
+        "bytes": 72258,
+        "status": 200
+      },
+      {
+        "file": "pillar-meet-2400.webp",
+        "bytes": 725114,
+        "status": 200
+      },
+      {
+        "file": "stick-lime.jpg",
+        "bytes": 63841,
+        "status": 200
+      },
+      {
+        "file": "run-night-2880.webp",
+        "bytes": 90808,
+        "status": 200
+      },
+      {
+        "file": "practice-start-1600.webp",
+        "bytes": 243750,
+        "status": 200
+      },
+      {
+        "file": "hoodie-black-1600.webp",
+        "bytes": 141512,
+        "status": 200
+      },
+      {
+        "file": "meet-night-2880.webp",
+        "bytes": 76596,
+        "status": 200
+      },
+      {
+        "file": "track-night-2880.webp",
+        "bytes": 1243038,
+        "status": 200
+      }
+    ],
+    "hero": {
+      "current": "after-the-run-1373.webp",
+      "box": [
+        1440,
+        900
+      ],
+      "position": "50% 50%",
+      "fit": "cover",
+      "filter": "grayscale(0.95) contrast(0.88) brightness(0.72)",
+      "alt": "KI-Kampagnenstudie: Freunde nach dem Sport",
+      "complete": true
+    },
+    "screenshot": "qa/rc6-rc5-1440.png",
+    "errors": [],
+    "blocked": []
+  }
+}

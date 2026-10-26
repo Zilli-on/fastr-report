@@ -1,0 +1,143 @@
+{
+  "tests": {
+    "npm_test": {
+      "passed": 21,
+      "failed": 0
+    },
+    "build_files": 136,
+    "source_check": {
+      "sources": 18,
+      "webps": 100
+    },
+    "chrome_cases": 6,
+    "git_diff_check": "passed"
+  },
+  "bytes": {
+    "390@3x": {
+      "rc5": 2127397,
+      "rc6": 2150495
+    },
+    "768@2x": {
+      "rc5": 2123241,
+      "rc6": 2342153
+    },
+    "1440@2x": {
+      "rc5": 3723563,
+      "rc6": 3942475
+    }
+  },
+  "factors": {
+    "390@3x": {
+      "rc5": {
+        "Q": 5.2206,
+        "A": 5.2206
+      },
+      "rc6": {
+        "Q": 1.1723,
+        "A": 1.1723
+      },
+      "bitmap_need": [
+        1170.0,
+        2532.26
+      ],
+      "loaded_pixels": [
+        998,
+        2160
+      ]
+    },
+    "768@2x": {
+      "rc5": {
+        "Q": 3.7113,
+        "A": 3.7113
+      },
+      "rc6": {
+        "Q": 0.8333,
+        "A": 0.9967
+      },
+      "bitmap_need": [
+        5101.67,
+        1800.0
+      ],
+      "loaded_pixels": [
+        5120,
+        1806
+      ]
+    },
+    "1440@2x": {
+      "rc5": {
+        "Q": 3.7113,
+        "A": 3.7113
+      },
+      "rc6": {
+        "Q": 0.8333,
+        "A": 0.9967
+      },
+      "bitmap_need": [
+        5101.67,
+        1800.0
+      ],
+      "loaded_pixels": [
+        5120,
+        1806
+      ]
+    }
+  },
+  "phone_crop": {
+    "xyxy": [
+      2767,
+      0,
+      3765,
+      2160
+    ],
+    "pixels": [
+      998,
+      2160
+    ],
+    "source_sha256": "a253cfcdacf2aa7fcd6e08caa3769b75fc78899bce0e106701cde1521b500d52"
+  },
+  "screenshots": [
+    "og-sports/qa/rc6-rc5-390.png",
+    "og-sports/qa/rc6-rc5-768.png",
+    "og-sports/qa/rc6-rc5-1440.png",
+    "og-sports/qa/rc6-rc6-390.png",
+    "og-sports/qa/rc6-rc6-768.png",
+    "og-sports/qa/rc6-rc6-1440.png"
+  ],
+  "files_changed": [
+    "og-sports/docs/ASSET_AUDIT.md",
+    "og-sports/docs/PHOTO_CREDITS.md",
+    "og-sports/docs/RESPONSIVE_IMAGES.md",
+    "og-sports/docs/photo_sources.json",
+    "og-sports/docs/responsive-assets.json",
+    "og-sports/scripts/prepare_responsive.py",
+    "og-sports/scripts/responsive_markup.py",
+    "og-sports/site/assets/after-the-run.webp",
+    "og-sports/site/assets/responsive/after-the-run-1080.webp",
+    "og-sports/site/assets/responsive/after-the-run-1373.webp",
+    "og-sports/site/assets/responsive/after-the-run-640.webp",
+    "og-sports/site/index.html",
+    "og-sports/site/styles.css",
+    "og-sports/tests/original-assets.json",
+    "og-sports/tests/site.test.mjs",
+    "og-sports/docs/RC6_RESULT.md",
+    "og-sports/docs/rc6-rc5-measurements.json",
+    "og-sports/docs/rc6-rc6-measurements.json",
+    "og-sports/docs/rc6-summary.json",
+    "og-sports/qa/rc6-baseline/",
+    "og-sports/scripts/.rc6-build/",
+    "og-sports/scripts/rc6_evidence.py",
+    "og-sports/site/assets/responsive/after-the-run-1440.webp",
+    "og-sports/site/assets/responsive/after-the-run-1920.webp",
+    "og-sports/site/assets/responsive/after-the-run-2560.webp",
+    "og-sports/site/assets/responsive/after-the-run-3840.webp",
+    "og-sports/site/assets/responsive/after-the-run-5120.webp",
+    "og-sports/site/assets/responsive/after-the-run-960.webp",
+    "og-sports/site/assets/responsive/after-the-run-mobile-480.webp",
+    "og-sports/site/assets/responsive/after-the-run-mobile-800.webp",
+    "og-sports/site/assets/responsive/after-the-run-mobile-998.webp"
+  ],
+  "limitations": [
+    "Bilddialog enthält weiterhin alte Auflösungsangabe; site/script.js liegt außerhalb erlaubter Schreibpfade. [[og-sports/site/script.js:253 \"Hier das unveränderte Original mit 1.373 × 485 px.\"]]",
+    "Automatische Freigabeprüfung hat die rekursive Bereinigung von qa/rc6-baseline und scripts/.rc6-build mit blocked by policy abgelehnt; beide bleiben lokal."
+  ]
+}

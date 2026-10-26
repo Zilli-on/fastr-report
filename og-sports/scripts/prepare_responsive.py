@@ -4,7 +4,7 @@ Run with the existing ogcv Python (Pillow, numpy, OpenCV) and ffmpeg on PATH:
   python scripts/prepare_responsive.py --pool C:/Users/Fabien/og-sports-sources/v4-candidates
 Protected retouched masters and the downloaded original 02 live outside the public repo in
 C:/Users/Fabien/og-sports-sources/masters (override with OG_MASTERS).
-00 uses the original 1373x485 study, never the interpolated display copy.
+00 uses the verified RC6 retouched 6122x2160 AI-upscaled master.
 The v4 p50 recipe and inpainting masks are preserved. No network calls.
 """
 import os
@@ -24,6 +24,10 @@ ASSETS = ROOT / 'site/assets'
 OUT = ASSETS / 'responsive'
 SOURCES = Path(os.environ.get('OG_MASTERS', 'C:/Users/Fabien/og-sports-sources/masters'))
 HOODIES = Path(os.environ.get('OG_HOODIE_MASTERS', 'C:/Users/Fabien/og-sports-sources/higgsfield-hoodies/final'))
+OPENING = Path('C:/Users/Fabien/og-sports-sources/opening-upscale/after-the-run-4k-retouched.png')
+OPENING_SHA256 = 'a253cfcdacf2aa7fcd6e08caa3769b75fc78899bce0e106701cde1521b500d52'
+OPENING_CROP = (2767, 0, 3765, 2160)
+OPENING_ORIGIN = 'Existing AI campaign study (1373x485); Higgsfield ByteDance 4K upscale 2026-10-26; cap logo and glasses-temple lettering removed locally with og-sports-sources/opening-upscale/retouch.py. Same people and grade; no new image concept.'
 P50 = 'eq=saturation=0.6:contrast=1.1:gamma=0.86:brightness=-0.015,colorbalance=rm=0.03:gm=0.01:bm=-0.03:rh=0.04:gh=0.02:bh=-0.04,noise=alls=4:allf=u'
 # Same desktop crop and masks as prepare_v4.py. Mobile uses source coordinates.
 JOBS = {
@@ -51,6 +55,9 @@ def retouch(im):
 def variants(im, stem, grade=False, mobile=False, product=False):
     maximum = min(im.width, 1600 if mobile else 2880)
     steps = (480, 800, 1200, 1600) if product else ((640, 1080, 1280, 1600) if mobile else (640, 1080, 1600, 2400, 2880))
+    if stem == 'after-the-run':
+        maximum = min(im.width, 998 if mobile else 5120)
+        steps = (480, 800, 998) if mobile else (960, 1440, 1920, 2560, 3840, 5120)
     widths = sorted({w for w in steps if w <= maximum} | {maximum})
     result = []
     for width in widths:
@@ -69,6 +76,8 @@ def variants(im, stem, grade=False, mobile=False, product=False):
         rendered.save(OUT / name, 'WEBP', quality=82, method=6)
         result.append({'file': 'assets/responsive/' + name, 'width': width,
                        'height': height, 'bytes': (OUT / name).stat().st_size})
+        if stem == 'after-the-run':
+            result[-1]['sha256'] = hashlib.sha256((OUT / name).read_bytes()).hexdigest()
     return result
 
 def main():
@@ -95,12 +104,14 @@ def main():
                     assert im.size == (v['width'], v['height']), v['file']
                     assert im.width <= w and im.height <= h, v['file']
                     assert file.stat().st_size == v['bytes'], v['file']
+                    if 'sha256' in v:
+                        assert hashlib.sha256(file.read_bytes()).hexdigest() == v['sha256'], v['file']
                     count += 1
         print(f'Responsive sources verified: {len(manifest)} originals; {count} WebPs; no upscaling')
         return
     OUT.mkdir(exist_ok=True)
     manifest = json.loads(manifest_path.read_text(encoding='utf-8')) if args.only else {}
-    protected = {'after-the-run.webp': ASSETS / 'after-the-run.webp',
+    protected = {'after-the-run.webp': OPENING,
                  'frame-01-detail.webp': SOURCES / 'run-detail-clean.png',
                  'run-shadow.webp': SOURCES / 'run-shadow.jpg',
                  'frame-03-people.webp': SOURCES / 'community-ai.png'}
@@ -110,7 +121,12 @@ def main():
     for name, source, crop, mobile, grade in inputs:
         if args.only and name not in args.only:
             continue
+        if name == 'after-the-run.webp':
+            assert hashlib.sha256(source.read_bytes()).hexdigest() == OPENING_SHA256, 'RC6 source hash mismatch; abort'
+            mobile = OPENING_CROP
         im = Image.open(source).convert('RGB')
+        if name == 'after-the-run.webp':
+            assert im.size == (6122, 2160), 'RC6 source dimensions mismatch'
         entry = {'source': source.relative_to(ROOT).as_posix() if source.is_relative_to(ROOT) else str(source), 'source_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
                  'source_pixels': list(im.size), 'crop': crop, 'mobile_crop': mobile,
                  'grade': 'p50 (v4)' if grade else 'preserved; CSS unchanged'}
@@ -121,6 +137,10 @@ def main():
         entry['variants'] = variants(desktop, Path(name).stem, grade, product=name.startswith('hoodie-'))
         if mobile:
             entry['mobile'] = variants(im.crop(mobile), Path(name).stem, grade, mobile=True)
+        if name == 'after-the-run.webp':
+            entry['provenance'] = OPENING_ORIGIN
+            fallback = next(v for v in entry['variants'] if v['width'] == 1920)
+            entry['fallback'] = dict(fallback, file='assets/' + name)
         # Compare encoded samples at identical small size: descriptive, not a quality score.
         def stats(image):
             image = image.resize((128,128)).convert('RGB')
@@ -129,6 +149,8 @@ def main():
         if (ASSETS / name).exists():
             entry['old_mean_luma_saturation'] = stats(Image.open(ASSETS / name))
         entry['mean_luma_saturation'] = stats(Image.open(ROOT / 'site' / entry['variants'][-1]['file']))
+        if name == 'after-the-run.webp':
+            (ASSETS / name).write_bytes((ROOT / 'site' / fallback['file']).read_bytes())
         # Hoodie fallbacks are actual 800px variants; do not ship duplicate masters.
         key = 'assets/responsive/' + Path(name).stem + '-800.webp' if name.startswith('hoodie-') else 'assets/' + name
         manifest[key] = entry
