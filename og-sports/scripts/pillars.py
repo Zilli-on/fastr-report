@@ -9,6 +9,7 @@ of a photograph, so no people are implied where we have no picture of them.
 """
 
 import sys
+from responsive_markup import attributes
 from html import escape
 from pathlib import Path
 
@@ -51,9 +52,17 @@ def pillar(i, row):
     ]
     if media[0] == "img":
         _, src, pos, kind, alt = media
+        kind = tuple('Symbolbild · ' + k if 'Unsplash' in k else k for k in kind)
+        if 'Unsplash' in kind[1]:
+            kind = (kind[0], kind[1].replace('Symbolbild', 'Illustrative photo'))
+        phone = '(max-width: 600px) calc(100vw - 40px), (max-width: 767px) calc(100vw - 44px), '
+        tablet = '(max-width: 899px) 100vw, ' if i == 0 else '(max-width: 899px) 50vw, '
+        sizes = phone + tablet + ('50vw' if i < 2 else '33.33vw')
+        if word == 'Meet':
+            sizes = '(max-width: 600px) calc(187.5vw - 75px), (max-width: 767px) calc(187.5vw - 82.5px), (max-width: 899px) 93.75vw, 62.5vw'
         parts.append(
             f'<img alt="{escape(alt[0])}" data-alt-de="{escape(alt[0])}" data-alt-en="{escape(alt[1])}" '
-            f'loading="lazy" src="{src}" style="object-position:{pos}"/>'
+            f'loading="lazy" src="{src}" {attributes(src, sizes)} style="object-position:{pos}"/>'
         )
     else:
         _, figure, size = media

@@ -41,7 +41,7 @@ export async function startServer({ directory = path.join(projectRoot, 'site'), 
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const directory = path.join(projectRoot, process.argv.includes('--dist') ? 'dist' : 'site');
+  const directory = path.resolve(projectRoot, process.argv.includes('--dist') ? (process.env.OG_BUILD_DIR || 'dist') : 'site');
   const port = Number(process.env.PORT || 4173);
   if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('PORT must be 1–65535');
   try {

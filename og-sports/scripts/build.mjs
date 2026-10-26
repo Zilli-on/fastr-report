@@ -5,7 +5,8 @@ import path from 'node:path';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const site = path.join(root, 'site');
-const out = path.join(root, 'dist');
+const out = path.resolve(root, process.env.OG_BUILD_DIR || 'dist');
+if (out === root || out === site || !out.startsWith(root + path.sep)) throw new Error('Build directory must be a separate project subdirectory');
 await rm(out, { recursive: true, force: true });
 await mkdir(out, { recursive: true });
 await cp(site, out, { recursive: true });
@@ -26,4 +27,4 @@ await inspect(out);
 await writeFile(path.join(out, 'build-manifest.json'), JSON.stringify({
   project: 'og-sports-web', sourceBaseline: 'V21', files
 }, null, 2) + '\n');
-console.log(`Built ${Object.keys(files).length} files into dist/`);
+console.log(`Built ${Object.keys(files).length} files into ${path.relative(root, out)}/`);

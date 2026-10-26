@@ -177,7 +177,7 @@
     src: 'assets/after-the-run.webp', name: 'The moments\nin between.',
     kind: {de: 'Bestehende KI-Bildstudie', en: 'Existing AI image study'},
     description: {de: 'Unser Einstiegsmotiv. Hier das unveränderte Original mit 1.373 × 485 px.', en: 'Our opening image. Shown here as the unchanged 1,373 × 485 px original.'},
-    context: {de: 'KI-Bildstudie, keine dokumentarische Aufnahme. Auf der Startseite zeigen wir eine vierfach hochgerechnete Kopie (Lanczos, leichte Schärfung). Sie vergrößert das Format, stellt aber keine fehlenden Details wieder her.', en: 'An AI image study, not a documentary photograph. The homepage shows a 4× resampled copy (Lanczos, gentle sharpening). It enlarges the format but does not recover missing detail.'},
+    context: {de: 'KI-Bildstudie, keine dokumentarische Aufnahme. Auf der Startseite liefern wir responsive Größen bis zur Originalauflösung. Die Quelldatei begrenzt die Details auf hochauflösenden Bildschirmen.', en: 'An AI image study, not a documentary photograph. The homepage delivers responsive sizes up to the original resolution. Source resolution limits detail on high-density screens.'},
     alt: {de: 'Bestehende KI-Bildstudie einer Gruppe nach dem Sport, Originaldatei', en: 'Existing AI image study of a group after sport, original file'},
     license: 'OG SPORTS / Design study'
   };

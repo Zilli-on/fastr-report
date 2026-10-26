@@ -6,7 +6,7 @@
       "file": "assets/after-the-run-display-4x.webp",
       "bytes": 218062,
       "sha256": "63fe1536cc9ced2be55f86259be49fb0cbff1b2fa47c5429811029f524cfc3f2",
-      "use": "Opening image, frame 00",
+      "use": "Historical interpolated derivative, no longer requested by the homepage",
       "type": "Display derivative of the AI image study",
       "source": "4x Lanczos resample with light sharpening"
     },
@@ -231,5 +231,6 @@
       "licence": "SIL OFL 1.1"
     }
   ],
-  "generated_inline": []
+  "generated_inline": [],
+  "responsive_manifest": "responsive-assets.json (RC3 source hashes, dimensions, crops and derivative byte sizes)"
 }

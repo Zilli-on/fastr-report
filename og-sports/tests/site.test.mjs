@@ -18,11 +18,44 @@ test('preserves the chosen first photograph and original brand assets byte for b
     const bytes = await readFile(new URL(`site/assets/${name}`, root));
     assert.equal(createHash('sha256').update(bytes).digest('hex'), expected, name);
   }
-  assert.match(html, /id="hero-photo"[^>]+src="assets\/after-the-run-display-4x\.webp"/);
-  const original = await readFile(new URL('site/assets/after-the-run.webp', root));
-  const display = await readFile(new URL('site/assets/after-the-run-display-4x.webp', root));
-  assert.ok(display.length > original.length, 'display asset should be a larger derivative');
+  assert.match(html, /id="hero-photo"[^>]+src="assets\/after-the-run\.webp"/);
+  assert.match(html.match(/<img[^>]+id="hero-photo"[^>]*>/)[0], /fetchpriority="high"/);
   assert.match(js, /assets\/after-the-run\.webp/, 'image notes show the unchanged original');
+});
+
+test('responsive assets come from recorded sources, never upscale, and all photos opt in', async () => {
+  const manifest = JSON.parse(await readFile(new URL('docs/responsive-assets.json', root), 'utf8'));
+  for (const [src, entry] of Object.entries(manifest)) {
+    assert.ok(!src.includes('stick-'), 'STICK is not re-encoded');
+    assert.ok(entry.source_sha256.length === 64);
+    for (const group of ['variants', 'mobile']) {
+      const candidates = entry[group];
+      if (!candidates) continue;
+      const crop = group === 'mobile' ? entry.mobile_crop : entry.crop;
+      const [w, h] = crop ? [crop[2]-crop[0], crop[3]-crop[1]] : entry.source_pixels;
+      for (const v of candidates) {
+        assert.ok(v.width <= w && v.height <= h, v.file + ' must not upscale');
+        const bytes = await readFile(new URL('site/' + v.file, root));
+        assert.equal(bytes.length, v.bytes);
+        assert.equal(bytes.toString('ascii', 8, 12), 'WEBP');
+      }
+    }
+  }
+  for (const src of ['after-the-run.webp', 'frame-01-detail.webp', 'run-shadow.webp', 'frame-03-people.webp']) {
+    assert.equal(manifest['assets/'+src].crop, null, 'protected composition');
+    assert.equal(manifest['assets/'+src].mobile_crop, null, 'no protected mobile crop');
+  }
+  for (const [tag] of main.matchAll(/<img\b[^>]*>/g)) {
+    const src = tag.match(/\bsrc="([^"]+)"/)?.[1];
+    if (!src || !/\.(webp|jpg)$/.test(src)) continue;
+    assert.match(tag, /width="\d+"/);
+    assert.match(tag, /height="\d+"/);
+    if (!src.includes('stick-')) {
+      assert.match(tag, /srcset="[^"]+ \d+w"/);
+      assert.match(tag, /sizes="[^"]+"/);
+    }
+    assert.match(tag, src.includes('after-the-run') ? /loading="eager"/ : /loading="lazy"/);
+  }
 });
 
 test('keeps the three approved photographs, retouched free of third-party brands', async () => {

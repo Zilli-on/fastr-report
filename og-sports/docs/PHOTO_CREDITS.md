@@ -4,7 +4,7 @@
 
 | Frame | Datei | Art | Quelle / Bearbeitung |
 |---|---|---|---|
-| 00 | `after-the-run-display-4x.webp`, Original `after-the-run.webp` | bestehende KI-Bildstudie | OG SPORTS; 4× Lanczos-Kopie für die Anzeige |
+| 00 | `after-the-run.webp`, `responsive/after-the-run-*.webp` | bestehende KI-Bildstudie | OG SPORTS; RC3 bis zur Originalauflösung 1373×485, keine Hochskalierung |
 | 01 | `frame-01-detail.webp` | Fotografie David Moorhouse | https://unsplash.com/photos/close-up-of-a-runners-leg-and-athletic-shoe-GToHUINXOb4 — Herstellerzeichen am Schuh lokal entfernt (Inpainting) |
 | 02 | `run-shadow.webp` | Fotografie Mathias Reding | https://unsplash.com/photos/runners-legs-in-motion-with-a-long-shadow-G96xGokbTUM — unverändert |
 | 03 | `frame-03-people.webp` | Fotografie Leviosa Hou | https://unsplash.com/photos/runners-gathered-together-on-a-city-street-9ZXnEV7k2lI — Startnummern, Bänder, Shirt-Aufdrucke, Bannertext KI-gestützt retuschiert (Higgsfield, GPT Image 2.5), Gesichter verglichen und unverändert |
@@ -25,6 +25,10 @@ Die Unsplash License erlaubt Bearbeitung; sie ist keine Model-, Property- oder M
 ---
 
 ## Historie
+
+RC3 (2026-10-26): Responsive Auslieferung, Quellen und Handy-Ausschnitte sind in
+`RESPONSIVE_IMAGES.md`, `responsive-assets.json` und `ASSET_AUDIT.md` dokumentiert.
+Die nachstehenden 4×-Angaben beschreiben historische Stände, nicht die aktuelle Auslieferung.
 
 ## Stand v1 (2026-10-23, ersetzt)
 

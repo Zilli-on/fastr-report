@@ -1,0 +1,1023 @@
+{
+  "assets/after-the-run.webp": {
+    "source": "site/assets/after-the-run.webp",
+    "source_sha256": "807364cf90a7b283304707b93194110fe7c519ac6ae53a5f6b21f8ae43c02bfe",
+    "source_pixels": [
+      1373,
+      485
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "preserved; CSS unchanged",
+    "crop_pixels": [
+      1373,
+      485
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/after-the-run-640.webp",
+        "width": 640,
+        "height": 226,
+        "bytes": 14436
+      },
+      {
+        "file": "assets/responsive/after-the-run-1080.webp",
+        "width": 1080,
+        "height": 382,
+        "bytes": 23876
+      },
+      {
+        "file": "assets/responsive/after-the-run-1373.webp",
+        "width": 1373,
+        "height": 485,
+        "bytes": 32484
+      }
+    ],
+    "old_mean_luma_saturation": [
+      111.51,
+      28.29
+    ],
+    "mean_luma_saturation": [
+      111.57,
+      30.89
+    ]
+  },
+  "assets/frame-01-detail.webp": {
+    "source": "C:/Users/Fabien/og-sports-sources/masters/run-detail-clean.png",
+    "source_sha256": "3d6ca3f027778d971d3bcbeb61f16199da1187d7c38719cba8c89208b4f08829",
+    "source_pixels": [
+      1200,
+      1800
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "preserved; CSS unchanged",
+    "crop_pixels": [
+      1200,
+      1800
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/frame-01-detail-640.webp",
+        "width": 640,
+        "height": 960,
+        "bytes": 12622
+      },
+      {
+        "file": "assets/responsive/frame-01-detail-1080.webp",
+        "width": 1080,
+        "height": 1620,
+        "bytes": 32878
+      },
+      {
+        "file": "assets/responsive/frame-01-detail-1200.webp",
+        "width": 1200,
+        "height": 1800,
+        "bytes": 42234
+      }
+    ],
+    "old_mean_luma_saturation": [
+      29.02,
+      0.01
+    ],
+    "mean_luma_saturation": [
+      29.02,
+      0.01
+    ]
+  },
+  "assets/run-shadow.webp": {
+    "source": "C:/Users/Fabien/og-sports-sources/masters/run-shadow.jpg",
+    "source_sha256": "81170566a6e2f768abacf7b841369808dc17bd4164826eb7b91589190408ed73",
+    "source_pixels": [
+      7008,
+      4672
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "preserved; CSS unchanged",
+    "crop_pixels": [
+      7008,
+      4672
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/run-shadow-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 15492
+      },
+      {
+        "file": "assets/responsive/run-shadow-1080.webp",
+        "width": 1080,
+        "height": 720,
+        "bytes": 69034
+      },
+      {
+        "file": "assets/responsive/run-shadow-1600.webp",
+        "width": 1600,
+        "height": 1067,
+        "bytes": 187706
+      },
+      {
+        "file": "assets/responsive/run-shadow-2400.webp",
+        "width": 2400,
+        "height": 1600,
+        "bytes": 391804
+      },
+      {
+        "file": "assets/responsive/run-shadow-2880.webp",
+        "width": 2880,
+        "height": 1920,
+        "bytes": 532864
+      }
+    ],
+    "old_mean_luma_saturation": [
+      73.54,
+      0.01
+    ],
+    "mean_luma_saturation": [
+      73.53,
+      0.01
+    ]
+  },
+  "assets/frame-03-people.webp": {
+    "source": "C:/Users/Fabien/og-sports-sources/masters/community-ai.png",
+    "source_sha256": "698cc887d1de887c9d659629bf18b7f313af4b51441de930a1d460cb986874a6",
+    "source_pixels": [
+      2688,
+      1520
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "preserved; CSS unchanged",
+    "crop_pixels": [
+      2688,
+      1520
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/frame-03-people-640.webp",
+        "width": 640,
+        "height": 362,
+        "bytes": 45958
+      },
+      {
+        "file": "assets/responsive/frame-03-people-1080.webp",
+        "width": 1080,
+        "height": 611,
+        "bytes": 91050
+      },
+      {
+        "file": "assets/responsive/frame-03-people-1600.webp",
+        "width": 1600,
+        "height": 905,
+        "bytes": 147506
+      },
+      {
+        "file": "assets/responsive/frame-03-people-2400.webp",
+        "width": 2400,
+        "height": 1357,
+        "bytes": 244996
+      },
+      {
+        "file": "assets/responsive/frame-03-people-2688.webp",
+        "width": 2688,
+        "height": 1520,
+        "bytes": 281266
+      }
+    ],
+    "old_mean_luma_saturation": [
+      105.11,
+      105.28
+    ],
+    "mean_luma_saturation": [
+      105.11,
+      105.23
+    ]
+  },
+  "assets/photo-ritual.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_cS0W4GvUUDM.jpg",
+    "source_sha256": "065d82de7c3267aeefc957b41f3f888c2b030c2a09b4262a14cd6c37b476fc48",
+    "source_pixels": [
+      6000,
+      4000
+    ],
+    "crop": [
+      2300,
+      0,
+      5500,
+      4000
+    ],
+    "mobile_crop": null,
+    "grade": "p50 (v4)",
+    "crop_pixels": [
+      3200,
+      4000
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/photo-ritual-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 40808
+      },
+      {
+        "file": "assets/responsive/photo-ritual-1080.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 98274
+      },
+      {
+        "file": "assets/responsive/photo-ritual-1600.webp",
+        "width": 1600,
+        "height": 2000,
+        "bytes": 198532
+      },
+      {
+        "file": "assets/responsive/photo-ritual-2400.webp",
+        "width": 2400,
+        "height": 3000,
+        "bytes": 402632
+      },
+      {
+        "file": "assets/responsive/photo-ritual-2880.webp",
+        "width": 2880,
+        "height": 3600,
+        "bytes": 538810
+      }
+    ],
+    "old_mean_luma_saturation": [
+      26.1,
+      66.58
+    ],
+    "mean_luma_saturation": [
+      26.11,
+      66.65
+    ]
+  },
+  "assets/run-night.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_9FcKpisH7Bo.jpg",
+    "source_sha256": "89062a5769fda664b663bef99d5045edba34924500dc566a90e8f04cca009ff2",
+    "source_pixels": [
+      9520,
+      6336
+    ],
+    "crop": null,
+    "mobile_crop": [
+      2600,
+      0,
+      7668,
+      6335
+    ],
+    "grade": "p50 (v4)",
+    "crop_pixels": [
+      9520,
+      6336
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/run-night-640.webp",
+        "width": 640,
+        "height": 426,
+        "bytes": 12492
+      },
+      {
+        "file": "assets/responsive/run-night-1080.webp",
+        "width": 1080,
+        "height": 719,
+        "bytes": 24840
+      },
+      {
+        "file": "assets/responsive/run-night-1600.webp",
+        "width": 1600,
+        "height": 1065,
+        "bytes": 42086
+      },
+      {
+        "file": "assets/responsive/run-night-2400.webp",
+        "width": 2400,
+        "height": 1597,
+        "bytes": 71450
+      },
+      {
+        "file": "assets/responsive/run-night-2880.webp",
+        "width": 2880,
+        "height": 1917,
+        "bytes": 90808
+      }
+    ],
+    "mobile": [
+      {
+        "file": "assets/responsive/run-night-mobile-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 15686
+      },
+      {
+        "file": "assets/responsive/run-night-mobile-1080.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 31464
+      },
+      {
+        "file": "assets/responsive/run-night-mobile-1280.webp",
+        "width": 1280,
+        "height": 1600,
+        "bytes": 38588
+      },
+      {
+        "file": "assets/responsive/run-night-mobile-1600.webp",
+        "width": 1600,
+        "height": 2000,
+        "bytes": 53264
+      }
+    ],
+    "old_mean_luma_saturation": [
+      32.73,
+      43.1
+    ],
+    "mean_luma_saturation": [
+      32.67,
+      47.74
+    ]
+  },
+  "assets/pillar-run.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_3DJfakd6VoU.jpg",
+    "source_sha256": "250caaca0093f58795be83e2daa760f3fdd4731efa12df2345998b2d9d84b779",
+    "source_pixels": [
+      4000,
+      6000
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "p50 (v4)",
+    "crop_pixels": [
+      4000,
+      6000
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/pillar-run-640.webp",
+        "width": 640,
+        "height": 960,
+        "bytes": 13856
+      },
+      {
+        "file": "assets/responsive/pillar-run-1080.webp",
+        "width": 1080,
+        "height": 1620,
+        "bytes": 27498
+      },
+      {
+        "file": "assets/responsive/pillar-run-1600.webp",
+        "width": 1600,
+        "height": 2400,
+        "bytes": 48556
+      },
+      {
+        "file": "assets/responsive/pillar-run-2400.webp",
+        "width": 2400,
+        "height": 3600,
+        "bytes": 91760
+      },
+      {
+        "file": "assets/responsive/pillar-run-2880.webp",
+        "width": 2880,
+        "height": 4320,
+        "bytes": 121336
+      }
+    ],
+    "old_mean_luma_saturation": [
+      88.46,
+      39.89
+    ],
+    "mean_luma_saturation": [
+      88.4,
+      40.61
+    ]
+  },
+  "assets/pillar-practice.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_mZixsK8OnmE.jpg",
+    "source_sha256": "2085a67aeba6abb406a2252020d62c8c830a2f3bbdeada25df18d04f53e267e8",
+    "source_pixels": [
+      5304,
+      7952
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "p50 (v4)",
+    "crop_pixels": [
+      5304,
+      7952
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/pillar-practice-640.webp",
+        "width": 640,
+        "height": 960,
+        "bytes": 28478
+      },
+      {
+        "file": "assets/responsive/pillar-practice-1080.webp",
+        "width": 1080,
+        "height": 1619,
+        "bytes": 61382
+      },
+      {
+        "file": "assets/responsive/pillar-practice-1600.webp",
+        "width": 1600,
+        "height": 2399,
+        "bytes": 106162
+      },
+      {
+        "file": "assets/responsive/pillar-practice-2400.webp",
+        "width": 2400,
+        "height": 3598,
+        "bytes": 185222
+      },
+      {
+        "file": "assets/responsive/pillar-practice-2880.webp",
+        "width": 2880,
+        "height": 4318,
+        "bytes": 245752
+      }
+    ],
+    "old_mean_luma_saturation": [
+      15.38,
+      67.61
+    ],
+    "mean_luma_saturation": [
+      15.41,
+      68.37
+    ]
+  },
+  "assets/pillar-meet.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_J154nEkpzlQ.jpg",
+    "source_sha256": "0d61bf99ae0389f3a530131d358705b14e030bd382afeca8cea02c3943d62916",
+    "source_pixels": [
+      5377,
+      3585
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "p50 (v4)",
+    "crop_pixels": [
+      5377,
+      3585
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/pillar-meet-640.webp",
+        "width": 640,
+        "height": 427,
+        "bytes": 70312
+      },
+      {
+        "file": "assets/responsive/pillar-meet-1080.webp",
+        "width": 1080,
+        "height": 720,
+        "bytes": 179718
+      },
+      {
+        "file": "assets/responsive/pillar-meet-1600.webp",
+        "width": 1600,
+        "height": 1067,
+        "bytes": 353456
+      },
+      {
+        "file": "assets/responsive/pillar-meet-2400.webp",
+        "width": 2400,
+        "height": 1600,
+        "bytes": 725114
+      },
+      {
+        "file": "assets/responsive/pillar-meet-2880.webp",
+        "width": 2880,
+        "height": 1920,
+        "bytes": 987080
+      }
+    ],
+    "old_mean_luma_saturation": [
+      101.38,
+      55.89
+    ],
+    "mean_luma_saturation": [
+      101.5,
+      56.27
+    ]
+  },
+  "assets/practice-start.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\pexels_13159243.jpg",
+    "source_sha256": "4f034ac304988480d14d270a116e7a0eb2db0694dd4aef4adca8c5d5828b60a9",
+    "source_pixels": [
+      3451,
+      5176
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "p50 (v4)",
+    "crop_pixels": [
+      3451,
+      5176
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/practice-start-640.webp",
+        "width": 640,
+        "height": 960,
+        "bytes": 58576
+      },
+      {
+        "file": "assets/responsive/practice-start-1080.webp",
+        "width": 1080,
+        "height": 1620,
+        "bytes": 130410
+      },
+      {
+        "file": "assets/responsive/practice-start-1600.webp",
+        "width": 1600,
+        "height": 2400,
+        "bytes": 243750
+      },
+      {
+        "file": "assets/responsive/practice-start-2400.webp",
+        "width": 2400,
+        "height": 3600,
+        "bytes": 661352
+      },
+      {
+        "file": "assets/responsive/practice-start-2880.webp",
+        "width": 2880,
+        "height": 4320,
+        "bytes": 952196
+      }
+    ],
+    "old_mean_luma_saturation": [
+      41.8,
+      131.39
+    ],
+    "mean_luma_saturation": [
+      41.65,
+      132.09
+    ]
+  },
+  "assets/wienerwald-ride.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_lf3g1p-7FP8.jpg",
+    "source_sha256": "22f1e6c58aac24f91955521a4e4a4c39b04b5451a7ab8da36dc3468dda75e417",
+    "source_pixels": [
+      3561,
+      4451
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "p50 (v4)",
+    "crop_pixels": [
+      3561,
+      4451
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/wienerwald-ride-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 86750
+      },
+      {
+        "file": "assets/responsive/wienerwald-ride-1080.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 207952
+      },
+      {
+        "file": "assets/responsive/wienerwald-ride-1600.webp",
+        "width": 1600,
+        "height": 2000,
+        "bytes": 398476
+      },
+      {
+        "file": "assets/responsive/wienerwald-ride-2400.webp",
+        "width": 2400,
+        "height": 3000,
+        "bytes": 752250
+      },
+      {
+        "file": "assets/responsive/wienerwald-ride-2880.webp",
+        "width": 2880,
+        "height": 3600,
+        "bytes": 1002060
+      }
+    ],
+    "old_mean_luma_saturation": [
+      57.24,
+      102.8
+    ],
+    "mean_luma_saturation": [
+      57.22,
+      103.1
+    ]
+  },
+  "assets/meet-night.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\pexels_35005203.jpg",
+    "source_sha256": "d378f5041557dbd6e25e156b8bd52e81f01889c08adfd05048f7d38fc0e4d10b",
+    "source_pixels": [
+      4000,
+      5000
+    ],
+    "crop": [
+      0,
+      1250,
+      4000,
+      3500
+    ],
+    "mobile_crop": [
+      0,
+      0,
+      4000,
+      5000
+    ],
+    "grade": "p50 (v4)",
+    "crop_pixels": [
+      4000,
+      2250
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/meet-night-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 8662
+      },
+      {
+        "file": "assets/responsive/meet-night-1080.webp",
+        "width": 1080,
+        "height": 608,
+        "bytes": 15978
+      },
+      {
+        "file": "assets/responsive/meet-night-1600.webp",
+        "width": 1600,
+        "height": 900,
+        "bytes": 26694
+      },
+      {
+        "file": "assets/responsive/meet-night-2400.webp",
+        "width": 2400,
+        "height": 1350,
+        "bytes": 51430
+      },
+      {
+        "file": "assets/responsive/meet-night-2880.webp",
+        "width": 2880,
+        "height": 1620,
+        "bytes": 76596
+      }
+    ],
+    "mobile": [
+      {
+        "file": "assets/responsive/meet-night-mobile-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 27312
+      },
+      {
+        "file": "assets/responsive/meet-night-mobile-1080.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 64642
+      },
+      {
+        "file": "assets/responsive/meet-night-mobile-1280.webp",
+        "width": 1280,
+        "height": 1600,
+        "bytes": 85410
+      },
+      {
+        "file": "assets/responsive/meet-night-mobile-1600.webp",
+        "width": 1600,
+        "height": 2000,
+        "bytes": 126628
+      }
+    ],
+    "old_mean_luma_saturation": [
+      6.78,
+      112.53
+    ],
+    "mean_luma_saturation": [
+      6.76,
+      111.24
+    ]
+  },
+  "assets/track-night.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_jsNI0bh5D-o.jpg",
+    "source_sha256": "59ab43765ede1b51f6e7e377d047d9925b9f398b5abb060b19eab66fa11e7866",
+    "source_pixels": [
+      3695,
+      2356
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "p50 (v4)",
+    "crop_pixels": [
+      3695,
+      2356
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/track-night-640.webp",
+        "width": 640,
+        "height": 408,
+        "bytes": 32544
+      },
+      {
+        "file": "assets/responsive/track-night-1080.webp",
+        "width": 1080,
+        "height": 689,
+        "bytes": 115770
+      },
+      {
+        "file": "assets/responsive/track-night-1600.webp",
+        "width": 1600,
+        "height": 1020,
+        "bytes": 305968
+      },
+      {
+        "file": "assets/responsive/track-night-2400.webp",
+        "width": 2400,
+        "height": 1530,
+        "bytes": 813502
+      },
+      {
+        "file": "assets/responsive/track-night-2880.webp",
+        "width": 2880,
+        "height": 1836,
+        "bytes": 1243038
+      }
+    ],
+    "old_mean_luma_saturation": [
+      40.08,
+      116.89
+    ],
+    "mean_luma_saturation": [
+      40.25,
+      114.43
+    ]
+  },
+  "assets/merch-01-black.jpg": {
+    "source": "site/assets/merch-01-black.jpg",
+    "source_sha256": "f56bee7097995f0e6604dc9365a43741095cb64780729769189b0287f8f597c8",
+    "source_pixels": [
+      660,
+      825
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "preserved; CSS unchanged",
+    "crop_pixels": [
+      660,
+      825
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/merch-01-black-320.webp",
+        "width": 320,
+        "height": 400,
+        "bytes": 6812
+      },
+      {
+        "file": "assets/responsive/merch-01-black-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 15176
+      },
+      {
+        "file": "assets/responsive/merch-01-black-660.webp",
+        "width": 660,
+        "height": 825,
+        "bytes": 15796
+      }
+    ],
+    "old_mean_luma_saturation": [
+      28.17,
+      13.22
+    ],
+    "mean_luma_saturation": [
+      28.3,
+      15.34
+    ]
+  },
+  "assets/merch-02-cherry-red.jpg": {
+    "source": "site/assets/merch-02-cherry-red.jpg",
+    "source_sha256": "96abaf3c558db2aa7ca801621f8d40e299232a70d4c4bf80f92c8a5275a81cef",
+    "source_pixels": [
+      660,
+      825
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "preserved; CSS unchanged",
+    "crop_pixels": [
+      660,
+      825
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/merch-02-cherry-red-320.webp",
+        "width": 320,
+        "height": 400,
+        "bytes": 10482
+      },
+      {
+        "file": "assets/responsive/merch-02-cherry-red-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 22886
+      },
+      {
+        "file": "assets/responsive/merch-02-cherry-red-660.webp",
+        "width": 660,
+        "height": 825,
+        "bytes": 24030
+      }
+    ],
+    "old_mean_luma_saturation": [
+      60.01,
+      127.9
+    ],
+    "mean_luma_saturation": [
+      60.02,
+      127.34
+    ]
+  },
+  "assets/merch-03-cobalt-blue.jpg": {
+    "source": "site/assets/merch-03-cobalt-blue.jpg",
+    "source_sha256": "9c44b4fdd9a539697eb58961740b12c8eac64ce4a6446816b96354de049e5cee",
+    "source_pixels": [
+      660,
+      825
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "preserved; CSS unchanged",
+    "crop_pixels": [
+      660,
+      825
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/merch-03-cobalt-blue-320.webp",
+        "width": 320,
+        "height": 400,
+        "bytes": 10606
+      },
+      {
+        "file": "assets/responsive/merch-03-cobalt-blue-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 23228
+      },
+      {
+        "file": "assets/responsive/merch-03-cobalt-blue-660.webp",
+        "width": 660,
+        "height": 825,
+        "bytes": 24454
+      }
+    ],
+    "old_mean_luma_saturation": [
+      62.68,
+      127.27
+    ],
+    "mean_luma_saturation": [
+      62.72,
+      126.54
+    ]
+  },
+  "assets/merch-04-emerald-green.jpg": {
+    "source": "site/assets/merch-04-emerald-green.jpg",
+    "source_sha256": "4204859ede7260632352d0d57eb82929d20b2f9be99c28b13a177983b979fcd2",
+    "source_pixels": [
+      660,
+      825
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "preserved; CSS unchanged",
+    "crop_pixels": [
+      660,
+      825
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/merch-04-emerald-green-320.webp",
+        "width": 320,
+        "height": 400,
+        "bytes": 8962
+      },
+      {
+        "file": "assets/responsive/merch-04-emerald-green-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 19832
+      },
+      {
+        "file": "assets/responsive/merch-04-emerald-green-660.webp",
+        "width": 660,
+        "height": 825,
+        "bytes": 20624
+      }
+    ],
+    "old_mean_luma_saturation": [
+      55.66,
+      115.64
+    ],
+    "mean_luma_saturation": [
+      55.69,
+      115.61
+    ]
+  },
+  "assets/merch-05-lavender.jpg": {
+    "source": "site/assets/merch-05-lavender.jpg",
+    "source_sha256": "fba34be577dc8b9c0738aa98d41fa0e676ab13795b2455be6a88995adf8bf748",
+    "source_pixels": [
+      660,
+      825
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "preserved; CSS unchanged",
+    "crop_pixels": [
+      660,
+      825
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/merch-05-lavender-320.webp",
+        "width": 320,
+        "height": 400,
+        "bytes": 7800
+      },
+      {
+        "file": "assets/responsive/merch-05-lavender-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 19018
+      },
+      {
+        "file": "assets/responsive/merch-05-lavender-660.webp",
+        "width": 660,
+        "height": 825,
+        "bytes": 20354
+      }
+    ],
+    "old_mean_luma_saturation": [
+      120.6,
+      36.99
+    ],
+    "mean_luma_saturation": [
+      120.69,
+      36.53
+    ]
+  },
+  "assets/merch-06-butter-yellow.jpg": {
+    "source": "site/assets/merch-06-butter-yellow.jpg",
+    "source_sha256": "6d491ec6cf854e6e5792e4f23252e9344184e8ff3e4f4e9c1322451263e580e0",
+    "source_pixels": [
+      660,
+      825
+    ],
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "preserved; CSS unchanged",
+    "crop_pixels": [
+      660,
+      825
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/merch-06-butter-yellow-320.webp",
+        "width": 320,
+        "height": 400,
+        "bytes": 9118
+      },
+      {
+        "file": "assets/responsive/merch-06-butter-yellow-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 21528
+      },
+      {
+        "file": "assets/responsive/merch-06-butter-yellow-660.webp",
+        "width": 660,
+        "height": 825,
+        "bytes": 22842
+      }
+    ],
+    "old_mean_luma_saturation": [
+      137.16,
+      36.42
+    ],
+    "mean_luma_saturation": [
+      137.29,
+      35.83
+    ]
+  }
+}

@@ -26,7 +26,7 @@ from pathlib import Path
 from urllib.request import urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
-QA = ROOT / "qa"
+QA = Path(os.environ.get("OG_QA_DIR", str(ROOT / "qa")))
 WIDTHS = (320, 360, 390, 768, 1024, 1440, 1920)
 EXTRA = ((1280, 640),)  # short landscape window
 STANDARDS = [
@@ -42,7 +42,7 @@ PROJECTS = ["challenge", "apparel", "live", "stick"]
 LIMITS = [
     "Chromium only; Safari, Firefox and real devices are not covered",
     "Automated contrast and target checks are partial; no full WCAG audit",
-    "The 4x hero copy is a Lanczos resample: larger, not more detailed",
+    "Hero source is only 1373x485; responsive delivery cannot recover missing detail",
     "Reference photo licences do not confirm model, property or trademark releases",
     "Local static server, not Vercel or production",
 ]
@@ -159,13 +159,38 @@ def site(browser, base, report):
         load(page, base)
         m = page.evaluate(MEASURE)
         where = f"{width}x{height}"
+        responsive = page.locator('main img[srcset]').evaluate_all('''imgs => imgs.map(i => ({
+          src: i.getAttribute('src'), selected: i.currentSrc.split('/').pop(),
+          candidates: (i.closest('picture') && innerWidth < 768 ? i.closest('picture').querySelector('source').srcset : i.srcset),
+          sized: !!i.sizes && +i.getAttribute('width') > 0 && +i.getAttribute('height') > 0
+        }))''')
+        check(len(responsive) == 20, (where, 'all photo/render instances responsive', len(responsive)))
+        for image in responsive:
+            check(image['sized'] and image['selected'] in image['candidates'], (where, image))
+            if image['src'] in ('assets/run-night.webp', 'assets/meet-night.webp'):
+                check(('-mobile-' in image['selected']) == (width < 768), (where, 'mobile art direction', image))
+        boxes = page.locator('.pillar').evaluate_all('es => es.map(e => {const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height};})')
+        label_collisions = page.locator('.pillar').evaluate_all('''es => es.filter(e => {
+          const num=e.querySelector('.pillar-num').getBoundingClientRect();
+          const label=e.querySelector('.pillar-kind').getBoundingClientRect();
+          return label.left < num.right + 4;
+        }).map(e => e.className)''')
+        check(not label_collisions, (where, 'pillar label/number overlap', label_collisions))
+        if width < 768:
+            check(all(abs(b['w']/b['h']-.8)<.001 for b in boxes), (where, '4:5 pillars', boxes))
+            check(all(abs(b['x']-boxes[0]['x'])<1 for b in boxes), (where, 'one column', boxes))
+            check(all(b['y']>=a['y']+a['h'] for a,b in zip(boxes, boxes[1:])), (where, 'stacked pillars', boxes))
+        elif width < 900:
+            check(abs(boxes[1]['y']-boxes[2]['y'])<1 and abs(boxes[3]['y']-boxes[4]['y'])<1 and boxes[0]['w']>boxes[1]['w']*1.9, (where, 'existing tablet mosaic', boxes))
+        else:
+            check(abs(boxes[0]['y']-boxes[1]['y'])<1 and abs(boxes[2]['y']-boxes[4]['y'])<1, (where, '2+3 mosaic', boxes))
         check(
             m["scrollWidth"] <= width + 1,
             (where, "horizontal overflow", m["scrollWidth"]),
         )
         check(
-            m["hero"] == "assets/after-the-run-display-4x.webp"
-            and m["natural"] == [5492, 1940],
+            m["hero"] == "assets/after-the-run.webp"
+            and m["natural"][0] > 0,
             (where, "hero", m["hero"]),
         )
         check(
@@ -322,11 +347,11 @@ def site(browser, base, report):
             ):
                 path = QA / f"{NAMES['site'][1]}-{name}-{width}.png"
                 page.locator(selector).screenshot(path=str(path))
-                report["screenshots"].append(str(path.relative_to(ROOT)))
+                report["screenshots"].append(str(path))
             path = QA / f"{NAMES['site'][1]}-full-{width}.png"
             page.evaluate("scrollTo(0,0)")
             page.screenshot(path=str(path), full_page=True)
-            report["screenshots"].append(str(path.relative_to(ROOT)))
+            report["screenshots"].append(str(path))
         report["cases"].append(
             {
                 "viewport": where,
@@ -346,7 +371,7 @@ def artefacts(browser, base, report):
         load(page, base)
         plates = page.evaluate(r"""() => ({
           motionClass: document.documentElement.classList.contains('motion-ok'),
-          images: [...document.querySelectorAll('main img[src$=".webp"], main img[src$=".jpg"]')].map(i => [i.getAttribute('src'), i.naturalWidth]),
+          images: [...document.querySelectorAll('main img[src$=".webp"], main img[src$=".jpg"]')].map(i => [i.getAttribute('src'), i.naturalWidth > 0 && i.complete]),
           rows: document.querySelectorAll('.practice-field .field-rows li').length,
           cells: [...document.querySelectorAll('.practice-field .field-cells')].map(c => getComputedStyle(c, '::after').clipPath),
           colourways: [...document.querySelectorAll('.colourways li')].map(l => l.textContent.trim()),
@@ -356,21 +381,21 @@ def artefacts(browser, base, report):
           captions: [...document.querySelectorAll('main figcaption, main .frame-caption')].map(c => c.textContent.trim())
         })""")
         check(not plates["motionClass"], (where, "reduced motion must not arm animations"))
-        widths = dict(plates["images"])
-        for src, minimum in (
-            ("assets/frame-01-detail.webp", 1200),
-            ("assets/frame-03-people.webp", 2400),
-            ("assets/run-night.webp", 2400),
-            ("assets/meet-night.webp", 2400),
-            ("assets/track-night.webp", 2000),
-            ("assets/pillar-run.webp", 1400),
-            ("assets/photo-ritual.webp", 1600),
-            ("assets/merch-01-black.jpg", 660),
-            ("assets/merch-06-butter-yellow.jpg", 660),
-            ("assets/stick-lime.jpg", 880),
-            ("assets/stick-exploded.jpg", 472),
+        loaded = dict(plates["images"])
+        for src in (
+            "assets/frame-01-detail.webp",
+            "assets/frame-03-people.webp",
+            "assets/run-night.webp",
+            "assets/meet-night.webp",
+            "assets/track-night.webp",
+            "assets/pillar-run.webp",
+            "assets/photo-ritual.webp",
+            "assets/merch-01-black.jpg",
+            "assets/merch-06-butter-yellow.jpg",
+            "assets/stick-lime.jpg",
+            "assets/stick-exploded.jpg",
         ):
-            check(widths.get(src, 0) >= minimum, (where, "image missing or too small", src, widths.get(src)))
+            check(loaded.get(src, False), (where, "image missing or broken", src))
         check(
             plates["rows"] == 7
             and all(c in ("none", "inset(0px)", "inset(0px 0px 0px 0px)") for c in plates["cells"]),
@@ -428,7 +453,7 @@ def artefacts(browser, base, report):
         )
         path = QA / f"{NAMES['artefacts'][1]}-story-stick-{width}.png"
         page.screenshot(path=str(path))
-        report["screenshots"].append(str(path.relative_to(ROOT)))
+        report["screenshots"].append(str(path))
         page.close()
         # motion: armed, then complete once seen
         page = new_page(browser, base, report, width, height, motion=True)
@@ -462,7 +487,7 @@ def artefacts(browser, base, report):
         ):
             path = QA / f"{NAMES['artefacts'][1]}-{name}-{width}.png"
             page.locator(selector).screenshot(path=str(path))
-            report["screenshots"].append(str(path.relative_to(ROOT)))
+            report["screenshots"].append(str(path))
         report["cases"].append({"viewport": where, "status": "passed"})
         page.close()
 

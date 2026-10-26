@@ -98,7 +98,8 @@
     "operation": "Pillow Lanczos 4× and mild UnsharpMask; not AI super-resolution",
     "recovers_missing_detail": false,
     "original_sha256": "807364cf90a7b283304707b93194110fe7c519ac6ae53a5f6b21f8ae43c02bfe",
-    "display_sha256": "63fe1536cc9ced2be55f86259be49fb0cbff1b2fa47c5429811029f524cfc3f2"
+    "display_sha256": "63fe1536cc9ced2be55f86259be49fb0cbff1b2fa47c5429811029f524cfc3f2",
+    "status": "Historical interpolated asset, no longer used on the homepage. RC3 serves source-based WebPs up to 1373x485; see responsive-assets.json."
   },
   "visible_homepage_photographs": [
     "run-detail",
