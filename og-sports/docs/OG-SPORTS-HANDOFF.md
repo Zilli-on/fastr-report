@@ -53,3 +53,19 @@ for the next session. (`docs/HANDOFF.md` is an unrelated migration note from 21.
 ## Boundaries
 - **Forbidden scope**: no merge to master, no deploy, no posting, no mails/accounts, no new paid services (Higgsfield credits for OG images are approved — report use: 0.5 today); do not touch other repos; do not replace Fabi's protected picks (opening, strip 01–03) — retouching third-party marks is allowed; do not link Strava/Instagram/Telegram or the STICK pre-order until Fabi answers; nothing invented (no events, partners, numbers, prices); FASTR is a sprint club (no "every pace").
 - **Next first step (exact)**: run `baton quota`, then capture R2 from `9df8174` (`capture.py --ref 9df8174 --round R2 --version A`), look at the sheets yourself (stick boards, temple, way in at 390/1440), then start the four R2 reviews and compare with R1 in `docs/RC9_RESULT.md`.
+
+
+## Update 2026-10-27 ~15:30 (same session, continued on Fabi's word „weiter bis 10/10 … davor nicht aufhören")
+
+- R2 on RC10 `9df8174`: Codex 6.88 / 6.38, Kimi 7.12 / 7.25. RC11 `b951fd3` pushed (people carry the way in,
+  quiet light voice for temple + way in, nav „Säulen 05", gaps). R3 on RC11: Codex 6.88 / 6.88, Kimi 7.75 / 8.00.
+  Scores and findings: `docs/RC9_RESULT.md`.
+- RC12 in the working tree (not yet committed when this was written): hero note names OG SPORTS → FASTR sprint
+  club; run copy „Kurz. Schnell. Gemeinsam. FASTR ist unser Sprint-Club."; manifest photo 1/7 + lines centred;
+  FASTR30 one primary action; „Anfangen" as a lime band, other doors smaller; Make static = three stills of our
+  own 3D model (`site/assets/stick-{form,build,function}.webp`, `rc9-candidates/stick3d/render_states.py`), temple
+  Make tile = 3D section; tablet 768–899 full-bleed people chapters 4:3; phone strip captions below the photos;
+  `stick-pink.jpg` removed again (unused).
+- Next first step: `npm test`, both `--check`s, commit RC12, push (retry loop), then R3→R4:
+  `capture.py --ref <sha> --round R4 --version A` and `bash run_pair.sh R4 A`.
+- Fabi asked to be sent the link only when 10/10 is reached (reviewers ≥ 9 everywhere, repeat runs, own 10/10).

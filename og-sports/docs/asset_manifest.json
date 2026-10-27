@@ -215,14 +215,6 @@
       "type": "AI visualisation",
       "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-lavender.png",
       "responsive_manifest": "docs/responsive-assets.json"
-    },
-    {
-      "file": "assets/stick-pink.jpg",
-      "bytes": 69046,
-      "sha256": "f92f0ba3b81b851d92ba03fb783471dfa834bb3a20bdfc1cdbd3facbe28d378b",
-      "use": "Säule IV Make",
-      "type": "3D product render, unchanged from fastr30.com/shop",
-      "source": "C:/Users/Fabien/fastr30-website/website/assets/img/stick-pink.jpg (byte-identical)"
     }
   ],
   "fonts": [
