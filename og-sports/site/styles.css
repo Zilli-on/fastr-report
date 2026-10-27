@@ -167,6 +167,7 @@ ol, ul { padding: 0; list-style: none; }
   font: 500 .6875rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase;
 }
 .tile-label { font: 700 .8125rem/1 var(--sans); letter-spacing: .1em; }
+.tile-detail figcaption { flex-direction: column; align-items: flex-start; gap: 8px; }
 .tile figcaption a { display: inline-flex; align-items: center; min-height: 24px; opacity: .85; }
 .tile figcaption a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
 
@@ -244,15 +245,16 @@ ol, ul { padding: 0; list-style: none; }
 .band-half { display: flex; flex: none; }
 .band-half span { flex: none; padding: .16em clamp(14px, 2.5vw, 34px) .1em; font: italic 800 clamp(1.875rem, 5.2vw, 4.25rem)/.92 var(--wide); font-stretch: 125%; text-transform: uppercase; letter-spacing: -.01em; white-space: nowrap; }
 @keyframes bandlauf { to { transform: translate3d(-50%, 0, 0); } }
-.practice-intro { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 22px; align-items: start; }
-.practice-intro > .label { grid-column: 7 / 13; grid-row: 1; }
-.practice-photo { grid-column: 1 / 6; grid-row: 2 / 7; }
-.practice-photo img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; }
+/* the copy stands on the photo's baseline: no empty column beside the picture */
+.practice-intro { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: 1fr repeat(4, auto); column-gap: var(--gap); row-gap: 22px; align-items: start; }
+.practice-intro > .label { grid-column: 7 / 13; grid-row: 1; align-self: end; }
+.practice-photo { grid-column: 1 / 6; grid-row: 1 / 6; }
+.practice-photo img { width: 100%; height: auto; aspect-ratio: 5 / 4; object-fit: cover; object-position: 50% 62%; }
 .practice-photo figcaption { display: flex; justify-content: space-between; gap: 12px; padding-top: 10px; }
 .practice h3 { grid-column: 7 / 13; grid-row: 2; align-self: end; font-style: italic; font-weight: 800; font-stretch: 125%; font-size: clamp(3rem, 7vw, 7.25rem); line-height: .84; color: var(--lime); letter-spacing: -.02em; }
-.practice-claim { grid-column: 7 / 13; font-family: var(--wide); font-style: italic; font-weight: 800; font-stretch: 125%; font-size: var(--t-m); line-height: 1.05; text-transform: uppercase; letter-spacing: -.01em; }
-.practice-copy { grid-column: 7 / 13; color: var(--on-ink-muted); max-width: 34ch; }
-.practice-actions { grid-column: 7 / 13; display: flex; flex-wrap: wrap; gap: 0 28px; }
+.practice-claim { grid-column: 7 / 13; grid-row: 3; font-family: var(--wide); font-style: italic; font-weight: 800; font-stretch: 125%; font-size: var(--t-m); line-height: 1.05; text-transform: uppercase; letter-spacing: -.01em; }
+.practice-copy { grid-column: 7 / 13; grid-row: 4; color: var(--on-ink-muted); max-width: 34ch; }
+.practice-actions { grid-column: 7 / 13; grid-row: 5; display: flex; flex-wrap: wrap; gap: 0 28px; }
 .practice-actions a.text-action::after { display: none; }
 .practice-actions a.text-action span + span { font-size: 1rem; }
 .practice-field { margin-top: clamp(64px, 8vw, 128px); }
@@ -268,7 +270,6 @@ ol, ul { padding: 0; list-style: none; }
 .apparel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 80px); align-items: center; padding-bottom: var(--chapter); }
 .apparel .project-head { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; margin: 0; }
 .apparel h3 { font-style: italic; font-weight: 800; font-stretch: 125%; font-size: clamp(2.75rem, 5.8vw, 6rem); line-height: .9; }
-.apparel-earned { font: italic 800 var(--t-m)/1 var(--wide); text-transform: uppercase; letter-spacing: -.01em; }
 .apparel-actions { display: flex; flex-wrap: wrap; gap: 0 28px; }
 .apparel-actions a.text-action::after, .stick-actions a.text-action::after { display: none; }
 .apparel-actions a.text-action span + span, .stick-actions a.text-action span + span { font-size: 1rem; }
@@ -292,21 +293,16 @@ ol, ul { padding: 0; list-style: none; }
   .hoodie-colors { gap: 2px; }
 }
 
-/* 07 — Meet: the OG SPORTS lavender. No pictures of events that have not happened yet. */
+/* V — Meet: the last chapter. People, then the way in; the foot already stands on the night of the way in. */
 .live { padding: 0; }
 .live-photo { height: clamp(520px, 92svh, 1000px); }
 .project .bleed .bleed-caption, .project .bleed .bleed-top .label { color: rgba(240, 239, 234, .86); }
 .live h3 { position: absolute; left: var(--gutter); bottom: clamp(56px, 7vw, 104px); font-size: var(--t-hero); color: #fff; }
-.live-verbs-line { grid-column: 1 / 7; font: 750 var(--t-m)/1.1 var(--wide); font-stretch: 112%; text-transform: uppercase; letter-spacing: -.01em; }
-.live-foot { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 20px; align-items: end; padding: clamp(40px, 5vw, 72px) var(--gutter) var(--chapter); }
-.live-foot .project-copy { grid-column: 1 / 7; color: var(--muted); }
+.live-foot { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 20px; align-items: end; padding: clamp(32px, 4vw, 56px) var(--gutter); background: var(--ink); color: var(--on-ink); border-bottom: 1px solid var(--rule-ink); }
+.live-foot .project-copy { grid-column: 1 / 7; color: var(--on-ink-muted); }
 .live-foot .text-action { grid-column: 10 / 13; justify-self: end; }
-@media (min-width: 900px) {
-  /* Separate Meet and Make headlines by a full 900px viewport at 1440px. */
-  .live-foot { padding-bottom: calc(var(--chapter) + 36svh); }
-}
 
-/* V — Make: one pinned product stage, with real DOM copy alongside. */
+/* IV — Make: one pinned product stage, with real DOM copy alongside. */
 .stick { padding-bottom: var(--chapter); }
 .stick-heading { padding-bottom: 36px; display: grid; gap: 18px; }
 .stick h3 { font-size: clamp(2.5rem, 6.5vw, 7rem); font-style: italic; }
@@ -365,26 +361,23 @@ ol, ul { padding: 0; list-style: none; }
   .stick.is-ready .stick-stage { position: static; height: auto; }
 }
 
-/* 9 ─ The way in, and the signature. Symmetric like the temple; three doors, lime for FASTR30, lavender for OG SPORTS */
+/* 9 ─ The way in, and the signature. It follows the people of Meet; three doors as rows, like the seven standards.
+   Lime for the FASTR30 door, lavender for the two OG SPORTS doors. */
 .connect { padding: var(--chapter) var(--gutter) clamp(80px, 9vw, 150px); background: var(--ink); color: var(--on-ink); text-align: center; }
 .connect .label { color: var(--on-ink-muted); }
 .connect-head { display: flex; flex-direction: column; align-items: center; gap: 24px; margin-bottom: clamp(48px, 6vw, 96px); }
 .connect h2 { font-size: var(--t-xl); }
 .connect-copy { max-width: 40ch; font-size: var(--t-lead); line-height: 1.45; color: var(--on-ink-muted); }
-.connect-photo { margin: 0 calc(-1 * var(--gutter)) clamp(40px, 5vw, 72px); }
-.connect-photo img { width: 100%; height: auto; aspect-ratio: 21 / 9; object-fit: cover; }
-.connect-photo figcaption { display: flex; justify-content: space-between; gap: 12px; padding: 10px var(--gutter) 0; color: var(--on-ink-muted); }
-.connect-ways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; text-align: left; }
-.connect-ways li { display: flex; }
-.way { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; width: 100%; min-height: clamp(240px, 24vw, 340px); padding: 24px 24px 22px; background: var(--ink-raised); border-top: 3px solid var(--lavender-light); text-align: left; transition: background .3s; }
-.connect-ways li:first-child .way { border-top-color: var(--lime); }
-.way:hover, .way:focus-visible { background: #24271f; }
+.connect-ways { border-top: 1px solid var(--rule-ink); text-align: left; }
+.connect-ways li { border-bottom: 1px solid var(--rule-ink); }
+.way { display: grid; grid-template-columns: 4.5rem minmax(0, 1.7fr) minmax(0, 1fr) auto; align-items: center; column-gap: var(--gap); width: 100%; padding: clamp(22px, 2.6vw, 40px) 0; text-align: left; }
 .way-num { font: 500 .6875rem var(--mono); letter-spacing: .08em; color: var(--on-ink-muted); }
-.way-title { font: 750 clamp(1.5rem, 2.6vw, 2.75rem)/.95 var(--wide); font-stretch: 112%; text-transform: uppercase; letter-spacing: -.02em; transition: transform .35s var(--ease); }
+.way-title { font: 750 clamp(1.875rem, 3.9vw, 4rem)/.92 var(--wide); font-stretch: 112%; text-transform: uppercase; letter-spacing: -.02em; transition: transform .35s var(--ease), color .25s; }
 .connect-ways li:first-child .way-title { font-style: italic; font-weight: 800; font-stretch: 125%; color: var(--lime); }
-.way-note { font-size: .9375rem; line-height: 1.45; color: var(--on-ink-muted); max-width: 30ch; }
-.way-go { margin-top: auto; font: 500 .6875rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
-.way:hover .way-title, .way:focus-visible .way-title { transform: translateX(8px); }
+.way-note { font-size: .9375rem; line-height: 1.45; color: var(--on-ink-muted); max-width: 34ch; }
+.way-go { justify-self: end; font: 500 .6875rem/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+.way:hover .way-title, .way:focus-visible .way-title { transform: translateX(10px); }
+.connect-ways li + li .way:hover .way-title, .connect-ways li + li .way:focus-visible .way-title { color: var(--lavender-light); }
 
 .footer { background: var(--ink); color: var(--on-ink); padding: 0 var(--gutter) 28px; }
 .footer-mark { width: 100%; height: auto; filter: invert(1); padding-top: 24px; border-top: 1px solid var(--rule-ink); }
@@ -520,22 +513,24 @@ dialog::backdrop { background: rgba(14, 15, 13, .55); backdrop-filter: blur(6px)
   .practice h3 { font-size: clamp(2.5rem, 14.5vw, 5.5rem); }
   .field-rows li { grid-template-columns: 3rem minmax(0, 1fr); }
   .std-rule { grid-column: 2 / -1; }
-  .apparel h3, .apparel .project-head .project-copy, .apparel-earned, .apparel-actions { grid-column: 1 / -1; grid-row: auto; }
+  .apparel h3, .apparel .project-head .project-copy, .apparel-actions { grid-column: 1 / -1; grid-row: auto; }
   .apparel h3 { font-size: clamp(2rem, 11vw, 5rem); }
-  .live-verbs-line { grid-column: 1 / -1; }
+  .practice-intro { grid-template-rows: none; }
   .practice-photo, .practice-intro > .label { grid-column: 1 / -1; grid-row: auto; }
+  .practice-photo img { aspect-ratio: 4 / 5; object-position: 50% 50%; }
   .pillars { grid-template-columns: 1fr 1fr; }
   .pillar, .pillar:nth-child(-n+2) { grid-column: span 1; aspect-ratio: 4 / 5; }
   .pillar:first-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
-  .connect-photo img { aspect-ratio: 16 / 10; }
   .live-foot .project-copy, .live-foot .text-action { grid-column: 1 / -1; justify-self: start; }
-  .connect-ways { grid-template-columns: 1fr; }
-  .way { min-height: 0; padding: 22px 20px 20px; }
-  .way-go { margin-top: 10px; }
+  .way { grid-template-columns: 2.75rem minmax(0, 1fr); row-gap: 10px; padding: 24px 0; }
+  .way-note, .way-go { grid-column: 2; justify-self: start; }
   .story-head h2, .story-intro, .story-body h3, .story-body-text { grid-column: 1 / -1; }
   .story-pillars { grid-template-columns: 1fr; }
   .photo-inspector { grid-template-columns: 1fr; }
   .menu-foot { flex-direction: column; }
+}
+@media (min-width: 601px) and (max-width: 899px) {
+  .manifest-photo img, .practice-photo img { aspect-ratio: 4 / 3; }
 }
 @media (max-width: 767px) {
   .pillars { grid-template-columns: minmax(0, 1fr); }

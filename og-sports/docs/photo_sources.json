@@ -78,33 +78,30 @@
       "edit": "race bibs, ribbons, shirt prints and banner text removed by AI-assisted retouch (Higgsfield, GPT Image 2.5); faces compared, unchanged"
     },
     {
-      "key": "run-night",
-      "photographer": "Iliya Jokic (@iliya9)",
-      "source_url": "https://unsplash.com/photos/BcJyBN4jDHY",
+      "key": "run-crew",
+      "photographer": "Hansheng Zhao",
+      "source_url": "https://unsplash.com/photos/9FcKpisH7Bo",
       "license": "Unsplash License (https://unsplash.com/license)",
       "label": "Symbolbild",
-      "local_file": "assets/run-night.webp",
-      "sha256": "b7c4d31e23b5ccb08e3b30c8f0c3169193df7dc2244d6d939f4e935b1df44870",
-      "source": "C:\\Users\\Fabien\\og-sports-sources\\rc7-candidates\\run-night\\R3_unsplash_BcJyBN4jDHY.jpg",
-      "source_sha256": "f7664240f972220aa6cd9db3edb25835a2fd7285ee6a502254150cd0d3e53940",
+      "local_file": "assets/run-crew.webp",
+      "sha256": "499329ee80eb439d99455189f621237c55d5157bb6b7cd533145ea4e849161c6",
+      "source": "C:/Users/Fabien/og-sports-sources/rc9-candidates/run-crew/RC1_retouched.png",
+      "source_sha256": "5ec9adacd0e11ff21ed146e2e00be467db9caf7d4cc7f44bd87e43614dd2619a",
+      "original_source": "C:/Users/Fabien/og-sports-sources/v4-candidates/web/unsplash_9FcKpisH7Bo.jpg",
+      "original_source_sha256": "89062a5769fda664b663bef99d5045edba34924500dc566a90e8f04cca009ff2",
       "source_pixels": [
-        5184,
-        3456
+        9520,
+        6336
       ],
-      "crop": [
-        0,
-        0,
-        5184,
-        3456
-      ],
+      "crop": null,
       "mobile_crop": [
-        1100,
+        2900,
         0,
-        3864,
-        3455
+        7969,
+        6336
       ],
-      "edit": "p50 (v4), resize then grade, WebP Q82/method 6; no retouch",
-      "status": "shown on the homepage; illustrative photo, no OG event or membership implied"
+      "edit": "illegible singlet print softened (rc9-candidates/run-crew/retouch_rc1.py); neutral black and white, no p50 tint; resize, WebP Q82/method 6",
+      "status": "shown on the homepage, I Run (RC9); illustrative photo, no OG event or membership implied"
     },
     {
       "key": "pillar-meet",

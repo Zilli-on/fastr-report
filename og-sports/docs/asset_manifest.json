@@ -131,12 +131,12 @@
       "source": "Gabin Vallet, https://unsplash.com/photos/J154nEkpzlQ"
     },
     {
-      "file": "assets/run-night.webp",
-      "bytes": 71498,
-      "sha256": "d4f520c1ca951d3084fb62885c67be81c158d051bbac3d92171fdaf4b904fd7e",
+      "file": "assets/run-crew.webp",
+      "bytes": 75646,
+      "sha256": "499329ee80eb439d99455189f621237c55d5157bb6b7cd533145ea4e849161c6",
       "use": "I Run",
       "type": "Licensed photograph (Unsplash License), illustrative",
-      "source": "Hansheng Zhao, https://unsplash.com/photos/9FcKpisH7Bo"
+      "source": "Hansheng Zhao, https://unsplash.com/photos/9FcKpisH7Bo (singlet print softened)"
     },
     {
       "file": "assets/practice-start.webp",
@@ -153,14 +153,6 @@
       "use": "IV Meet",
       "type": "Licensed photograph (Unsplash License), illustrative",
       "source": "Fitsum Admasu, https://unsplash.com/photos/silhouette-of-three-women-running-on-grey-concrete-road-oGv9xIl7DkY"
-    },
-    {
-      "file": "assets/track-night.webp",
-      "bytes": 527198,
-      "sha256": "010b38d27ac8fd2e6b165f16fb83e6b8eac42f50be98a390e6685280d221e9f8",
-      "use": "Eingang",
-      "type": "Licensed photograph (Unsplash License), illustrative",
-      "source": "Mikhail K, https://unsplash.com/photos/jsNI0bh5D-o"
     },
     {
       "file": "assets/stick.glb",
@@ -223,6 +215,14 @@
       "type": "AI visualisation",
       "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-lavender.png",
       "responsive_manifest": "docs/responsive-assets.json"
+    },
+    {
+      "file": "assets/stick-pink.jpg",
+      "bytes": 69046,
+      "sha256": "f92f0ba3b81b851d92ba03fb783471dfa834bb3a20bdfc1cdbd3facbe28d378b",
+      "use": "Säule IV Make",
+      "type": "3D product render, unchanged from fastr30.com/shop",
+      "source": "C:/Users/Fabien/fastr30-website/website/assets/img/stick-pink.jpg (byte-identical)"
     }
   ],
   "fonts": [

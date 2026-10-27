@@ -10,7 +10,7 @@
   const contactDialog = document.getElementById('contact-dialog');
   const photoDialog = document.getElementById('photo-dialog');
   const languageButton = document.querySelector('.site-header .language');
-  const order = ['challenge', 'apparel', 'live', 'stick'];
+  const order = ['challenge', 'apparel', 'stick', 'live'];
   const openers = new WeakMap();
   let lang = 'de';
   let activeProject = null;
@@ -245,14 +245,14 @@
     (dialog === projectDialog ? dialog.querySelector('#project-dialog-title') : dialog.querySelector('[data-close]'))?.focus({preventScroll: true});
   }
 
-  // Image notes: the opening image is shown as its unchanged original file.
+  // Image notes: the opening image, as the 1920 px file the page ships (RC6 4K upscale, retouched).
   let photoReturn = null, photoReturnScroll = 0, photoOpener = null;
   const hero = {
     src: 'assets/after-the-run.webp', name: 'The moments\nin between.',
     kind: {de: 'Bestehende KI-Bildstudie', en: 'Existing AI image study'},
-    description: {de: 'Unser Einstiegsmotiv. Hier das unveränderte Original mit 1.373 × 485 px.', en: 'Our opening image. Shown here as the unchanged 1,373 × 485 px original.'},
-    context: {de: 'KI-Bildstudie, keine dokumentarische Aufnahme. Auf der Startseite liefern wir responsive Größen bis zur Originalauflösung. Die Quelldatei begrenzt die Details auf hochauflösenden Bildschirmen.', en: 'An AI image study, not a documentary photograph. The homepage delivers responsive sizes up to the original resolution. Source resolution limits detail on high-density screens.'},
-    alt: {de: 'Bestehende KI-Bildstudie einer Gruppe nach dem Sport, Originaldatei', en: 'Existing AI image study of a group after sport, original file'},
+    description: {de: 'Unser Einstiegsmotiv, per KI auf 4K hochgerechnet. Ein Kappen-Logo und eine Bügelschrift wurden entfernt; Menschen und Bildaufbau sind unverändert.', en: 'Our opening image, upscaled to 4K with AI. A cap logo and lettering on a glasses temple were removed; people and composition are unchanged.'},
+    context: {de: 'KI-Bildstudie, keine dokumentarische Aufnahme. Sie zeigt weder unser Team noch eine unserer Veranstaltungen.', en: 'An AI image study, not a documentary photograph. It shows neither our team nor one of our events.'},
+    alt: {de: 'Bestehende KI-Bildstudie einer Gruppe nach dem Sport', en: 'Existing AI image study of a group after sport'},
     license: 'OG SPORTS / Design study'
   };
   function renderPhoto() {

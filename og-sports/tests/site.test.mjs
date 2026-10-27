@@ -91,7 +91,7 @@ test('labels every image below the photographs as own footage, AI study or visua
     const scope = main.slice(main.indexOf(figure), main.indexOf(figure) + figure.length + 1200);
     assert.match(scope, /Unsplash|Pexels|Eigene Aufnahme|KI-(Kampagnenstudie|Bildstudie|Visualisierung|Raumstudie)|Produktvisualisierung/, `${src} needs a visible label`);
   }
-  assert.deepEqual(shown, ['run-night.webp', 'practice-start.webp', 'responsive/hoodie-black-800.webp', 'meet-night.webp', 'stick-lime.jpg', 'track-night.webp']);
+  assert.deepEqual(shown, ['run-crew.webp', 'practice-start.webp', 'responsive/hoodie-black-800.webp', 'stick-lime.jpg', 'meet-night.webp']);
 });
 
 test('keeps the seven FASTR30 standards in their fixed order', () => {
@@ -100,8 +100,10 @@ test('keeps the seven FASTR30 standards in their fixed order', () => {
 });
 
 test('presents four projects with their artefact and honest status captions', () => {
-  const keys = Array.from(section('projects').matchAll(/<article [^>]*class="project [a-z]+" data-key="([a-z]+)"/g), m => m[1]);
-  assert.deepEqual(keys, ['challenge', 'apparel', 'live', 'stick']);
+  // up to the way in: the STICK article contains <section> steps, so the first </section> is not the end
+  const projects = main.split('id="projects"')[1].split('id="connect"')[0];
+  const keys = Array.from(projects.matchAll(/<article [^>]*class="project [a-z]+" data-key="([a-z]+)"/g), m => m[1]);
+  assert.deepEqual(keys, ['challenge', 'apparel', 'stick', 'live']);
   for (const key of keys) {
     assert.match(main, new RegExp(`data-artefact="${key}"`), `artefact for ${key}`);
     assert.match(main, new RegExp(`data-project="${key}"`), `story trigger for ${key}`);

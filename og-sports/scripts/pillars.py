@@ -26,15 +26,17 @@ PILLARS = [
     ("II", "Practice", True, "#practice", "FASTR30",
      ("img", "assets/pillar-practice.webp", "50% 55%", ("Red John / Unsplash", "Red John / Unsplash"),
       ("Läufer auf einer Betontreppe im Abendlicht", "Runner on concrete stairs in evening light"))),
+    # RC9: the pillars show a second view of each product, the chapters the first one (no image twice)
     ("III", "Wear", True, "#apparel", "Apparel",
-     ("img", "assets/responsive/hoodie-black-800.webp", "50% 50%", ("KI-Visualisierung", "AI visualisation"),
-      ("FASTR30 Graphic Hoodie in Black", "FASTR30 Graphic Hoodie in black"))),
-    ("IV", "Meet", False, "#live", "Live",
+     ("img", "assets/responsive/hoodie-lavender-800.webp", "50% 50%", ("KI-Visualisierung", "AI visualisation"),
+      ("FASTR30 Graphic Hoodie in Lavender", "FASTR30 Graphic Hoodie in lavender"))),
+    ("IV", "Make", True, "#stick", "FASTR STICK",
+     ("img", "assets/stick-pink.jpg", "50% 45%", ("Produktvisualisierung", "Product visualisation"),
+      ("FASTR STICK in Pink", "FASTR STICK in pink"))),
+    # RC9: Meet is the last pillar and the last chapter, so the page ends with people, then the way in
+    ("V", "Meet", False, "#live", "Live",
      ("img", "assets/pillar-meet.webp", "55% 50%", ("Victoria Prymak / Unsplash", "Victoria Prymak / Unsplash"),
       ("Gruppe als Silhouetten auf einem Dach in der Abenddämmerung", "Group silhouetted on a rooftop at dusk"))),
-    ("V", "Make", True, "#stick", "FASTR STICK",
-     ("img", "assets/stick-lime.jpg", "50% 45%", ("Produktvisualisierung", "Product visualisation"),
-      ("FASTR STICK in Lime", "FASTR STICK in lime"))),
 ]
 
 

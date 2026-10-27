@@ -70,3 +70,16 @@ Handoff and open questions: `docs/NEXT-brand-alignment.md`. This replaces v2 whe
 - 08 STICK shows the fastr30.com shop renders (`fastr30-website/website/assets/img/stick-*.jpg`, 3D render delivery), copied byte for byte and hash-tested. Label: "Produktvisualisierung · Prototyp, kein Serienprodukt". The Blender render and the generated half section are gone.
 - The Higgsfield stills (04, 05, 07) and the apparel visual (06) count as idea dump: replace them only with in-use assets of at least the same quality.
 - Tokens follow the live FASTR surfaces (2026-10-24): lime `#E3FF23`, night `#0a0a0a`, copy in Space Grotesk (from fastr30.com), titles stay Archivo. This replaces `#E7FF1A` and Inter above. The `fastr-design` skill (`#DEFF00`, Arial Narrow) is not what is in use; see `docs/NEXT-brand-alignment.md`.
+
+## RC9 — ten out of ten, against leading brands (2026-10-27)
+Measure: `docs/TEN_OF_TEN.md` (eight criteria with Fabi's words, blind reviews by Codex and Kimi, calibrated
+against Fabi's own verdicts). Benchmark: `docs/BENCHMARK_RC9.md` (SOM Studios, PROJECT50, Creators Club,
+Nike Running, Tracksmith, Satisfy). Replaces earlier sections where they conflict.
+- Order: I Run · II Practice · III Wear · IV Make · V Meet, then the way in. The page ends with people,
+  then the invitation. Pillars follow the same order (`scripts/pillars.py`).
+- An image appears once: the temple shows a second view of each product (lavender hoodie, pink STICK),
+  the chapters the first one (black hoodie, lime STICK and 3D).
+- I Run is a sprint, not a jog, and shows no other city as ours: B&W night sprint crew (Hansheng Zhao).
+  The label names FASTR the sprint club of OG SPORTS; the opening says Vienna / Home of FASTR.
+- The way in has no stand-in photograph; its three doors are rows in the grammar of the seven standards.
+- Image notes describe the files actually shipped (the opening is the RC6 4K upscale, retouched).

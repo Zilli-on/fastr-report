@@ -9,7 +9,7 @@ def attributes(src, sizes):
     entry = json.loads((ROOT / 'docs/responsive-assets.json').read_text(encoding='utf-8')).get(src)
     if not entry:
         # STICK is intentionally byte-identical and has no generated variants.
-        return 'width="880" height="1100"' if src.endswith('stick-lime.jpg') else ''
+        return 'width="880" height="1100"' if src.endswith(('stick-lime.jpg', 'stick-pink.jpg')) else ''
     candidates = ', '.join(f'{v["file"]} {v["width"]}w' for v in entry['variants'])
     w, h = entry['crop_pixels']
     return f'width="{w}" height="{h}" srcset="{candidates}" sizes="{sizes}"'
@@ -41,9 +41,8 @@ def main():
         'frame-03-people.webp': '(max-width: 600px) 150.4vw, (max-width: 899px) 110.6vw, max(37.5vw, 116.7vh)',
         'photo-ritual.webp': '(max-width: 899px) calc(100vw - 44px), 42vw',
         'practice-start.webp': '(max-width: 899px) calc(100vw - 44px), 42vw',
-        'run-night.webp': 'max(102vw, min(153svh, 1652.4px))',
+        'run-crew.webp': 'max(102vw, min(153svh, 1652.4px))',
         'meet-night.webp': 'max(102vw, min(166.8267svh, 1813.34px))',
-        'track-night.webp': '100vw',
     }
     head, rest = html.split('<!--pillars-->')
     _, tail = rest.split('<!--/pillars-->')

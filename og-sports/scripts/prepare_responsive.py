@@ -43,16 +43,21 @@ RC8 = {
         'e6e13fb793d3c5d00e8fb7b7ef91bfa837044448dc566e9e5f04ecbf5f9d2ca8',
         (0, 0, 6720, 3780), (928, 0, 4512, 4480)),
 }
+RC9_POOL = Path('C:/Users/Fabien/og-sports-sources/rc9-candidates')
+RC9 = {
+    # B&W night sprint; kept neutral black and white (no p50 tint), like strip 01-02.
+    'run-crew.webp': ('RC1', 'run-crew/RC1_retouched.png',
+        '5ec9adacd0e11ff21ed146e2e00be467db9caf7d4cc7f44bd87e43614dd2619a',
+        None, (2900, 0, 7969, 6336)),
+}
 # Remaining desktop crops and masks match prepare_v4.py.
 JOBS = {
     'photo-ritual.webp': ('unsplash_cS0W4GvUUDM.jpg', (2300, 0, 5500, 4000), None),
-    'run-night.webp': (str(RC7_POOL / 'run-night/R3_unsplash_BcJyBN4jDHY.jpg'), RC7['run-night.webp'][1], RC7['run-night.webp'][2]),
     'pillar-run.webp': (str(RC8_POOL / RC8['pillar-run.webp'][1]), RC8['pillar-run.webp'][3], RC8['pillar-run.webp'][4]),
     'pillar-practice.webp': ('unsplash_mZixsK8OnmE.jpg', None, None),
     'pillar-meet.webp': (str(RC7_POOL / 'pillar-meet/M2_unsplash_T8Lxr7LFN74.jpg'), RC7['pillar-meet.webp'][1], RC7['pillar-meet.webp'][2]),
     'practice-start.webp': ('pexels_13159243.jpg', None, None),
     'meet-night.webp': (str(RC8_POOL / RC8['meet-night.webp'][1]), RC8['meet-night.webp'][3], RC8['meet-night.webp'][4]),
-    'track-night.webp': ('unsplash_jsNI0bh5D-o.jpg', None, None),
 }
 
 def retouch(im):
@@ -72,7 +77,7 @@ def variants(im, stem, grade=False, mobile=False, product=False):
     if stem == 'after-the-run':
         maximum = min(im.width, 998 if mobile else 5120)
         steps = (480, 800, 998) if mobile else (960, 1440, 1920, 2560, 3840, 5120)
-    if stem in ('run-night', 'meet-night') and not mobile:
+    if stem in ('run-crew', 'meet-night') and not mobile:
         maximum = min(im.width, 3200)
         steps = (*steps, 3200)
     widths = sorted({w for w in steps if w <= maximum} | {maximum})
@@ -93,7 +98,7 @@ def variants(im, stem, grade=False, mobile=False, product=False):
         rendered.save(OUT / name, 'WEBP', quality=82, method=6)
         result.append({'file': 'assets/responsive/' + name, 'width': width,
                        'height': height, 'bytes': (OUT / name).stat().st_size})
-        if stem == 'after-the-run' or stem + '.webp' in RC8:
+        if stem == 'after-the-run' or stem + '.webp' in RC8 or stem + '.webp' in RC9:
             result[-1]['sha256'] = hashlib.sha256((OUT / name).read_bytes()).hexdigest()
     return result
 
@@ -134,6 +139,7 @@ def main():
                  'frame-03-people.webp': SOURCES / 'community-ai.png'}
     inputs = [(name, path, None, None, False) for name, path in protected.items()]
     inputs += [(name, args.pool / 'web' / src, crop, mobile, True) for name, (src, crop, mobile) in JOBS.items()]
+    inputs += [(name, RC9_POOL / rel, crop, mobile, False) for name, (_, rel, _, crop, mobile) in RC9.items()]
     inputs += [(p.stem + '.webp', p, None, None, False) for p in sorted(HOODIES.glob('hoodie-*.png'))]
     for name, source, crop, mobile, grade in inputs:
         if args.only and name not in args.only:
@@ -154,6 +160,11 @@ def main():
             assert hashlib.sha256(source.read_bytes()).hexdigest() == expected_hash, 'RC8 source hash mismatch; abort'
             candidates = json.loads((RC8_POOL / 'manifest.json').read_text(encoding='utf-8'))
             candidate = next(c for c in candidates['kandidaten'] if c['id'] == candidate_id)
+        if name in RC9:
+            candidate_id, _, expected_hash, _, _ = RC9[name]
+            assert hashlib.sha256(source.read_bytes()).hexdigest() == expected_hash, 'RC9 source hash mismatch; abort'
+            candidates = json.loads((RC9_POOL / 'manifest.json').read_text(encoding='utf-8'))
+            candidate = next(c for c in candidates['kandidaten'] if c['id'] == candidate_id)
         im = Image.open(source).convert('RGB')
         if candidate:
             assert list(im.size) == candidate['px'], 'RC7 source dimensions mismatch'
@@ -165,6 +176,10 @@ def main():
         if candidate:
             entry.update(source_url=candidate['quelle_url'], photographer=candidate['fotograf'],
                          license=candidate['lizenz'], label='Symbolbild', candidate=candidate['id'])
+        if name in RC9:
+            entry.update(edit='bearbeitet: unlesbarer Shirt-Aufdruck weichgezeichnet (' + candidate['bearbeitung'] + ')',
+                         original_source_sha256=candidate['sha256'],
+                         original_source=str((RC9_POOL / candidate['datei']).resolve()))
         if name == 'meet-night.webp':
             entry.update(edit='bearbeitet: Aufdruck entfernt; bereitgestellter retuschierter Master',
                          original_source_sha256=candidate['sha256'],

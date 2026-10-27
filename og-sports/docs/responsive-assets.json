@@ -315,114 +315,6 @@
       66.65
     ]
   },
-  "assets/run-night.webp": {
-    "source": "C:\\Users\\Fabien\\og-sports-sources\\rc7-candidates\\run-night\\R3_unsplash_BcJyBN4jDHY.jpg",
-    "source_sha256": "f7664240f972220aa6cd9db3edb25835a2fd7285ee6a502254150cd0d3e53940",
-    "source_pixels": [
-      5184,
-      3456
-    ],
-    "crop": [
-      0,
-      0,
-      5184,
-      3456
-    ],
-    "mobile_crop": [
-      1100,
-      0,
-      3864,
-      3455
-    ],
-    "grade": "p50 (v4)",
-    "source_url": "https://unsplash.com/photos/BcJyBN4jDHY",
-    "photographer": "Iliya Jokic (@iliya9)",
-    "license": "Unsplash License (https://unsplash.com/license)",
-    "label": "Symbolbild",
-    "candidate": "R3",
-    "crop_pixels": [
-      5184,
-      3456
-    ],
-    "variants": [
-      {
-        "file": "assets/responsive/run-night-640.webp",
-        "width": 640,
-        "height": 427,
-        "bytes": 19436
-      },
-      {
-        "file": "assets/responsive/run-night-1080.webp",
-        "width": 1080,
-        "height": 720,
-        "bytes": 47946
-      },
-      {
-        "file": "assets/responsive/run-night-1600.webp",
-        "width": 1600,
-        "height": 1067,
-        "bytes": 88752
-      },
-      {
-        "file": "assets/responsive/run-night-2400.webp",
-        "width": 2400,
-        "height": 1600,
-        "bytes": 174278
-      },
-      {
-        "file": "assets/responsive/run-night-2880.webp",
-        "width": 2880,
-        "height": 1920,
-        "bytes": 240360
-      },
-      {
-        "file": "assets/responsive/run-night-3200.webp",
-        "width": 3200,
-        "height": 2133,
-        "bytes": 283952
-      }
-    ],
-    "mobile": [
-      {
-        "file": "assets/responsive/run-night-mobile-640.webp",
-        "width": 640,
-        "height": 800,
-        "bytes": 32486
-      },
-      {
-        "file": "assets/responsive/run-night-mobile-1080.webp",
-        "width": 1080,
-        "height": 1350,
-        "bytes": 74116
-      },
-      {
-        "file": "assets/responsive/run-night-mobile-1280.webp",
-        "width": 1280,
-        "height": 1600,
-        "bytes": 96928
-      },
-      {
-        "file": "assets/responsive/run-night-mobile-1600.webp",
-        "width": 1600,
-        "height": 2000,
-        "bytes": 138210
-      }
-    ],
-    "old_mean_luma_saturation": [
-      32.73,
-      43.1
-    ],
-    "mean_luma_saturation": [
-      95.91,
-      83.7
-    ],
-    "fallback": {
-      "file": "assets/run-night.webp",
-      "width": 2400,
-      "height": 1600,
-      "bytes": 174278
-    }
-  },
   "assets/pillar-run.webp": {
     "source": "C:\\Users\\Fabien\\og-sports-sources\\rc8-candidates\\pillar-run\\PR2_pexels_14532913.jpg",
     "source_sha256": "a1242c9cea74b89fa4ad8d577397a8cca561fe406fa5c3ef79c7564fcd791a96",
@@ -834,61 +726,6 @@
       "sha256": "3c5ad07398846034f64390d96ac86d1b5caf8dbf7c055bb3cfafaee81ea43b94"
     }
   },
-  "assets/track-night.webp": {
-    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_jsNI0bh5D-o.jpg",
-    "source_sha256": "59ab43765ede1b51f6e7e377d047d9925b9f398b5abb060b19eab66fa11e7866",
-    "source_pixels": [
-      3695,
-      2356
-    ],
-    "crop": null,
-    "mobile_crop": null,
-    "grade": "p50 (v4)",
-    "crop_pixels": [
-      3695,
-      2356
-    ],
-    "variants": [
-      {
-        "file": "assets/responsive/track-night-640.webp",
-        "width": 640,
-        "height": 408,
-        "bytes": 32544
-      },
-      {
-        "file": "assets/responsive/track-night-1080.webp",
-        "width": 1080,
-        "height": 689,
-        "bytes": 115770
-      },
-      {
-        "file": "assets/responsive/track-night-1600.webp",
-        "width": 1600,
-        "height": 1020,
-        "bytes": 305968
-      },
-      {
-        "file": "assets/responsive/track-night-2400.webp",
-        "width": 2400,
-        "height": 1530,
-        "bytes": 813502
-      },
-      {
-        "file": "assets/responsive/track-night-2880.webp",
-        "width": 2880,
-        "height": 1836,
-        "bytes": 1243038
-      }
-    ],
-    "old_mean_luma_saturation": [
-      40.08,
-      116.89
-    ],
-    "mean_luma_saturation": [
-      40.25,
-      114.43
-    ]
-  },
   "assets/responsive/hoodie-black-800.webp": {
     "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-black.png",
     "source_sha256": "f127cd4e8bdef21295d28791465bbecddccba92d8ce5135895dfd57148116908",
@@ -1194,5 +1031,118 @@
       118.59,
       56.44
     ]
+  },
+  "assets/run-crew.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\rc9-candidates\\run-crew\\RC1_retouched.png",
+    "source_sha256": "5ec9adacd0e11ff21ed146e2e00be467db9caf7d4cc7f44bd87e43614dd2619a",
+    "source_pixels": [
+      9520,
+      6336
+    ],
+    "crop": null,
+    "mobile_crop": [
+      2900,
+      0,
+      7969,
+      6336
+    ],
+    "grade": "preserved; CSS unchanged",
+    "source_url": "https://unsplash.com/photos/9FcKpisH7Bo",
+    "photographer": "Hansheng Zhao",
+    "license": "Unsplash License (https://unsplash.com/license)",
+    "label": "Symbolbild",
+    "candidate": "RC1",
+    "edit": "bearbeitet: unlesbarer Shirt-Aufdruck weichgezeichnet (run-crew/retouch_rc1.py: unlesbarer Aufdruck auf dem Shirt des mittleren Läufers weich ausgeblendet (gefederter Kasten 3760-4220 x 1940-2230))",
+    "original_source_sha256": "89062a5769fda664b663bef99d5045edba34924500dc566a90e8f04cca009ff2",
+    "original_source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_9FcKpisH7Bo.jpg",
+    "crop_pixels": [
+      9520,
+      6336
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/run-crew-640.webp",
+        "width": 640,
+        "height": 426,
+        "bytes": 13372,
+        "sha256": "2347eb212444d5e9455e7b07420af612ae177818cb72fc87d8462cb409b3c3ea"
+      },
+      {
+        "file": "assets/responsive/run-crew-1080.webp",
+        "width": 1080,
+        "height": 719,
+        "bytes": 26300,
+        "sha256": "9e572c4d3d507b5278b0f90977b6ba9b22e8c7a2e84a058d5cb2ffb87eee20a7"
+      },
+      {
+        "file": "assets/responsive/run-crew-1600.webp",
+        "width": 1600,
+        "height": 1065,
+        "bytes": 43430,
+        "sha256": "ba134343418e676ef2f6039a3362122832c6fd2279a7e81982ed925b642e9e16"
+      },
+      {
+        "file": "assets/responsive/run-crew-2400.webp",
+        "width": 2400,
+        "height": 1597,
+        "bytes": 75646,
+        "sha256": "499329ee80eb439d99455189f621237c55d5157bb6b7cd533145ea4e849161c6"
+      },
+      {
+        "file": "assets/responsive/run-crew-2880.webp",
+        "width": 2880,
+        "height": 1917,
+        "bytes": 97946,
+        "sha256": "7df8ccc1825b83ef4e38f6c575bc629f319cd72c8a2275fe4d5780535a07fb0b"
+      },
+      {
+        "file": "assets/responsive/run-crew-3200.webp",
+        "width": 3200,
+        "height": 2130,
+        "bytes": 110292,
+        "sha256": "4fa11c31fc67e604d0526139c592b0b276f35eab8820ad175a1a2dc47da709c4"
+      }
+    ],
+    "mobile": [
+      {
+        "file": "assets/responsive/run-crew-mobile-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 17280,
+        "sha256": "58c9b81375f09828e8afdb0de605de45e1b5762fe0db28ea74dc535d152b8760"
+      },
+      {
+        "file": "assets/responsive/run-crew-mobile-1080.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 33768,
+        "sha256": "bf4b3376d0b66380793bb978c50bdd90e07ed29fa6d4aa3d209f17fb79f2b0b0"
+      },
+      {
+        "file": "assets/responsive/run-crew-mobile-1280.webp",
+        "width": 1280,
+        "height": 1600,
+        "bytes": 41778,
+        "sha256": "b97ca70437937a599f31f20db3c49c63ea43afbb1a7399a48033b3646e903988"
+      },
+      {
+        "file": "assets/responsive/run-crew-mobile-1600.webp",
+        "width": 1600,
+        "height": 2000,
+        "bytes": 56902,
+        "sha256": "f9075bc809d3bd91d5599341cf6112682210a5ff77a292cb5394dd2c749cb360"
+      }
+    ],
+    "mean_luma_saturation": [
+      51.43,
+      0.01
+    ],
+    "fallback": {
+      "file": "assets/run-crew.webp",
+      "width": 2400,
+      "height": 1597,
+      "bytes": 75646,
+      "sha256": "499329ee80eb439d99455189f621237c55d5157bb6b7cd533145ea4e849161c6"
+    }
   }
 }

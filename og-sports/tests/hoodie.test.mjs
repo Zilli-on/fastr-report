@@ -25,6 +25,6 @@ test('six hoodie colours have source-sized WebPs and no retired shop renders', a
     assert.doesNotMatch(await read(file), /merch-0[1-6]-/);
   }
   assert.match(html, /data-de="KI-Visualisierung" data-en="AI visualisation"/);
-  assert.match(html, /Earned\. Not given\./);
+  assert.match(html, /Earned\.(?:<br\/>| )Not given\./);
   assert.match(html, /href="https:\/\/fastr30.com\/merch"/);
 });
