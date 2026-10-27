@@ -35,7 +35,7 @@ PILLARS = [
       ("FASTR STICK im 3D-Schnitt: Spindel und Hubteller", "FASTR STICK in 3D section: spindle and lift cup"))),
     # RC9: Meet is the last pillar and the last chapter, so the page ends with people, then the way in
     ("V", "Meet", False, "#live", "Live",
-     ("img", "assets/pillar-meet.webp", "55% 82%", ("Victoria Prymak / Unsplash", "Victoria Prymak / Unsplash"),
+     ("img", "assets/pillar-meet.webp", "55% 64%", ("Victoria Prymak / Unsplash", "Victoria Prymak / Unsplash"),
       ("Gruppe als Silhouetten auf einem Dach in der Abenddämmerung", "Group silhouetted on a rooftop at dusk"))),
 ]
 
@@ -59,7 +59,7 @@ def pillar(i, row):
             kind = (kind[0], kind[1].replace('Symbolbild', 'Illustrative photo'))
         phone = '(max-width: 600px) calc(100vw - 40px), (max-width: 767px) calc(100vw - 44px), '
         tablet = '(max-width: 899px) 100vw, ' if i == 0 else '(max-width: 899px) 50vw, '
-        sizes = phone + tablet + ('50vw' if i < 2 else '33.33vw')
+        sizes = phone + tablet + ('66.67vw' if i == 0 else '33.33vw' if i < 3 else '50vw')  # asymmetric temple (RC13)
         image_tag = (
             f'<img alt="{escape(alt[0])}" data-alt-de="{escape(alt[0])}" data-alt-en="{escape(alt[1])}" '
             f'loading="lazy" src="{src}" {attributes(src, sizes)} style="object-position:{pos}"/>'

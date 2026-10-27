@@ -9,8 +9,8 @@ def attributes(src, sizes):
     entry = json.loads((ROOT / 'docs/responsive-assets.json').read_text(encoding='utf-8')).get(src)
     if not entry:
         # STICK is intentionally byte-identical and has no generated variants.
-        if src.endswith(('stick-form.webp', 'stick-build.webp', 'stick-function.webp')):
-            return 'width="1696" height="1382"'  # stills of our own 3D viewer (rc9-candidates/stick3d)
+        if src.endswith(('stick-build.webp', 'stick-function.webp')):
+            return 'width="1960" height="1382"'  # stills of our own 3D viewer (rc9-candidates/stick3d)
         return 'width="880" height="1100"' if src.endswith(('stick-lime.jpg', 'stick-pink.jpg')) else ''
     candidates = ', '.join(f'{v["file"]} {v["width"]}w' for v in entry['variants'])
     w, h = entry['crop_pixels']

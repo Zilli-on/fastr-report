@@ -59,3 +59,21 @@ follow directly („Hier fängt es an.", light voice); „In real life" is the c
 the way in speak in the opening's quiet voice (light, mixed case). Nav „Säulen 05" → #pillars. Wear→Make gap
 halved, STICK caption one line, tablet manifest crop keeps the hands, Make tile says „Prototyp". Review sheets:
 seams hatched red and labelled, slices stacked without blank space.
+
+## R3 (RC11 `b951fd3`) and R4 (RC12 `be7f99e`)
+
+| | Codex run 1 / 2 | Kimi run 1 / 2 |
+|---|---|---|
+| R3 | 6.88 / 6.88 | 7.75 / 8.00 |
+| R4 | 6.62 / 6.75 | 7.88 / 7.88 |
+
+R4 real findings: „ANFANGEN" clipped in its lime band at 390 (Codex blocker); Meet headline at 390 ran to the edge
+and lost contrast on the backlight (Kimi and Codex); temple still read as a category grid; the static Make
+triptych as three equal cards; the reduced-motion band ended mid-word.
+
+## RC13
+
+Temple asymmetric on desktop (Run carries two rows, Practice and Wear beside it, Make and Meet below); Make
+static = one large still of our 3D model (exploded) beside the steps, the temple Make tile is the 3D section on
+the light stage; „ANFANGEN" and the Meet headline sized for 390, stronger veil under the Meet headline;
+reduced-motion band shows three whole phrases, centred; less dead space after the doors.
