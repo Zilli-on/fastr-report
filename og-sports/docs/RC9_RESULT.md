@@ -39,3 +39,23 @@ corrected (the opening is the RC6 4K upscale, retouched — the old text said �
 
 Checks before each push: `npm test` 21/21, `prepare_responsive.py --check`, `pillars.py --check`,
 secret grep of the diff. Higgsfield used today: 0.5 credits (balance 2604.83 before).
+
+## R2 (RC10 `9df8174`, two runs per family, interactive STICK sheets added)
+
+| | K1 | K2 | K3 | K4 | K5 | K6 | K7 | K8 | mean |
+|---|---|---|---|---|---|---|---|---|---|
+| Codex run 1 / 2 | 6 / 5 | 6 / 6 | 7 / 6 | 6 / 6 | 8 / 8 | 7 / 7 | 7 / 6 | 8 / 7 | 6.88 / 6.38 |
+| Kimi run 1 / 2 | 6 / 7 | 7 / 7 | 6 / 6 | 8 / 8 | 8 / 9 | 8 / 7 | 7 / 7 | 7 / 7 | 7.12 / 7.25 |
+
+Codex mean 6.63 against 5.63 for RC8: the first move beyond the noise band. All four runs name the same
+weakest chapter: the way in, type without people. Further real findings: nav said „Projekte 04" next to five
+pillars; the uppercase-sentence-with-full-stop is the only headline voice; Wear→Make paper gap; STICK caption
+breaks early; tablet manifest crop cuts the hands on the shoe. Not real: two „white bands" at 768 (sheet seams).
+
+## RC11
+
+Meet and the way in become one moment: the three runners carry „Good things start with people.", the doors
+follow directly („Hier fängt es an.", light voice); „In real life" is the chapter mark. The temple title and
+the way in speak in the opening's quiet voice (light, mixed case). Nav „Säulen 05" → #pillars. Wear→Make gap
+halved, STICK caption one line, tablet manifest crop keeps the hands, Make tile says „Prototyp". Review sheets:
+seams hatched red and labelled, slices stacked without blank space.
