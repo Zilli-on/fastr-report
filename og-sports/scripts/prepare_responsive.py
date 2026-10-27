@@ -134,7 +134,8 @@ def main():
     OUT.mkdir(exist_ok=True)
     manifest = json.loads(manifest_path.read_text(encoding='utf-8')) if args.only else {}
     protected = {'after-the-run.webp': OPENING,
-                 'frame-01-detail.webp': SOURCES / 'run-detail-clean.png',
+                 # RC9: side logo + midsole print removed (og-sports-sources/rc9-candidates/shoe/composite.py)
+                 'frame-01-detail.webp': SOURCES / 'run-detail-clean-rc9.png',
                  'run-shadow.webp': SOURCES / 'run-shadow.jpg',
                  'frame-03-people.webp': SOURCES / 'community-ai.png'}
     inputs = [(name, path, None, None, False) for name, path in protected.items()]

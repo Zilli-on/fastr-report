@@ -79,7 +79,7 @@ ol, ul { padding: 0; list-style: none; }
 .label { font: 500 .6875rem/1.45 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .display, .manifest h2, .temple h2, .movement h2, .project h3, .connect h2, .story-head h2, .contact-inner h2, .notes-inner h2, .menu-body nav a {
   font-family: var(--wide); font-weight: 750; font-stretch: 112%; text-transform: uppercase;
-  letter-spacing: -.02em; line-height: .9;
+  letter-spacing: -.02em; line-height: .9; text-wrap: balance;
 }
 .frame-caption {
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 24px; padding-top: 12px;
@@ -163,12 +163,12 @@ ol, ul { padding: 0; list-style: none; }
 .tile-people img { object-position: 42% 40%; }
 .tile figcaption {
   position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; align-items: end; gap: 12px;
+  flex-direction: column; align-items: flex-start; gap: 8px;
   padding: 40px 18px 16px; background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .55));
   font: 500 .6875rem/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase;
 }
 .tile-label { font: 700 .8125rem/1 var(--sans); letter-spacing: .1em; }
-.tile-detail figcaption { flex-direction: column; align-items: flex-start; gap: 8px; }
-.tile figcaption a { display: inline-flex; align-items: center; min-height: 24px; opacity: .85; }
+.tile figcaption a { display: inline-flex; align-items: center; min-height: 24px; opacity: .85; white-space: nowrap; }
 .tile figcaption a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
 
 /* 6b ─ Manifest: continues the dark strip, the lines step down to the right */
@@ -200,11 +200,11 @@ ol, ul { padding: 0; list-style: none; }
 .inscription-base { padding-top: 16px; }
 /* the five pillars as a photo mosaic: two large above, three below; names small, SOM grammar */
 .pillars { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 3px; text-align: left; }
-.pillar { position: relative; grid-column: span 2; aspect-ratio: 4 / 5; overflow: hidden; background: var(--ink); }
+.pillar { position: relative; grid-column: span 2; aspect-ratio: 4 / 3; overflow: hidden; background: var(--ink); }
 .pillar:nth-child(-n+2) { grid-column: span 3; aspect-ratio: 4 / 3; }
 .pillar a { position: absolute; inset: 0; display: block; color: #fff; }
 .pillar img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease); }
-.pillar a::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, .42), transparent 32%, transparent 58%, rgba(0, 0, 0, .58)); pointer-events: none; }
+.pillar a::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, .42), transparent 32%, transparent 50%, rgba(0, 0, 0, .72)); pointer-events: none; }
 .pillar-num, .pillar-kind, .pillar-name, .pillar-word { position: absolute; z-index: 1; }
 /* small labels on photographs keep a soft dark halo so they stay legible on light ground (sky, lavender hoodie) */
 .pillar-num, .pillar-kind, .pillar-name { text-shadow: 0 0 8px rgba(0, 0, 0, .6), 0 1px 2px rgba(0, 0, 0, .55); }
@@ -298,9 +298,9 @@ ol, ul { padding: 0; list-style: none; }
 .live-photo { height: clamp(520px, 92svh, 1000px); }
 .project .bleed .bleed-caption, .project .bleed .bleed-top .label { color: rgba(240, 239, 234, .86); }
 .live h3 { position: absolute; left: var(--gutter); bottom: clamp(56px, 7vw, 104px); font-size: var(--t-hero); color: #fff; }
-.live-foot { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 20px; align-items: end; padding: clamp(32px, 4vw, 56px) var(--gutter); background: var(--ink); color: var(--on-ink); border-bottom: 1px solid var(--rule-ink); }
-.live-foot .project-copy { grid-column: 1 / 7; color: var(--on-ink-muted); }
-.live-foot .text-action { grid-column: 10 / 13; justify-self: end; }
+.live-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 0 24px; }
+.live-cta .text-action { min-height: 44px; color: #fff; font: 600 .6875rem/1 var(--sans); letter-spacing: .08em; }
+.live .bleed-caption { align-items: center; bottom: 6px; }
 
 /* IV — Make: one pinned product stage, with real DOM copy alongside. */
 .stick { padding-bottom: var(--chapter); }
@@ -363,11 +363,12 @@ ol, ul { padding: 0; list-style: none; }
 
 /* 9 ─ The way in, and the signature. It follows the people of Meet; three doors as rows, like the seven standards.
    Lime for the FASTR30 door, lavender for the two OG SPORTS doors. */
-.connect { padding: var(--chapter) var(--gutter) clamp(80px, 9vw, 150px); background: var(--ink); color: var(--on-ink); text-align: center; }
+.connect { padding: clamp(56px, 6vw, 104px) var(--gutter) clamp(80px, 9vw, 150px); background: var(--ink); color: var(--on-ink); }
 .connect .label { color: var(--on-ink-muted); }
-.connect-head { display: flex; flex-direction: column; align-items: center; gap: 24px; margin-bottom: clamp(48px, 6vw, 96px); }
-.connect h2 { font-size: var(--t-xl); }
-.connect-copy { max-width: 40ch; font-size: var(--t-lead); line-height: 1.45; color: var(--on-ink-muted); }
+.connect-head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 18px; align-items: end; margin-bottom: clamp(36px, 4vw, 64px); }
+.connect-head .label { grid-column: 1 / -1; }
+.connect h2 { grid-column: 1 / 8; font-size: var(--t-l); }
+.connect-copy { grid-column: 9 / 13; max-width: 40ch; font-size: var(--t-lead); line-height: 1.45; color: var(--on-ink-muted); }
 .connect-ways { border-top: 1px solid var(--rule-ink); text-align: left; }
 .connect-ways li { border-bottom: 1px solid var(--rule-ink); }
 .way { display: grid; grid-template-columns: 4.5rem minmax(0, 1.7fr) minmax(0, 1fr) auto; align-items: center; column-gap: var(--gap); width: 100%; padding: clamp(22px, 2.6vw, 40px) 0; text-align: left; }
@@ -519,9 +520,9 @@ dialog::backdrop { background: rgba(14, 15, 13, .55); backdrop-filter: blur(6px)
   .practice-photo, .practice-intro > .label { grid-column: 1 / -1; grid-row: auto; }
   .practice-photo img { aspect-ratio: 4 / 5; object-position: 50% 50%; }
   .pillars { grid-template-columns: 1fr 1fr; }
-  .pillar, .pillar:nth-child(-n+2) { grid-column: span 1; aspect-ratio: 4 / 5; }
+  .pillar, .pillar:nth-child(-n+2) { grid-column: span 1; aspect-ratio: 4 / 3; }
   .pillar:first-child { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
-  .live-foot .project-copy, .live-foot .text-action { grid-column: 1 / -1; justify-self: start; }
+  .connect h2, .connect-copy { grid-column: 1 / -1; }
   .way { grid-template-columns: 2.75rem minmax(0, 1fr); row-gap: 10px; padding: 24px 0; }
   .way-note, .way-go { grid-column: 2; justify-self: start; }
   .story-head h2, .story-intro, .story-body h3, .story-body-text { grid-column: 1 / -1; }
@@ -534,7 +535,7 @@ dialog::backdrop { background: rgba(14, 15, 13, .55); backdrop-filter: blur(6px)
 }
 @media (max-width: 767px) {
   .pillars { grid-template-columns: minmax(0, 1fr); }
-  .pillar, .pillar:nth-child(-n+2) { grid-column: 1 / -1; aspect-ratio: 4 / 5; }
+  .pillar, .pillar:nth-child(-n+2) { grid-column: 1 / -1; aspect-ratio: 4 / 3; }
   .pillar-kind { font-size: .625rem; }
   .movement .bleed, .live-photo { height: auto; min-height: 0; aspect-ratio: 4 / 5; }
   .bleed > picture > img, .motion-ok .bleed > picture > img { transform: none; }
@@ -542,12 +543,16 @@ dialog::backdrop { background: rgba(14, 15, 13, .55); backdrop-filter: blur(6px)
 }
 @media (max-width: 600px) {
   :root { --gutter: 20px; }
+  .hoodie-colors button > span:not(.hoodie-swatch) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .hoodie-colors button { min-height: 52px; justify-content: center; }
   .strip { grid-template-columns: 1fr; grid-template-rows: none; }
   .tile, .tile-people { grid-column: auto; aspect-ratio: 4 / 5; }
   .tile-motion { aspect-ratio: 4 / 3; }
   .tile-people { aspect-ratio: 4 / 3.4; }
   .tile-people img { object-position: 40% 50%; }
-  .live h3 { bottom: 96px; } /* clear the two- to three-line caption below it */
+  .live h3 { bottom: 128px; } /* clear the credit, the status and the live-formats link below it */
+  .live .bleed-caption { align-items: flex-start; }
+  .live-cta { justify-content: flex-start; }
   .bleed-caption { flex-direction: column; gap: 2px; }
   .footer-row { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
   .footer-row p:first-child { margin-bottom: 12px; }

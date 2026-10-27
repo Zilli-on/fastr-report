@@ -144,3 +144,6 @@ no external requests, no horizontal overflow at 320–1920.
 4. Whether the STICK chapter links to the live fastr30.com pre-order.
 5. Releases from members for any picture showing them.
 6. Merge, live deploy, domain.
+7. Fabi's protected picks (brief § 2, „unbedingt schützen“): the opening image and the strip 01–03 — their
+   motif, crop and colour are his decision; reviewers judge craft, labels and third-party marks there, not the
+   choice of motif (from R2; R1 Kimi marked strip 03's colour and skyline, which is his pick).
