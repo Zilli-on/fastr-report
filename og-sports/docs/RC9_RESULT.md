@@ -77,3 +77,10 @@ Temple asymmetric on desktop (Run carries two rows, Practice and Wear beside it,
 static = one large still of our 3D model (exploded) beside the steps, the temple Make tile is the 3D section on
 the light stage; „ANFANGEN" and the Meet headline sized for 390, stronger veil under the Meet headline;
 reduced-motion band shows three whole phrases, centred; less dead space after the doors.
+
+
+## R5 (RC13 `ddf8eab`) and RC14
+
+R5: Codex 6.75 / 6.75, Kimi 7.75 / 8.25. Real: static Make at 390 in three narrow columns (a CSS fault of RC13:
+the old rules were duplicated, not replaced), „Sprint-/Club." break, black gaps Run→band→FASTR30, standards
+read as a table. RC14 fixes all four; RC14 is not yet scored.

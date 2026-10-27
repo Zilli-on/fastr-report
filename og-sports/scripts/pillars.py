@@ -31,8 +31,8 @@ PILLARS = [
      ("img", "assets/responsive/hoodie-lavender-800.webp", "50% 36%", ("KI-Visualisierung", "AI visualisation"),
       ("FASTR30 Graphic Hoodie in Lavender", "FASTR30 Graphic Hoodie in lavender"))),
     ("IV", "Make", True, "#stick", "FASTR STICK",
-     ("img", "assets/stick-function.webp", "50% 50%", ("3D-Produktvisualisierung · Prototyp", "3D product visualisation · prototype"),
-      ("FASTR STICK im 3D-Schnitt: Spindel und Hubteller", "FASTR STICK in 3D section: spindle and lift cup"))),
+     ("img", "assets/stick-form.webp", "50% 50%", ("3D-Produktvisualisierung · Prototyp", "3D product visualisation · prototype"),
+      ("FASTR STICK, 3D-Ansicht der Form", "FASTR STICK, 3D view of the form"))),
     # RC9: Meet is the last pillar and the last chapter, so the page ends with people, then the way in
     ("V", "Meet", False, "#live", "Live",
      ("img", "assets/pillar-meet.webp", "55% 64%", ("Victoria Prymak / Unsplash", "Victoria Prymak / Unsplash"),

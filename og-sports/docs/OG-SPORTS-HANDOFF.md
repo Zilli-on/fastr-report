@@ -69,3 +69,25 @@ for the next session. (`docs/HANDOFF.md` is an unrelated migration note from 21.
 - Next first step: `npm test`, both `--check`s, commit RC12, push (retry loop), then R3→R4:
   `capture.py --ref <sha> --round R4 --version A` and `bash run_pair.sh R4 A`.
 - Fabi asked to be sent the link only when 10/10 is reached (reviewers ≥ 9 everywhere, repeat runs, own 10/10).
+
+
+## Stand RC14 (2026-10-27 ~18:00) — authoritative for the next session
+
+- Pushed: RC11 `b951fd3`, RC12 `be7f99e`, RC13 `ddf8eab`, RC14 = the commit that carries this section.
+- Last scored round R5 (on RC13 `ddf8eab`, two runs per family), per criterion K1–K8:
+  - Codex: 6 6 7 7 8 6 7 7 (both runs identical, mean 6.75)
+  - Kimi: 7 8 8 8 9 7 7 8 (7.75) and 8 8 8 9 10 7 8 8 (8.25)
+  - Progression of means: RC8 Codex 5.63 / Kimi 6.88 → RC13 Codex 6.75 / Kimi 8.00.
+- R5 saw a CSS fault (duplicated static-Make rules → three narrow columns at 390); RC14 fixes it, so R5's K6/K8 for
+  Make are not representative. RC14 also: run copy keeps „Sprint‑Club" together (U+2011), less black between Run,
+  band and FASTR30, the seven standards as a two-column index from 1100 px, static Make still = 3D section,
+  temple Make tile = 3D form still. RC14 is NOT yet scored (R6 is the next step).
+- Still open after R5 (Codex, the bottleneck): K1/K7 the way in still reads as an info block next to the
+  references (lime band + two rows); K2 page length (temple + five chapters, gaps); K3 Meet silhouettes feel
+  distant (no better licensed people image found; searched Unsplash/Pexels widely, see rc9-candidates s1–s5);
+  K6 phone length; K4 „Run reads as running, not sprint" (no faceless landscape sprint image of equal quality found).
+- Reviewer tooling (outside the repo, `C:/Users/Fabien/og-sports-sources/review/`): `capture.py` (decode timeout added —
+  lazy images inside display:none never decode), `run_pair.sh <round> A`, `elshot.py <width> <selector> <out> …`
+  for quick element screenshots, `probe.py`.
+- Next first step: `capture.py --ref <RC14 sha> --round R6 --version A`, then `bash run_pair.sh R6 A`.
+- Higgsfield today: 0.5 credits. Codex weekly quota was 10 % at R2; check `baton quota` first.

@@ -91,7 +91,7 @@ test('labels every image below the photographs as own footage, AI study or visua
     const scope = main.slice(main.indexOf(figure), main.indexOf(figure) + figure.length + 1200);
     assert.match(scope, /Unsplash|Pexels|Eigene Aufnahme|KI-(Kampagnenstudie|Bildstudie|Visualisierung|Raumstudie)|Produktvisualisierung/, `${src} needs a visible label`);
   }
-  assert.deepEqual(shown, ['run-crew.webp', 'practice-start.webp', 'responsive/hoodie-black-800.webp', 'stick-lime.jpg', 'stick-build.webp', 'meet-night.webp']);
+  assert.deepEqual(shown, ['run-crew.webp', 'practice-start.webp', 'responsive/hoodie-black-800.webp', 'stick-lime.jpg', 'stick-function.webp', 'meet-night.webp']);
 });
 
 test('keeps the seven FASTR30 standards in their fixed order', () => {
