@@ -11,7 +11,7 @@ Frühere Aussagen „unverändert“/1373×485 unten sind historische Stände, d
 
 # OG SPORTS — Bildnachweise
 
-## Aktueller Stand (RC7, 2026-10-26)
+## Aktueller Stand (RC8, 2026-10-27)
 
 | Frame | Datei | Art | Quelle / Bearbeitung |
 |---|---|---|---|
@@ -20,12 +20,12 @@ Frühere Aussagen „unverändert“/1373×485 unten sind historische Stände, d
 | 02 | `run-shadow.webp` | Fotografie Mathias Reding | https://unsplash.com/photos/runners-legs-in-motion-with-a-long-shadow-G96xGokbTUM — unverändert |
 | 03 | `frame-03-people.webp` | Fotografie Leviosa Hou | https://unsplash.com/photos/runners-gathered-together-on-a-city-street-9ZXnEV7k2lI — Startnummern, Bänder, Shirt-Aufdrucke, Bannertext KI-gestützt retuschiert (Higgsfield, GPT Image 2.5), Gesichter verglichen und unverändert |
 | Manifest | `photo-ritual.webp` | Symbolbild, Unsplash License | Ulf Meyer, https://unsplash.com/photos/cS0W4GvUUDM — Grade p50, Größe angepasst |
-| Säule I | `pillar-run.webp` | Symbolbild, Unsplash License | Nick Gosset, https://unsplash.com/photos/3DJfakd6VoU — Grade p50, Größe angepasst |
+| Säule I | `pillar-run.webp` | Symbolbild · limoo / Pexels | https://www.pexels.com/photo/silhouette-of-woman-running-in-front-of-an-illuminated-building-at-night-14532913/ — Pexels License; Grade p50, Größe angepasst, Crop [0,900,5760,8100] |
 | Säule II | `pillar-practice.webp` | Symbolbild, Unsplash License | Red John, https://unsplash.com/photos/mZixsK8OnmE — Grade p50, Größe angepasst |
 | Säule IV | `pillar-meet.webp` | Symbolbild, Unsplash License | Victoria Prymak, https://unsplash.com/photos/T8Lxr7LFN74 — Grade p50, Größe angepasst |
 | I Run | `run-night.webp` | Symbolbild, Unsplash License | Iliya Jokic, https://unsplash.com/photos/BcJyBN4jDHY — Grade p50, Größe angepasst |
 | II Practice | `practice-start.webp` | Symbolbild, Pexels License | Thomas Ronveaux, https://www.pexels.com/photo/a-close-up-shot-of-an-athlete-on-a-race-track-13159243/ — Grade p50, Größe angepasst |
-| IV Meet | `meet-night.webp` | Symbolbild, Pexels License | liathyrax, https://www.pexels.com/photo/group-of-men-running-on-track-at-night-35005203/ — Grade p50, Größe angepasst, Schriftzug „EASY RUN“ und Brust-Logo lokal entfernt |
+| IV Meet | `meet-night.webp` | Symbolbild · Fitsum Admasu / Unsplash | https://unsplash.com/photos/silhouette-of-three-women-running-on-grey-concrete-road-oGv9xIl7DkY — Unsplash License; bearbeitet: Aufdruck entfernt (bereitgestellter Master); Grade p50, Größe angepasst |
 | Eingang | `track-night.webp` | Symbolbild, Unsplash License | Mikhail K, https://unsplash.com/photos/jsNI0bh5D-o — Grade p50, Größe angepasst |
 | III Wear, Säule III | `responsive/hoodie-*-{480,800,1200,1600,1792}.webp` | KI-Visualisierung | KI-Visualisierung (Higgsfield, GPT Image 2.5) auf Basis der fastr30.com-Produktrenderings, Stofffarbe an das Original angeglichen, 2026-10-26 |
 | V Make, Säule V | `stick-lime.jpg` | 3D-Produktvisualisierung / statischer Fallback | unverändert von fastr30.com/shop; Hash-Test. `stick-exploded.jpg` bleibt als unverändertes Referenzasset erhalten, wird nicht mehr auf der Hauptseite geladen. |
@@ -142,3 +142,7 @@ v4: Fabi gab fremdes Material aus dem Internet frei. Unsplash/Pexels-Lizenzen er
 - `pillar-meet.webp`: Symbolbild · Victoria Prymak (@vprmk) / Unsplash. Quelle: https://unsplash.com/photos/T8Lxr7LFN74; Unsplash License. Externe Datei `C:\Users\Fabien\og-sports-sources\rc7-candidates\pillar-meet\M2_unsplash_T8Lxr7LFN74.jpg`, SHA-256 `99a47422e1de780eeabac8768c655248cc49ba33b84c55b37752b28602f04002` vor Benutzung gegen Kandidatenmanifest geprüft. Desktop-Crop `[1715, 0, 5451, 4670]`, Handy-Crop `[1715, 0, 5451, 4670]` (Quellpixel). Keine Retusche; p50 wie im Bestand.
 
 Quellseiten und Lizenzangaben aus dem bereitgestellten Kandidatenmanifest übernommen; in diesem Lauf keine Netzabfrage. Quellen bleiben außerhalb des Repos.
+
+## RC8 - Quellenpruefung (27.10.2026)
+
+PR2: externer Master `C:/Users/Fabien/og-sports-sources/rc8-candidates/pillar-run/PR2_pexels_14532913.jpg`, SHA-256 `a1242c9cea74b89fa4ad8d577397a8cca561fe406fa5c3ef79c7564fcd791a96`, 5760 x 8640. MN1: `C:/Users/Fabien/og-sports-sources/rc8-candidates/meet-night/retouch/MN1_retouched.png`, SHA-256 `e6e13fb793d3c5d00e8fb7b7ef91bfa837044448dc566e9e5f04ecbf5f9d2ca8`, 6720 x 4480; bearbeitet: Aufdruck entfernt. Original-Hash laut Manifest `139fd1d0b2a78baca74671cecbbd664144c7428ceb9bbb890a0544af0c861288`. Beide verwendeten Hashes vor Benutzung geprueft. Retusche-Skript selbst ungeprueft. Lizenz-/Fotografenangaben aus dem bereitgestellten Manifest; keine Netzabfrage. Keine Behauptung eines OG-Events oder einer Mitgliedschaft. Quellen bleiben ausserhalb des Repos. Ausschnitte und Derivate: `responsive-assets.json`; Messung: `RC8_RESULT.md`.

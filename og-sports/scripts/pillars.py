@@ -21,8 +21,8 @@ START, END = "<!--pillars-->", "<!--/pillars-->"
 #     or ("type", figure text, size in container-inline units)
 PILLARS = [
     ("I", "Run", True, "#fastr", "OG FASTR",
-     ("img", "assets/pillar-run.webp", "50% 45%", ("Nick Gosset / Unsplash", "Nick Gosset / Unsplash"),
-      ("Läufer in Bewegung, unscharf", "Runner in motion, blurred"))),
+     ("img", "assets/pillar-run.webp", "50% 45%", ("limoo / Pexels", "limoo / Pexels"),
+      ("Läuferin als Silhouette vor beleuchteter Säulenhalle mit Spiegelung", "Runner silhouetted before an illuminated colonnade with reflection"))),
     ("II", "Practice", True, "#practice", "FASTR30",
      ("img", "assets/pillar-practice.webp", "50% 55%", ("Red John / Unsplash", "Red John / Unsplash"),
       ("Läufer auf einer Betontreppe im Abendlicht", "Runner on concrete stairs in evening light"))),
@@ -52,8 +52,8 @@ def pillar(i, row):
     ]
     if media[0] == "img":
         _, src, pos, kind, alt = media
-        kind = tuple('Symbolbild · ' + k if 'Unsplash' in k else k for k in kind)
-        if 'Unsplash' in kind[1]:
+        kind = tuple('Symbolbild · ' + k if any(provider in k for provider in ('Unsplash', 'Pexels')) else k for k in kind)
+        if any(provider in kind[1] for provider in ('Unsplash', 'Pexels')):
             kind = (kind[0], kind[1].replace('Symbolbild', 'Illustrative photo'))
         phone = '(max-width: 600px) calc(100vw - 40px), (max-width: 767px) calc(100vw - 44px), '
         tablet = '(max-width: 899px) 100vw, ' if i == 0 else '(max-width: 899px) 50vw, '

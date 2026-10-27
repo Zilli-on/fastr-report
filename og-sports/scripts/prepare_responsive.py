@@ -34,15 +34,24 @@ RC7 = {
     'run-night.webp': ('R3', (0, 0, 5184, 3456), (1100, 0, 3864, 3455)),
     'pillar-meet.webp': ('M2', (1715, 0, 5451, 4670), (1715, 0, 5451, 4670)),
 }
+RC8_POOL = Path('C:/Users/Fabien/og-sports-sources/rc8-candidates')
+RC8 = {
+    'pillar-run.webp': ('PR2', 'pillar-run/PR2_pexels_14532913.jpg',
+        'a1242c9cea74b89fa4ad8d577397a8cca561fe406fa5c3ef79c7564fcd791a96',
+        (0, 900, 5760, 8100), None),
+    'meet-night.webp': ('MN1', 'meet-night/retouch/MN1_retouched.png',
+        'e6e13fb793d3c5d00e8fb7b7ef91bfa837044448dc566e9e5f04ecbf5f9d2ca8',
+        (0, 0, 6720, 3780), (928, 0, 4512, 4480)),
+}
 # Remaining desktop crops and masks match prepare_v4.py.
 JOBS = {
     'photo-ritual.webp': ('unsplash_cS0W4GvUUDM.jpg', (2300, 0, 5500, 4000), None),
     'run-night.webp': (str(RC7_POOL / 'run-night/R3_unsplash_BcJyBN4jDHY.jpg'), RC7['run-night.webp'][1], RC7['run-night.webp'][2]),
-    'pillar-run.webp': ('unsplash_3DJfakd6VoU.jpg', None, None),
+    'pillar-run.webp': (str(RC8_POOL / RC8['pillar-run.webp'][1]), RC8['pillar-run.webp'][3], RC8['pillar-run.webp'][4]),
     'pillar-practice.webp': ('unsplash_mZixsK8OnmE.jpg', None, None),
     'pillar-meet.webp': (str(RC7_POOL / 'pillar-meet/M2_unsplash_T8Lxr7LFN74.jpg'), RC7['pillar-meet.webp'][1], RC7['pillar-meet.webp'][2]),
     'practice-start.webp': ('pexels_13159243.jpg', None, None),
-    'meet-night.webp': ('pexels_35005203.jpg', (0, 1250, 4000, 3500), (0, 0, 4000, 5000)),
+    'meet-night.webp': (str(RC8_POOL / RC8['meet-night.webp'][1]), RC8['meet-night.webp'][3], RC8['meet-night.webp'][4]),
     'track-night.webp': ('unsplash_jsNI0bh5D-o.jpg', None, None),
 }
 
@@ -63,7 +72,7 @@ def variants(im, stem, grade=False, mobile=False, product=False):
     if stem == 'after-the-run':
         maximum = min(im.width, 998 if mobile else 5120)
         steps = (480, 800, 998) if mobile else (960, 1440, 1920, 2560, 3840, 5120)
-    if stem == 'run-night' and not mobile:
+    if stem in ('run-night', 'meet-night') and not mobile:
         maximum = min(im.width, 3200)
         steps = (*steps, 3200)
     widths = sorted({w for w in steps if w <= maximum} | {maximum})
@@ -84,7 +93,7 @@ def variants(im, stem, grade=False, mobile=False, product=False):
         rendered.save(OUT / name, 'WEBP', quality=82, method=6)
         result.append({'file': 'assets/responsive/' + name, 'width': width,
                        'height': height, 'bytes': (OUT / name).stat().st_size})
-        if stem == 'after-the-run':
+        if stem == 'after-the-run' or stem + '.webp' in RC8:
             result[-1]['sha256'] = hashlib.sha256((OUT / name).read_bytes()).hexdigest()
     return result
 
@@ -139,6 +148,12 @@ def main():
             candidate = next(c for c in candidates['kandidaten'] if c['id'] == candidate_id)
             source = RC7_POOL / candidate['datei']
             assert hashlib.sha256(source.read_bytes()).hexdigest() == candidate['sha256'], 'RC7 source hash mismatch; abort'
+        if name in RC8:
+            candidate_id, relative, expected_hash, crop, mobile = RC8[name]
+            source = RC8_POOL / relative
+            assert hashlib.sha256(source.read_bytes()).hexdigest() == expected_hash, 'RC8 source hash mismatch; abort'
+            candidates = json.loads((RC8_POOL / 'manifest.json').read_text(encoding='utf-8'))
+            candidate = next(c for c in candidates['kandidaten'] if c['id'] == candidate_id)
         im = Image.open(source).convert('RGB')
         if candidate:
             assert list(im.size) == candidate['px'], 'RC7 source dimensions mismatch'
@@ -151,7 +166,9 @@ def main():
             entry.update(source_url=candidate['quelle_url'], photographer=candidate['fotograf'],
                          license=candidate['lizenz'], label='Symbolbild', candidate=candidate['id'])
         if name == 'meet-night.webp':
-            im = retouch(im)
+            entry.update(edit='bearbeitet: Aufdruck entfernt; bereitgestellter retuschierter Master',
+                         original_source_sha256=candidate['sha256'],
+                         original_source=str(RC8_POOL / candidate['datei']))
         desktop = im.crop(crop) if crop else im
         entry['crop_pixels'] = list(desktop.size)
         entry['variants'] = variants(desktop, Path(name).stem, grade, product=name.startswith('hoodie-'))

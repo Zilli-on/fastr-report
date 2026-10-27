@@ -108,11 +108,11 @@
     },
     {
       "file": "assets/pillar-run.webp",
-      "bytes": 39570,
-      "sha256": "dd45457562b709a1df6f6dcbebe10fbc4b39d853b21768c1c516ca7e8b77a8ad",
+      "bytes": 476046,
+      "sha256": "0437fa9d83b6d883c746329e5ac713c719ec959540f4a9212bf05da1aabbcf5d",
       "use": "Säule I",
-      "type": "Licensed photograph (Unsplash License), illustrative",
-      "source": "Nick Gosset, https://unsplash.com/photos/3DJfakd6VoU"
+      "type": "Licensed photograph (Pexels License), illustrative",
+      "source": "limoo, https://www.pexels.com/photo/silhouette-of-woman-running-in-front-of-an-illuminated-building-at-night-14532913/"
     },
     {
       "file": "assets/pillar-practice.webp",
@@ -148,11 +148,11 @@
     },
     {
       "file": "assets/meet-night.webp",
-      "bytes": 51430,
-      "sha256": "37e419367529f4c6d6a52faa60cb41115eee777c86dde4fa50e923496cd03ee8",
+      "bytes": 59014,
+      "sha256": "3c5ad07398846034f64390d96ac86d1b5caf8dbf7c055bb3cfafaee81ea43b94",
       "use": "IV Meet",
-      "type": "Licensed photograph (Pexels License), illustrative",
-      "source": "liathyrax, https://www.pexels.com/photo/group-of-men-running-on-track-at-night-35005203/"
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Fitsum Admasu, https://unsplash.com/photos/silhouette-of-three-women-running-on-grey-concrete-road-oGv9xIl7DkY"
     },
     {
       "file": "assets/track-night.webp",

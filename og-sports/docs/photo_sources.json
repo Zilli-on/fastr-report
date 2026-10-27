@@ -134,6 +134,61 @@
       ],
       "edit": "p50 (v4), resize then grade, WebP Q82/method 6; no retouch",
       "status": "shown on the homepage; illustrative photo, no OG event or membership implied"
+    },
+    {
+      "key": "pillar-run",
+      "photographer": "limoo",
+      "source_url": "https://www.pexels.com/photo/silhouette-of-woman-running-in-front-of-an-illuminated-building-at-night-14532913/",
+      "license": "Pexels License (https://www.pexels.com/license/)",
+      "label": "Symbolbild",
+      "local_file": "assets/pillar-run.webp",
+      "sha256": "0437fa9d83b6d883c746329e5ac713c719ec959540f4a9212bf05da1aabbcf5d",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\rc8-candidates\\pillar-run\\PR2_pexels_14532913.jpg",
+      "source_sha256": "a1242c9cea74b89fa4ad8d577397a8cca561fe406fa5c3ef79c7564fcd791a96",
+      "source_pixels": [
+        5760,
+        8640
+      ],
+      "crop": [
+        0,
+        900,
+        5760,
+        8100
+      ],
+      "mobile_crop": null,
+      "edit": "Keine Retusche; p50 (v4), resize then grade, WebP Q82/method 6",
+      "status": "shown on the homepage; illustrative photo, no OG event or membership implied"
+    },
+    {
+      "key": "meet-night",
+      "photographer": "Fitsum Admasu",
+      "source_url": "https://unsplash.com/photos/silhouette-of-three-women-running-on-grey-concrete-road-oGv9xIl7DkY",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "label": "Symbolbild",
+      "local_file": "assets/meet-night.webp",
+      "sha256": "3c5ad07398846034f64390d96ac86d1b5caf8dbf7c055bb3cfafaee81ea43b94",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\rc8-candidates\\meet-night\\retouch\\MN1_retouched.png",
+      "source_sha256": "e6e13fb793d3c5d00e8fb7b7ef91bfa837044448dc566e9e5f04ecbf5f9d2ca8",
+      "source_pixels": [
+        6720,
+        4480
+      ],
+      "crop": [
+        0,
+        0,
+        6720,
+        3780
+      ],
+      "mobile_crop": [
+        928,
+        0,
+        4512,
+        4480
+      ],
+      "edit": "bearbeitet: Aufdruck entfernt; bereitgestellter retuschierter Master; p50 (v4), resize then grade, WebP Q82/method 6",
+      "status": "shown on the homepage; illustrative photo, no OG event or membership implied",
+      "original_source": "C:\\Users\\Fabien\\og-sports-sources\\rc8-candidates\\meet-night\\MN1_unsplash_oGv9xIl7DkY.jpg",
+      "original_source_sha256": "139fd1d0b2a78baca74671cecbbd664144c7428ceb9bbb890a0544af0c861288"
     }
   ],
   "rights_note": "Public design review. Unsplash photo licence does not itself verify model/property/trademark releases for advertising. No implied endorsement. Noindex is not access protection.",

@@ -42,7 +42,7 @@ def main():
         'photo-ritual.webp': '(max-width: 899px) calc(100vw - 44px), 42vw',
         'practice-start.webp': '(max-width: 899px) calc(100vw - 44px), 42vw',
         'run-night.webp': 'max(102vw, min(153svh, 1652.4px))',
-        'meet-night.webp': 'max(100vw, min(163.56svh, 1778px))',
+        'meet-night.webp': 'max(102vw, min(166.8267svh, 1813.34px))',
         'track-night.webp': '100vw',
     }
     head, rest = html.split('<!--pillars-->')

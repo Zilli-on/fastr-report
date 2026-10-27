@@ -424,49 +424,64 @@
     }
   },
   "assets/pillar-run.webp": {
-    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_3DJfakd6VoU.jpg",
-    "source_sha256": "250caaca0093f58795be83e2daa760f3fdd4731efa12df2345998b2d9d84b779",
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\rc8-candidates\\pillar-run\\PR2_pexels_14532913.jpg",
+    "source_sha256": "a1242c9cea74b89fa4ad8d577397a8cca561fe406fa5c3ef79c7564fcd791a96",
     "source_pixels": [
-      4000,
-      6000
+      5760,
+      8640
     ],
-    "crop": null,
+    "crop": [
+      0,
+      900,
+      5760,
+      8100
+    ],
     "mobile_crop": null,
     "grade": "p50 (v4)",
+    "source_url": "https://www.pexels.com/photo/silhouette-of-woman-running-in-front-of-an-illuminated-building-at-night-14532913/",
+    "photographer": "limoo (Pexels)",
+    "license": "Pexels License (https://www.pexels.com/license/)",
+    "label": "Symbolbild",
+    "candidate": "PR2",
     "crop_pixels": [
-      4000,
-      6000
+      5760,
+      7200
     ],
     "variants": [
       {
         "file": "assets/responsive/pillar-run-640.webp",
         "width": 640,
-        "height": 960,
-        "bytes": 13856
+        "height": 800,
+        "bytes": 34300,
+        "sha256": "dc65a35e21715ed8dc26a18d8074249b3af0eefa81ab52aca90324f9dec2ba05"
       },
       {
         "file": "assets/responsive/pillar-run-1080.webp",
         "width": 1080,
-        "height": 1620,
-        "bytes": 27498
+        "height": 1350,
+        "bytes": 81952,
+        "sha256": "d128614b7367319b34e488e28f3325eed73636dcee4f603e95c771c6726a3ad2"
       },
       {
         "file": "assets/responsive/pillar-run-1600.webp",
         "width": 1600,
-        "height": 2400,
-        "bytes": 48556
+        "height": 2000,
+        "bytes": 181284,
+        "sha256": "56a0b449890e2d6e3718bb0bc349d38d9b05d427021341954cf9df8db6a76bf6"
       },
       {
         "file": "assets/responsive/pillar-run-2400.webp",
         "width": 2400,
-        "height": 3600,
-        "bytes": 91760
+        "height": 3000,
+        "bytes": 476046,
+        "sha256": "0437fa9d83b6d883c746329e5ac713c719ec959540f4a9212bf05da1aabbcf5d"
       },
       {
         "file": "assets/responsive/pillar-run-2880.webp",
         "width": 2880,
-        "height": 4320,
-        "bytes": 121336
+        "height": 3600,
+        "bytes": 749050,
+        "sha256": "6abf21a6e09734aa0a8fe389d4cefe3a6f16cab9b3a51ca2f8895c62238a3778"
       }
     ],
     "old_mean_luma_saturation": [
@@ -474,9 +489,16 @@
       39.89
     ],
     "mean_luma_saturation": [
-      88.4,
-      40.61
-    ]
+      27.77,
+      93.02
+    ],
+    "fallback": {
+      "file": "assets/pillar-run.webp",
+      "width": 2400,
+      "height": 3000,
+      "bytes": 476046,
+      "sha256": "0437fa9d83b6d883c746329e5ac713c719ec959540f4a9212bf05da1aabbcf5d"
+    }
   },
   "assets/pillar-practice.webp": {
     "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_mZixsK8OnmE.jpg",
@@ -691,59 +713,79 @@
     ]
   },
   "assets/meet-night.webp": {
-    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\pexels_35005203.jpg",
-    "source_sha256": "d378f5041557dbd6e25e156b8bd52e81f01889c08adfd05048f7d38fc0e4d10b",
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\rc8-candidates\\meet-night\\retouch\\MN1_retouched.png",
+    "source_sha256": "e6e13fb793d3c5d00e8fb7b7ef91bfa837044448dc566e9e5f04ecbf5f9d2ca8",
     "source_pixels": [
-      4000,
-      5000
+      6720,
+      4480
     ],
     "crop": [
       0,
-      1250,
-      4000,
-      3500
+      0,
+      6720,
+      3780
     ],
     "mobile_crop": [
+      928,
       0,
-      0,
-      4000,
-      5000
+      4512,
+      4480
     ],
     "grade": "p50 (v4)",
+    "source_url": "https://unsplash.com/photos/silhouette-of-three-women-running-on-grey-concrete-road-oGv9xIl7DkY",
+    "photographer": "Fitsum Admasu (@fitmasu)",
+    "license": "Unsplash License (https://unsplash.com/license)",
+    "label": "Symbolbild",
+    "candidate": "MN1",
+    "edit": "bearbeitet: Aufdruck entfernt; bereitgestellter retuschierter Master",
+    "original_source_sha256": "139fd1d0b2a78baca74671cecbbd664144c7428ceb9bbb890a0544af0c861288",
+    "original_source": "C:\\Users\\Fabien\\og-sports-sources\\rc8-candidates\\meet-night\\MN1_unsplash_oGv9xIl7DkY.jpg",
     "crop_pixels": [
-      4000,
-      2250
+      6720,
+      3780
     ],
     "variants": [
       {
         "file": "assets/responsive/meet-night-640.webp",
         "width": 640,
         "height": 360,
-        "bytes": 8662
+        "bytes": 11444,
+        "sha256": "7aee20d29e00b89a3e3454fdf53dfdea0fc7f8d51fc5c2fdaf7e5a952641be35"
       },
       {
         "file": "assets/responsive/meet-night-1080.webp",
         "width": 1080,
         "height": 608,
-        "bytes": 15978
+        "bytes": 21758,
+        "sha256": "05bbc2fad5efe2b7f83f72f8d8ec2768fe759545363519b4493a04b6f333a7f0"
       },
       {
         "file": "assets/responsive/meet-night-1600.webp",
         "width": 1600,
         "height": 900,
-        "bytes": 26694
+        "bytes": 34560,
+        "sha256": "d224c293fc5d38af74b0508e21d4111a7fe85557142d81cde85350a8dcf95944"
       },
       {
         "file": "assets/responsive/meet-night-2400.webp",
         "width": 2400,
         "height": 1350,
-        "bytes": 51430
+        "bytes": 59014,
+        "sha256": "3c5ad07398846034f64390d96ac86d1b5caf8dbf7c055bb3cfafaee81ea43b94"
       },
       {
         "file": "assets/responsive/meet-night-2880.webp",
         "width": 2880,
         "height": 1620,
-        "bytes": 76596
+        "bytes": 77224,
+        "sha256": "a1fcb7ede888585c5b4d5325d7a681c988e4ee80fba79e5b1c2e06ea96635847"
+      },
+      {
+        "file": "assets/responsive/meet-night-3200.webp",
+        "width": 3200,
+        "height": 1800,
+        "bytes": 91270,
+        "sha256": "e04b6e8d680cb015afc3537a54fef50585c174ca0efc276e887879fa5a346dd8"
       }
     ],
     "mobile": [
@@ -751,25 +793,29 @@
         "file": "assets/responsive/meet-night-mobile-640.webp",
         "width": 640,
         "height": 800,
-        "bytes": 27312
+        "bytes": 24008,
+        "sha256": "669e11cf18297abf137a068e6b65e15620c32dfc7eb8fe818e2792d2fcf2f964"
       },
       {
         "file": "assets/responsive/meet-night-mobile-1080.webp",
         "width": 1080,
         "height": 1350,
-        "bytes": 64642
+        "bytes": 46616,
+        "sha256": "f9d4e733dad6ec00509e91ae1b565ee6c205e37a4cb32bf7cc5934cdc6a5f284"
       },
       {
         "file": "assets/responsive/meet-night-mobile-1280.webp",
         "width": 1280,
         "height": 1600,
-        "bytes": 85410
+        "bytes": 57642,
+        "sha256": "35c63733ed3b01f715553abd9829b538f804690b86070cc5d59e14f38c7eb69c"
       },
       {
         "file": "assets/responsive/meet-night-mobile-1600.webp",
         "width": 1600,
         "height": 2000,
-        "bytes": 126628
+        "bytes": 78424,
+        "sha256": "04e796018e1b3d7f1dbbdb1c81db74ed8a6ff3afc1aad2d41bc37d4ea7885deb"
       }
     ],
     "old_mean_luma_saturation": [
@@ -777,9 +823,16 @@
       112.53
     ],
     "mean_luma_saturation": [
-      6.76,
-      111.24
-    ]
+      61.01,
+      159.89
+    ],
+    "fallback": {
+      "file": "assets/meet-night.webp",
+      "width": 2400,
+      "height": 1350,
+      "bytes": 59014,
+      "sha256": "3c5ad07398846034f64390d96ac86d1b5caf8dbf7c055bb3cfafaee81ea43b94"
+    }
   },
   "assets/track-night.webp": {
     "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_jsNI0bh5D-o.jpg",
