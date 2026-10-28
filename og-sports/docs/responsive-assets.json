@@ -1144,5 +1144,49 @@
       "bytes": 75646,
       "sha256": "499329ee80eb439d99455189f621237c55d5157bb6b7cd533145ea4e849161c6"
     }
+  },
+  "assets/pillar-dusk.webp": {
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_JnoNcfFwrNA.jpg",
+    "source_sha256": "7a63332404f92338692417f1e78a3f77f0e0be4156f1be93327dbbf6eed7049b",
+    "source_pixels": [
+      4336,
+      3040
+    ],
+    "crop": [
+      1408,
+      0,
+      2928,
+      3040
+    ],
+    "mobile_crop": null,
+    "grade": "p50 (v4)",
+    "crop_pixels": [
+      1520,
+      3040
+    ],
+    "variants": [
+      {
+        "file": "assets/responsive/pillar-dusk-640.webp",
+        "width": 640,
+        "height": 1280,
+        "bytes": 101376
+      },
+      {
+        "file": "assets/responsive/pillar-dusk-1080.webp",
+        "width": 1080,
+        "height": 2160,
+        "bytes": 204830
+      },
+      {
+        "file": "assets/responsive/pillar-dusk-1520.webp",
+        "width": 1520,
+        "height": 3040,
+        "bytes": 364926
+      }
+    ],
+    "mean_luma_saturation": [
+      96.03,
+      74.23
+    ]
   }
 }

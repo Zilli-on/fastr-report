@@ -57,6 +57,8 @@ JOBS = {
     'pillar-practice.webp': ('unsplash_mZixsK8OnmE.jpg', None, None),
     'pillar-meet.webp': (str(RC7_POOL / 'pillar-meet/M2_unsplash_T8Lxr7LFN74.jpg'), RC7['pillar-meet.webp'][1], RC7['pillar-meet.webp'][2]),
     'practice-start.webp': ('pexels_13159243.jpg', None, None),
+    # RC15: pillar II, lone runner at dusk (lucas Favre / Unsplash), 1:2 portrait for the five-column temple
+    'pillar-dusk.webp': ('unsplash_JnoNcfFwrNA.jpg', (1408, 0, 2928, 3040), None),
     'meet-night.webp': (str(RC8_POOL / RC8['meet-night.webp'][1]), RC8['meet-night.webp'][3], RC8['meet-night.webp'][4]),
 }
 

@@ -8,6 +8,7 @@ IV lavender (OG SPORTS), V image. A colour pillar carries a type figure instead
 of a photograph, so no people are implied where we have no picture of them.
 """
 
+import re
 import sys
 from responsive_markup import attributes, enhance
 from html import escape
@@ -24,8 +25,8 @@ PILLARS = [
      ("img", "assets/pillar-run.webp", "50% 45%", ("limoo / Pexels", "limoo / Pexels"),
       ("Läuferin als Silhouette vor beleuchteter Säulenhalle mit Spiegelung", "Runner silhouetted before an illuminated colonnade with reflection"))),
     ("II", "Practice", True, "#practice", "FASTR30",
-     ("img", "assets/pillar-practice.webp", "50% 55%", ("Red John / Unsplash", "Red John / Unsplash"),
-      ("Läufer auf einer Betontreppe im Abendlicht", "Runner on concrete stairs in evening light"))),
+     ("img", "assets/pillar-dusk.webp", "50% 50%", ("lucas Favre / Unsplash", "lucas Favre / Unsplash"),
+      ("Läufer als Silhouette in der Dämmerung auf nasser Straße", "Runner silhouetted at dusk on a wet road"))),
     # RC9/RC10: the pillars show a second colour as a landscape detail, the chapters the whole product (no image twice)
     ("III", "Wear", True, "#apparel", "Apparel",
      ("img", "assets/responsive/hoodie-lavender-800.webp", "50% 36%", ("KI-Visualisierung", "AI visualisation"),
@@ -57,9 +58,11 @@ def pillar(i, row):
         kind = tuple('Symbolbild · ' + k if any(provider in k for provider in ('Unsplash', 'Pexels')) else k for k in kind)
         if any(provider in kind[1] for provider in ('Unsplash', 'Pexels')):
             kind = (kind[0], kind[1].replace('Symbolbild', 'Illustrative photo'))
-        phone = '(max-width: 600px) calc(100vw - 40px), (max-width: 767px) calc(100vw - 44px), '
-        tablet = '(max-width: 899px) 100vw, ' if i == 0 else '(max-width: 899px) 50vw, '
-        sizes = phone + tablet + ('66.67vw' if i == 0 else '33.33vw' if i < 3 else '50vw')  # asymmetric temple (RC13)
+        # RC15: five columns side by side, object-fit cover. The image is as wide as the column is tall times
+        # its aspect, so sizes follow the column height (styles.css: 100vw phone, 60vw tablet, 40vw desktop).
+        w, h = (int(x) for x in re.search(r'width="(\d+)" height="(\d+)"', attributes(src, '1px')).groups())
+        a = w / h * {'Wear': 2.7, 'Make': 1.7}.get(word, 1)  # styles.css --zoom: colour columns are cut closer
+        sizes = f'(max-width: 600px) {round(100 * a)}vw, (max-width: 899px) {round(60 * a)}vw, {round(40 * a)}vw'
         image_tag = (
             f'<img alt="{escape(alt[0])}" data-alt-de="{escape(alt[0])}" data-alt-en="{escape(alt[1])}" '
             f'loading="lazy" src="{src}" {attributes(src, sizes)} style="object-position:{pos}"/>'
