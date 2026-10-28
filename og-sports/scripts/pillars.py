@@ -59,10 +59,10 @@ def pillar(i, row):
         if any(provider in kind[1] for provider in ('Unsplash', 'Pexels')):
             kind = (kind[0], kind[1].replace('Symbolbild', 'Illustrative photo'))
         # RC15: five columns side by side, object-fit cover. The image is as wide as the column is tall times
-        # its aspect, so sizes follow the column height (styles.css: 100vw phone, 60vw tablet, 40vw desktop).
+        # its aspect, so sizes follow the column height (styles.css: 60vw tablet, 40vw desktop; phone rows are full width).
         w, h = (int(x) for x in re.search(r'width="(\d+)" height="(\d+)"', attributes(src, '1px')).groups())
         a = w / h * {'Wear': 2.7, 'Make': 1.7}.get(word, 1)  # styles.css --zoom: colour columns are cut closer
-        sizes = f'(max-width: 600px) {round(100 * a)}vw, (max-width: 899px) {round(60 * a)}vw, {round(40 * a)}vw'
+        sizes = f'(max-width: 600px) 100vw, (max-width: 899px) {round(60 * a)}vw, {round(40 * a)}vw'  # RC16: phone = full-width rows
         image_tag = (
             f'<img alt="{escape(alt[0])}" data-alt-de="{escape(alt[0])}" data-alt-en="{escape(alt[1])}" '
             f'loading="lazy" src="{src}" {attributes(src, sizes)} style="object-position:{pos}"/>'

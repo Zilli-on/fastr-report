@@ -222,12 +222,17 @@ ol, ul { padding: 0; list-style: none; }
 .pillar-word.run { font-style: italic; font-weight: 800; font-stretch: 125%; }
 .pillar a:focus-visible { outline: 2px solid var(--lime); outline-offset: -6px; }
 @media (max-width: 899px) { .pillars { height: 60vw; } }
+/* RC16: on a phone the five columns become five wide rows (slits were too thin to read); roof and base stay */
 @media (max-width: 600px) {
-  .pillars { height: min(100vw, 460px); gap: 2px; }
-  .pillar-num { top: 12px; left: 10px; font-size: .625rem; }
-  .pillar-name { display: none; }
-  .pillar-kind { top: 12px; right: 6px; font-size: .5rem; }
-  .pillar-word { left: 6px; bottom: 12px; font-size: 1.375rem; }
+  .pillars { grid-template-columns: minmax(0, 1fr); height: auto; }
+  .pillar { aspect-ratio: 16 / 5; }
+  .pillar-wear, .pillar-make { --zoom: 1; }
+  .pillar-wear img { object-position: 50% 6% !important; }
+  .pillar-practice img { object-position: 50% 36% !important; } /* keep the runner in the row */
+  .pillar-num { top: 10px; left: 12px; font-size: .625rem; }
+  .pillar-name { top: auto; left: auto; right: 12px; bottom: 12px; }
+  .pillar-kind { top: 10px; right: 12px; max-width: 64%; writing-mode: horizontal-tb; text-align: right; font-size: .5rem; }
+  .pillar-word { left: 12px; bottom: 10px; writing-mode: horizontal-tb; transform: none; font-size: 1.5rem; }
 }
 .pillar:hover img, .pillar:focus-within img { transform: scale(calc(var(--zoom, 1) * 1.04)); }
 .motion-ok .temple:not(.is-in) .pillar { clip-path: inset(100% 0 0 0); }
@@ -374,7 +379,7 @@ ol, ul { padding: 0; list-style: none; }
 .stick:not(.is-ready) .stick-viewport { display: none; }
 .stick:not(.is-ready) .stick-still { display: block; margin: 0; background: #e4e3dd; }
 .stick:not(.is-ready) .stick-still img { width: 100%; height: auto; }
-.stick:not(.is-ready) .stick-step h4 { font-size: clamp(1.25rem, 1.9vw, 1.875rem); margin: 10px 0; }
+.stick:not(.is-ready) .stick-step h4 { font-size: clamp(1.25rem, 1.9vw, 1.875rem); margin: 10px 0; max-width: none; }
 @media (max-width: 1099px) { .stick:not(.is-ready) .stick-stage { grid-template-columns: minmax(0, 1fr); align-items: start; } } /* RC15: still first, then the three steps */
 .stick:not(.is-ready) .stick-step + .stick-step { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--rule); }
 @media (max-width: 767px) {
@@ -405,11 +410,16 @@ ol, ul { padding: 0; list-style: none; }
    Lime for the FASTR30 door, lavender for the two OG SPORTS doors. */
 .connect { padding: clamp(56px, 6vw, 104px) var(--gutter) clamp(48px, 5vw, 88px); background: var(--ink); color: var(--on-ink); }
 .connect .label { color: var(--on-ink-muted); }
-.connect-head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 18px; align-items: end; margin-bottom: clamp(36px, 4vw, 64px); }
+.connect-head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 14px; align-items: baseline; margin-bottom: clamp(16px, 2vw, 32px); }
 .connect-head .label { grid-column: 1 / -1; }
-.connect h2 { grid-column: 1 / 8; font-size: var(--t-xl); }
-.connect-copy { grid-column: 9 / 13; max-width: 40ch; font-size: var(--t-lead); line-height: 1.45; color: var(--on-ink-muted); }
-.connect-ways { text-align: left; }
+.connect h2 { grid-column: 1 / 7; font-size: var(--t-m); line-height: 1.1; letter-spacing: -.02em; } /* RC16: a quiet line; Anfangen is the one loud moment */
+.connect-copy { grid-column: 7 / 13; max-width: 40ch; font-size: var(--t-lead); line-height: 1.45; color: var(--on-ink-muted); }
+.connect-ways { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--gap); text-align: left; }
+.connect-ways .way-first { grid-column: 1 / -1; }
+/* the two OG doors: small, side by side, after the one act */
+.connect-ways li:not(.way-first) .way { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "note" "go"; row-gap: 8px; }
+.connect-ways li:not(.way-first) .way-title { font-size: clamp(1.25rem, 2.1vw, 2.125rem); }
+.connect-ways li:not(.way-first) .way-go { justify-self: start; }
 .connect-ways li { border-top: 1px solid var(--rule-ink); }
 /* RC15: no box, no table: each door is its verb, set large, with the arrow as the act */
 .way { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "title title" "note go"; align-items: baseline; row-gap: 14px; column-gap: var(--gap); width: 100%; padding: clamp(18px, 2.2vw, 36px) 0 clamp(20px, 2.4vw, 40px); text-align: left; }
@@ -567,7 +577,8 @@ dialog::backdrop { background: rgba(14, 15, 13, .55); backdrop-filter: blur(6px)
   .connect h2, .connect-copy { grid-column: 1 / -1; }
   .way { grid-template-areas: "title title" "note note" "go go"; row-gap: 10px; }
   .way-go { justify-self: start; }
-  .way-title { font-size: clamp(1.375rem, 6.4vw, 2.5rem); }
+  .connect-ways { grid-template-columns: minmax(0, 1fr); }
+  .connect-ways li:not(.way-first) .way-title { font-size: clamp(1.25rem, 5.6vw, 2rem); }
   .way-first .way-title { font-size: clamp(2rem, 10vw, 4rem); }
   .story-head h2, .story-intro, .story-body h3, .story-body-text { grid-column: 1 / -1; }
   .story-pillars { grid-template-columns: 1fr; }
