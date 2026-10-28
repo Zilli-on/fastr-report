@@ -1,0 +1,574 @@
+# RC8-Nachtrag - Run-Kachel PR2 und Kapitel IV MN1
+
+PR2 ersetzt Nick Gosset durch limoo / Pexels; MN1 ersetzt liathyrax durch Fitsum Admasu / Unsplash. Beide verwendeten SHA-256-Hashes vor Benutzung geprueft. MN1 ist der bereitgestellte retuschierte Master (bearbeitet: Aufdruck entfernt). Keine weitere Retusche, Quellen nicht kopiert, kein Netzwerk ausser localhost, kein Commit/Push/Deployment.
+
+## Aufbereitung und Ausschnitte
+
+Identische p50-Rezeptur, Skalierung vor Grade, WebP Q82/method 6. Keine Hochskalierung. Fallbacks sind die jeweiligen 2400-px-Derivate.
+[[og-sports/scripts/prepare_responsive.py:87 "f'scale={width}:{height}:flags=lanczos,{P50}'"]]
+[[og-sports/scripts/prepare_responsive.py:93 "rendered.save(OUT / name, 'WEBP', quality=82, method=6)"]]
+
+| Bild | Quellpixel | Desktop-Crop | Handy-Crop | Desktop-Breiten | Handy-Breiten |
+|---|---|---|---|---|---|
+| pillar-run.webp | [5760, 8640] | [0, 900, 5760, 8100] | [0, 900, 5760, 8100] | 640, 1080, 1600, 2400, 2880 | gleiche Varianten |
+| meet-night.webp | [6720, 4480] | [0, 0, 6720, 3780] | [928, 0, 4512, 4480] | 640, 1080, 1600, 2400, 2880, 3200 | 640, 1080, 1280, 1600 |
+
+Run verwendet den vorgeschlagenen 4:5-Crop auf allen Breiten; das bestehende Mosaik beschneidet ihn ab 768 px per cover auf 4:3. Kopf, Schritt und Spiegelung bleiben sichtbar. Die Position bleibt 50% 45%. Meet verwendet 16:9 auf Desktop und 4:5 auf Handy; object-position 30% 50% bewahrt die ganze Gruppe auch im schmaleren Tablet-Rahmen. Der Kopf der linken Laeuferin hat Luft. Die bestehende Ueberschrift ueberlagert Teile der Beine; sie bleibt lesbar. Keine Layout-/Farb-/Typografie-Aenderung.
+[[og-sports/scripts/pillars.py:24 ""50% 45%", ("limoo / Pexels", "limoo / Pexels")"]]
+[[og-sports/site/index.html:159 "style="object-position:30% 50%""]]
+
+Meet erhaelt eine 3200-px-Stufe fuer den Bitmapbedarf von rund 3003 px und eine sizes-Angabe einschliesslich der bestehenden 1.02-Transformation.
+[[og-sports/scripts/responsive_markup.py:45 "'meet-night.webp': 'max(102vw, min(166.8267svh, 1813.34px))'"]]
+
+## Bildbytes und Messung
+
+Installiertes Chrome channel="chrome", ogpw-venv, frische Kontexte, Reduced Motion, normales Lazy Loading, 500-CSS-px-Schritte/100 ms, Decode und Netzwerkruhe. Summe aller Bildantworten inklusive SVG, ohne HTML/Fonts/Header. Screenshots in CSS-Pixeln; Bildauswahl bei DPR 3/2/2. RC7 kommt per git show e8f4890 aus RAM, ohne Seiten-/Build-Kopie.
+[[og-sports/scripts/rc8_evidence.py:47 "browser = pw.chromium.launch(channel='chrome')"]]
+[[og-sports/scripts/rc8_evidence.py:15 "'e8f4890:og-sports/' + path"]]
+
+| Viewport | RC7 Bytes | RC8 Bytes | Differenz |
+|---|---:|---:|---:|
+| 390@3x | 1501739 | 1528425 | +26686 (+1.78%) |
+| 768@2x | 2156267 | 2303669 | +147402 (+6.84%) |
+| 1440@2x | 3428523 | 3575925 | +147402 (+4.30%) |
+
+Alle uebrigen Bildantworten sind zwischen RC7 und RC8 identisch. Mehrgewicht entsteht vor allem durch die detailreichere Run-Kachel; die mobile Meet-Datei wird kleiner. Rohdaten: `rc8-measurements.json`.
+
+| Breite | Bild | Bildbytes RC7 | Bildbytes RC8 |
+|---|---|---:|---:|
+| 390 | pillar-run.webp | 27498 | 81952 |
+| 390 | meet-night.webp | 85410 | 57642 |
+| 768 | pillar-run.webp | 48556 | 181284 |
+| 768 | meet-night.webp | 76596 | 91270 |
+| 1440 | pillar-run.webp | 48556 | 181284 |
+| 1440 | meet-night.webp | 76596 | 91270 |
+
+## Aufloesungsfaktoren
+
+Q = Bitmapbedarf / Quellpixel nach Crop; A = Bitmapbedarf / geladene WebP-Pixel. cover und Transformation sind eingerechnet; >1 bedeutet Vergroesserung. Alle neuen Q/A liegen unter 1.
+
+| Breite | Bild | Q/A RC7 | Q/A RC8 | Bedarf RC8 | Datei RC8 |
+|---|---|---|---|---|---|
+| 390 | pillar-run.webp | 0.2625/0.9722 | 0.1823/0.9722 | [1050.0, 1312.5] | pillar-run-1080.webp |
+| 390 | meet-night.webp | 0.2925/0.9141 | 0.3265/0.9141 | [1170.0, 1462.5] | meet-night-mobile-1280.webp |
+| 768 | pillar-run.webp | 0.362/0.905 | 0.2514/0.905 | [1448.0, 1810.0] | pillar-run-1600.webp |
+| 768 | meet-night.webp | 0.7507/1.0427 | 0.4469/0.9384 | [3002.88, 1689.12] | meet-night-3200.webp |
+| 1440 | pillar-run.webp | 0.3348/0.8369 | 0.2325/0.8369 | [1339.09, 1673.87] | pillar-run-1600.webp |
+| 1440 | meet-night.webp | 0.7507/1.0427 | 0.4469/0.9384 | [3002.88, 1689.12] | meet-night-3200.webp |
+
+## Grade gegen historische p50-Referenz
+
+L/S-Mittelwerte 0-255 aus auf 128x128 verkleinerten kodierten groessten Desktop-Derivaten, vor CSS/Veil. Historischer Referenzmedian 40.2/68.4 bleibt fest. Abweichungen beschreiben die Szene, keinen zusaetzlichen Grade. MN1 bleibt deutlich blau; PR2 hat warme Architektur gegen dunkle Silhouette. Rohdaten: `rc8-grade.json`.
+
+| Bild | L/S RC7 | L/S RC8 | Delta zur Referenz |
+|---|---|---|---|
+| pillar-run.webp | [88.4, 40.61] | [27.77, 93.02] | [-12.43, 24.62] |
+| meet-night.webp | [6.76, 111.24] | [61.01, 159.89] | [20.81, 91.49] |
+
+## Pruefung und Grenzen
+
+npm test: 21/21 bestanden. prepare_responsive.py --check: 18 Quellen, 106 WebPs, kein Upscaling. pillars.py --check bestanden. Sechs gueltige Chrome-Kontexte ohne JS-Fehler, externe Requests oder horizontalen Overflow; alle ausgewaehlten Bilder decodiert. Zwoelf Screenshots visuell geprueft. Ein erster RC8-Messversuch hatte eine nicht angewandte Stylesheet-Darstellung und wurde verworfen; die endgueltige Messung prueft die angewandte Grid-Darstellung vor dem Scrollen. Browserseitig abgebrochene vorlaeufige Bildauswahlen werden nicht als geladene Bildbytes gezaehlt. Safari, Firefox, echte Geraete und Model-/Property-Releases: ungeprueft.
+[[og-sports/scripts/rc8_evidence.py:62 "'stylesheet not applied'"]]
+
+DE/EN-Alttexte und sichtbare Credits sowie die aktiven Bildnachweise sind aktualisiert; historische Auditdaten bleiben erhalten.
+[[og-sports/scripts/pillars.py:24 "limoo / Pexels"]]
+[[og-sports/site/index.html:163 "Illustrative photo · Fitsum Admasu / Unsplash"]]
+
+## Lesbarkeit
+
+Run 390: kleine, klar erkennbare Silhouette mit vollstaendigem Schritt oberhalb von Run/OG FASTR. Run 768: Laeuferin vor der Saeulenhalle klar und frei von der Kacheltypografie. Run 1440: Silhouette und Schritt deutlich, Spiegelung im unteren Bildteil, Labels frei. Meet 390: alle drei Silhouetten im Bild, Koepfe frei und Titel lesbar, Beine teilweise von der bestehenden Typografie ueberlagert. Meet 768: Gruppe seitlich vollstaendig, linker Kopf mit Luft, Titel und Credits lesbar. Meet 1440: ganze Gruppe im Rahmen, Koepfe frei und Titel klar, Beine teilweise hinter der bestehenden Ueberschrift.
+
+## Screenshots
+
+- `og-sports/qa/rc8-rc7-390-meet.png`
+- `og-sports/qa/rc8-rc7-390-temple.png`
+- `og-sports/qa/rc8-rc7-768-meet.png`
+- `og-sports/qa/rc8-rc7-768-temple.png`
+- `og-sports/qa/rc8-rc7-1440-meet.png`
+- `og-sports/qa/rc8-rc7-1440-temple.png`
+- `og-sports/qa/rc8-rc8-390-meet.png`
+- `og-sports/qa/rc8-rc8-390-temple.png`
+- `og-sports/qa/rc8-rc8-768-meet.png`
+- `og-sports/qa/rc8-rc8-768-temple.png`
+- `og-sports/qa/rc8-rc8-1440-meet.png`
+- `og-sports/qa/rc8-rc8-1440-temple.png`
+
+---
+
+# RC7-Nachtrag – Run R3 und Meet-Kachel M2
+
+R3: Symbolbild · Iliya Jokic / Unsplash, Melbourne. M2: Symbolbild · Victoria Prymak / Unsplash, Dachgruppe in der Abenddämmerung. Beide SHA-256-Hashes vor Benutzung gegen das externe Kandidatenmanifest geprüft. Quellen nicht kopiert; keine Retusche, kein Netzwerk außer localhost, kein Commit/Push/Deployment.
+
+## Aufbereitung und Ausschnitte
+
+Identischer bestehender p50-Filter, Skalierung vor Grade, WebP Q82/method 6. Die p50-Rezeptur liegt in prepare_responsive.py; prepare_images.py enthält nur die geschützten 01/03-Aufbereitungen.
+[[og-sports/scripts/prepare_responsive.py:78 "f'scale={width}:{height}:flags=lanczos,{P50}'"]]
+[[og-sports/scripts/prepare_responsive.py:84 "rendered.save(OUT / name, 'WEBP', quality=82, method=6)"]]
+
+Run Desktop bewahrt das volle 5184×3456-Bild: Läuferin im inneren linken Bildbereich, höchste Türme und ruhiger Himmel. Handy 2764×3455 (4:5) enthält Läuferin und beide höchsten Türme. Bestehendes cover schneidet auf Desktop etwas oben/unten und auf Tablet seitlich; der Kopf bleibt frei, die große Überschrift überlagert wie zuvor den unteren Körper. Der Himmel bleibt für die obere Wortmarke und Kapitelzeile frei.
+Die gemessene Hauptüberschrift liegt unten, nicht über der Skyline: y=340.25–431.50 bei 390, 671.22–844.00 bei 768, 560.73–799.20 bei 1440 CSS-px. Obere Zeile y=20/23.03/40. Layout unverändert.
+[[og-sports/site/styles.css:224 ".movement h2 { position: absolute; left: var(--gutter); bottom:"]]
+
+Meet: identischer 3736×4670-Crop für Mosaik und Handy (4:5). Die ganze im Original sichtbare Gruppe einschließlich Randpersonen bleibt innerhalb des Bildes; Beine sind teilweise schon im Original durch die Dachkante verdeckt. Himmel oben und Fahne erhalten. Auf 390/768/1440 visuell geprüft.
+
+| Bild | Desktop-Crop | Handy-Crop | Desktop-Breiten | Handy-Breiten |
+|---|---|---|---|---|
+| run-night.webp | [0, 0, 5184, 3456] | [1100, 0, 3864, 3455] | 640, 1080, 1600, 2400, 2880, 3200 | 640, 1080, 1280, 1600 |
+| pillar-meet.webp | [1715, 0, 5451, 4670] | [1715, 0, 5451, 4670] | 640, 1080, 1600, 2400, 2880 | 640, 1080, 1280, 1600 |
+
+Run erhält zusätzlich 3200 px und eine sizes-Angabe einschließlich der bestehenden 1.02-Transformation. Die Meet-Auswahl berücksichtigt nun das tatsächliche 4:5-Bild statt des alten 3:2-Overfetch. Fallbacks sind jeweilige 2400-px-Derivate; alle bisherigen Dateinamen bleiben.
+[[og-sports/scripts/responsive_markup.py:44 "'run-night.webp': 'max(102vw, min(153svh, 1652.4px))'"]]
+
+## Bildbytes und Messung
+
+Installiertes Chrome channel="chrome", ogpw-venv, frische Kontexte, Reduced Motion, Lazy Loading, 500-CSS-px-Schritte/100 ms, Decode und Netzwerkruhe. Summe der Bildantworten inklusive SVG, ohne HTML/Fonts/Header. Screenshots in CSS-Pixeln; Auswahl mit DPR 3/2/2. RC6 stammt per git show aus 18138d5 und wird nur aus RAM über localhost ausgeliefert. Wegen der verbindlichen Schreibpfadgrenze keine TEMP-Dateien und keine Baseline-/Build-Kopie.
+[[og-sports/scripts/rc7_evidence.py:42 "browser = pw.chromium.launch(channel='chrome')"]]
+[[og-sports/scripts/rc7_evidence.py:29 "cache[name] = baseline('site/' + name)"]]
+
+| Viewport | RC6 Bytes | RC7 Bytes | Differenz |
+|---|---:|---:|---:|
+| 390@3x | 2150495 | 1501739 | -648756 (-30.17%) |
+| 768@2x | 2342153 | 2156267 | -185886 (-7.94%) |
+| 1440@2x | 3942475 | 3428523 | -513952 (-13.04%) |
+
+Alle übrigen Bildantworten sind zwischen RC6 und RC7 identisch, einschließlich meet-night. Rohdaten: rc7-measurements.json.
+
+## Auflösungsfaktoren
+
+Q = Bitmapbedarf / Quellpixel nach Crop; A = Bitmapbedarf / geladene WebP-Pixel. cover und Transformation sind eingerechnet. >1 bedeutet Vergrößerung. Alle neuen Q/A liegen unter 1.
+
+| Breite | Bild | Q/A RC6 | Q/A RC7 | Bedarf RC7 | Geladene Datei RC7 |
+|---|---|---|---|---|---|
+| 390 | run-night.webp | 0.2309/0.9141 | 0.4233/0.9141 | [1170.0, 1462.5] | run-night-mobile-1280.webp |
+| 390 | pillar-meet.webp | 0.3661/0.8203 | 0.281/0.9722 | [1050.0, 1312.5] | pillar-meet-mobile-1080.webp |
+| 768 | run-night.webp | 0.2898/0.9579 | 0.5312/0.9563 | [2754.0, 1836.0] | run-night-2880.webp |
+| 768 | pillar-meet.webp | 0.2514/0.8448 | 0.193/0.6676 | [721.0, 901.25] | pillar-meet-1080.webp |
+| 1440 | run-night.webp | 0.3086/1.02 | 0.5667/0.9181 | [2937.6, 1958.4] | run-night-3200.webp |
+| 1440 | pillar-meet.webp | 0.3106/0.6959 | 0.2384/0.8247 | [890.72, 1113.4] | pillar-meet-1080.webp |
+
+## Grade gegen historische p50-Referenz
+
+L/S-Mittelwerte 0–255 aus auf 128×128 verkleinerten kodierten größten Desktop-Derivaten, vor CSS/Veil. Historischer Referenzmedian 40.2/68.4 bleibt fest. Abweichungen beschreiben die Szene, keinen zusätzlichen Grade.
+
+| Bild | L/S RC6 | L/S RC7 | Δ L/S zur Referenz |
+|---|---|---|---|
+| run-night.webp | [32.67, 47.74] | [95.91, 83.7] | [55.71, 15.3] |
+| pillar-meet.webp | [101.5, 56.27] | [71.75, 23.23] | [31.55, -45.17] |
+
+## Prüfung und Grenzen
+
+npm test: 21/21 bestanden. prepare_responsive.py --check: 18 Quellen, 105 WebPs, kein Upscaling. pillars.py --check bestanden. Chrome: sechs Kontexte ohne JS-/Bildfehler, externe Requests oder horizontalen Overflow. Zwölf Screenshots visuell geprüft. Kein Build angelegt (Aufgabe verbietet Seitenkopien). Safari, Firefox, echte Geräte und Model-/Property-Releases: ungeprüft.
+
+Beide sichtbaren Credits und die DE/EN-Alttexte wurden zum neuen Motiv aktualisiert. Alte Credits dieser zwei Bilder sind aus den aktiven Nachweisen entfernt; die unveränderten RC3-Abschnitte im Audit bleiben ausdrücklich historische Messdaten.
+[[og-sports/scripts/pillars.py:33 "Victoria Prymak / Unsplash"]]
+[[og-sports/site/index.html:95 "I — Run · Iliya Jokic / Unsplash"]]
+
+## Screenshots
+
+- `og-sports/qa/rc7-rc6-390-run.png`
+- `og-sports/qa/rc7-rc6-390-temple.png`
+- `og-sports/qa/rc7-rc6-768-run.png`
+- `og-sports/qa/rc7-rc6-768-temple.png`
+- `og-sports/qa/rc7-rc6-1440-run.png`
+- `og-sports/qa/rc7-rc6-1440-temple.png`
+- `og-sports/qa/rc7-rc7-390-run.png`
+- `og-sports/qa/rc7-rc7-390-temple.png`
+- `og-sports/qa/rc7-rc7-768-run.png`
+- `og-sports/qa/rc7-rc7-768-temple.png`
+- `og-sports/qa/rc7-rc7-1440-run.png`
+- `og-sports/qa/rc7-rc7-1440-temple.png`
+
+---
+
+# RC6-Nachtrag – Opening 00
+
+Installiertes Chrome via Playwright `channel="chrome"`, frische Kontexte,
+Reduced Motion, normales Lazy Loading; 500-CSS-px-Scrollschritte/100 ms,
+anschließend Decode und Netzwerkruhe. Summe aller Bildantworten inklusive SVG,
+ohne HTML, Fonts oder HTTP-Header; keine Dialoge/Farbwechsel. Nur localhost erlaubt.
+RC5 stammt bytegenau aus `git show 45f9759:og-sports/site/...`.
+Screenshots in CSS-Pixeln, Bildauswahl mit DPR 3/2/2, wie im historischen Audit.
+[[og-sports/scripts/rc6_evidence.py:35 "browser = pw.chromium.launch(channel='chrome')"]]
+[[og-sports/scripts/rc6_evidence.py:56 "y += 500"]]
+
+| Viewport/DPR | RC5 Bildbytes | RC6 Bildbytes | Differenz |
+|---|---:|---:|---:|
+| 390@3x | 2127397 | 2150495 | +23098 |
+| 768@2x | 2123241 | 2342153 | +218912 |
+| 1440@2x | 3723563 | 3942475 | +218912 |
+
+| Viewport/DPR | Q/A RC5 | Q/A RC6 | Bedarf RC6 | Datei RC6 |
+|---|---:|---:|---|---|
+| 390@3x | 5.2206 / 5.2206 | 1.1723 / 1.1723 | 1170.0×2532.26 | after-the-run-mobile-998.webp |
+| 768@2x | 3.7113 / 3.7113 | 0.8333 / 0.9967 | 5101.67×1800.0 | after-the-run-5120.webp |
+| 1440@2x | 3.7113 / 3.7113 | 0.8333 / 0.9967 | 5101.67×1800.0 | after-the-run-5120.webp |
+
+Bei 390×844 beträgt die Bildbox 390×844 CSS-px. `object-fit:cover` und
+`object-position:54% 50%` ergeben für den Master den Maßstab s=844/2160.
+Sichtbare Quellbreite=390/s=998.104265; x=(6122−998.104265)×0.54=2766.903697;
+y=0. Auf ganze Masterpixel gerundet: [2767,0,3765,2160], also 998×2160.
+Mobile sizes=max(100vw,46.2037svh) bildet die Crop-Breite bei cover ab;
+die bisherigen Desktop-sizes=max(100vw,283.1svh) bleiben erhalten.
+Bei 390@3x reicht die Quelle nur für Q≈1.1723; die Datei wird nicht hochskaliert.
+Bei 1440@2x ergibt das neue Masterverhältnis 5101.67×1800 statt der historischen
+5095.67×1800. Die minimale Verhältnisabweichung stammt aus dem gelieferten Master
+(6122/2160 gegenüber 1373/485), nicht aus einer Layoutänderung.
+[[og-sports/site/styles.css:134 "object-fit: cover; object-position: 50% 50%;"]]
+[[og-sports/site/styles.css:505 "object-position: 54% 50%;"]]
+[[og-sports/scripts/prepare_responsive.py:29 "OPENING_CROP = (2767, 0, 3765, 2160)"]]
+[[og-sports/site/index.html:35 "sizes="max(100vw, 46.2037svh)""]]
+
+Fallback: 41820 → 67734 Bytes; Hero-Antwort Handy 32484 → 55582, Desktop/Tablet 32484 → 251396. Q bezieht sich auf den AI-Upscale-Master, nicht auf zusätzliche authentische Originaldetails. Herkunft, Prüfungen und Einschränkungen: `RC6_RESULT.md`. Die nachfolgenden RC3-Werte sind historisch.
+
+# RC3 Bild-Inventur — schwächste zuerst
+
+RC5-Nachtrag (2026-10-26): Die unten genannten `merch-*`-Dateien und ihre
+660-px-Varianten wurden entfernt. Wear und Säule III verwenden jetzt die
+bereitgestellten Hoodie-KI-Masters (1792×2240), responsive als WebP in 480,
+800, 1200, 1600 und 1792 px. Kein Hochskalieren, kein zusätzliches Grading.
+Die alte Bewertung dieser Bilder bleibt ausschließlich als RC3-Historie bestehen.
+Aktuelle Quellen: `responsive-assets.json`, `PHOTO_CREDITS.md`.
+Aktuelle Browsermessungen und Screenshot-Pfade: `RC5_RESULT.md`.
+
+Stand: 2026-10-26. Lokal gerendert und visuell geprüft; keine Aussage über ein Deployment.
+
+RC4-Nachtrag: Die folgenden Messwerte bleiben der historische RC3-Snapshot.
+Kapitel V verwendet jetzt `stick.glb`; `stick-lime.jpg` bleibt Fallback und Säulenbild,
+`stick-exploded.jpg` ist nur noch Referenzbestand. Aktuelle Messungen: `RC4_RESULT.md`.
+
+## Messverfahren
+
+Chromium, leere Browserkontexte, 390×844 @3x und 1440×900 @2x. Vollständig in 500-CSS-px-Schritten gescrollt; Netzwerk-Summe aller Bildantworten (inklusive SVG, ohne Schriften/HTML/HTTP-Header). Keine Dialoge geöffnet. 768×900 @2x zusätzlich fotografiert. Screenshots in CSS-Pixeln, Bildauswahl mit echtem DPR.
+
+Pro Bild zählt die größte Verwendung auf der Hauptseite. „Sichtbar“ = CSS-Bildbox × DPR inklusive vorhandener Transformation; „Bitmapbedarf“ berücksichtigt object-fit:cover und ist deshalb bei beschnittenen Bildern größer. Faktor Q = Bitmapbedarf / echte Quellpixel nach Crop; Faktor A = Bitmapbedarf / tatsächlich geladene Asset-Pixel. >1 bedeutet Vergrößerung; Interpolation rekonstruiert keine Details. Bei contain wird der tatsächlich eingepasste Bildbereich gemessen.
+
+Grade-Probe: Mittelwerte L (Grauwert) / S (HSV-Sättigung), 0–255, aus auf 128×128 verkleinerten kodierten Dateien, vor CSS-Filtern/Veil. Gemeinsame p50-Referenz = Median der neun p50-Fotos: 40.2/68.4. ΔL/ΔS zeigt grobe Szenenabweichung, nicht automatisch einen falschen Grade. 00–03 und Produktbilder werden ausdrücklich nicht auf p50 umgegradet. Grain und WebP können geringe Messabweichungen verursachen.
+
+Quell-Pixel nennen den verfügbaren Master. Bei 01/03 ist das der freigegebene retuschierte Master, nicht ein behauptetes Kameraoriginal. Quelldateien/Hashes, Crop-Koordinaten und alle Derivate: `responsive-assets.json`. Lizenzen sind Herkunftsangaben des vorhandenen Pools; keine neue Model-Release-Prüfung.
+
+## Gewicht und Evidenz
+
+| Breite / DPR | Vorher, Bytes | Nachher, Bytes | Änderung |
+|---|---:|---:|---:|
+| 390 / 3x | 2,799,104 | 2,447,102 | -12.6% |
+| 768 / 2x | 2,799,104 | 2,534,674 | -9.4% |
+| 1440 / 2x | 2,799,104 | 4,092,280 | +46.2% |
+
+Evidenz: `C:\Users\Fabien\AppData\Local\Temp\og-rc3-evidence/before/` und `C:\Users\Fabien\AppData\Local\Temp\og-rc3-evidence/after/`; je 33 Kapitel-Screenshots plus `measurements.json`. Dateinamen: `<390|768|1440>-<Kapitel>.png`. Kapitel: 00-opening, 01-03-strip, manifest, temple, I-run, II-practice, III-wear, IV-meet, V-make, way-in, signature.
+
+## Entscheidungen
+
+- Eigene Handy-Quellausschnitte nur für I Run und IV Meet, jeweils 4:5 bei maximal 767 px. Meet nutzt die ganze 4000×5000-Quelle, Run einen 5068×6335-Ausschnitt um die zentrale Silhouette. Desktop-Ausschnitte unverändert.
+- 00–03 behalten Motiv, CSS-Ausschnitt und Grade. 00 liefert maximal 1373×485 statt der früheren 4×-Interpolation. Die niedrige Originalauflösung bleibt sichtbar und wird nicht als verbessert ausgegeben.
+- Alle fünf Tempelkacheln unter 768 px einspaltig 4:5; ab 768 px bisheriges Mosaik (768–899: 1+2+2, ab 900: 2+3). Schatten und Herkunftslabels bleiben.
+- STICK-JPEGs und Shop-Originale bleiben hash-identisch. Nur die Hoodie-Auslieferung erhält zusätzliche WebPs aus den Original-JPEGs.
+
+## Einzelbilder
+
+### after-the-run.webp — schwach
+
+- Kapitel: 00 Opening. Nur 1373×485 echte Quellpixel; sehr starke Retina-Vergrößerung. Emotional geschützt, keine erfundene Schärfe.
+- Quelle: OG SPORTS / bestehende KI-Bildstudie, keine Fotolizenz.
+- Quell-Pixel: 1373×485. Quelle: `site/assets/after-the-run.webp`.
+- Gesicht/Motiv angeschnitten (390 / 1440): ja / ja: Randpersonen; geschützter CSS-Ausschnitt.
+- Grade: L/S 111.6/30.9; Δ zur p50-Referenz +71.3/-37.5; Δ zur bisherigen Datei +0.1/+2.6.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 2880×1800 | 5096×1800 | after-the-run-1373.webp | 3.71 / 3.71 |
+| 390 @3x | 1170×2532 | 7168×2532 | after-the-run-1373.webp | 5.22 / 5.22 |
+
+- Original/Fallback: 41,820 Bytes. Derivate: after-the-run-640.webp: 14,436 B; after-the-run-1080.webp: 23,876 B; after-the-run-1373.webp: 32,484 B
+
+### stick-exploded.jpg — schwach
+
+- Kapitel: V Make / Aufbau. 472×708 begrenzt die technischen Details deutlich; Original darf nicht neu kodiert werden.
+- Quelle: FASTR / fastr30.com, bestehende Produktvisualisierung; Fotograf/gesonderte Lizenz im Bestand nicht benannt.
+- Quell-Pixel: 472×708. Quelle: `unverändertes Shop-JPEG in site/assets`.
+- Gesicht/Motiv angeschnitten (390 / 1440): nein / nein.
+- Grade: L/S 21.9/18.6; Δ zur p50-Referenz -18.4/-49.8; Δ zur bisherigen Datei +0.0/+0.0.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 498×747 | 498×747 | stick-exploded.jpg | 1.05 / 1.05 |
+| 390 @3x | 1050×1575 | 1050×1575 | stick-exploded.jpg | 2.22 / 2.22 |
+
+- Original/Fallback: 41,989 Bytes. Derivate: keine (unverändert).
+
+### merch-05-lavender.jpg — schwach
+
+- Kapitel: Tempel III + III Wear. 660×825 reicht für die kleine Produktreihe, aber nicht für die große Retina-Tempelkachel.
+- Quelle: FASTR / fastr30.com, bestehende Produktvisualisierung; Fotograf/gesonderte Lizenz im Bestand nicht benannt.
+- Quell-Pixel: 660×825. Quelle: `site/assets/merch-05-lavender.jpg`.
+- Gesicht/Motiv angeschnitten (390 / 1440): nein / nein.
+- Grade: L/S 120.7/36.5; Δ zur p50-Referenz +80.4/-31.8; Δ zur bisherigen Datei +0.1/-0.5.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 891×1113 | 891×1113 | merch-05-lavender-660.webp | 1.35 / 1.35 |
+| 390 @3x | 1050×1312 | 1050×1312 | merch-05-lavender-660.webp | 1.59 / 1.59 |
+
+- Original/Fallback: 46,967 Bytes. Derivate: merch-05-lavender-320.webp: 7,800 B; merch-05-lavender-640.webp: 19,018 B; merch-05-lavender-660.webp: 20,354 B
+
+### stick-lime.jpg — ok
+
+- Kapitel: Tempel V + V Make. Klares Produktmotiv, aber 880×1100 begrenzt die große Darstellung; Original unverändert.
+- Quelle: FASTR / fastr30.com, bestehende Produktvisualisierung; Fotograf/gesonderte Lizenz im Bestand nicht benannt.
+- Quell-Pixel: 880×1100. Quelle: `unverändertes Shop-JPEG in site/assets`.
+- Gesicht/Motiv angeschnitten (390 / 1440): nein / nein.
+- Grade: L/S 27.9/28.0; Δ zur p50-Referenz -12.4/-40.4; Δ zur bisherigen Datei +0.0/+0.0.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 1319×1649 | 1319×1649 | stick-lime.jpg | 1.50 / 1.50 |
+| 390 @3x | 1050×1312 | 1050×1312 | stick-lime.jpg | 1.19 / 1.19 |
+
+- Original/Fallback: 63,841 Bytes. Derivate: keine (unverändert).
+
+### frame-03-people.webp — ok
+
+- Kapitel: 03 People. Lebendiger Moment; Randpersonen angeschnitten. Geschützter Ausschnitt und bestehende Retusche bleiben.
+- Quelle: Leviosa Hou / Unsplash License / 9ZXnEV7k2lI; vorhandener KI-retuschierter PNG-Master.
+- Quell-Pixel: 2688×1520. Quelle: `scripts/sources/community-ai.png`.
+- Gesicht/Motiv angeschnitten (390 / 1440): ja / ja: Randpersonen, zentrale Gesichter erhalten.
+- Grade: L/S 105.1/105.2; Δ zur p50-Referenz +64.9/+36.9; Δ zur bisherigen Datei +0.0/-0.0.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 1076×1188 | 2101×1188 | frame-03-people-2400.webp | 0.78 / 0.88 |
+| 390 @3x | 1170×994 | 1759×994 | frame-03-people-2400.webp | 0.65 / 0.73 |
+
+- Original/Fallback: 244,996 Bytes. Derivate: frame-03-people-640.webp: 45,958 B; frame-03-people-1080.webp: 91,050 B; frame-03-people-1600.webp: 147,506 B; frame-03-people-2400.webp: 244,996 B; frame-03-people-2688.webp: 281,266 B
+
+### meet-night.webp — ok
+
+- Kapitel: IV Meet. 4:5 zeigt wieder die drei Hauptpersonen, sehr dunkle Kleidung bleibt wenig differenziert. Desktop behält seinen bisherigen engeren Ausschnitt.
+- Quelle: liathyrax / Pexels License (https://www.pexels.com/license/) / https://www.pexels.com/photo/group-of-men-running-on-track-at-night-35005203/.
+- Quell-Pixel: 4000×5000. Quelle: `C:\Users\Fabien\og-sports-sources\v4-candidates\web\pexels_35005203.jpg`.
+- Gesicht/Motiv angeschnitten (390 / 1440): ja / ja: Randläufer; Hauptgruppe vollständig im Handybild.
+- Grade: L/S 6.8/111.2; Δ zur p50-Referenz -33.5/+42.9; Δ zur bisherigen Datei -0.0/-1.3.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 2938×1689 | 3003×1689 | meet-night-2880.webp | 0.75 / 1.04 |
+| 390 @3x | 1170×1462 | 1170×1462 | meet-night-mobile-1280.webp | 0.29 / 0.91 |
+
+- Original/Fallback: 51,430 Bytes. Derivate: meet-night-640.webp: 8,662 B; meet-night-1080.webp: 15,978 B; meet-night-1600.webp: 26,694 B; meet-night-2400.webp: 51,430 B; meet-night-2880.webp: 76,596 B; meet-night-mobile-640.webp: 27,312 B; meet-night-mobile-1080.webp: 64,642 B; meet-night-mobile-1280.webp: 85,410 B; meet-night-mobile-1600.webp: 126,628 B
+
+### pillar-meet.webp — ok
+
+- Kapitel: Tempel IV. Gutes Gegenlicht, zentrale Personen sichtbar; Hochformat kann nicht die ganze breite Gruppe zeigen.
+- Quelle: Gabin Vallet / Unsplash License (https://unsplash.com/license) / https://unsplash.com/photos/J154nEkpzlQ.
+- Quell-Pixel: 5377×3585. Quelle: `C:\Users\Fabien\og-sports-sources\v4-candidates\web\unsplash_J154nEkpzlQ.jpg`.
+- Gesicht/Motiv angeschnitten (390 / 1440): ja / ja: äußere Gruppenmitglieder.
+- Grade: L/S 101.5/56.3; Δ zur p50-Referenz +61.2/-12.1; Δ zur bisherigen Datei +0.1/+0.4.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 891×1113 | 1670×1113 | pillar-meet-2400.webp | 0.31 / 0.70 |
+| 390 @3x | 1050×1312 | 1969×1312 | pillar-meet-2400.webp | 0.37 / 0.82 |
+
+- Original/Fallback: 246,560 Bytes. Derivate: pillar-meet-640.webp: 70,312 B; pillar-meet-1080.webp: 179,718 B; pillar-meet-1600.webp: 353,456 B; pillar-meet-2400.webp: 725,114 B; pillar-meet-2880.webp: 987,080 B
+
+### run-night.webp — ok
+
+- Kapitel: I Run. Absichtliche Bewegungsunschärfe, keine fehlende Pixelauflösung. Handy zeigt die zentrale Figur mit Kopf und Schritt.
+- Quelle: Hansheng Zhao / Unsplash License (https://unsplash.com/license) / https://unsplash.com/photos/9FcKpisH7Bo.
+- Quell-Pixel: 9520×6336. Quelle: `C:\Users\Fabien\og-sports-sources\v4-candidates\web\unsplash_9FcKpisH7Bo.jpg`.
+- Gesicht/Motiv angeschnitten (390 / 1440): ja / ja: Nebenläufer; zentrale Silhouette erhalten.
+- Grade: L/S 32.7/47.7; Δ zur p50-Referenz -7.6/-20.6; Δ zur bisherigen Datei -0.1/+4.6.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 2938×1836 | 2938×1955 | run-night-2880.webp | 0.31 / 1.02 |
+| 390 @3x | 1170×1462 | 1170×1462 | run-night-mobile-1280.webp | 0.23 / 0.91 |
+
+- Original/Fallback: 71,498 Bytes. Derivate: run-night-640.webp: 12,492 B; run-night-1080.webp: 24,840 B; run-night-1600.webp: 42,086 B; run-night-2400.webp: 71,450 B; run-night-2880.webp: 90,808 B; run-night-mobile-640.webp: 15,686 B; run-night-mobile-1080.webp: 31,464 B; run-night-mobile-1280.webp: 38,588 B; run-night-mobile-1600.webp: 53,264 B
+
+### pillar-run.webp — ok
+
+- Kapitel: Tempel I. Starke Bewegung, bewusst unscharf; mehr Pixel erzeugen keine eingefrorenen Details.
+- Quelle: Nick Gosset / Unsplash License (https://unsplash.com/license) / https://unsplash.com/photos/3DJfakd6VoU.
+- Quell-Pixel: 4000×6000. Quelle: `C:\Users\Fabien\og-sports-sources\v4-candidates\web\unsplash_3DJfakd6VoU.jpg`.
+- Gesicht/Motiv angeschnitten (390 / 1440): ja / ja: Unterkörper außerhalb des Kachelausschnitts.
+- Grade: L/S 88.4/40.6; Δ zur p50-Referenz +48.2/-27.8; Δ zur bisherigen Datei -0.1/+0.7.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 1339×1004 | 1339×2009 | pillar-run-1600.webp | 0.33 / 0.84 |
+| 390 @3x | 1050×1312 | 1050×1575 | pillar-run-1080.webp | 0.26 / 0.97 |
+
+- Original/Fallback: 39,570 Bytes. Derivate: pillar-run-640.webp: 13,856 B; pillar-run-1080.webp: 27,498 B; pillar-run-1600.webp: 48,556 B; pillar-run-2400.webp: 91,760 B; pillar-run-2880.webp: 121,336 B
+
+### track-night.webp — ok
+
+- Kapitel: Eingang. Ruhiger Abschluss, aber keine Menschen trotz Community-Überschrift; Desktop bleibt Panorama.
+- Quelle: Mikhail K / Unsplash License (https://unsplash.com/license) / https://unsplash.com/photos/jsNI0bh5D-o.
+- Quell-Pixel: 3695×2356. Quelle: `C:\Users\Fabien\og-sports-sources\v4-candidates\web\unsplash_jsNI0bh5D-o.jpg`.
+- Gesicht/Motiv angeschnitten (390 / 1440): nein / ja: Flutlicht oben angeschnitten.
+- Grade: L/S 40.2/114.4; Δ zur p50-Referenz +0.0/+46.1; Δ zur bisherigen Datei +0.2/-2.5.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 2880×1234 | 2880×1836 | track-night-2880.webp | 0.78 / 1.00 |
+| 390 @3x | 1170×731 | 1170×746 | track-night-1600.webp | 0.32 / 0.73 |
+
+- Original/Fallback: 527,198 Bytes. Derivate: track-night-640.webp: 32,544 B; track-night-1080.webp: 115,770 B; track-night-1600.webp: 305,968 B; track-night-2400.webp: 813,502 B; track-night-2880.webp: 1,243,038 B
+
+### merch-01-black.jpg — ok
+
+- Kapitel: III Wear. Kleine Produktreihe: 660×825 genügt hier; eigenständige Shop-Farbwelt, kein p50-Fotograde.
+- Quelle: FASTR / fastr30.com, bestehende Produktvisualisierung; Fotograf/gesonderte Lizenz im Bestand nicht benannt.
+- Quell-Pixel: 660×825. Quelle: `site/assets/merch-01-black.jpg`.
+- Gesicht/Motiv angeschnitten (390 / 1440): nein / nein.
+- Grade: L/S 28.3/15.3; Δ zur p50-Referenz -11.9/-53.0; Δ zur bisherigen Datei +0.1/+2.1.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 475×594 | 475×594 | merch-01-black-640.webp | 0.72 / 0.74 |
+| 390 @3x | 580×726 | 580×726 | merch-01-black-640.webp | 0.88 / 0.91 |
+
+- Original/Fallback: 40,265 Bytes. Derivate: merch-01-black-320.webp: 6,812 B; merch-01-black-640.webp: 15,176 B; merch-01-black-660.webp: 15,796 B
+
+### merch-02-cherry-red.jpg — ok
+
+- Kapitel: III Wear. Kleine Produktreihe: 660×825 genügt hier; eigenständige Shop-Farbwelt, kein p50-Fotograde.
+- Quelle: FASTR / fastr30.com, bestehende Produktvisualisierung; Fotograf/gesonderte Lizenz im Bestand nicht benannt.
+- Quell-Pixel: 660×825. Quelle: `site/assets/merch-02-cherry-red.jpg`.
+- Gesicht/Motiv angeschnitten (390 / 1440): nein / nein.
+- Grade: L/S 60.0/127.3; Δ zur p50-Referenz +19.8/+59.0; Δ zur bisherigen Datei +0.0/-0.6.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 475×594 | 475×594 | merch-02-cherry-red-640.webp | 0.72 / 0.74 |
+| 390 @3x | 580×726 | 580×726 | merch-02-cherry-red-640.webp | 0.88 / 0.91 |
+
+- Original/Fallback: 53,962 Bytes. Derivate: merch-02-cherry-red-320.webp: 10,482 B; merch-02-cherry-red-640.webp: 22,886 B; merch-02-cherry-red-660.webp: 24,030 B
+
+### merch-03-cobalt-blue.jpg — ok
+
+- Kapitel: III Wear. Kleine Produktreihe: 660×825 genügt hier; eigenständige Shop-Farbwelt, kein p50-Fotograde.
+- Quelle: FASTR / fastr30.com, bestehende Produktvisualisierung; Fotograf/gesonderte Lizenz im Bestand nicht benannt.
+- Quell-Pixel: 660×825. Quelle: `site/assets/merch-03-cobalt-blue.jpg`.
+- Gesicht/Motiv angeschnitten (390 / 1440): nein / nein.
+- Grade: L/S 62.7/126.5; Δ zur p50-Referenz +22.5/+58.2; Δ zur bisherigen Datei +0.0/-0.7.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 475×594 | 475×594 | merch-03-cobalt-blue-640.webp | 0.72 / 0.74 |
+| 390 @3x | 580×726 | 580×726 | merch-03-cobalt-blue-640.webp | 0.88 / 0.91 |
+
+- Original/Fallback: 54,063 Bytes. Derivate: merch-03-cobalt-blue-320.webp: 10,606 B; merch-03-cobalt-blue-640.webp: 23,228 B; merch-03-cobalt-blue-660.webp: 24,454 B
+
+### merch-04-emerald-green.jpg — ok
+
+- Kapitel: III Wear. Kleine Produktreihe: 660×825 genügt hier; eigenständige Shop-Farbwelt, kein p50-Fotograde.
+- Quelle: FASTR / fastr30.com, bestehende Produktvisualisierung; Fotograf/gesonderte Lizenz im Bestand nicht benannt.
+- Quell-Pixel: 660×825. Quelle: `site/assets/merch-04-emerald-green.jpg`.
+- Gesicht/Motiv angeschnitten (390 / 1440): nein / nein.
+- Grade: L/S 55.7/115.6; Δ zur p50-Referenz +15.4/+47.2; Δ zur bisherigen Datei +0.0/-0.0.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 475×594 | 475×594 | merch-04-emerald-green-640.webp | 0.72 / 0.74 |
+| 390 @3x | 580×726 | 580×726 | merch-04-emerald-green-640.webp | 0.88 / 0.91 |
+
+- Original/Fallback: 48,570 Bytes. Derivate: merch-04-emerald-green-320.webp: 8,962 B; merch-04-emerald-green-640.webp: 19,832 B; merch-04-emerald-green-660.webp: 20,624 B
+
+### merch-06-butter-yellow.jpg — ok
+
+- Kapitel: III Wear. Kleine Produktreihe: 660×825 genügt hier; eigenständige Shop-Farbwelt, kein p50-Fotograde.
+- Quelle: FASTR / fastr30.com, bestehende Produktvisualisierung; Fotograf/gesonderte Lizenz im Bestand nicht benannt.
+- Quell-Pixel: 660×825. Quelle: `site/assets/merch-06-butter-yellow.jpg`.
+- Gesicht/Motiv angeschnitten (390 / 1440): nein / nein.
+- Grade: L/S 137.3/35.8; Δ zur p50-Referenz +97.0/-32.5; Δ zur bisherigen Datei +0.1/-0.6.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 475×594 | 475×594 | merch-06-butter-yellow-640.webp | 0.72 / 0.74 |
+| 390 @3x | 580×726 | 580×726 | merch-06-butter-yellow-640.webp | 0.88 / 0.91 |
+
+- Original/Fallback: 49,103 Bytes. Derivate: merch-06-butter-yellow-320.webp: 9,118 B; merch-06-butter-yellow-640.webp: 21,528 B; merch-06-butter-yellow-660.webp: 22,842 B
+
+### frame-01-detail.webp — stark
+
+- Kapitel: 01 Detail. Prägnantes Detail und ruhiger Kontrast; retuschierter Master hat nur 1200×1800, genügt hier weitgehend.
+- Quelle: David Moorhouse / Unsplash License / GToHUINXOb4; retuschierter PNG-Master.
+- Quell-Pixel: 1200×1800. Quelle: `scripts/sources/run-detail-clean.png`.
+- Gesicht/Motiv angeschnitten (390 / 1440): nein / nein: Schuh vollständig, bewusstes Körperdetail.
+- Grade: L/S 29.0/0.0; Δ zur p50-Referenz -11.2/-68.4; Δ zur bisherigen Datei +0.0/+0.0.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 717×1188 | 792×1188 | frame-01-detail-1080.webp | 0.66 / 0.73 |
+| 390 @3x | 1170×1462 | 1170×1755 | frame-01-detail-1200.webp | 0.97 / 0.97 |
+
+- Original/Fallback: 44,478 Bytes. Derivate: frame-01-detail-640.webp: 12,622 B; frame-01-detail-1080.webp: 32,878 B; frame-01-detail-1200.webp: 42,234 B
+
+### run-shadow.webp — stark
+
+- Kapitel: 02 Motion. Grafischer Bewegungsmoment; neu aus der 7008×4672-Quelldatei, gleicher Bildinhalt und CSS-Ausschnitt.
+- Quelle: Mathias Reding / Unsplash License / G96xGokbTUM; heruntergeladene Original-JPEG.
+- Quell-Pixel: 7008×4672. Quelle: `scripts/sources/run-shadow.jpg`.
+- Gesicht/Motiv angeschnitten (390 / 1440): nein / nein: Beine und Schatten als Detailmotiv.
+- Grade: L/S 73.5/0.0; Δ zur p50-Referenz +33.3/-68.4; Δ zur bisherigen Datei -0.0/+0.0.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 1076×1188 | 1782×1188 | run-shadow-2400.webp | 0.25 / 0.74 |
+| 390 @3x | 1170×878 | 1316×878 | run-shadow-1600.webp | 0.19 / 0.82 |
+
+- Original/Fallback: 217,624 Bytes. Derivate: run-shadow-640.webp: 15,492 B; run-shadow-1080.webp: 69,034 B; run-shadow-1600.webp: 187,706 B; run-shadow-2400.webp: 391,804 B; run-shadow-2880.webp: 532,864 B
+
+### photo-ritual.webp — stark
+
+- Kapitel: Manifest. Klarer stiller Moment; bestehender 4:5-Quellausschnitt passt auf beiden Breiten.
+- Quelle: Ulf Meyer / Unsplash License (https://unsplash.com/license) / https://unsplash.com/photos/cS0W4GvUUDM.
+- Quell-Pixel: 6000×4000. Quelle: `C:\Users\Fabien\og-sports-sources\v4-candidates\web\unsplash_cS0W4GvUUDM.jpg`.
+- Gesicht/Motiv angeschnitten (390 / 1440): nein / nein.
+- Grade: L/S 26.1/66.7; Δ zur p50-Referenz -14.1/-1.7; Δ zur bisherigen Datei +0.0/+0.1.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 1092×1364 | 1092×1364 | photo-ritual-1600.webp | 0.34 / 0.68 |
+| 390 @3x | 1050×1312 | 1050×1312 | photo-ritual-1080.webp | 0.33 / 0.97 |
+
+- Original/Fallback: 198,532 Bytes. Derivate: photo-ritual-640.webp: 40,808 B; photo-ritual-1080.webp: 98,274 B; photo-ritual-1600.webp: 198,532 B; photo-ritual-2400.webp: 402,632 B; photo-ritual-2880.webp: 538,810 B
+
+### pillar-practice.webp — stark
+
+- Kapitel: Tempel II. Zentrale Figur und Treppenrichtung sind eindeutig; ausreichend Quellauflösung.
+- Quelle: Red John / Unsplash License (https://unsplash.com/license) / https://unsplash.com/photos/mZixsK8OnmE.
+- Quell-Pixel: 5304×7952. Quelle: `C:\Users\Fabien\og-sports-sources\v4-candidates\web\unsplash_mZixsK8OnmE.jpg`.
+- Gesicht/Motiv angeschnitten (390 / 1440): nein / nein.
+- Grade: L/S 15.4/68.4; Δ zur p50-Referenz -24.8/+0.0; Δ zur bisherigen Datei +0.0/+0.8.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 1339×1004 | 1339×2008 | pillar-practice-1600.webp | 0.25 / 0.84 |
+| 390 @3x | 1050×1312 | 1050×1574 | pillar-practice-1080.webp | 0.20 / 0.97 |
+
+- Original/Fallback: 89,208 Bytes. Derivate: pillar-practice-640.webp: 28,478 B; pillar-practice-1080.webp: 61,382 B; pillar-practice-1600.webp: 106,162 B; pillar-practice-2400.webp: 185,222 B; pillar-practice-2880.webp: 245,752 B
+
+### practice-start.webp — stark
+
+- Kapitel: II Practice. Hand und Bahntextur bleiben lesbar; gute materielle Nähe.
+- Quelle: Thomas Ronveaux / Pexels License (https://www.pexels.com/license/) / https://www.pexels.com/photo/a-close-up-shot-of-an-athlete-on-a-race-track-13159243/.
+- Quell-Pixel: 3451×5176. Quelle: `C:\Users\Fabien\og-sports-sources\v4-candidates\web\pexels_13159243.jpg`.
+- Gesicht/Motiv angeschnitten (390 / 1440): nein / nein: Hand als bewusstes Detailmotiv.
+- Grade: L/S 41.6/132.1; Δ zur p50-Referenz +1.4/+63.7; Δ zur bisherigen Datei -0.1/+0.7.
+
+| Viewport | Sichtbar, Geräte-Pixel | Bitmapbedarf, Pixel | Geladene Datei | Faktor Q / A |
+|---|---:|---:|---|---:|
+| 1440 @2x | 1092×1364 | 1092×1637 | practice-start-1600.webp | 0.32 / 0.68 |
+| 390 @3x | 1050×1312 | 1050×1575 | practice-start-1080.webp | 0.30 / 0.97 |
+
+- Original/Fallback: 194,054 Bytes. Derivate: practice-start-640.webp: 58,576 B; practice-start-1080.webp: 130,410 B; practice-start-1600.webp: 243,750 B; practice-start-2400.webp: 661,352 B; practice-start-2880.webp: 952,196 B
+
+## Reproduktion und Grenzen
+
+`prepare_responsive.py` benötigt nur vorhandenes Pillow, OpenCV/numpy und ffmpeg. `responsive_markup.py` aktualisiert die Bildattribute; `pillars.py --check` prüft die generierten Kacheln. Geschützte Retuschiermaster liegen in `scripts/sources`, v4-Originale im genannten Pool. Keine KI-Erzeugung und kein neues Paket.
+
+02 Originaldownload: https://images.unsplash.com/photo-1758506971683-c080e6f16ce9?fm=jpg&q=100 ; Fotograf/Lizenz bestätigt auf https://unsplash.com/photos/runners-legs-in-motion-with-a-long-shadow-G96xGokbTUM .
+
+Safari, Firefox und echte Geräte: ungeprüft. Die Suite nutzt Chromium; Screenshots belegen Layout und Ausschnitt, keine vollständige WCAG-Prüfung. Das absichtlich unscharfe Run-Material wird durch mehr Pixel nicht detailreicher.
