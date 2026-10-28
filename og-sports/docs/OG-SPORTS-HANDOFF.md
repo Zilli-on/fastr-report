@@ -91,3 +91,53 @@ for the next session. (`docs/HANDOFF.md` is an unrelated migration note from 21.
   for quick element screenshots, `probe.py`.
 - Next first step: `capture.py --ref <RC14 sha> --round R6 --version A`, then `bash run_pair.sh R6 A`.
 - Higgsfield today: 0.5 credits. Codex weekly quota was 10 % at R2; check `baton quota` first.
+
+
+## Stand RC17 (2026-10-28 ~03:00) — authoritative for the next session
+
+Session `bold-rhodes-e80372` (Claude, Leitstelle-Auftrag 27.10.). Pushed and checked with `git ls-remote`:
+RC15 `52ff392`, RC16 `feae39f`, RC17 `0380d77`. Gates before every push: `npm run check` 21/21 + build 142 files,
+`prepare_responsive.py --check` (18 originals, 104 WebPs, no upscaling), `pillars.py --check`, secret grep.
+
+| Round | Version | Codex (2 runs) | Kimi (2 runs) |
+|---|---|---|---|
+| R5 | RC13 `ddf8eab` | 6.75 / 6.75 | 7.75 / 8.25 |
+| R6 | RC14 `39b2f26` | 7.12 / 7.00 (K1 6) | 8.25 / 8.00 |
+| R7 | RC15 `52ff392` | 6.88 / 6.88 (K1 6, K2 6) | 7.88 / 8.25 |
+| R8 | RC16 `feae39f` | 7.38 / 7.62 (K1 6 / 7) | 7.50 / 8.00 |
+| R9 | RC17 `0380d77` | 7.25 / 7.12 (K1 6 / 6) | 7.75 / 8.00 |
+
+What changed (findings → change):
+- RC15: temple = five columns side by side, words up the shaft; III/IV cut close (lavender hood, lime body) so Wear
+  and Make keep their reveal; pillar II = lucas Favre / Unsplash `pillar-dusk.webp` (new, p50, 1:2 crop, credited).
+  Start-line photo moved to I Run (sprint shown), stairs carry II Practice. Way in without lime box/table rows.
+  Meet black and white via CSS (credits doc updated), its foot melts into the way in. Gaps Wear→Make, after the
+  standards, under the manifest cut; colour dots without visible names; static Make stacked below 1100.
+- RC16 (R7: four loud lines in the way in; phone slits too thin): „Hier fängt es an." is a quiet line, Anfangen the
+  one loud act (lime italic + arrow), Mitgestalten / Partner werden small side by side with lavender arrows; phone
+  temple = five wide rows; Practice keeps two actions (Studio link removed there); static Make headings unwrapped.
+- RC17 (R8: slits at 768; second big Run section): rows up to 899 px; Run start line as a compact 2:1 accent;
+  pillar/STICK labels larger.
+
+Still open after R8 (Codex, the bottleneck; Kimi mirrors it):
+- K1/K7 the way in: „souverän gesetzt, aber austauschbare Kontaktsektion"; Codex wants the doors bound to an
+  image composition of belonging (people, places, objects — the Creators Club board). Without real FASTR photos
+  this is the ceiling: licensed Meet/people search is exhausted (ruled out in the mission brief).
+- K3 Meet: silhouettes show no interaction; wants faces/gestures. Only Fabi can supply (questions 1, 2).
+- K1 (Codex r2) static Make: closed form as the large main view, build and section as smaller details.
+- Small grey meta texts and the colour dots' touch size (K6/K8).
+- Learning (mission brief, failure-060 pattern): structural rebuilds move the weakest chapter, the Codex mean
+  stays in its band; the step R7→R8 (+0.6) came from removing competing loud elements, not from adding.
+
+Tooling: `og-sports-sources/review/capture.py` now waits up to 20 s for the 3D STICK (R7 captured the static
+fallback once: readiness took 2–15 s under load). `elshot.py <w> <selector> <out>` for quick element shots.
+Higgsfield this session: 0 credits.
+R9 verdict (both Codex runs): K1 6 = V Meet (r1) / the way in (r2); both ask for real interaction between people
+and a closing bound to people — and they now contradict R8 on Run (R8: make the start line compact, R9: make it the
+carrying image). Codex has stayed in 6.75–7.62 for five rounds (R5–R9) while the page changed structurally each
+time: the remaining gap is not reachable with the licensed pool; it needs Fabi's real FASTR photos (questions 1, 2).
+Stopped here on purpose (context discipline + failure 060: do not chase a surrogate inside its noise band).
+
+Next first step: if Fabi delivered real group/event photos → Meet and the way in carry them (biggest lever, Codex
+K1/K3/K7). Otherwise only shared, cheap findings: larger touch areas for language switch, colour dots and text actions
+on 390; grey credit lines on light photo areas; static Make with the closed form as main view (Codex R8 r2).
