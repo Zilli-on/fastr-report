@@ -478,7 +478,7 @@
   updateContact();
 })();
 
-// The module graph and model are requested only near the Make chapter.
+// The module graph and model are requested only near the Protect chapter.
 (() => {
   const chapter = document.getElementById('stick');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');

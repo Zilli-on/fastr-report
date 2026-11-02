@@ -141,3 +141,13 @@ Stopped here on purpose (context discipline + failure 060: do not chase a surrog
 Next first step: if Fabi delivered real group/event photos → Meet and the way in carry them (biggest lever, Codex
 K1/K3/K7). Otherwise only shared, cheap findings: larger touch areas for language switch, colour dots and text actions
 on 390; grey credit lines on light photo areas; static Make with the closed form as main view (Codex R8 r2).
+
+## Stand RC18 (2026-11-03 ~00:30) — Lucien's feedback (WhatsApp group "OG SPORTS (Updates & News)", 29.10.)
+
+Fabi: "du entscheidest". Done in RC18:
+- Pillar IV Make -> **Protect** (Lucien: RUN / PRACTICE / WEAR / PROTECT / MEET, the STICK protects). `scripts/pillars.py` + stick chapter label.
+- Manifest "Create your own luck." -> **"Original grind."** (Lucien: too vague; the line also came from Project50). Hero = Own greatness, manifest = Original grind: the two halves of OG.
+- **Two type families only** (Lucien: one CI, max. two fonts): captions moved from system mono to Space Grotesk (`--caption`), the info "i" from Georgia to Archivo. Measured: every visible element renders in Archivo or Space Grotesk.
+- AI label on the opening image is now a framed tag (`.ai-tag`), AI Act Art. 50.
+
+Still open with Lucien/Fabi: (1) "Aufbau der Seite" (order, what goes where) needs a joint pass; (2) AI content: all AI images stay labelled until own photos from the content day replace them; (3) the brand kit `03_Typografie/TYPOGRAFIE.md` still lists system mono for labels.

@@ -31,7 +31,7 @@ PILLARS = [
     ("III", "Wear", True, "#apparel", "Apparel",
      ("img", "assets/responsive/hoodie-lavender-800.webp", "50% 36%", ("KI-Visualisierung", "AI visualisation"),
       ("FASTR30 Graphic Hoodie in Lavender", "FASTR30 Graphic Hoodie in lavender"))),
-    ("IV", "Make", True, "#stick", "FASTR STICK",
+    ("IV", "Protect", True, "#stick", "FASTR STICK",
      ("img", "assets/stick-form.webp", "50% 50%", ("3D-Produktvisualisierung · Prototyp", "3D product visualisation · prototype"),
       ("FASTR STICK, 3D-Ansicht der Form", "FASTR STICK, 3D view of the form"))),
     # RC9: Meet is the last pillar and the last chapter, so the page ends with people, then the way in
@@ -61,7 +61,7 @@ def pillar(i, row):
         # RC15: five columns side by side, object-fit cover. The image is as wide as the column is tall times
         # its aspect, so sizes follow the column height (styles.css: 40vw desktop; phone and tablet rows are full width).
         w, h = (int(x) for x in re.search(r'width="(\d+)" height="(\d+)"', attributes(src, '1px')).groups())
-        a = w / h * {'Wear': 2.7, 'Make': 1.7}.get(word, 1)  # styles.css --zoom: colour columns are cut closer
+        a = w / h * {'Wear': 2.7, 'Protect': 1.7}.get(word, 1)  # styles.css --zoom: colour columns are cut closer
         sizes = f'(max-width: 899px) 100vw, {round(40 * a)}vw'  # RC16/RC17: phone and tablet = full-width rows
         image_tag = (
             f'<img alt="{escape(alt[0])}" data-alt-de="{escape(alt[0])}" data-alt-en="{escape(alt[1])}" '
