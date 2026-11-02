@@ -151,3 +151,15 @@ Fabi: "du entscheidest". Done in RC18:
 - AI label on the opening image is now a framed tag (`.ai-tag`), AI Act Art. 50.
 
 Still open with Lucien/Fabi: (1) "Aufbau der Seite" (order, what goes where) needs a joint pass; (2) AI content: all AI images stay labelled until own photos from the content day replace them; (3) the brand kit `03_Typografie/TYPOGRAFIE.md` still lists system mono for labels.
+
+## Stand RC19 (2026-11-03 ~01:10) — the menu follows the temple
+
+Fabi: "verbessere und bau weiter". Lucien's "Aufbau" point, first step: the menu listed "OG FASTR" and "Projekte" next to
+"Fünf Säulen", so the page's own structure (five equal pillars) was not readable from the navigation. Now:
+01 Unsere Welt · 02 Fünf Säulen with I Run / II Practice / III Wear / IV Protect / V Meet (+ project name) · 03 Der Eingang.
+Phone: pillar rows under "Fünf Säulen", menu fits 375x812 without scrolling. From 900 px: the five pillars as five columns,
+like the temple. Checked: every pillar link lands on its chapter (top 0 after the smooth scroll), DE/EN incl. aria-label,
+`npm test` 21/21. Measured on the way: first load on a phone ~0.5 MB + 50 KB HTML, so no performance work is needed.
+
+Open, needs Fabi: (1) a recipient address for the contact doors (Mitgestalten / Partner werden only build a local
+draft, "Eine Empfängeradresse ist noch nicht hinterlegt"); (2) Impressum data before any go-live (OG Sports GmbH in Gründung).
