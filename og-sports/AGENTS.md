@@ -83,3 +83,17 @@ Nike Running, Tracksmith, Satisfy). Replaces earlier sections where they conflic
   The label names FASTR the sprint club of OG SPORTS; the opening says Vienna / Home of FASTR.
 - The way in has no stand-in photograph; its three doors are rows in the grammar of the seven standards.
 - Image notes describe the files actually shipped (the opening is the RC6 4K upscale, retouched).
+
+## RC20 — the logo face is the page face (2026-11-05, Fabi + Lucien 29.10.: one CI, max. two fonts, the type of SPORTS in the logo)
+Replaces the font lines of earlier sections where they conflict.
+- The Brand System v1.1 names no face for the logo ("own paths, no typeface"). Measured match of the six SPORTS glyphs
+  against free faces: **Orbitron** 900 IoU 0.89 (800 0.89, Audiowide 0.80, Archivo 125 % 0.77). Evidence and script live
+  outside the repo: `og-sports-sources/rc20-fonts/` (`match.py`, `compare.png`, `scores.json`).
+- Two families only: Orbitron (titles, numbers, header, kicker, inscriptions; always uppercase) and Space Grotesk
+  (copy, captions, the quiet light lines such as the temple title and the way in). Archivo is gone.
+- Orbitron ships whole (`fonts/orbitron-var.woff2`, wght 400–900, only converted to woff2, so the reserved font name
+  stays valid under the OFL). It has no italic: FASTR keeps its slant through the browser's oblique.
+- The opening title is live text in Orbitron, not the `own.svg`/`greatness.svg` outlines (kept on disk, unused).
+- Left out: the kicker "Sport / People / Culture" (the line below the title says it already).
+- `scripts/visual_review.py` had drifted since RC9/RC15/RC19 (4:5 pillars, project order, menu link, image names) and
+  failed on RC19 too; RC20 updated those checks to the decided state.

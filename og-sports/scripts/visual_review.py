@@ -38,7 +38,7 @@ STANDARDS = [
     "FUEL",
     "REFLECT",
 ]
-PROJECTS = ["challenge", "apparel", "live", "stick"]
+PROJECTS = ["challenge", "apparel", "stick", "live"]  # RC15 order: Protect before Meet
 LIMITS = [
     "Chromium only; Safari, Firefox and real devices are not covered",
     "Automated contrast and target checks are partial; no full WCAG audit",
@@ -56,7 +56,7 @@ MEASURE = r"""() => {
     width: innerWidth, scrollWidth: document.documentElement.scrollWidth,
     hero: img.getAttribute('src'), natural: [img.naturalWidth, img.naturalHeight],
     photos: [...document.querySelectorAll('#brand .tile img')].map(i => i.getAttribute('src')),
-    unlabelled: [...document.querySelectorAll('main img')].filter(i => /\.(webp|jpe?g|png)$/i.test(i.getAttribute('src') || '') && !i.closest('.hero, #brand')).filter(i => { const f = i.closest('figure, article, .pillar'); return !/KI-|AI |Produktvisualisierung|Product visualisation|Unsplash|Pexels|Eigene Aufnahme|Own footage/.test((f && f.textContent) || ''); }).map(i => i.getAttribute('src')),
+    unlabelled: [...document.querySelectorAll('main img')].filter(i => /\.(webp|jpe?g|png)$/i.test(i.getAttribute('src') || '') && !i.closest('.hero, #brand')).filter(i => { const f = i.closest('figure, article, .pillar'); const next = f && f.nextElementSibling && f.nextElementSibling.matches('.stick-caption') ? f.nextElementSibling.textContent : ''; return !/KI-|AI |Produktvisualisierung|Product visualisation|Unsplash|Pexels|Eigene Aufnahme|Own footage/.test(((f && f.textContent) || '') + next); }).map(i => i.getAttribute('src')),
     rules: [...document.querySelectorAll('#projects .field-rows strong')].map(e => e.textContent.trim()),
     projects: [...document.querySelectorAll('#projects > .project')].map(e => e.dataset.key),
     headings: [...document.querySelectorAll('main h2:not(.sr-only), main h3')].map(e => ({text: e.textContent.trim().slice(0, 40), client: e.clientWidth, scroll: e.scrollWidth, right: e.getBoundingClientRect().right})),
@@ -177,14 +177,14 @@ def site(browser, base, report):
           return label.left < num.right + 4;
         }).map(e => e.className)''')
         check(not label_collisions, (where, 'pillar label/number overlap', label_collisions))
-        if width < 768:
-            check(all(abs(b['w']/b['h']-.8)<.001 for b in boxes), (where, '4:5 pillars', boxes))
+        # RC16/RC17: below 900 px the pillars are five wide rows (16:5 up to 600 px, 4:1 above), from 900 px five columns
+        if width < 900:
+            ratio = 3.2 if width <= 600 else 4
+            check(all(abs(b['w']/b['h']-ratio)<.01 for b in boxes), (where, 'pillar rows', ratio, boxes))
             check(all(abs(b['x']-boxes[0]['x'])<1 for b in boxes), (where, 'one column', boxes))
             check(all(b['y']>=a['y']+a['h'] for a,b in zip(boxes, boxes[1:])), (where, 'stacked pillars', boxes))
-        elif width < 900:
-            check(abs(boxes[1]['y']-boxes[2]['y'])<1 and abs(boxes[3]['y']-boxes[4]['y'])<1 and boxes[0]['w']>boxes[1]['w']*1.9, (where, 'existing tablet mosaic', boxes))
         else:
-            check(abs(boxes[0]['y']-boxes[1]['y'])<1 and abs(boxes[2]['y']-boxes[4]['y'])<1, (where, '2+3 mosaic', boxes))
+            check(all(abs(b['y']-boxes[0]['y'])<1 for b in boxes), (where, 'five columns', boxes))
         check(
             m["scrollWidth"] <= width + 1,
             (where, "horizontal overflow", m["scrollWidth"]),
@@ -328,7 +328,7 @@ def site(browser, base, report):
             trigger = page.locator(".site-header [data-nav-menu]")
         trigger.click()
         check(page.locator("#menu-dialog").evaluate("e => e.open"), (where, "menu"))
-        page.locator('#menu-dialog nav a[href="#projects"]').click()
+        page.locator('#menu-dialog nav a[href="#pillars"]').click()  # RC19: the menu follows the temple
         check(
             not page.locator("#menu-dialog").evaluate("e => e.open"),
             (where, "menu link"),
@@ -386,9 +386,9 @@ def artefacts(browser, base, report):
         for src in (
             "assets/frame-01-detail.webp",
             "assets/frame-03-people.webp",
-            "assets/run-night.webp",
+            "assets/run-crew.webp",  # RC9: the night sprint crew carries I Run
             "assets/meet-night.webp",
-            "assets/track-night.webp",
+            "assets/practice-start.webp",  # RC15: the start line
             "assets/pillar-run.webp",
             "assets/photo-ritual.webp",
             "assets/responsive/hoodie-black-800.webp",
@@ -408,8 +408,8 @@ def artefacts(browser, base, report):
             plates["legend"] == 5,
             (where, plates["legend"]),
         )
-        check({"Archivo", "Space Grotesk"} <= set(plates["fonts"]), (where, "self-hosted fonts not loaded", plates["fonts"]))
-        check(plates["headingFont"].startswith("Archivo"), (where, plates["headingFont"]))
+        check({"Orbitron", "Space Grotesk"} <= set(plates["fonts"]), (where, "self-hosted fonts not loaded", plates["fonts"]))
+        check(plates["headingFont"].startswith("Orbitron"), (where, plates["headingFont"]))
         for needle in (
             "Pexels",
             "Unsplash",
@@ -437,7 +437,7 @@ def artefacts(browser, base, report):
                 (where, "focus escaped the dialog"),
             )
         page.keyboard.press("ArrowRight")
-        check(page.evaluate("location.hash") == "#project-live", (where, "ArrowRight"))
+        check(page.evaluate("location.hash") == "#project-stick", (where, "ArrowRight"))  # RC15: Wear, then Protect
         page.keyboard.press("Escape")
         page.close()
         page = new_page(browser, base, report, width, height)

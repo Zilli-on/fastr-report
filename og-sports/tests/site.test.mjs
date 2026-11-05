@@ -156,8 +156,8 @@ test('self-hosts only OFL fonts and loads nothing from third parties', async () 
   assert.doesNotMatch(html, /<script[^>]+src="https?:/);
   const fonts = await readdir(new URL('site/fonts/', root));
   const binaries = fonts.filter(f => /\.(?:woff2?|ttf|otf)$/.test(f));
-  assert.deepEqual(binaries.sort(), ['archivo-italic-latin.woff2', 'archivo-var-latin.woff2', 'spacegrotesk-latin.woff2']);
-  for (const family of ['Archivo', 'SpaceGrotesk']) {
+  assert.deepEqual(binaries.sort(), ['orbitron-var.woff2', 'spacegrotesk-latin.woff2']); // RC20: two families, the logo face + copy
+  for (const family of ['Orbitron', 'SpaceGrotesk']) {
     const licence = await readFile(new URL(`site/fonts/OFL-${family}.txt`, root), 'utf8');
     assert.match(licence, /SIL Open Font License, Version 1\.1/);
   }
