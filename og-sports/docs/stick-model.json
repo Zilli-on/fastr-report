@@ -1,0 +1,119 @@
+{
+  "source": "C:\\Users\\Fabien\\fastr-stick-prototype\\output\\preview",
+  "blender": "4.5.10 LTS",
+  "parts": [
+    {
+      "name": "Gehaeuse",
+      "file": "01_gehaeuse_assembled.stl",
+      "sha256": "010624415f87d9950c8152ea2e7d18dd6227680b6fe52c1f4dc99aaeed6abe97",
+      "source_triangles": 9322,
+      "triangles": 3200,
+      "vertices": 3198,
+      "bounds_mm": [
+        [
+          -14.0,
+          14.0
+        ],
+        [
+          -14.0,
+          14.0
+        ],
+        [
+          11.600000381469727,
+          128.0
+        ]
+      ]
+    },
+    {
+      "name": "Schraubkappe",
+      "file": "02_schraubkappe_assembled.stl",
+      "sha256": "4394a899a3d06a4b5226c813393c5b29692b9f026bd51f2a8ad9518b0099bcd2",
+      "source_triangles": 43132,
+      "triangles": 7000,
+      "vertices": 6245,
+      "bounds_mm": [
+        [
+          -14.0,
+          14.0
+        ],
+        [
+          -14.0,
+          14.0
+        ],
+        [
+          118.4000015258789,
+          140.0
+        ]
+      ]
+    },
+    {
+      "name": "Drehfuss",
+      "file": "03_drehfuss_assembled.stl",
+      "sha256": "351183af9b9ca846181c26b270cc73bec8c0b45ca06ce582be15649a63bb441c",
+      "source_triangles": 35244,
+      "triangles": 6500,
+      "vertices": 5025,
+      "bounds_mm": [
+        [
+          -14.0,
+          14.0
+        ],
+        [
+          -14.0,
+          14.0
+        ],
+        [
+          0.0,
+          11.199999809265137
+        ]
+      ]
+    },
+    {
+      "name": "Spindel",
+      "file": "04_spindel_assembled.stl",
+      "sha256": "fa7638e6324aaeee467973712d95d2d71e12ab057072cadd1f39d463113a164b",
+      "source_triangles": 50020,
+      "triangles": 6500,
+      "vertices": 6230,
+      "bounds_mm": [
+        [
+          -6.5,
+          6.5
+        ],
+        [
+          -6.5,
+          6.5
+        ],
+        [
+          5.699999809265137,
+          125.0
+        ]
+      ]
+    },
+    {
+      "name": "Hubteller",
+      "file": "05_hubteller_assembled.stl",
+      "sha256": "b43c657af2d6a9b35aa9d53706f495946c6858270175a69b97011621e63c2aa8",
+      "source_triangles": 2848,
+      "triangles": 2000,
+      "vertices": 2016,
+      "bounds_mm": [
+        [
+          -10.217632293701172,
+          10.217632293701172
+        ],
+        [
+          -10.298440933227539,
+          10.298440933227539
+        ],
+        [
+          25.0,
+          35.0
+        ]
+      ]
+    }
+  ],
+  "bytes": 428320,
+  "sha256": "e98271bb1b5f1274e5153dd2f4843c5772eb2a4914bc0ce9c77f44ae31235ab0",
+  "quantization_max_error_mm": 0.003906369212927641
+}

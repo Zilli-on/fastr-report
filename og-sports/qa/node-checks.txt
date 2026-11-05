@@ -1,0 +1,71 @@
+
+> og-sports-web@0.1.0 check
+> npm test && npm run build
+
+
+> og-sports-web@0.1.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: preserves the chosen first photograph and original brand assets byte for byte
+ok 1 - preserves the chosen first photograph and original brand assets byte for byte
+  ---
+  duration_ms: 5.240644
+  type: 'test'
+  ...
+# Subtest: browser JavaScript is syntactically valid
+ok 2 - browser JavaScript is syntactically valid
+  ---
+  duration_ms: 1.425475
+  type: 'test'
+  ...
+# Subtest: all local artwork referenced by the source exists
+ok 3 - all local artwork referenced by the source exists
+  ---
+  duration_ms: 2.376195
+  type: 'test'
+  ...
+# Subtest: retains project identities, language support and credit information
+ok 4 - retains project identities, language support and credit information
+  ---
+  duration_ms: 0.215029
+  type: 'test'
+  ...
+# Subtest: retains preview indexing restrictions and motion preference support
+ok 5 - retains preview indexing restrictions and motion preference support
+  ---
+  duration_ms: 0.961537
+  type: 'test'
+  ...
+# Subtest: keeps an accessible page outline and unique static IDs
+ok 6 - keeps an accessible page outline and unique static IDs
+  ---
+  duration_ms: 0.284662
+  type: 'test'
+  ...
+# Subtest: has no bundled font binaries or remote font stylesheet
+ok 7 - has no bundled font binaries or remote font stylesheet
+  ---
+  duration_ms: 0.444269
+  type: 'test'
+  ...
+# Subtest: serves the site with correct MIME types without exposing repo files
+ok 8 - serves the site with correct MIME types without exposing repo files
+  ---
+  duration_ms: 32.746887
+  type: 'test'
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 8
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 148.290312
+
+> og-sports-web@0.1.0 build
+> node scripts/build.mjs
+
+Built 11 files into dist/

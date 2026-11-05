@@ -1,0 +1,234 @@
+{
+  "version": "v4 2026-10-24 / photography carries every chapter",
+  "external_requests": false,
+  "assets": [
+    {
+      "file": "assets/after-the-run-display-4x.webp",
+      "bytes": 218062,
+      "sha256": "63fe1536cc9ced2be55f86259be49fb0cbff1b2fa47c5429811029f524cfc3f2",
+      "use": "Historical interpolated derivative, no longer requested by the homepage",
+      "type": "Display derivative of the AI image study",
+      "source": "4x Lanczos resample with light sharpening"
+    },
+    {
+      "file": "assets/after-the-run.webp",
+      "bytes": 41820,
+      "sha256": "807364cf90a7b283304707b93194110fe7c519ac6ae53a5f6b21f8ae43c02bfe",
+      "use": "Original of the opening image; image notes",
+      "type": "AI image study",
+      "source": "Existing project asset, unchanged"
+    },
+    {
+      "file": "assets/frame-01-detail.webp",
+      "bytes": 44478,
+      "sha256": "5ecf7c3baf75930cf09417a27e590693403c5846c1adfb5e583493915a021b01",
+      "use": "Strip 01",
+      "type": "Photograph (David Moorhouse, Unsplash)",
+      "source": "Maker mark removed by inpainting"
+    },
+    {
+      "file": "assets/frame-03-people.webp",
+      "bytes": 244996,
+      "sha256": "8a1c8dac564fa4d3a08d137cddcf6dc995f02cf6cef83f663205fa2c2ca59b9b",
+      "use": "Strip 03",
+      "type": "Photograph (Leviosa Hou, Unsplash)",
+      "source": "Brand marks retouched, AI-assisted"
+    },
+    {
+      "file": "assets/greatness.svg",
+      "bytes": 2777,
+      "sha256": "fe362832b8970a4fbac6101c34d975442ad5951c7d9845225bb2a5dde5ebfd8a",
+      "use": "Opening title",
+      "type": "Outlined campaign text",
+      "source": "Inter Display outlines"
+    },
+    {
+      "file": "assets/og-fastr-wordmark-dark.svg",
+      "bytes": 4824,
+      "sha256": "cfc5bf702e0858038999e8c788f511ac88e2a33613ec7574e9f60dea9821a366",
+      "use": "Frame 04",
+      "type": "Original OG FASTR wordmark",
+      "source": "Unchanged"
+    },
+    {
+      "file": "assets/og-mark-black.svg",
+      "bytes": 764,
+      "sha256": "27e77efd890e4bf8b2c0def67640ad8f30e73b3313984542f4236cd4426105bf",
+      "use": "Compact header, dialogs",
+      "type": "Original OG SPORTS symbol",
+      "source": "Unchanged"
+    },
+    {
+      "file": "assets/og-sports-black.svg",
+      "bytes": 2074,
+      "sha256": "d0a99a2d62cc2304c73ef704baabdf3c82c9f6ead803c73ec7f259f0dffe9fea",
+      "use": "Header, footer signature",
+      "type": "Original OG SPORTS mark",
+      "source": "Unchanged"
+    },
+    {
+      "file": "assets/own.svg",
+      "bytes": 795,
+      "sha256": "d07b2ceae7feea5cd54f5cebffbb9525ab5bf80b6d99e72a770fb993ea049cc2",
+      "use": "Opening title",
+      "type": "Outlined campaign text",
+      "source": "Inter Display outlines"
+    },
+    {
+      "file": "assets/run-shadow.webp",
+      "bytes": 217624,
+      "sha256": "f1ffa9de0ca17daac7aca5a389b136c45dcdcab9fdbc849f17c62a71082b6469",
+      "use": "Strip 02",
+      "type": "Photograph (Mathias Reding, Unsplash)",
+      "source": "Unchanged"
+    },
+    {
+      "file": "assets/stick-lime.jpg",
+      "bytes": 63841,
+      "sha256": "fd95b48a166e992b13a386c948efd2df908affd1bd7d77f8b6773078dd5cb190",
+      "use": "V Make: static fallback and dialog cover; temple pillar V",
+      "type": "3D product render",
+      "source": "fastr30.com shop asset, unchanged"
+    },
+    {
+      "file": "assets/stick-exploded.jpg",
+      "bytes": 41989,
+      "sha256": "5c5f73cd1240543aad10c9990675dec72328bbfa72cc4cd1ddc33cee13f539b9",
+      "use": "Reference asset only; no longer requested by the homepage",
+      "type": "3D product render",
+      "source": "fastr30.com shop asset, unchanged"
+    },
+    {
+      "file": "assets/photo-ritual.webp",
+      "bytes": 198532,
+      "sha256": "d8bc403f0e4b3244cded3d2b403ca287cd5faa1b62188447e895990391b29b7c",
+      "use": "Manifest",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Ulf Meyer, https://unsplash.com/photos/cS0W4GvUUDM"
+    },
+    {
+      "file": "assets/pillar-run.webp",
+      "bytes": 476046,
+      "sha256": "0437fa9d83b6d883c746329e5ac713c719ec959540f4a9212bf05da1aabbcf5d",
+      "use": "Säule I",
+      "type": "Licensed photograph (Pexels License), illustrative",
+      "source": "limoo, https://www.pexels.com/photo/silhouette-of-woman-running-in-front-of-an-illuminated-building-at-night-14532913/"
+    },
+    {
+      "file": "assets/pillar-practice.webp",
+      "bytes": 89208,
+      "sha256": "86875c5b7fce6132a90b2af57afa9b39df54868256cefb208a9d24baa2d90b6c",
+      "use": "Säule II",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Red John, https://unsplash.com/photos/mZixsK8OnmE"
+    },
+    {
+      "file": "assets/pillar-meet.webp",
+      "bytes": 356784,
+      "sha256": "f0dc6d25afc016ad01bd8d099fdf26b3eec26d3ef8dad3374952d868c7f7e334",
+      "use": "Säule IV",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Gabin Vallet, https://unsplash.com/photos/J154nEkpzlQ"
+    },
+    {
+      "file": "assets/run-crew.webp",
+      "bytes": 75646,
+      "sha256": "499329ee80eb439d99455189f621237c55d5157bb6b7cd533145ea4e849161c6",
+      "use": "I Run",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Hansheng Zhao, https://unsplash.com/photos/9FcKpisH7Bo (singlet print softened)"
+    },
+    {
+      "file": "assets/practice-start.webp",
+      "bytes": 194054,
+      "sha256": "2c098ada7650452477f6917daf9537ec6e493976a56ddbcea9a4c55954133840",
+      "use": "II Practice",
+      "type": "Licensed photograph (Pexels License), illustrative",
+      "source": "Thomas Ronveaux, https://www.pexels.com/photo/a-close-up-shot-of-an-athlete-on-a-race-track-13159243/"
+    },
+    {
+      "file": "assets/meet-night.webp",
+      "bytes": 59014,
+      "sha256": "3c5ad07398846034f64390d96ac86d1b5caf8dbf7c055bb3cfafaee81ea43b94",
+      "use": "IV Meet",
+      "type": "Licensed photograph (Unsplash License), illustrative",
+      "source": "Fitsum Admasu, https://unsplash.com/photos/silhouette-of-three-women-running-on-grey-concrete-road-oGv9xIl7DkY"
+    },
+    {
+      "file": "assets/stick.glb",
+      "bytes": 428320,
+      "sha256": "e98271bb1b5f1274e5153dd2f4843c5772eb2a4914bc0ce9c77f44ae31235ab0",
+      "use": "V Make: lazy interactive product visualization",
+      "type": "Quantized GLB, five actual prototype meshes",
+      "source": "fastr-stick-prototype/output/preview/*_assembled.stl; build_stick_model.py; see stick-model.json"
+    },
+    {
+      "file": "assets/responsive/hoodie-black-800.webp",
+      "bytes": 30024,
+      "sha256": "efc4e84c4cb0998b5f6e6c14385fb1252c267028d45c013d9a1a69960f59bb8f",
+      "use": "Wear product stage; Black also in temple III",
+      "type": "AI visualisation",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-black.png",
+      "responsive_manifest": "docs/responsive-assets.json"
+    },
+    {
+      "file": "assets/responsive/hoodie-butter-yellow-800.webp",
+      "bytes": 35856,
+      "sha256": "8325df82a1da3bdb0d15579974fa516be2c3719925cf2d84a69c59f7cade0bfc",
+      "use": "Wear product stage; Black also in temple III",
+      "type": "AI visualisation",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-butter-yellow.png",
+      "responsive_manifest": "docs/responsive-assets.json"
+    },
+    {
+      "file": "assets/responsive/hoodie-cherry-red-800.webp",
+      "bytes": 41406,
+      "sha256": "ade269c0d058639396d7506437d9f2f991585eabb59ca8ae2dd10af1093582bf",
+      "use": "Wear product stage; Black also in temple III",
+      "type": "AI visualisation",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-cherry-red.png",
+      "responsive_manifest": "docs/responsive-assets.json"
+    },
+    {
+      "file": "assets/responsive/hoodie-cobalt-blue-800.webp",
+      "bytes": 50102,
+      "sha256": "ad6b792fda87115da119ab9e34ae74ddc27a3e0c81b95497f7b112ecf8cf1791",
+      "use": "Wear product stage; Black also in temple III",
+      "type": "AI visualisation",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-cobalt-blue.png",
+      "responsive_manifest": "docs/responsive-assets.json"
+    },
+    {
+      "file": "assets/responsive/hoodie-emerald-green-800.webp",
+      "bytes": 46036,
+      "sha256": "06da6748a60c8f82e8e46d0dc830afb24fad930ce1710b23da6242cb964353bc",
+      "use": "Wear product stage; Black also in temple III",
+      "type": "AI visualisation",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-emerald-green.png",
+      "responsive_manifest": "docs/responsive-assets.json"
+    },
+    {
+      "file": "assets/responsive/hoodie-lavender-800.webp",
+      "bytes": 37614,
+      "sha256": "addbfdcc687e89218906f6b7451ed28943e0ff6ec59c04bb7ea6bda78539b619",
+      "use": "Wear product stage; Black also in temple III",
+      "type": "AI visualisation",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\higgsfield-hoodies\\final\\hoodie-lavender.png",
+      "responsive_manifest": "docs/responsive-assets.json"
+    }
+  ],
+  "fonts": [
+    {
+      "file": "fonts/archivo-var-latin.woff2",
+      "bytes": 90104,
+      "licence": "SIL OFL 1.1"
+    },
+    {
+      "file": "fonts/spacegrotesk-latin.woff2",
+      "bytes": 22320,
+      "licence": "SIL OFL 1.1"
+    }
+  ],
+  "generated_inline": [],
+  "responsive_manifest": "responsive-assets.json (RC3 source hashes, dimensions, crops and derivative byte sizes)"
+}

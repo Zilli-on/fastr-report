@@ -1,0 +1,570 @@
+{
+  "checks": [
+    {
+      "width": 320,
+      "lang": "de",
+      "mode": "gallery",
+      "w": 320,
+      "body": 320,
+      "root": 320,
+      "ok": true
+    },
+    {
+      "width": 320,
+      "lang": "de",
+      "mode": "index",
+      "w": 320,
+      "body": 320,
+      "root": 320,
+      "ok": true
+    },
+    {
+      "width": 320,
+      "lang": "en",
+      "mode": "gallery",
+      "w": 320,
+      "body": 320,
+      "root": 320,
+      "ok": true
+    },
+    {
+      "width": 320,
+      "lang": "en",
+      "mode": "index",
+      "w": 320,
+      "body": 320,
+      "root": 320,
+      "ok": true
+    },
+    {
+      "width": 320,
+      "photo": "running",
+      "open": true,
+      "body": {
+        "w": 282,
+        "scroll": 282
+      }
+    },
+    {
+      "width": 320,
+      "photo": "cycling",
+      "open": true,
+      "body": {
+        "w": 282,
+        "scroll": 282
+      }
+    },
+    {
+      "width": 320,
+      "photo": "hero",
+      "open": true,
+      "body": {
+        "w": 282,
+        "scroll": 282
+      }
+    },
+    {
+      "width": 320,
+      "project": "apparel",
+      "w": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "width": 320,
+      "project": "challenge",
+      "w": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "width": 320,
+      "project": "live",
+      "w": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "width": 320,
+      "project": "stick",
+      "w": 320,
+      "scroll": 320,
+      "ok": true
+    },
+    {
+      "width": 390,
+      "lang": "de",
+      "mode": "gallery",
+      "w": 390,
+      "body": 390,
+      "root": 390,
+      "ok": true
+    },
+    {
+      "width": 390,
+      "lang": "de",
+      "mode": "index",
+      "w": 390,
+      "body": 390,
+      "root": 390,
+      "ok": true
+    },
+    {
+      "width": 390,
+      "lang": "en",
+      "mode": "gallery",
+      "w": 390,
+      "body": 390,
+      "root": 390,
+      "ok": true
+    },
+    {
+      "width": 390,
+      "lang": "en",
+      "mode": "index",
+      "w": 390,
+      "body": 390,
+      "root": 390,
+      "ok": true
+    },
+    {
+      "width": 390,
+      "photo": "running",
+      "open": true,
+      "body": {
+        "w": 352,
+        "scroll": 352
+      }
+    },
+    {
+      "width": 390,
+      "photo": "cycling",
+      "open": true,
+      "body": {
+        "w": 352,
+        "scroll": 352
+      }
+    },
+    {
+      "width": 390,
+      "photo": "hero",
+      "open": true,
+      "body": {
+        "w": 352,
+        "scroll": 352
+      }
+    },
+    {
+      "width": 390,
+      "project": "apparel",
+      "w": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "width": 390,
+      "project": "challenge",
+      "w": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "width": 390,
+      "project": "live",
+      "w": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "width": 390,
+      "project": "stick",
+      "w": 390,
+      "scroll": 390,
+      "ok": true
+    },
+    {
+      "width": 760,
+      "lang": "de",
+      "mode": "gallery",
+      "w": 760,
+      "body": 760,
+      "root": 760,
+      "ok": true
+    },
+    {
+      "width": 760,
+      "lang": "de",
+      "mode": "index",
+      "w": 760,
+      "body": 760,
+      "root": 760,
+      "ok": true
+    },
+    {
+      "width": 760,
+      "lang": "en",
+      "mode": "gallery",
+      "w": 760,
+      "body": 760,
+      "root": 760,
+      "ok": true
+    },
+    {
+      "width": 760,
+      "lang": "en",
+      "mode": "index",
+      "w": 760,
+      "body": 760,
+      "root": 760,
+      "ok": true
+    },
+    {
+      "width": 760,
+      "photo": "running",
+      "open": true,
+      "body": {
+        "w": 722,
+        "scroll": 722
+      }
+    },
+    {
+      "width": 760,
+      "photo": "cycling",
+      "open": true,
+      "body": {
+        "w": 722,
+        "scroll": 722
+      }
+    },
+    {
+      "width": 760,
+      "photo": "hero",
+      "open": true,
+      "body": {
+        "w": 722,
+        "scroll": 722
+      }
+    },
+    {
+      "width": 760,
+      "project": "apparel",
+      "w": 760,
+      "scroll": 760,
+      "ok": true
+    },
+    {
+      "width": 760,
+      "project": "challenge",
+      "w": 760,
+      "scroll": 760,
+      "ok": true
+    },
+    {
+      "width": 760,
+      "project": "live",
+      "w": 760,
+      "scroll": 760,
+      "ok": true
+    },
+    {
+      "width": 760,
+      "project": "stick",
+      "w": 760,
+      "scroll": 760,
+      "ok": true
+    },
+    {
+      "width": 1024,
+      "lang": "de",
+      "mode": "gallery",
+      "w": 1024,
+      "body": 1009,
+      "root": 1009,
+      "ok": true
+    },
+    {
+      "width": 1024,
+      "lang": "de",
+      "mode": "index",
+      "w": 1024,
+      "body": 1009,
+      "root": 1009,
+      "ok": true
+    },
+    {
+      "width": 1024,
+      "lang": "en",
+      "mode": "gallery",
+      "w": 1024,
+      "body": 1009,
+      "root": 1009,
+      "ok": true
+    },
+    {
+      "width": 1024,
+      "lang": "en",
+      "mode": "index",
+      "w": 1024,
+      "body": 1009,
+      "root": 1009,
+      "ok": true
+    },
+    {
+      "width": 1024,
+      "photo": "running",
+      "open": true,
+      "body": {
+        "w": 960,
+        "scroll": 960
+      }
+    },
+    {
+      "width": 1024,
+      "photo": "cycling",
+      "open": true,
+      "body": {
+        "w": 960,
+        "scroll": 960
+      }
+    },
+    {
+      "width": 1024,
+      "photo": "hero",
+      "open": true,
+      "body": {
+        "w": 960,
+        "scroll": 960
+      }
+    },
+    {
+      "width": 1024,
+      "project": "apparel",
+      "w": 994,
+      "scroll": 994,
+      "ok": true
+    },
+    {
+      "width": 1024,
+      "project": "challenge",
+      "w": 994,
+      "scroll": 994,
+      "ok": true
+    },
+    {
+      "width": 1024,
+      "project": "live",
+      "w": 994,
+      "scroll": 994,
+      "ok": true
+    },
+    {
+      "width": 1024,
+      "project": "stick",
+      "w": 994,
+      "scroll": 994,
+      "ok": true
+    },
+    {
+      "width": 1440,
+      "lang": "de",
+      "mode": "gallery",
+      "w": 1440,
+      "body": 1425,
+      "root": 1425,
+      "ok": true
+    },
+    {
+      "width": 1440,
+      "lang": "de",
+      "mode": "index",
+      "w": 1440,
+      "body": 1425,
+      "root": 1425,
+      "ok": true
+    },
+    {
+      "width": 1440,
+      "lang": "en",
+      "mode": "gallery",
+      "w": 1440,
+      "body": 1425,
+      "root": 1425,
+      "ok": true
+    },
+    {
+      "width": 1440,
+      "lang": "en",
+      "mode": "index",
+      "w": 1440,
+      "body": 1425,
+      "root": 1425,
+      "ok": true
+    },
+    {
+      "width": 1440,
+      "photo": "running",
+      "open": true,
+      "body": {
+        "w": 1280,
+        "scroll": 1280
+      }
+    },
+    {
+      "width": 1440,
+      "photo": "cycling",
+      "open": true,
+      "body": {
+        "w": 1280,
+        "scroll": 1280
+      }
+    },
+    {
+      "width": 1440,
+      "photo": "hero",
+      "open": true,
+      "body": {
+        "w": 1280,
+        "scroll": 1280
+      }
+    },
+    {
+      "width": 1440,
+      "project": "apparel",
+      "w": 1410,
+      "scroll": 1410,
+      "ok": true
+    },
+    {
+      "width": 1440,
+      "project": "challenge",
+      "w": 1410,
+      "scroll": 1410,
+      "ok": true
+    },
+    {
+      "width": 1440,
+      "project": "live",
+      "w": 1410,
+      "scroll": 1410,
+      "ok": true
+    },
+    {
+      "width": 1440,
+      "project": "stick",
+      "w": 1410,
+      "scroll": 1410,
+      "ok": true
+    },
+    {
+      "width": 1920,
+      "lang": "de",
+      "mode": "gallery",
+      "w": 1920,
+      "body": 1905,
+      "root": 1905,
+      "ok": true
+    },
+    {
+      "width": 1920,
+      "lang": "de",
+      "mode": "index",
+      "w": 1920,
+      "body": 1905,
+      "root": 1905,
+      "ok": true
+    },
+    {
+      "width": 1920,
+      "lang": "en",
+      "mode": "gallery",
+      "w": 1920,
+      "body": 1905,
+      "root": 1905,
+      "ok": true
+    },
+    {
+      "width": 1920,
+      "lang": "en",
+      "mode": "index",
+      "w": 1920,
+      "body": 1905,
+      "root": 1905,
+      "ok": true
+    },
+    {
+      "width": 1920,
+      "photo": "running",
+      "open": true,
+      "body": {
+        "w": 1280,
+        "scroll": 1280
+      }
+    },
+    {
+      "width": 1920,
+      "photo": "cycling",
+      "open": true,
+      "body": {
+        "w": 1280,
+        "scroll": 1280
+      }
+    },
+    {
+      "width": 1920,
+      "photo": "hero",
+      "open": true,
+      "body": {
+        "w": 1280,
+        "scroll": 1280
+      }
+    },
+    {
+      "width": 1920,
+      "project": "apparel",
+      "w": 1890,
+      "scroll": 1890,
+      "ok": true
+    },
+    {
+      "width": 1920,
+      "project": "challenge",
+      "w": 1890,
+      "scroll": 1890,
+      "ok": true
+    },
+    {
+      "width": 1920,
+      "project": "live",
+      "w": 1890,
+      "scroll": 1890,
+      "ok": true
+    },
+    {
+      "width": 1920,
+      "project": "stick",
+      "w": 1890,
+      "scroll": 1890,
+      "ok": true
+    },
+    {
+      "nested_notes_restore": true,
+      "focus": "<button data-photo=\"cycling\" type=\"button\">02 / Coen van de Broek <span aria-hidden=\"true\">↗</span><"
+    },
+    {
+      "contact_draft": "Betreff: OG SPORTS — Partnerschaft\n\nHallo,\n\nTestentwurf\n\nLiebe Grüße\nTest"
+    }
+  ],
+  "errors": [],
+  "version": "V21",
+  "scope": "Chromium layout and functional smoke test, network requests deliberately aborted. Not proof of image delivery or performance on real devices.",
+  "date": "2026-10-21",
+  "widths": [
+    320,
+    390,
+    760,
+    1024,
+    1440,
+    1920
+  ],
+  "image_review": "Real photos downloaded and visually inspected separately in a connected rendering sandbox. Movement component checked at 1440 and 390 CSS px."
+}

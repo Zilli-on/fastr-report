@@ -1,0 +1,17 @@
+{
+  "name": "og-sports-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "OG SPORTS website \u2014 repository baseline migrated from the approved V21 direction.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs --dist",
+    "check": "npm test && npm run build"
+  }
+}

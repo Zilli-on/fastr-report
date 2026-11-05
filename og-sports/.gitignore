@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.vercel/
+.env
+.env.*
+!.env.example
+.DS_Store
+__pycache__/
+playwright-report/
+test-results/
+qa/*.png
+qa/visual-*.json
+qa/review7-visual.json
+qa/review8-visual.json
