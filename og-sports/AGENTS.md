@@ -95,5 +95,10 @@ Replaces the font lines of earlier sections where they conflict.
   stays valid under the OFL). It has no italic: FASTR keeps its slant through the browser's oblique.
 - The opening title is live text in Orbitron, not the `own.svg`/`greatness.svg` outlines (kept on disk, unused).
 - Left out: the kicker "Sport / People / Culture" (the line below the title says it already).
+- **Superseded by RC21 (Fabi 05.11.: "Schrift gefällt mir nicht, war vorher besser, lieber alle anderen Schriften
+  ändern"):** Orbitron is out. **One family: Archivo** for titles, copy, labels and numbers; the voices come from its
+  weight and width axes (wide heavy capitals, light mixed-case opening and quiet lines, regular width for copy).
+  Space Grotesk is gone too. Kept from RC20: opening as live text (Archivo 260, mixed case, the look of the old
+  outlines), no duplicate kicker, the 320 px fixes, the updated suite.
 - `scripts/visual_review.py` had drifted since RC9/RC15/RC19 (4:5 pillars, project order, menu link, image names) and
   failed on RC19 too; RC20 updated those checks to the decided state.

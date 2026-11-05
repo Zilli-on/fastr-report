@@ -408,8 +408,8 @@ def artefacts(browser, base, report):
             plates["legend"] == 5,
             (where, plates["legend"]),
         )
-        check({"Orbitron", "Space Grotesk"} <= set(plates["fonts"]), (where, "self-hosted fonts not loaded", plates["fonts"]))
-        check(plates["headingFont"].startswith("Orbitron"), (where, plates["headingFont"]))
+        check(set(plates["fonts"]) == {"Archivo"}, (where, "self-hosted fonts not loaded", plates["fonts"]))
+        check(plates["headingFont"].startswith("Archivo"), (where, plates["headingFont"]))
         for needle in (
             "Pexels",
             "Unsplash",
