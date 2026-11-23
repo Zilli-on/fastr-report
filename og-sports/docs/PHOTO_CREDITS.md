@@ -1,3 +1,16 @@
+# RC22 – eigene Aufnahmen statt Stock (23.11.2026)
+
+Drei Symbolbilder sind durch Fabis eigenes Material ersetzt: Standbilder aus seinen Handyclips eines
+gemeinsamen Laufs in Wien am Sonntag, 25.10.2026, 10:41 bis 10:57 (Geschichte e255 in
+`D:/TAGESFABRIK/ausschoepfung/geschichten.json`, Clips IMG_2292, IMG_2294, IMG_2295, 1080×1920).
+Fabi filmt, die Läuferinnen und Läufer im Bild sind mitgelaufen. Passanten im Hintergrund sind
+weichgezeichnet, Herstellerzeichen und Schriftzüge (Laufshirt, Hose, Schuh, Stirnband, Socke, Autotür)
+per OpenCV-Inpainting entfernt. Master, Skripte und Herkunft: `C:/Users/Fabien/og-sports-sources/rc22-real/`
+(`retouch.py`, `grab.py`, `manifest.json` mit SHA-256 je Frame). Schwarz-Weiß über `bw_rc22` in
+`scripts/prepare_responsive.py`, keine Hochskalierung (größte Variante 1080 px = Quellbreite).
+Sichtbares Label: Eigene Aufnahme mit Ort und Datum. Alle übrigen Symbolbilder bleiben, Begründung in
+`docs/OG-SPORTS-HANDOFF.md` (Stand RC22).
+
 # RC6 – Herkunft des Openings (26.10.2026)
 
 Bestehende KI-Kampagnenstudie (1373×485), am 26.10.2026 mit Higgsfield-Upscaler
@@ -19,11 +32,11 @@ Frühere Aussagen „unverändert“/1373×485 unten sind historische Stände, d
 | 01 | `frame-01-detail.webp` | Fotografie David Moorhouse | https://unsplash.com/photos/close-up-of-a-runners-leg-and-athletic-shoe-GToHUINXOb4 — Herstellerzeichen an der Ferse lokal entfernt (Inpainting); RC9: seitliches Logo (Ring + Balken) und Sohlenschrift KI-gestützt entfernt (Higgsfield GPT Image 2.5, Job 60593cf4), nur im Logobereich in den Master eingesetzt, Rest Original (`rc9-candidates/shoe/composite.py`) |
 | 02 | `run-shadow.webp` | Fotografie Mathias Reding | https://unsplash.com/photos/runners-legs-in-motion-with-a-long-shadow-G96xGokbTUM — unverändert |
 | 03 | `frame-03-people.webp` | Fotografie Leviosa Hou | https://unsplash.com/photos/runners-gathered-together-on-a-city-street-9ZXnEV7k2lI — Startnummern, Bänder, Shirt-Aufdrucke, Bannertext KI-gestützt retuschiert (Higgsfield, GPT Image 2.5), Gesichter verglichen und unverändert |
-| Manifest | `photo-ritual.webp` | Symbolbild, Unsplash License | Ulf Meyer, https://unsplash.com/photos/cS0W4GvUUDM — Grade p50, Größe angepasst |
-| Säule I | `pillar-run.webp` | Symbolbild · limoo / Pexels | https://www.pexels.com/photo/silhouette-of-woman-running-in-front-of-an-illuminated-building-at-night-14532913/ — Pexels License; Grade p50, Größe angepasst, Crop [0,900,5760,8100] |
+| Manifest | `photo-ritual.webp` | Eigene Aufnahme (RC22) | Lauf in Wien, 25.10.2026, IMG_2294 bei 7,67 s; Herstellerzeichen und Schriftzüge entfernt, zwei Passanten unkenntlich; Schwarz-Weiß (`bw_rc22`). Bis RC21: Ulf Meyer / Unsplash |
+| Säule I | `pillar-run.webp` | Eigene Aufnahme (RC22) | Lauf in Wien, 25.10.2026, IMG_2292 bei 4,5 s; Passanten im Hintergrund unkenntlich; Schwarz-Weiß. Bis RC21: limoo / Pexels |
 | Säule II | `pillar-dusk.webp` | Symbolbild, Unsplash License | lucas Favre, https://unsplash.com/photos/JnoNcfFwrNA — RC15; Crop [1408,0,2928,3040] (1:2 für die Säulenfassade), Grade p50, Größe angepasst |
 | II Practice (seit RC15; bis RC14 Säule II) | `pillar-practice.webp` | Symbolbild, Unsplash License | Red John, https://unsplash.com/photos/mZixsK8OnmE — Grade p50, Größe angepasst |
-| Säule V | `pillar-meet.webp` | Symbolbild, Unsplash License | Victoria Prymak, https://unsplash.com/photos/T8Lxr7LFN74 — Grade p50, Größe angepasst |
+| Säule V | `pillar-meet.webp` | Eigene Aufnahme (RC22) | Lauf in Wien, 25.10.2026, IMG_2295 bei 6,0 s; Schriftzüge auf Stirnband, Hose und Socke entfernt; Schwarz-Weiß. Bis RC21: Victoria Prymak / Unsplash |
 | I Run | `run-crew.webp` | Symbolbild, Unsplash License | Hansheng Zhao, https://unsplash.com/photos/9FcKpisH7Bo — unlesbarer Shirt-Aufdruck weichgezeichnet (`rc9-candidates/run-crew/retouch_rc1.py`), neutrales Schwarz-Weiß, Größe angepasst (RC9; war bis RC6 schon I Run, damals mit p50 abgedunkelt) |
 | I Run (seit RC15; bis RC14 II Practice) | `practice-start.webp` | Symbolbild, Pexels License | Thomas Ronveaux, https://www.pexels.com/photo/a-close-up-shot-of-an-athlete-on-a-race-track-13159243/ — Grade p50, Größe angepasst |
 | V Meet | `meet-night.webp` | Symbolbild · Fitsum Admasu / Unsplash | https://unsplash.com/photos/silhouette-of-three-women-running-on-grey-concrete-road-oGv9xIl7DkY — Unsplash License; bearbeitet: Aufdruck entfernt (bereitgestellter Master); Grade p50, Größe angepasst; seit RC15 auf der Seite per CSS schwarz-weiß (`grayscale(1) contrast(1.16)`) |

@@ -163,3 +163,29 @@ like the temple. Checked: every pillar link lands on its chapter (top 0 after th
 
 Open, needs Fabi: (1) a recipient address for the contact doors (Mitgestalten / Partner werden only build a local
 draft, "Eine Empfängeradresse ist noch nicht hinterlegt"); (2) Impressum data before any go-live (OG Sports GmbH in Gründung).
+
+## Stand RC22 (2026-11-23) — own footage instead of stock where it holds up
+
+Leitstelle brief of 23.11. (kept outside the repo: it lists private address details). Searched Fabi's material along the brief (`D:/TAGESFABRIK/ausschoepfung`, 326 stories, catalog
+read-only; FASTR `03_Library` is Higgsfield/ChatGPT only, so AI, not used). Usable real sport material:
+- e255, run in Vienna, Sun 25.10.2026 ~10:40, 12 phone clips 1080x1920, friends running, Fabi filming: the only real
+  group run on file. Carries RC22.
+- e141, IRONMAN @ Holmes Place 28.12.2025, 4K: indoor cycling in club light (green/blue), bare torso, gym and
+  treadmill brands. Does not fit the restrained black/white/p50 look; Fabi rejected "oben ohne" in v3. Not used.
+- e117 rain run Schönbrunn (shirtless, selfies), Cannes morning run (selfies), Z001 (Kitzbühel party): not used.
+
+Replaced (3 of 11 stock images): manifest photo (group comes towards the camera), pillar I Run (two runners from behind
+between the tram tracks), pillar V Meet (the group from behind). Kept, with reasons:
+- strip 01-03: Fabi's protected picks (22.10.); the own detail/leg frames are motion-blurred and show BOSS socks.
+- I Run bleed (run-crew) and V Meet bleed (meet-night): full-bleed at 1440 needs ~2940 px, phone frames have 1080.
+- start line (practice-start): the sprint sign of I Run; no own start/sprint frame exists.
+- II Practice stairs: the best own candidate (lone runner on the tram line, black and white) was weaker than the stairs
+  in the page preview; Ironman frames do not fit (see above).
+- pillar II dusk: an own frame would be the third shot of the same run in the temple; the middle pillars stay in colour.
+Candidate sheets (3 per stock image) and before/after sheets: `D:/TAGESFABRIK/og-rc22/kand/`, `.../shots/`.
+
+Known limits: the manifest photo is 1080 px wide, on a 1440 px desktop at 2x it is shown about 1.2x enlarged (1x desktops
+and phones are at or below 1:1). The Run/Meet chapters keep stock because of exactly this limit.
+Next lever: a planned photo day (FASTR run, sprint start, group after the run) with a camera or 4K phone; then the
+bleeds, strip and Practice can become real too.
+

@@ -75,8 +75,10 @@ test('keeps the three approved photographs, retouched free of third-party brands
 test('the manifest credits its photograph and claims no moment it does not show', () => {
   const manifest = section('brand').split('<div class="manifest"')[1] || '';
   assert.match(manifest, /src="assets\/photo-ritual\.webp"/);
-  assert.match(manifest, /Ulf Meyer \/ Unsplash/);
-  assert.match(manifest, /Symbolbild/);
+  // RC22: our own footage of a run in Vienna replaces the Unsplash photograph, with its real place and date
+  assert.match(manifest, /Eigene Aufnahme/);
+  assert.match(manifest, /Lauf in Wien, 25\.10\.2026/);
+  assert.doesNotMatch(manifest, /Ulf Meyer|Symbolbild/, 'no credit for a photograph that is not shown');
   assert.doesNotMatch(manifest, /8:32|30\.09\.2026/, 'no date or time that belonged to another picture');
 });
 

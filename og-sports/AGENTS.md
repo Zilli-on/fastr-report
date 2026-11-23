@@ -102,3 +102,13 @@ Replaces the font lines of earlier sections where they conflict.
   outlines), no duplicate kicker, the 320 px fixes, the updated suite.
 - `scripts/visual_review.py` had drifted since RC9/RC15/RC19 (4:5 pillars, project order, menu link, image names) and
   failed on RC19 too; RC20 updated those checks to the decided state.
+
+## RC22 — our own footage where it holds up (2026-11-23, Leitstelle: "echte Bilder statt Stock, wo immer es geht")
+- The manifest photo, pillar I Run and pillar V Meet are stills from Fabi's own clips of a run in Vienna on 25.10.2026
+  (black and white, `bw_rc22` in `scripts/prepare_responsive.py`, masters and retouch in `og-sports-sources/rc22-real/`).
+  Label: "Eigene Aufnahme" with place and date. People in the group ran along, passers-by are blurred, marks removed.
+- Phone footage is 1080 px wide. It may only take slots whose bitmap need it meets: not the full-bleed I Run and V Meet
+  chapters on desktop (they would be upscaled about 2.7×). Those, the strip (Fabi's protected picks), the start line and
+  the Practice images stay stock until better own material exists.
+- Outer pillars (Run, Meet) are black and white like their chapters, the middle three stay in colour.
+

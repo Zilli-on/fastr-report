@@ -17,7 +17,7 @@ import subprocess
 
 import cv2
 import numpy as np
-from PIL import Image, ImageStat
+from PIL import Image, ImageOps, ImageStat
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'site/assets'
@@ -32,13 +32,9 @@ P50 = 'eq=saturation=0.6:contrast=1.1:gamma=0.86:brightness=-0.015,colorbalance=
 RC7_POOL = Path('C:/Users/Fabien/og-sports-sources/rc7-candidates')
 RC7 = {
     'run-night.webp': ('R3', (0, 0, 5184, 3456), (1100, 0, 3864, 3455)),
-    'pillar-meet.webp': ('M2', (1715, 0, 5451, 4670), (1715, 0, 5451, 4670)),
 }
 RC8_POOL = Path('C:/Users/Fabien/og-sports-sources/rc8-candidates')
 RC8 = {
-    'pillar-run.webp': ('PR2', 'pillar-run/PR2_pexels_14532913.jpg',
-        'a1242c9cea74b89fa4ad8d577397a8cca561fe406fa5c3ef79c7564fcd791a96',
-        (0, 900, 5760, 8100), None),
     'meet-night.webp': ('MN1', 'meet-night/retouch/MN1_retouched.png',
         'e6e13fb793d3c5d00e8fb7b7ef91bfa837044448dc566e9e5f04ecbf5f9d2ca8',
         (0, 0, 6720, 3780), (928, 0, 4512, 4480)),
@@ -50,12 +46,22 @@ RC9 = {
         '5ec9adacd0e11ff21ed146e2e00be467db9caf7d4cc7f44bd87e43614dd2619a',
         None, (2900, 0, 7969, 6336)),
 }
+# RC22: own footage instead of stock where it holds up. Frames from Fabi's clips of a run in Vienna on
+# 25.10.2026 (IMG_2292/2294/2295), third-party marks inpainted and passers-by blurred with
+# og-sports-sources/rc22-real/retouch.py; provenance in that folder's manifest.json. Neutral black and white
+# like the strip and I Run. The manifest photo, pillar I Run and pillar V Meet used to be Unsplash/Pexels.
+RC22_POOL = Path('C:/Users/Fabien/og-sports-sources/rc22-real')
+RC22 = {
+    'photo-ritual.webp': ('G1_IMG_2294_7.67s_retouched.png',
+        '035460153c25b408cc3d4b527370653327cf2a7b7738efa3d182d6c3d50548a2', (0, 285, 1080, 1635)),
+    'pillar-run.webp': ('R2_IMG_2292_4.50s_retouched.png',
+        'd94f75e139c89f1f78ebaa240c25e2484cbbd88794713fdd97db8da2919f0e62', None),
+    'pillar-meet.webp': ('G2_IMG_2295_6.00s_retouched.png',
+        '7085a75f4d21b356caf06b27b30cc752c2160b6f86958d1cb6128883b5d938b7', None),
+}
 # Remaining desktop crops and masks match prepare_v4.py.
 JOBS = {
-    'photo-ritual.webp': ('unsplash_cS0W4GvUUDM.jpg', (2300, 0, 5500, 4000), None),
-    'pillar-run.webp': (str(RC8_POOL / RC8['pillar-run.webp'][1]), RC8['pillar-run.webp'][3], RC8['pillar-run.webp'][4]),
     'pillar-practice.webp': ('unsplash_mZixsK8OnmE.jpg', None, None),
-    'pillar-meet.webp': (str(RC7_POOL / 'pillar-meet/M2_unsplash_T8Lxr7LFN74.jpg'), RC7['pillar-meet.webp'][1], RC7['pillar-meet.webp'][2]),
     'practice-start.webp': ('pexels_13159243.jpg', None, None),
     # RC15: pillar II, lone runner at dusk (lucas Favre / Unsplash), 1:2 portrait for the five-column temple
     'pillar-dusk.webp': ('unsplash_JnoNcfFwrNA.jpg', (1408, 0, 2928, 3040), None),
@@ -72,6 +78,14 @@ def retouch(im):
     mask[2000:3000, 900:2900][(r > g+35) & (r > b+35) & (r > 70)] = 255
     img = cv2.inpaint(img, cv2.dilate(mask, np.ones((5, 5), np.uint8)), 7, cv2.INPAINT_TELEA)
     return Image.fromarray(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+
+def bw_rc22(im):
+    """Neutral black and white for phone footage: auto levels, gentle S-curve, fixed-seed grain."""
+    g = np.asarray(ImageOps.autocontrast(im.convert('L'), cutoff=(1.0, 0.3)), dtype=np.float32) / 255
+    g = g ** 1.08
+    g = np.where(g < 0.5, 2 * g * g, 1 - 2 * (1 - g) ** 2) * 0.55 + g * 0.45
+    g = np.clip(g + np.random.default_rng(7).normal(0, 0.012, g.shape), 0, 1)
+    return Image.fromarray((g * 255).astype(np.uint8)).convert('RGB')
 
 def variants(im, stem, grade=False, mobile=False, product=False):
     maximum = min(im.width, 1600 if mobile else 2880)
@@ -143,6 +157,7 @@ def main():
     inputs = [(name, path, None, None, False) for name, path in protected.items()]
     inputs += [(name, args.pool / 'web' / src, crop, mobile, True) for name, (src, crop, mobile) in JOBS.items()]
     inputs += [(name, RC9_POOL / rel, crop, mobile, False) for name, (_, rel, _, crop, mobile) in RC9.items()]
+    inputs += [(name, RC22_POOL / rel, crop, None, False) for name, (rel, _, crop) in RC22.items()]
     inputs += [(p.stem + '.webp', p, None, None, False) for p in sorted(HOODIES.glob('hoodie-*.png'))]
     for name, source, crop, mobile, grade in inputs:
         if args.only and name not in args.only:
@@ -168,6 +183,8 @@ def main():
             assert hashlib.sha256(source.read_bytes()).hexdigest() == expected_hash, 'RC9 source hash mismatch; abort'
             candidates = json.loads((RC9_POOL / 'manifest.json').read_text(encoding='utf-8'))
             candidate = next(c for c in candidates['kandidaten'] if c['id'] == candidate_id)
+        if name in RC22:
+            assert hashlib.sha256(source.read_bytes()).hexdigest() == RC22[name][1], 'RC22 source hash mismatch; abort'
         im = Image.open(source).convert('RGB')
         if candidate:
             assert list(im.size) == candidate['px'], 'RC7 source dimensions mismatch'
@@ -188,6 +205,13 @@ def main():
                          original_source_sha256=candidate['sha256'],
                          original_source=str(RC8_POOL / candidate['datei']))
         desktop = im.crop(crop) if crop else im
+        if name in RC22:
+            desktop = bw_rc22(desktop)
+            provenance = json.loads((RC22_POOL / 'manifest.json').read_text(encoding='utf-8'))[RC22[name][0].replace('_retouched', '')]
+            entry.update(grade='black and white (bw_rc22)', label='Eigene Aufnahme', clip=provenance['clip'],
+                         recorded=provenance['recorded'], place=provenance['place'],
+                         edit='bearbeitet: ' + '; '.join(e['note'] for e in provenance['edits']),
+                         original_source_sha256=provenance['sha256'])
         entry['crop_pixels'] = list(desktop.size)
         entry['variants'] = variants(desktop, Path(name).stem, grade, product=name.startswith('hoodie-'))
         if mobile:
@@ -206,6 +230,10 @@ def main():
         entry['mean_luma_saturation'] = stats(Image.open(ROOT / 'site' / entry['variants'][-1]['file']))
         if name == 'after-the-run.webp':
             (ASSETS / name).write_bytes((ROOT / 'site' / fallback['file']).read_bytes())
+        if name in RC22:  # phone footage: the largest variant is the source width (no upscaling)
+            fallback = entry['variants'][-1]
+            (ASSETS / name).write_bytes((ROOT / 'site' / fallback['file']).read_bytes())
+            entry['fallback'] = dict(fallback, file='assets/' + name)
         if candidate:
             fallback = next(v for v in entry['variants'] if v['width'] == 2400)
             (ASSETS / name).write_bytes((ROOT / 'site' / fallback['file']).read_bytes())

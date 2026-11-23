@@ -256,140 +256,106 @@
     ]
   },
   "assets/photo-ritual.webp": {
-    "source": "C:\\Users\\Fabien\\og-sports-sources\\v4-candidates\\web\\unsplash_cS0W4GvUUDM.jpg",
-    "source_sha256": "065d82de7c3267aeefc957b41f3f888c2b030c2a09b4262a14cd6c37b476fc48",
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\rc22-real\\G1_IMG_2294_7.67s_retouched.png",
+    "source_sha256": "035460153c25b408cc3d4b527370653327cf2a7b7738efa3d182d6c3d50548a2",
     "source_pixels": [
-      6000,
-      4000
+      1080,
+      1920
     ],
     "crop": [
-      2300,
       0,
-      5500,
-      4000
+      285,
+      1080,
+      1635
     ],
     "mobile_crop": null,
-    "grade": "p50 (v4)",
+    "grade": "black and white (bw_rc22)",
+    "label": "Eigene Aufnahme",
+    "clip": "IMG_2294.MOV",
+    "recorded": "2026-10-25T10:45+01:00",
+    "place": "Wien",
+    "edit": "bearbeitet: Schriftzug an der Autotür links; Parkleitschild mit Straßennamen und Betreiberzeichen; Herstellerzeichen auf dem weißen Laufshirt; Herstellerzeichen auf der Laufhose; drei Streifen am gelben Laufschuh; Passant im Hintergrund rechts; Passant (Warnweste) im Hintergrund rechts",
+    "original_source_sha256": "f1b2d6a435a8d4942f7fcb4bf08819292d55a47e2cea27ff72b2da0e153fa123",
     "crop_pixels": [
-      3200,
-      4000
+      1080,
+      1350
     ],
     "variants": [
       {
         "file": "assets/responsive/photo-ritual-640.webp",
         "width": 640,
         "height": 800,
-        "bytes": 40808
+        "bytes": 90438
       },
       {
         "file": "assets/responsive/photo-ritual-1080.webp",
         "width": 1080,
         "height": 1350,
-        "bytes": 98274
-      },
-      {
-        "file": "assets/responsive/photo-ritual-1600.webp",
-        "width": 1600,
-        "height": 2000,
-        "bytes": 198532
-      },
-      {
-        "file": "assets/responsive/photo-ritual-2400.webp",
-        "width": 2400,
-        "height": 3000,
-        "bytes": 402632
-      },
-      {
-        "file": "assets/responsive/photo-ritual-2880.webp",
-        "width": 2880,
-        "height": 3600,
-        "bytes": 538810
+        "bytes": 211572
       }
     ],
     "old_mean_luma_saturation": [
-      26.1,
-      66.58
+      54.8,
+      0.01
     ],
     "mean_luma_saturation": [
-      26.11,
-      66.65
-    ]
+      54.74,
+      0.02
+    ],
+    "fallback": {
+      "file": "assets/photo-ritual.webp",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 211572
+    }
   },
   "assets/pillar-run.webp": {
-    "source": "C:\\Users\\Fabien\\og-sports-sources\\rc8-candidates\\pillar-run\\PR2_pexels_14532913.jpg",
-    "source_sha256": "a1242c9cea74b89fa4ad8d577397a8cca561fe406fa5c3ef79c7564fcd791a96",
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\rc22-real\\R2_IMG_2292_4.50s_retouched.png",
+    "source_sha256": "d94f75e139c89f1f78ebaa240c25e2484cbbd88794713fdd97db8da2919f0e62",
     "source_pixels": [
-      5760,
-      8640
+      1080,
+      1920
     ],
-    "crop": [
-      0,
-      900,
-      5760,
-      8100
-    ],
+    "crop": null,
     "mobile_crop": null,
-    "grade": "p50 (v4)",
-    "source_url": "https://www.pexels.com/photo/silhouette-of-woman-running-in-front-of-an-illuminated-building-at-night-14532913/",
-    "photographer": "limoo (Pexels)",
-    "license": "Pexels License (https://www.pexels.com/license/)",
-    "label": "Symbolbild",
-    "candidate": "PR2",
+    "grade": "black and white (bw_rc22)",
+    "label": "Eigene Aufnahme",
+    "clip": "IMG_2292.MOV",
+    "recorded": "2026-10-25T10:41+01:00",
+    "place": "Wien",
+    "edit": "bearbeitet: Passanten im Hintergrund links; Passanten im Hintergrund links",
+    "original_source_sha256": "65b876c0096efcca2b4c5b3ea18419a151f70c7ab7ae90c9e4a308839ee47232",
     "crop_pixels": [
-      5760,
-      7200
+      1080,
+      1920
     ],
     "variants": [
       {
         "file": "assets/responsive/pillar-run-640.webp",
         "width": 640,
-        "height": 800,
-        "bytes": 34300,
-        "sha256": "dc65a35e21715ed8dc26a18d8074249b3af0eefa81ab52aca90324f9dec2ba05"
+        "height": 1138,
+        "bytes": 59398
       },
       {
         "file": "assets/responsive/pillar-run-1080.webp",
         "width": 1080,
-        "height": 1350,
-        "bytes": 81952,
-        "sha256": "d128614b7367319b34e488e28f3325eed73636dcee4f603e95c771c6726a3ad2"
-      },
-      {
-        "file": "assets/responsive/pillar-run-1600.webp",
-        "width": 1600,
-        "height": 2000,
-        "bytes": 181284,
-        "sha256": "56a0b449890e2d6e3718bb0bc349d38d9b05d427021341954cf9df8db6a76bf6"
-      },
-      {
-        "file": "assets/responsive/pillar-run-2400.webp",
-        "width": 2400,
-        "height": 3000,
-        "bytes": 476046,
-        "sha256": "0437fa9d83b6d883c746329e5ac713c719ec959540f4a9212bf05da1aabbcf5d"
-      },
-      {
-        "file": "assets/responsive/pillar-run-2880.webp",
-        "width": 2880,
-        "height": 3600,
-        "bytes": 749050,
-        "sha256": "6abf21a6e09734aa0a8fe389d4cefe3a6f16cab9b3a51ca2f8895c62238a3778"
+        "height": 1920,
+        "bytes": 155962
       }
     ],
     "old_mean_luma_saturation": [
-      88.46,
-      39.89
+      69.09,
+      0.02
     ],
     "mean_luma_saturation": [
-      27.77,
-      93.02
+      69.09,
+      0.02
     ],
     "fallback": {
       "file": "assets/pillar-run.webp",
-      "width": 2400,
-      "height": 3000,
-      "bytes": 476046,
-      "sha256": "0437fa9d83b6d883c746329e5ac713c719ec959540f4a9212bf05da1aabbcf5d"
+      "width": 1080,
+      "height": 1920,
+      "bytes": 155962
     }
   },
   "assets/pillar-practice.webp": {
@@ -448,105 +414,52 @@
     ]
   },
   "assets/pillar-meet.webp": {
-    "source": "C:\\Users\\Fabien\\og-sports-sources\\rc7-candidates\\pillar-meet\\M2_unsplash_T8Lxr7LFN74.jpg",
-    "source_sha256": "99a47422e1de780eeabac8768c655248cc49ba33b84c55b37752b28602f04002",
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\rc22-real\\G2_IMG_2295_6.00s_retouched.png",
+    "source_sha256": "7085a75f4d21b356caf06b27b30cc752c2160b6f86958d1cb6128883b5d938b7",
     "source_pixels": [
-      7008,
-      4672
+      1080,
+      1920
     ],
-    "crop": [
-      1715,
-      0,
-      5451,
-      4670
-    ],
-    "mobile_crop": [
-      1715,
-      0,
-      5451,
-      4670
-    ],
-    "grade": "p50 (v4)",
-    "source_url": "https://unsplash.com/photos/T8Lxr7LFN74",
-    "photographer": "Victoria Prymak (@vprmk)",
-    "license": "Unsplash License (https://unsplash.com/license)",
-    "label": "Symbolbild",
-    "candidate": "M2",
+    "crop": null,
+    "mobile_crop": null,
+    "grade": "black and white (bw_rc22)",
+    "label": "Eigene Aufnahme",
+    "clip": "IMG_2295.MOV",
+    "recorded": "2026-10-25T10:57+01:00",
+    "place": "Wien",
+    "edit": "bearbeitet: Schriftzug auf dem Stirnband; Herstellerzeichen auf der Laufhose; Schriftzug auf der Socke",
+    "original_source_sha256": "0022a7d9f6760795f448904558b1e0d85ab766b19d7c2d351dea499339148986",
     "crop_pixels": [
-      3736,
-      4670
+      1080,
+      1920
     ],
     "variants": [
       {
         "file": "assets/responsive/pillar-meet-640.webp",
         "width": 640,
-        "height": 800,
-        "bytes": 8590
+        "height": 1138,
+        "bytes": 38350
       },
       {
         "file": "assets/responsive/pillar-meet-1080.webp",
         "width": 1080,
-        "height": 1350,
-        "bytes": 18018
-      },
-      {
-        "file": "assets/responsive/pillar-meet-1600.webp",
-        "width": 1600,
-        "height": 2000,
-        "bytes": 32286
-      },
-      {
-        "file": "assets/responsive/pillar-meet-2400.webp",
-        "width": 2400,
-        "height": 3000,
-        "bytes": 71306
-      },
-      {
-        "file": "assets/responsive/pillar-meet-2880.webp",
-        "width": 2880,
-        "height": 3600,
-        "bytes": 122242
-      }
-    ],
-    "mobile": [
-      {
-        "file": "assets/responsive/pillar-meet-mobile-640.webp",
-        "width": 640,
-        "height": 800,
-        "bytes": 8590
-      },
-      {
-        "file": "assets/responsive/pillar-meet-mobile-1080.webp",
-        "width": 1080,
-        "height": 1350,
-        "bytes": 18018
-      },
-      {
-        "file": "assets/responsive/pillar-meet-mobile-1280.webp",
-        "width": 1280,
-        "height": 1600,
-        "bytes": 22682
-      },
-      {
-        "file": "assets/responsive/pillar-meet-mobile-1600.webp",
-        "width": 1600,
-        "height": 2000,
-        "bytes": 32286
+        "height": 1920,
+        "bytes": 101984
       }
     ],
     "old_mean_luma_saturation": [
-      101.38,
-      55.89
+      74.31,
+      0.02
     ],
     "mean_luma_saturation": [
-      71.75,
-      23.23
+      74.31,
+      0.02
     ],
     "fallback": {
       "file": "assets/pillar-meet.webp",
-      "width": 2400,
-      "height": 3000,
-      "bytes": 71306
+      "width": 1080,
+      "height": 1920,
+      "bytes": 101984
     }
   },
   "assets/practice-start.webp": {

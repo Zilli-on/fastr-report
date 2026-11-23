@@ -22,8 +22,9 @@ START, END = "<!--pillars-->", "<!--/pillars-->"
 #     or ("type", figure text, size in container-inline units)
 PILLARS = [
     ("I", "Run", True, "#fastr", "OG FASTR",
-     ("img", "assets/pillar-run.webp", "50% 45%", ("limoo / Pexels", "limoo / Pexels"),
-      ("Läuferin als Silhouette vor beleuchteter Säulenhalle mit Spiegelung", "Runner silhouetted before an illuminated colonnade with reflection"))),
+     # RC22: own footage (run in Vienna, 25.10.2026) instead of stock, black and white like the I Run chapter
+     ("img", "assets/pillar-run.webp", "50% 45%", ("Eigene Aufnahme · Wien, 25.10.2026", "Own footage · Vienna, 25 Oct 2026"),
+      ("Schwarz-Weiß: zwei Läufer von hinten auf einer Allee in Wien, zwischen den Straßenbahnschienen", "Black and white: two runners seen from behind on a tree-lined avenue in Vienna, between the tram tracks"))),
     ("II", "Practice", True, "#practice", "FASTR30",
      ("img", "assets/pillar-dusk.webp", "50% 50%", ("lucas Favre / Unsplash", "lucas Favre / Unsplash"),
       ("Läufer als Silhouette in der Dämmerung auf nasser Straße", "Runner silhouetted at dusk on a wet road"))),
@@ -36,8 +37,9 @@ PILLARS = [
       ("FASTR STICK, 3D-Ansicht der Form", "FASTR STICK, 3D view of the form"))),
     # RC9: Meet is the last pillar and the last chapter, so the page ends with people, then the way in
     ("V", "Meet", False, "#live", "Live",
-     ("img", "assets/pillar-meet.webp", "55% 64%", ("Victoria Prymak / Unsplash", "Victoria Prymak / Unsplash"),
-      ("Gruppe als Silhouetten auf einem Dach in der Abenddämmerung", "Group silhouetted on a rooftop at dusk"))),
+     # RC22: own footage of the same run, the group seen from behind (no faces)
+     ("img", "assets/pillar-meet.webp", "45% 42%", ("Eigene Aufnahme · Wien, 25.10.2026", "Own footage · Vienna, 25 Oct 2026"),
+      ("Schwarz-Weiß: eine Laufgruppe von hinten auf einer Straße in Wien", "Black and white: a running group seen from behind on a street in Vienna"))),
 ]
 
 
