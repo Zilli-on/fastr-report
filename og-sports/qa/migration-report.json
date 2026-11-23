@@ -1,0 +1,28 @@
+{
+  "checked_at_utc": "2026-10-21T19:47:46.550426+00:00",
+  "baseline": "V21",
+  "node": "22.16.0",
+  "source_and_http_tests": {
+    "passed": 8,
+    "failed": 0,
+    "log": "node-checks.txt"
+  },
+  "build": {
+    "result": "success",
+    "files": 11
+  },
+  "protected_assets": "All seven source images/SVG files byte-identical to V21, SHA-256 checked.",
+  "new_browser_checks": {
+    "executed": false,
+    "reason": "Chromium executable is not installed in this environment. Optional browser_smoke.py is supplied but has not been validated by execution."
+  },
+  "network": "Local runtime cannot resolve external network hosts. Two pre-existing external photo URLs retained; no live photo availability claim.",
+  "github": {
+    "pushed": false,
+    "repository_created": false
+  },
+  "vercel": {
+    "deployed": false,
+    "blocker": "Team access returned HTTP 403 for fdambock-5448s-projects."
+  }
+}

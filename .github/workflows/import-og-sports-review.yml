@@ -1,0 +1,105 @@
+name: Apply tested OG SPORTS editorial Review 7
+on:
+  push:
+    branches: [feat/og-sports-web]
+    paths: [.github/workflows/import-og-sports-review.yml]
+permissions:
+  contents: read
+concurrency:
+  group: og-sports-review-import
+  cancel-in-progress: false
+jobs:
+  apply:
+    if: github.repository == 'Zilli-on/fastr-report' && github.ref == 'refs/heads/feat/og-sports-web'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Fetch and verify exact reviewed source bundle
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error --max-time 80 'https://d2ol7oe51mr4n9.cloudfront.net/user_3F3NUVidPhiNDKfYWHhux0P34eP/68b2a0be-169f-4968-8cdd-920c0c63e986.zip' -o /tmp/og-review7.zip
+          echo 'fb031ec98b226d5df10b0a0d030fafa395f7ed3a30e4b3caa4c7455d3246d70b  /tmp/og-review7.zip' | sha256sum -c
+          python3 - <<'PY'
+          from pathlib import Path, PurePosixPath
+          from hashlib import sha256
+          from zipfile import ZipFile
+          expected={"og-sports/site/index.html":"5d32b7247cb6e7154931798c5221bab4825485e2ef0faba5547b616e28bc2928","og-sports/site/script.js":"4bc07b3181e86b7d2f6510e521a4063c262f9ac3d11e8284b4ed17faae010ec3","og-sports/site/review7.css":"bd93e4e406d3680c81feecf9a3fdccf55e8692e318986f311ad9c816498c4ed0","og-sports/site/assets/after-the-run-display-4x.webp":"63fe1536cc9ced2be55f86259be49fb0cbff1b2fa47c5429811029f524cfc3f2","og-sports/tests/site.test.mjs":"361d41bf0e1e9370a9387ca15db77b6f36a898e083f628a7e84c33da887b7b36","og-sports/scripts/review7_visual.py":"276096c4e657fc9846104051fcced0dd423a2196eb91621977858c692a66b4aa","og-sports/docs/PHOTO_CREDITS.md":"8249d13c8ad971b87c8340f44a3f9cebf930981ce02ed862d006110cedf39a94","og-sports/docs/photo_sources.json":"c44b76f9dd0ec1677100daad7df436b0e40568d0a98860fb990e1f9cd4cf1f0d","og-sports/docs/REVIEW7_ART_DIRECTION.md":"780a254c48bc17b9a4d826f1682655af5e571753750ae5c58246a1e06610c35a","og-sports/AGENTS.md":"48adf2790e37d9d0539e33f0b8c9293f31c8ca289529ae451178d5fa0e223dbd"}
+          with ZipFile('/tmp/og-review7.zip') as archive:
+              names=set(archive.namelist())
+              assert names==set(expected), (names^set(expected))
+              for name,digest in expected.items():
+                  path=PurePosixPath(name)
+                  assert not path.is_absolute() and '..' not in path.parts and path.parts[0]=='og-sports'
+                  blob=archive.read(name)
+                  assert sha256(blob).hexdigest()==digest, name
+                  dest=Path(name)
+                  dest.parent.mkdir(parents=True,exist_ok=True)
+                  dest.write_bytes(blob)
+          protected={
+              'og-sports/site/assets/after-the-run.webp':'807364cf90a7b283304707b93194110fe7c519ac6ae53a5f6b21f8ae43c02bfe'
+          }
+          for path,digest in protected.items():
+              assert sha256(Path(path).read_bytes()).hexdigest()==digest,path
+          print('Review 7 source restored. Original hero untouched; protected asset check passed.')
+          PY
+          git diff --check
+      - name: Source, original artwork and build
+        working-directory: og-sports
+        run: npm run check
+      - name: Install isolated Chromium tools
+        run: |
+          python3 -m venv "$RUNNER_TEMP/og-browser"
+          "$RUNNER_TEMP/og-browser/bin/pip" install --disable-pip-version-check playwright==1.55.0
+          "$RUNNER_TEMP/og-browser/bin/python" -m playwright install --with-deps chromium
+      - name: Seven responsive viewports, assets, project dialogs and two languages
+        working-directory: og-sports
+        run: '"$RUNNER_TEMP/og-browser/bin/python" scripts/review7_visual.py'
+      - name: Commit tested source only to the existing feature branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import subprocess
+          expected=set(["og-sports/site/index.html","og-sports/site/script.js","og-sports/site/review7.css","og-sports/site/assets/after-the-run-display-4x.webp","og-sports/tests/site.test.mjs","og-sports/scripts/review7_visual.py","og-sports/docs/PHOTO_CREDITS.md","og-sports/docs/photo_sources.json","og-sports/docs/REVIEW7_ART_DIRECTION.md","og-sports/AGENTS.md"])
+          lines=subprocess.check_output(['git','status','--porcelain'],text=True).splitlines()
+          changed={line[3:] for line in lines if len(line)>=4}
+          source_changed={p for p in changed if not p.startswith('og-sports/qa/')}
+          assert source_changed <= expected, source_changed - expected
+          assert {'og-sports/site/index.html','og-sports/site/review7.css','og-sports/site/assets/after-the-run-display-4x.webp'} <= source_changed
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- og-sports/site/index.html og-sports/site/script.js og-sports/site/review7.css og-sports/site/assets/after-the-run-display-4x.webp og-sports/tests/site.test.mjs og-sports/scripts/review7_visual.py og-sports/docs/PHOTO_CREDITS.md og-sports/docs/photo_sources.json og-sports/docs/REVIEW7_ART_DIRECTION.md og-sports/AGENTS.md
+          git diff --cached --check
+          git commit -m 'design: curate editorial story and keep only approved photography'
+          cat > "$RUNNER_TEMP/og-askpass" <<'SH'
+          #!/bin/sh
+          case "$1" in
+            *Username*) printf '%s\n' 'x-access-token' ;;
+            *Password*) printf '%s\n' "$GH_TOKEN" ;;
+            *) exit 1 ;;
+          esac
+          SH
+          chmod 700 "$RUNNER_TEMP/og-askpass"
+          trap 'rm -f "$RUNNER_TEMP/og-askpass"' EXIT
+          GIT_ASKPASS="$RUNNER_TEMP/og-askpass" GIT_TERMINAL_PROMPT=0 git push origin HEAD:refs/heads/feat/og-sports-web
+          printf '## OG SPORTS Review 7\n\n[Review exact Git commit](https://raw.githack.com/Zilli-on/fastr-report/%s/og-sports/site/index.html)\n\nNo merge, production deployment or external contact send.\n' "$(git rev-parse HEAD)" >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: og-sports-review7-inspection
+          path: |
+            og-sports/qa/review7-visual.json
+            og-sports/qa/r7-*.png
+            og-sports/dist/
+          retention-days: 7

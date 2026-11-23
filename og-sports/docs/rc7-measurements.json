@@ -1,0 +1,1052 @@
+{
+  "rc6": {
+    "390": {
+      "image_bytes": 2150495,
+      "requests": [
+        {
+          "file": "assets/responsive/after-the-run-mobile-998.webp",
+          "bytes": 55582,
+          "status": 200
+        },
+        {
+          "file": "assets/greatness.svg",
+          "bytes": 2777,
+          "status": 200
+        },
+        {
+          "file": "assets/own.svg",
+          "bytes": 795,
+          "status": 200
+        },
+        {
+          "file": "assets/og-sports-black.svg",
+          "bytes": 2074,
+          "status": 200
+        },
+        {
+          "file": "assets/og-mark-black.svg",
+          "bytes": 764,
+          "status": 200
+        },
+        {
+          "file": "assets/og-fastr-wordmark-dark.svg",
+          "bytes": 4824,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/frame-01-detail-1200.webp",
+          "bytes": 42234,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/run-shadow-1600.webp",
+          "bytes": 187706,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/frame-03-people-2400.webp",
+          "bytes": 244996,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/photo-ritual-1080.webp",
+          "bytes": 98274,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-run-1080.webp",
+          "bytes": 27498,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-practice-1080.webp",
+          "bytes": 61382,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/hoodie-black-1200.webp",
+          "bytes": 72258,
+          "status": 200
+        },
+        {
+          "file": "assets/stick-lime.jpg",
+          "bytes": 63841,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-meet-2400.webp",
+          "bytes": 725114,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/run-night-mobile-1280.webp",
+          "bytes": 38588,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/practice-start-1080.webp",
+          "bytes": 130410,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/meet-night-mobile-1280.webp",
+          "bytes": 85410,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/track-night-1600.webp",
+          "bytes": 305968,
+          "status": 200
+        }
+      ],
+      "metrics": {
+        "run-night.webp": {
+          "current": "run-night-mobile-1280.webp",
+          "box": [
+            390,
+            487.5
+          ],
+          "position": "50% 50%",
+          "fit": "cover",
+          "complete": true,
+          "demand": [
+            1170.0,
+            1462.5
+          ],
+          "Q": 0.2309,
+          "A": 0.9141,
+          "bytes": 38588
+        },
+        "pillar-meet.webp": {
+          "current": "pillar-meet-2400.webp",
+          "box": [
+            350,
+            437.5
+          ],
+          "position": "55% 50%",
+          "fit": "cover",
+          "complete": true,
+          "demand": [
+            1968.57,
+            1312.5
+          ],
+          "Q": 0.3661,
+          "A": 0.8203,
+          "bytes": 725114
+        }
+      },
+      "overlay": [
+        {
+          "text": "EINE BEWEGUNG VON OG SPORTS",
+          "box": [
+            20,
+            20,
+            350,
+            31.875
+          ]
+        },
+        {
+          "text": "GO WHERE\nYOU GROW.",
+          "box": [
+            20,
+            340.25,
+            327.5,
+            91.25
+          ]
+        },
+        {
+          "text": "I — RUN · HANSHENG ZHAO / UNSPLASH\nSYMBOLBILD",
+          "box": [
+            20,
+            435.625,
+            350,
+            33.875
+          ]
+        }
+      ],
+      "screenshots": [
+        "qa/rc7-rc6-390-run.png",
+        "qa/rc7-rc6-390-temple.png"
+      ],
+      "errors": [],
+      "blocked": []
+    },
+    "768": {
+      "image_bytes": 2342153,
+      "requests": [
+        {
+          "file": "assets/own.svg",
+          "bytes": 795,
+          "status": 200
+        },
+        {
+          "file": "assets/greatness.svg",
+          "bytes": 2777,
+          "status": 200
+        },
+        {
+          "file": "assets/og-fastr-wordmark-dark.svg",
+          "bytes": 4824,
+          "status": 200
+        },
+        {
+          "file": "assets/og-sports-black.svg",
+          "bytes": 2074,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/after-the-run-5120.webp",
+          "bytes": 251396,
+          "status": 200
+        },
+        {
+          "file": "assets/og-mark-black.svg",
+          "bytes": 764,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/run-shadow-1600.webp",
+          "bytes": 187706,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/frame-03-people-2400.webp",
+          "bytes": 244996,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/frame-01-detail-1080.webp",
+          "bytes": 32878,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/photo-ritual-1600.webp",
+          "bytes": 198532,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-practice-1080.webp",
+          "bytes": 61382,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-run-1600.webp",
+          "bytes": 48556,
+          "status": 200
+        },
+        {
+          "file": "assets/stick-lime.jpg",
+          "bytes": 63841,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/hoodie-black-800.webp",
+          "bytes": 29542,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/run-night-2880.webp",
+          "bytes": 90808,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-meet-1600.webp",
+          "bytes": 353456,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/practice-start-1600.webp",
+          "bytes": 243750,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/hoodie-black-1600.webp",
+          "bytes": 141512,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/meet-night-2880.webp",
+          "bytes": 76596,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/track-night-1600.webp",
+          "bytes": 305968,
+          "status": 200
+        }
+      ],
+      "metrics": {
+        "run-night.webp": {
+          "current": "run-night-2880.webp",
+          "box": [
+            783.3599853515625,
+            918
+          ],
+          "position": "50% 50%",
+          "fit": "cover",
+          "complete": true,
+          "demand": [
+            2758.64,
+            1836.0
+          ],
+          "Q": 0.2898,
+          "A": 0.9579,
+          "bytes": 90808
+        },
+        "pillar-meet.webp": {
+          "current": "pillar-meet-1600.webp",
+          "box": [
+            360.5,
+            450.625
+          ],
+          "position": "55% 50%",
+          "fit": "cover",
+          "complete": true,
+          "demand": [
+            1351.75,
+            901.25
+          ],
+          "Q": 0.2514,
+          "A": 0.8448,
+          "bytes": 353456
+        }
+      },
+      "overlay": [
+        {
+          "text": "EINE BEWEGUNG VON OG SPORTS",
+          "box": [
+            22,
+            23.03125,
+            724,
+            27.6875
+          ]
+        },
+        {
+          "text": "GO WHERE\nYOU GROW.",
+          "box": [
+            22,
+            671.21875,
+            620.125,
+            172.78125
+          ]
+        },
+        {
+          "text": "I — RUN · HANSHENG ZHAO / UNSPLASH\nSYMBOLBILD",
+          "box": [
+            22,
+            866.0625,
+            724,
+            15.9375
+          ]
+        }
+      ],
+      "screenshots": [
+        "qa/rc7-rc6-768-run.png",
+        "qa/rc7-rc6-768-temple.png"
+      ],
+      "errors": [],
+      "blocked": []
+    },
+    "1440": {
+      "image_bytes": 3942475,
+      "requests": [
+        {
+          "file": "assets/responsive/after-the-run-5120.webp",
+          "bytes": 251396,
+          "status": 200
+        },
+        {
+          "file": "assets/own.svg",
+          "bytes": 795,
+          "status": 200
+        },
+        {
+          "file": "assets/greatness.svg",
+          "bytes": 2777,
+          "status": 200
+        },
+        {
+          "file": "assets/og-mark-black.svg",
+          "bytes": 764,
+          "status": 200
+        },
+        {
+          "file": "assets/og-sports-black.svg",
+          "bytes": 2074,
+          "status": 200
+        },
+        {
+          "file": "assets/og-fastr-wordmark-dark.svg",
+          "bytes": 4824,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/frame-01-detail-1080.webp",
+          "bytes": 32878,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/photo-ritual-1600.webp",
+          "bytes": 198532,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/frame-03-people-2400.webp",
+          "bytes": 244996,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/run-shadow-2400.webp",
+          "bytes": 391804,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-run-1600.webp",
+          "bytes": 48556,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/hoodie-black-1200.webp",
+          "bytes": 72258,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-meet-2400.webp",
+          "bytes": 725114,
+          "status": 200
+        },
+        {
+          "file": "assets/stick-lime.jpg",
+          "bytes": 63841,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/run-night-2880.webp",
+          "bytes": 90808,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-practice-1600.webp",
+          "bytes": 106162,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/practice-start-1600.webp",
+          "bytes": 243750,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/hoodie-black-1600.webp",
+          "bytes": 141512,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/meet-night-2880.webp",
+          "bytes": 76596,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/track-night-2880.webp",
+          "bytes": 1243038,
+          "status": 200
+        }
+      ],
+      "metrics": {
+        "run-night.webp": {
+          "current": "run-night-2880.webp",
+          "box": [
+            1468.7998046875,
+            918
+          ],
+          "position": "50% 50%",
+          "fit": "cover",
+          "complete": true,
+          "demand": [
+            2937.6,
+            1955.11
+          ],
+          "Q": 0.3086,
+          "A": 1.02,
+          "bytes": 90808
+        },
+        "pillar-meet.webp": {
+          "current": "pillar-meet-2400.webp",
+          "box": [
+            445.359375,
+            556.6875
+          ],
+          "position": "55% 50%",
+          "fit": "cover",
+          "complete": true,
+          "demand": [
+            1669.91,
+            1113.38
+          ],
+          "Q": 0.3106,
+          "A": 0.6959,
+          "bytes": 725114
+        }
+      },
+      "overlay": [
+        {
+          "text": "EINE BEWEGUNG VON OG SPORTS",
+          "box": [
+            48.953125,
+            40,
+            1342.09375,
+            39.875
+          ]
+        },
+        {
+          "text": "GO WHERE\nYOU GROW.",
+          "box": [
+            48.953125,
+            560.734375,
+            855.765625,
+            238.46875
+          ]
+        },
+        {
+          "text": "I — RUN · HANSHENG ZHAO / UNSPLASH\nSYMBOLBILD",
+          "box": [
+            48.953125,
+            866.0625,
+            1342.09375,
+            15.9375
+          ]
+        }
+      ],
+      "screenshots": [
+        "qa/rc7-rc6-1440-run.png",
+        "qa/rc7-rc6-1440-temple.png"
+      ],
+      "errors": [],
+      "blocked": []
+    }
+  },
+  "rc7": {
+    "390": {
+      "image_bytes": 1501739,
+      "requests": [
+        {
+          "file": "assets/responsive/after-the-run-mobile-998.webp",
+          "bytes": 55582,
+          "status": 200
+        },
+        {
+          "file": "assets/own.svg",
+          "bytes": 795,
+          "status": 200
+        },
+        {
+          "file": "assets/og-fastr-wordmark-dark.svg",
+          "bytes": 4824,
+          "status": 200
+        },
+        {
+          "file": "assets/greatness.svg",
+          "bytes": 2777,
+          "status": 200
+        },
+        {
+          "file": "assets/og-sports-black.svg",
+          "bytes": 2074,
+          "status": 200
+        },
+        {
+          "file": "assets/og-mark-black.svg",
+          "bytes": 764,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/frame-03-people-2400.webp",
+          "bytes": 244996,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/frame-01-detail-1200.webp",
+          "bytes": 42234,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/run-shadow-1600.webp",
+          "bytes": 187706,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/photo-ritual-1080.webp",
+          "bytes": 98274,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-run-1080.webp",
+          "bytes": 27498,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-practice-1080.webp",
+          "bytes": 61382,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/hoodie-black-1200.webp",
+          "bytes": 72258,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-meet-mobile-1080.webp",
+          "bytes": 18018,
+          "status": 200
+        },
+        {
+          "file": "assets/stick-lime.jpg",
+          "bytes": 63841,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/run-night-mobile-1280.webp",
+          "bytes": 96928,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/practice-start-1080.webp",
+          "bytes": 130410,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/meet-night-mobile-1280.webp",
+          "bytes": 85410,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/track-night-1600.webp",
+          "bytes": 305968,
+          "status": 200
+        }
+      ],
+      "metrics": {
+        "run-night.webp": {
+          "current": "run-night-mobile-1280.webp",
+          "box": [
+            390,
+            487.5
+          ],
+          "position": "50% 50%",
+          "fit": "cover",
+          "complete": true,
+          "demand": [
+            1170.0,
+            1462.5
+          ],
+          "Q": 0.4233,
+          "A": 0.9141,
+          "bytes": 96928
+        },
+        "pillar-meet.webp": {
+          "current": "pillar-meet-mobile-1080.webp",
+          "box": [
+            350,
+            437.5
+          ],
+          "position": "55% 50%",
+          "fit": "cover",
+          "complete": true,
+          "demand": [
+            1050.0,
+            1312.5
+          ],
+          "Q": 0.281,
+          "A": 0.9722,
+          "bytes": 18018
+        }
+      },
+      "overlay": [
+        {
+          "text": "EINE BEWEGUNG VON OG SPORTS",
+          "box": [
+            20,
+            20,
+            350,
+            31.875
+          ]
+        },
+        {
+          "text": "GO WHERE\nYOU GROW.",
+          "box": [
+            20,
+            340.25,
+            327.5,
+            91.25
+          ]
+        },
+        {
+          "text": "I — RUN · ILIYA JOKIC / UNSPLASH\nSYMBOLBILD",
+          "box": [
+            20,
+            435.625,
+            350,
+            33.875
+          ]
+        }
+      ],
+      "screenshots": [
+        "qa/rc7-rc7-390-run.png",
+        "qa/rc7-rc7-390-temple.png"
+      ],
+      "errors": [],
+      "blocked": []
+    },
+    "768": {
+      "image_bytes": 2156267,
+      "requests": [
+        {
+          "file": "assets/own.svg",
+          "bytes": 795,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/after-the-run-5120.webp",
+          "bytes": 251396,
+          "status": 200
+        },
+        {
+          "file": "assets/greatness.svg",
+          "bytes": 2777,
+          "status": 200
+        },
+        {
+          "file": "assets/og-fastr-wordmark-dark.svg",
+          "bytes": 4824,
+          "status": 200
+        },
+        {
+          "file": "assets/og-sports-black.svg",
+          "bytes": 2074,
+          "status": 200
+        },
+        {
+          "file": "assets/og-mark-black.svg",
+          "bytes": 764,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/run-shadow-1600.webp",
+          "bytes": 187706,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/frame-01-detail-1080.webp",
+          "bytes": 32878,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/frame-03-people-2400.webp",
+          "bytes": 244996,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/photo-ritual-1600.webp",
+          "bytes": 198532,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-run-1600.webp",
+          "bytes": 48556,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/hoodie-black-800.webp",
+          "bytes": 29542,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-practice-1080.webp",
+          "bytes": 61382,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-meet-1080.webp",
+          "bytes": 18018,
+          "status": 200
+        },
+        {
+          "file": "assets/stick-lime.jpg",
+          "bytes": 63841,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/run-night-2880.webp",
+          "bytes": 240360,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/practice-start-1600.webp",
+          "bytes": 243750,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/hoodie-black-1600.webp",
+          "bytes": 141512,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/meet-night-2880.webp",
+          "bytes": 76596,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/track-night-1600.webp",
+          "bytes": 305968,
+          "status": 200
+        }
+      ],
+      "metrics": {
+        "run-night.webp": {
+          "current": "run-night-2880.webp",
+          "box": [
+            783.3599853515625,
+            918
+          ],
+          "position": "50% 50%",
+          "fit": "cover",
+          "complete": true,
+          "demand": [
+            2754.0,
+            1836.0
+          ],
+          "Q": 0.5312,
+          "A": 0.9563,
+          "bytes": 240360
+        },
+        "pillar-meet.webp": {
+          "current": "pillar-meet-1080.webp",
+          "box": [
+            360.5,
+            450.625
+          ],
+          "position": "55% 50%",
+          "fit": "cover",
+          "complete": true,
+          "demand": [
+            721.0,
+            901.25
+          ],
+          "Q": 0.193,
+          "A": 0.6676,
+          "bytes": 18018
+        }
+      },
+      "overlay": [
+        {
+          "text": "EINE BEWEGUNG VON OG SPORTS",
+          "box": [
+            22,
+            23.03125,
+            724,
+            27.6875
+          ]
+        },
+        {
+          "text": "GO WHERE\nYOU GROW.",
+          "box": [
+            22,
+            671.21875,
+            620.125,
+            172.78125
+          ]
+        },
+        {
+          "text": "I — RUN · ILIYA JOKIC / UNSPLASH\nSYMBOLBILD",
+          "box": [
+            22,
+            866.0625,
+            724,
+            15.9375
+          ]
+        }
+      ],
+      "screenshots": [
+        "qa/rc7-rc7-768-run.png",
+        "qa/rc7-rc7-768-temple.png"
+      ],
+      "errors": [],
+      "blocked": []
+    },
+    "1440": {
+      "image_bytes": 3428523,
+      "requests": [
+        {
+          "file": "assets/responsive/after-the-run-5120.webp",
+          "bytes": 251396,
+          "status": 200
+        },
+        {
+          "file": "assets/own.svg",
+          "bytes": 795,
+          "status": 200
+        },
+        {
+          "file": "assets/greatness.svg",
+          "bytes": 2777,
+          "status": 200
+        },
+        {
+          "file": "assets/og-fastr-wordmark-dark.svg",
+          "bytes": 4824,
+          "status": 200
+        },
+        {
+          "file": "assets/og-sports-black.svg",
+          "bytes": 2074,
+          "status": 200
+        },
+        {
+          "file": "assets/og-mark-black.svg",
+          "bytes": 764,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/frame-01-detail-1080.webp",
+          "bytes": 32878,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/run-shadow-2400.webp",
+          "bytes": 391804,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/photo-ritual-1600.webp",
+          "bytes": 198532,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/frame-03-people-2400.webp",
+          "bytes": 244996,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-run-1600.webp",
+          "bytes": 48556,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-practice-1600.webp",
+          "bytes": 106162,
+          "status": 200
+        },
+        {
+          "file": "assets/stick-lime.jpg",
+          "bytes": 63841,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/pillar-meet-1080.webp",
+          "bytes": 18018,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/hoodie-black-1200.webp",
+          "bytes": 72258,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/run-night-3200.webp",
+          "bytes": 283952,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/practice-start-1600.webp",
+          "bytes": 243750,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/hoodie-black-1600.webp",
+          "bytes": 141512,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/meet-night-2880.webp",
+          "bytes": 76596,
+          "status": 200
+        },
+        {
+          "file": "assets/responsive/track-night-2880.webp",
+          "bytes": 1243038,
+          "status": 200
+        }
+      ],
+      "metrics": {
+        "run-night.webp": {
+          "current": "run-night-3200.webp",
+          "box": [
+            1468.7998046875,
+            918
+          ],
+          "position": "50% 50%",
+          "fit": "cover",
+          "complete": true,
+          "demand": [
+            2937.6,
+            1958.4
+          ],
+          "Q": 0.5667,
+          "A": 0.9181,
+          "bytes": 283952
+        },
+        "pillar-meet.webp": {
+          "current": "pillar-meet-1080.webp",
+          "box": [
+            445.359375,
+            556.6875
+          ],
+          "position": "55% 50%",
+          "fit": "cover",
+          "complete": true,
+          "demand": [
+            890.72,
+            1113.4
+          ],
+          "Q": 0.2384,
+          "A": 0.8247,
+          "bytes": 18018
+        }
+      },
+      "overlay": [
+        {
+          "text": "EINE BEWEGUNG VON OG SPORTS",
+          "box": [
+            48.953125,
+            40,
+            1342.09375,
+            39.875
+          ]
+        },
+        {
+          "text": "GO WHERE\nYOU GROW.",
+          "box": [
+            48.953125,
+            560.734375,
+            855.765625,
+            238.46875
+          ]
+        },
+        {
+          "text": "I — RUN · ILIYA JOKIC / UNSPLASH\nSYMBOLBILD",
+          "box": [
+            48.953125,
+            866.0625,
+            1342.09375,
+            15.9375
+          ]
+        }
+      ],
+      "screenshots": [
+        "qa/rc7-rc7-1440-run.png",
+        "qa/rc7-rc7-1440-temple.png"
+      ],
+      "errors": [],
+      "blocked": []
+    }
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "version": "v2 2026-10-23 / campaign, not concept",
+  "verified": "2026-10-23",
+  "photographs": [
+    {
+      "key": "running",
+      "photographer": "Mathias Reding",
+      "photo_id": "MiRyAuFhepg",
+      "title": "Man running across a blurred city street",
+      "url": "https://images.unsplash.com/photo-1758506971986-b0d0edebd8d5?auto=format&fit=max&w=1800&q=85",
+      "source_url": "https://unsplash.com/photos/man-running-across-a-blurred-city-street-MiRyAuFhepg",
+      "published": "2025-09-22",
+      "location": "Montréal, Québec, Canada",
+      "license": "Unsplash License",
+      "license_url": "https://unsplash.com/license",
+      "downloaded_copy_in_this_local_bundle": false,
+      "local_file": "assets/running-photograph.webp",
+      "sha256": "9bad8592255e8d7ee646718f0a54db934a4e89e870f09ed30b8c654ba3adbeea",
+      "status": "retired 2026-10-23: removed from site/assets, not shown; kept here for provenance"
+    },
+    {
+      "key": "cycling",
+      "photographer": "Coen van de Broek",
+      "photo_id": "OFyh9TpMyM8",
+      "title": "Man and woman riding road bikes at the road near shore",
+      "photographer_description": "Girls on Fons racebikes",
+      "url": "https://images.unsplash.com/photo-1541625602330-2277a4c46182?auto=format&fit=max&w=1800&q=85",
+      "source_url": "https://unsplash.com/photos/man-and-woman-riding-road-bikes-at-the-road-near-shore-OFyh9TpMyM8",
+      "published": "2018-11-07",
+      "location": "Brouwersdam, Ouddorp, Netherlands",
+      "license": "Unsplash License",
+      "license_url": "https://unsplash.com/license",
+      "downloaded_copy_in_this_local_bundle": false,
+      "local_file": "assets/cycling-photograph.webp",
+      "sha256": "d608bd0f5bd1faff76544c3d3a8c17c56bc87f8222054818b56807eed056076c",
+      "status": "retired 2026-10-23: removed from site/assets, not shown; kept here for provenance"
+    },
+    {
+      "key": "run-detail",
+      "photographer": "David Moorhouse",
+      "photo_id": "GToHUINXOb4",
+      "title": "Close-up of a runner's leg and athletic shoe",
+      "source_url": "https://unsplash.com/photos/close-up-of-a-runners-leg-and-athletic-shoe-GToHUINXOb4",
+      "published": "2026-02-07",
+      "license": "Unsplash License",
+      "license_url": "https://unsplash.com/license",
+      "local_file": "assets/frame-01-detail.webp",
+      "sha256": "5ecf7c3baf75930cf09417a27e590693403c5846c1adfb5e583493915a021b01",
+      "status": "shown on the homepage, culture sequence",
+      "edit": "maker mark on the shoe heel removed by local inpainting (OpenCV)"
+    },
+    {
+      "key": "run-shadow",
+      "photographer": "Mathias Reding",
+      "photo_id": "G96xGokbTUM",
+      "title": "Runner's legs in motion with a long shadow",
+      "source_url": "https://unsplash.com/photos/runners-legs-in-motion-with-a-long-shadow-G96xGokbTUM",
+      "published": "2025-09-22",
+      "location": "Montréal, QC, Canada",
+      "license": "Unsplash License",
+      "license_url": "https://unsplash.com/license",
+      "local_file": "assets/run-shadow.webp",
+      "sha256": "f1ffa9de0ca17daac7aca5a389b136c45dcdcab9fdbc849f17c62a71082b6469",
+      "status": "shown on the homepage, culture sequence"
+    },
+    {
+      "key": "run-community",
+      "photographer": "Leviosa Hou",
+      "photo_id": "9ZXnEV7k2lI",
+      "title": "Runners gathered together on a city street",
+      "source_url": "https://unsplash.com/photos/runners-gathered-together-on-a-city-street-9ZXnEV7k2lI",
+      "published": "2026-03-26",
+      "license": "Unsplash License",
+      "license_url": "https://unsplash.com/license",
+      "local_file": "assets/frame-03-people.webp",
+      "sha256": "8a1c8dac564fa4d3a08d137cddcf6dc995f02cf6cef83f663205fa2c2ca59b9b",
+      "status": "shown on the homepage, culture sequence",
+      "edit": "race bibs, ribbons, shirt prints and banner text removed by AI-assisted retouch (Higgsfield, GPT Image 2.5); faces compared, unchanged"
+    },
+    {
+      "key": "run-crew",
+      "photographer": "Hansheng Zhao",
+      "source_url": "https://unsplash.com/photos/9FcKpisH7Bo",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "label": "Symbolbild",
+      "local_file": "assets/run-crew.webp",
+      "sha256": "499329ee80eb439d99455189f621237c55d5157bb6b7cd533145ea4e849161c6",
+      "source": "C:/Users/Fabien/og-sports-sources/rc9-candidates/run-crew/RC1_retouched.png",
+      "source_sha256": "5ec9adacd0e11ff21ed146e2e00be467db9caf7d4cc7f44bd87e43614dd2619a",
+      "original_source": "C:/Users/Fabien/og-sports-sources/v4-candidates/web/unsplash_9FcKpisH7Bo.jpg",
+      "original_source_sha256": "89062a5769fda664b663bef99d5045edba34924500dc566a90e8f04cca009ff2",
+      "source_pixels": [
+        9520,
+        6336
+      ],
+      "crop": null,
+      "mobile_crop": [
+        2900,
+        0,
+        7969,
+        6336
+      ],
+      "edit": "illegible singlet print softened (rc9-candidates/run-crew/retouch_rc1.py); neutral black and white, no p50 tint; resize, WebP Q82/method 6",
+      "status": "shown on the homepage, I Run (RC9); illustrative photo, no OG event or membership implied"
+    },
+    {
+      "key": "pillar-meet",
+      "photographer": "Victoria Prymak (@vprmk)",
+      "source_url": "https://unsplash.com/photos/T8Lxr7LFN74",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "label": "Symbolbild",
+      "local_file": "assets/pillar-meet.webp",
+      "sha256": "6ef472398fb8dcd4e7b9f569121dad65983e72e5a6831c9723bf287d1ca2c6d8",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\rc7-candidates\\pillar-meet\\M2_unsplash_T8Lxr7LFN74.jpg",
+      "source_sha256": "99a47422e1de780eeabac8768c655248cc49ba33b84c55b37752b28602f04002",
+      "source_pixels": [
+        7008,
+        4672
+      ],
+      "crop": [
+        1715,
+        0,
+        5451,
+        4670
+      ],
+      "mobile_crop": [
+        1715,
+        0,
+        5451,
+        4670
+      ],
+      "edit": "p50 (v4), resize then grade, WebP Q82/method 6; no retouch",
+      "status": "shown on the homepage; illustrative photo, no OG event or membership implied"
+    },
+    {
+      "key": "pillar-run",
+      "photographer": "limoo",
+      "source_url": "https://www.pexels.com/photo/silhouette-of-woman-running-in-front-of-an-illuminated-building-at-night-14532913/",
+      "license": "Pexels License (https://www.pexels.com/license/)",
+      "label": "Symbolbild",
+      "local_file": "assets/pillar-run.webp",
+      "sha256": "0437fa9d83b6d883c746329e5ac713c719ec959540f4a9212bf05da1aabbcf5d",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\rc8-candidates\\pillar-run\\PR2_pexels_14532913.jpg",
+      "source_sha256": "a1242c9cea74b89fa4ad8d577397a8cca561fe406fa5c3ef79c7564fcd791a96",
+      "source_pixels": [
+        5760,
+        8640
+      ],
+      "crop": [
+        0,
+        900,
+        5760,
+        8100
+      ],
+      "mobile_crop": null,
+      "edit": "Keine Retusche; p50 (v4), resize then grade, WebP Q82/method 6",
+      "status": "shown on the homepage; illustrative photo, no OG event or membership implied"
+    },
+    {
+      "key": "meet-night",
+      "photographer": "Fitsum Admasu",
+      "source_url": "https://unsplash.com/photos/silhouette-of-three-women-running-on-grey-concrete-road-oGv9xIl7DkY",
+      "license": "Unsplash License (https://unsplash.com/license)",
+      "label": "Symbolbild",
+      "local_file": "assets/meet-night.webp",
+      "sha256": "3c5ad07398846034f64390d96ac86d1b5caf8dbf7c055bb3cfafaee81ea43b94",
+      "source": "C:\\Users\\Fabien\\og-sports-sources\\rc8-candidates\\meet-night\\retouch\\MN1_retouched.png",
+      "source_sha256": "e6e13fb793d3c5d00e8fb7b7ef91bfa837044448dc566e9e5f04ecbf5f9d2ca8",
+      "source_pixels": [
+        6720,
+        4480
+      ],
+      "crop": [
+        0,
+        0,
+        6720,
+        3780
+      ],
+      "mobile_crop": [
+        928,
+        0,
+        4512,
+        4480
+      ],
+      "edit": "bearbeitet: Aufdruck entfernt; bereitgestellter retuschierter Master; p50 (v4), resize then grade, WebP Q82/method 6",
+      "status": "shown on the homepage; illustrative photo, no OG event or membership implied",
+      "original_source": "C:\\Users\\Fabien\\og-sports-sources\\rc8-candidates\\meet-night\\MN1_unsplash_oGv9xIl7DkY.jpg",
+      "original_source_sha256": "139fd1d0b2a78baca74671cecbbd664144c7428ceb9bbb890a0544af0c861288"
+    }
+  ],
+  "rights_note": "Public design review. Unsplash photo licence does not itself verify model/property/trademark releases for advertising. No implied endorsement. Noindex is not access protection.",
+  "existing_ai_hero": {
+    "file": "assets/after-the-run.webp",
+    "unchanged": false,
+    "source": "C:\\Users\\Fabien\\og-sports-sources\\opening-upscale\\after-the-run-4k-retouched.png",
+    "source_sha256": "a253cfcdacf2aa7fcd6e08caa3769b75fc78899bce0e106701cde1521b500d52",
+    "source_pixels": [
+      6122,
+      2160
+    ],
+    "original_study_pixels": [
+      1373,
+      485
+    ],
+    "provenance": "Existing AI campaign study (1373x485); Higgsfield ByteDance 4K upscale 2026-10-26; cap logo and glasses-temple lettering removed locally with og-sports-sources/opening-upscale/retouch.py. Same people and grade; no new image concept.",
+    "fallback": {
+      "file": "assets/after-the-run.webp",
+      "width": 1920,
+      "height": 677,
+      "bytes": 67734,
+      "sha256": "fd0eb53be2bd1186b1fe48b43e9680d702f1cad115931672c34006cbdf74d5d5"
+    },
+    "mobile_crop": [
+      2767,
+      0,
+      3765,
+      2160
+    ]
+  },
+  "treatment": "Layout crops via CSS aspect ratios, resize, CSS grayscale for 01 and 02. 03 in original colour. No generated additions or replacement branding.",
+  "hero_display": {
+    "source": "assets/after-the-run.webp",
+    "output": "assets/after-the-run-display-4x.webp",
+    "original_size_px": [
+      1373,
+      485
+    ],
+    "display_size_px": [
+      5492,
+      1940
+    ],
+    "operation": "Pillow Lanczos 4× and mild UnsharpMask; not AI super-resolution",
+    "recovers_missing_detail": false,
+    "original_sha256": "807364cf90a7b283304707b93194110fe7c519ac6ae53a5f6b21f8ae43c02bfe",
+    "display_sha256": "63fe1536cc9ced2be55f86259be49fb0cbff1b2fa47c5429811029f524cfc3f2",
+    "status": "Historical interpolated asset, unused. RC6 uses the externally provided Higgsfield/ByteDance upscale and local retouch, with WebPs up to 5120 pixels and a mobile source crop; see responsive-assets.json."
+  },
+  "visible_homepage_photographs": [
+    "run-detail",
+    "run-shadow",
+    "run-community"
+  ],
+  "below_culture_photography": "none"
+}

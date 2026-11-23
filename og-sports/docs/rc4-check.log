@@ -1,0 +1,41 @@
+
+> og-sports-web@0.1.0 check
+> npm test && npm run build
+
+
+> og-sports-web@0.1.0 test
+> node --test tests/*.test.mjs
+
+✔ preserves the chosen first photograph and original brand assets byte for byte (18.5409ms)
+✔ responsive assets come from recorded sources, never upscale, and all photos opt in (126.3653ms)
+✔ keeps the three approved photographs, retouched free of third-party brands (3.1669ms)
+✔ the manifest credits its photograph and claims no moment it does not show (0.6408ms)
+✔ labels every image below the photographs as own footage, AI study or visualisation (0.9187ms)
+✔ keeps the seven FASTR30 standards in their fixed order (0.2841ms)
+✔ presents four projects with their artefact and honest status captions (0.6748ms)
+✔ browser JavaScript is syntactically valid (1.0828ms)
+✔ all local artwork referenced by the source exists (18.0747ms)
+✔ retains project identities, language support and credit information (1.2898ms)
+✔ ships one stylesheet with motion preference support (4.0927ms)
+✔ retains preview indexing restrictions (3.7652ms)
+✔ keeps an accessible page outline and unique static IDs (0.5947ms)
+✔ self-hosts only OFL fonts and loads nothing from third parties (6.372ms)
+✔ serves the site with correct MIME types without exposing repo files (331.2864ms)
+✔ the temple shows five pillars that all lead somewhere and label their images (0.4875ms)
+✔ STICK is a bounded GLB with the five source-derived assembly meshes (8.3197ms)
+✔ STICK keeps fallback, translated DOM phases, controls and shop outside canvas (0.9547ms)
+✔ three.js is pinned, MIT licensed, self-hosted with an intact module graph (21.7393ms)
+✔ retired cycling chapter and all its asset variants stay removed (20.7241ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1001.1046
+
+> og-sports-web@0.1.0 build
+> node scripts/build.mjs
+
+Built 124 files into scripts\.rc4-dist/

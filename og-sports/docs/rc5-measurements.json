@@ -1,0 +1,769 @@
+{
+  "before": {
+    "mode": "before",
+    "cases": [
+      {
+        "width": 390,
+        "dpr": 3,
+        "resources": [
+          {
+            "url": "index.html",
+            "bytes": 50615,
+            "transfer": 50915
+          },
+          {
+            "url": "archivo-var-latin.woff2",
+            "bytes": 90104,
+            "transfer": 90404
+          },
+          {
+            "url": "spacegrotesk-latin.woff2",
+            "bytes": 22320,
+            "transfer": 22620
+          },
+          {
+            "url": "styles.css",
+            "bytes": 43380,
+            "transfer": 43680
+          },
+          {
+            "url": "og-sports-black.svg",
+            "bytes": 2074,
+            "transfer": 2374
+          },
+          {
+            "url": "og-mark-black.svg",
+            "bytes": 764,
+            "transfer": 1064
+          },
+          {
+            "url": "after-the-run-1373.webp",
+            "bytes": 32484,
+            "transfer": 32784
+          },
+          {
+            "url": "own.svg",
+            "bytes": 795,
+            "transfer": 1095
+          },
+          {
+            "url": "greatness.svg",
+            "bytes": 2777,
+            "transfer": 3077
+          },
+          {
+            "url": "og-fastr-wordmark-dark.svg",
+            "bytes": 4824,
+            "transfer": 5124
+          },
+          {
+            "url": "script.js",
+            "bytes": 30017,
+            "transfer": 30317
+          },
+          {
+            "url": "archivo-italic-latin.woff2",
+            "bytes": 39256,
+            "transfer": 39556
+          },
+          {
+            "url": "frame-01-detail-1200.webp",
+            "bytes": 42234,
+            "transfer": 42534
+          },
+          {
+            "url": "run-shadow-1600.webp",
+            "bytes": 187706,
+            "transfer": 188006
+          },
+          {
+            "url": "photo-ritual-1080.webp",
+            "bytes": 98274,
+            "transfer": 98574
+          },
+          {
+            "url": "frame-03-people-2400.webp",
+            "bytes": 244996,
+            "transfer": 245296
+          },
+          {
+            "url": "pillar-run-1080.webp",
+            "bytes": 27498,
+            "transfer": 27798
+          },
+          {
+            "url": "pillar-practice-1080.webp",
+            "bytes": 61382,
+            "transfer": 61682
+          },
+          {
+            "url": "merch-05-lavender-660.webp",
+            "bytes": 20354,
+            "transfer": 20654
+          },
+          {
+            "url": "pillar-meet-2400.webp",
+            "bytes": 725114,
+            "transfer": 725414
+          },
+          {
+            "url": "stick-lime.jpg",
+            "bytes": 63841,
+            "transfer": 64141
+          },
+          {
+            "url": "run-night-mobile-1280.webp",
+            "bytes": 38588,
+            "transfer": 38888
+          },
+          {
+            "url": "practice-start-1080.webp",
+            "bytes": 130410,
+            "transfer": 130710
+          },
+          {
+            "url": "merch-01-black-640.webp",
+            "bytes": 15176,
+            "transfer": 15476
+          },
+          {
+            "url": "merch-02-cherry-red-640.webp",
+            "bytes": 22886,
+            "transfer": 23186
+          },
+          {
+            "url": "merch-03-cobalt-blue-640.webp",
+            "bytes": 23228,
+            "transfer": 23528
+          },
+          {
+            "url": "merch-04-emerald-green-640.webp",
+            "bytes": 19832,
+            "transfer": 20132
+          },
+          {
+            "url": "merch-06-butter-yellow-640.webp",
+            "bytes": 21528,
+            "transfer": 21828
+          },
+          {
+            "url": "merch-05-lavender-640.webp",
+            "bytes": 19018,
+            "transfer": 19318
+          },
+          {
+            "url": "meet-night-mobile-1280.webp",
+            "bytes": 85410,
+            "transfer": 85710
+          },
+          {
+            "url": "track-night-1600.webp",
+            "bytes": 305968,
+            "transfer": 306268
+          },
+          {
+            "url": "stick-viewer.js",
+            "bytes": 12089,
+            "transfer": 12389
+          },
+          {
+            "url": "GLTFLoader.js",
+            "bytes": 110282,
+            "transfer": 110582
+          },
+          {
+            "url": "three.module.min.js",
+            "bytes": 691648,
+            "transfer": 691948
+          },
+          {
+            "url": "RoomEnvironment.js",
+            "bytes": 3622,
+            "transfer": 3922
+          },
+          {
+            "url": "BufferGeometryUtils.js",
+            "bytes": 31784,
+            "transfer": 32084
+          },
+          {
+            "url": "stick.glb",
+            "bytes": 428320,
+            "transfer": 428620
+          },
+          {
+            "url": "og-fastr-wordmark-dark.svg",
+            "bytes": 4824,
+            "transfer": 5124
+          }
+        ],
+        "body_bytes": 3755422,
+        "transfer_bytes": 3766822
+      },
+      {
+        "width": 1440,
+        "dpr": 2,
+        "resources": [
+          {
+            "url": "index.html",
+            "bytes": 50615,
+            "transfer": 50915
+          },
+          {
+            "url": "archivo-var-latin.woff2",
+            "bytes": 90104,
+            "transfer": 90404
+          },
+          {
+            "url": "spacegrotesk-latin.woff2",
+            "bytes": 22320,
+            "transfer": 22620
+          },
+          {
+            "url": "styles.css",
+            "bytes": 43380,
+            "transfer": 43680
+          },
+          {
+            "url": "og-sports-black.svg",
+            "bytes": 2074,
+            "transfer": 2374
+          },
+          {
+            "url": "og-mark-black.svg",
+            "bytes": 764,
+            "transfer": 1064
+          },
+          {
+            "url": "after-the-run-1373.webp",
+            "bytes": 32484,
+            "transfer": 32784
+          },
+          {
+            "url": "own.svg",
+            "bytes": 795,
+            "transfer": 1095
+          },
+          {
+            "url": "greatness.svg",
+            "bytes": 2777,
+            "transfer": 3077
+          },
+          {
+            "url": "og-fastr-wordmark-dark.svg",
+            "bytes": 4824,
+            "transfer": 5124
+          },
+          {
+            "url": "script.js",
+            "bytes": 30017,
+            "transfer": 30317
+          },
+          {
+            "url": "archivo-italic-latin.woff2",
+            "bytes": 39256,
+            "transfer": 39556
+          },
+          {
+            "url": "frame-01-detail-1080.webp",
+            "bytes": 32878,
+            "transfer": 33178
+          },
+          {
+            "url": "run-shadow-2400.webp",
+            "bytes": 391804,
+            "transfer": 392104
+          },
+          {
+            "url": "frame-03-people-2400.webp",
+            "bytes": 244996,
+            "transfer": 245296
+          },
+          {
+            "url": "photo-ritual-1600.webp",
+            "bytes": 198532,
+            "transfer": 198832
+          },
+          {
+            "url": "pillar-run-1600.webp",
+            "bytes": 48556,
+            "transfer": 48856
+          },
+          {
+            "url": "pillar-practice-1600.webp",
+            "bytes": 106162,
+            "transfer": 106462
+          },
+          {
+            "url": "merch-05-lavender-660.webp",
+            "bytes": 20354,
+            "transfer": 20654
+          },
+          {
+            "url": "pillar-meet-2400.webp",
+            "bytes": 725114,
+            "transfer": 725414
+          },
+          {
+            "url": "stick-lime.jpg",
+            "bytes": 63841,
+            "transfer": 64141
+          },
+          {
+            "url": "run-night-2880.webp",
+            "bytes": 90808,
+            "transfer": 91108
+          },
+          {
+            "url": "practice-start-1600.webp",
+            "bytes": 243750,
+            "transfer": 244050
+          },
+          {
+            "url": "merch-01-black-640.webp",
+            "bytes": 15176,
+            "transfer": 15476
+          },
+          {
+            "url": "merch-02-cherry-red-640.webp",
+            "bytes": 22886,
+            "transfer": 23186
+          },
+          {
+            "url": "merch-03-cobalt-blue-640.webp",
+            "bytes": 23228,
+            "transfer": 23528
+          },
+          {
+            "url": "merch-04-emerald-green-640.webp",
+            "bytes": 19832,
+            "transfer": 20132
+          },
+          {
+            "url": "merch-06-butter-yellow-640.webp",
+            "bytes": 21528,
+            "transfer": 21828
+          },
+          {
+            "url": "merch-05-lavender-640.webp",
+            "bytes": 19018,
+            "transfer": 19318
+          },
+          {
+            "url": "meet-night-2880.webp",
+            "bytes": 76596,
+            "transfer": 76896
+          },
+          {
+            "url": "track-night-2880.webp",
+            "bytes": 1243038,
+            "transfer": 1243338
+          },
+          {
+            "url": "stick-viewer.js",
+            "bytes": 12089,
+            "transfer": 12389
+          },
+          {
+            "url": "three.module.min.js",
+            "bytes": 691648,
+            "transfer": 691948
+          },
+          {
+            "url": "GLTFLoader.js",
+            "bytes": 110282,
+            "transfer": 110582
+          },
+          {
+            "url": "RoomEnvironment.js",
+            "bytes": 3622,
+            "transfer": 3922
+          },
+          {
+            "url": "BufferGeometryUtils.js",
+            "bytes": 31784,
+            "transfer": 32084
+          },
+          {
+            "url": "stick.glb",
+            "bytes": 428320,
+            "transfer": 428620
+          },
+          {
+            "url": "og-fastr-wordmark-dark.svg",
+            "bytes": 4824,
+            "transfer": 5124
+          }
+        ],
+        "body_bytes": 5210076,
+        "transfer_bytes": 5221476
+      }
+    ],
+    "errors": []
+  },
+  "after": {
+    "mode": "after",
+    "cases": [
+      {
+        "width": 390,
+        "dpr": 3,
+        "resources": [
+          {
+            "url": "index.html",
+            "bytes": 49995,
+            "transfer": 50295
+          },
+          {
+            "url": "archivo-var-latin.woff2",
+            "bytes": 90104,
+            "transfer": 90404
+          },
+          {
+            "url": "spacegrotesk-latin.woff2",
+            "bytes": 22320,
+            "transfer": 22620
+          },
+          {
+            "url": "styles.css",
+            "bytes": 44269,
+            "transfer": 44569
+          },
+          {
+            "url": "after-the-run-1373.webp",
+            "bytes": 32484,
+            "transfer": 32784
+          },
+          {
+            "url": "og-sports-black.svg",
+            "bytes": 2074,
+            "transfer": 2374
+          },
+          {
+            "url": "og-mark-black.svg",
+            "bytes": 764,
+            "transfer": 1064
+          },
+          {
+            "url": "own.svg",
+            "bytes": 795,
+            "transfer": 1095
+          },
+          {
+            "url": "greatness.svg",
+            "bytes": 2777,
+            "transfer": 3077
+          },
+          {
+            "url": "og-fastr-wordmark-dark.svg",
+            "bytes": 4824,
+            "transfer": 5124
+          },
+          {
+            "url": "script.js",
+            "bytes": 33739,
+            "transfer": 34039
+          },
+          {
+            "url": "archivo-italic-latin.woff2",
+            "bytes": 39256,
+            "transfer": 39556
+          },
+          {
+            "url": "frame-01-detail-1200.webp",
+            "bytes": 42234,
+            "transfer": 42534
+          },
+          {
+            "url": "run-shadow-1600.webp",
+            "bytes": 187706,
+            "transfer": 188006
+          },
+          {
+            "url": "frame-03-people-2400.webp",
+            "bytes": 244996,
+            "transfer": 245296
+          },
+          {
+            "url": "pillar-run-1080.webp",
+            "bytes": 27498,
+            "transfer": 27798
+          },
+          {
+            "url": "photo-ritual-1080.webp",
+            "bytes": 98274,
+            "transfer": 98574
+          },
+          {
+            "url": "pillar-practice-1080.webp",
+            "bytes": 61382,
+            "transfer": 61682
+          },
+          {
+            "url": "hoodie-black-1200.webp",
+            "bytes": 73070,
+            "transfer": 73370
+          },
+          {
+            "url": "pillar-meet-2400.webp",
+            "bytes": 725114,
+            "transfer": 725414
+          },
+          {
+            "url": "stick-lime.jpg",
+            "bytes": 63841,
+            "transfer": 64141
+          },
+          {
+            "url": "run-night-mobile-1280.webp",
+            "bytes": 38588,
+            "transfer": 38888
+          },
+          {
+            "url": "practice-start-1080.webp",
+            "bytes": 130410,
+            "transfer": 130710
+          },
+          {
+            "url": "meet-night-mobile-1280.webp",
+            "bytes": 85410,
+            "transfer": 85710
+          },
+          {
+            "url": "track-night-1600.webp",
+            "bytes": 305968,
+            "transfer": 306268
+          },
+          {
+            "url": "stick-viewer.js",
+            "bytes": 13981,
+            "transfer": 14281
+          },
+          {
+            "url": "three.module.min.js",
+            "bytes": 691648,
+            "transfer": 691948
+          },
+          {
+            "url": "RoomEnvironment.js",
+            "bytes": 3622,
+            "transfer": 3922
+          },
+          {
+            "url": "GLTFLoader.js",
+            "bytes": 110282,
+            "transfer": 110582
+          },
+          {
+            "url": "BufferGeometryUtils.js",
+            "bytes": 31784,
+            "transfer": 32084
+          },
+          {
+            "url": "stick.glb",
+            "bytes": 428320,
+            "transfer": 428620
+          },
+          {
+            "url": "og-fastr-wordmark-dark.svg",
+            "bytes": 4824,
+            "transfer": 5124
+          }
+        ],
+        "body_bytes": 3692353,
+        "transfer_bytes": 3701953,
+        "fill": {
+          "assembled": 0.7999,
+          "exploded": 0.7945,
+          "opened": 0.7984
+        },
+        "smooth_scroll_samples": [
+          0.1,
+          0.1011
+        ]
+      },
+      {
+        "width": 1440,
+        "dpr": 2,
+        "resources": [
+          {
+            "url": "index.html",
+            "bytes": 49995,
+            "transfer": 50295
+          },
+          {
+            "url": "archivo-var-latin.woff2",
+            "bytes": 90104,
+            "transfer": 90404
+          },
+          {
+            "url": "spacegrotesk-latin.woff2",
+            "bytes": 22320,
+            "transfer": 22620
+          },
+          {
+            "url": "styles.css",
+            "bytes": 44269,
+            "transfer": 44569
+          },
+          {
+            "url": "og-sports-black.svg",
+            "bytes": 2074,
+            "transfer": 2374
+          },
+          {
+            "url": "og-mark-black.svg",
+            "bytes": 764,
+            "transfer": 1064
+          },
+          {
+            "url": "greatness.svg",
+            "bytes": 2777,
+            "transfer": 3077
+          },
+          {
+            "url": "after-the-run-1373.webp",
+            "bytes": 32484,
+            "transfer": 32784
+          },
+          {
+            "url": "own.svg",
+            "bytes": 795,
+            "transfer": 1095
+          },
+          {
+            "url": "og-fastr-wordmark-dark.svg",
+            "bytes": 4824,
+            "transfer": 5124
+          },
+          {
+            "url": "script.js",
+            "bytes": 33739,
+            "transfer": 34039
+          },
+          {
+            "url": "archivo-italic-latin.woff2",
+            "bytes": 39256,
+            "transfer": 39556
+          },
+          {
+            "url": "frame-01-detail-1080.webp",
+            "bytes": 32878,
+            "transfer": 33178
+          },
+          {
+            "url": "run-shadow-2400.webp",
+            "bytes": 391804,
+            "transfer": 392104
+          },
+          {
+            "url": "frame-03-people-2400.webp",
+            "bytes": 244996,
+            "transfer": 245296
+          },
+          {
+            "url": "photo-ritual-1600.webp",
+            "bytes": 198532,
+            "transfer": 198832
+          },
+          {
+            "url": "pillar-run-1600.webp",
+            "bytes": 48556,
+            "transfer": 48856
+          },
+          {
+            "url": "pillar-practice-1600.webp",
+            "bytes": 106162,
+            "transfer": 106462
+          },
+          {
+            "url": "hoodie-black-1200.webp",
+            "bytes": 73070,
+            "transfer": 73370
+          },
+          {
+            "url": "pillar-meet-2400.webp",
+            "bytes": 725114,
+            "transfer": 725414
+          },
+          {
+            "url": "stick-lime.jpg",
+            "bytes": 63841,
+            "transfer": 64141
+          },
+          {
+            "url": "run-night-2880.webp",
+            "bytes": 90808,
+            "transfer": 91108
+          },
+          {
+            "url": "practice-start-1600.webp",
+            "bytes": 243750,
+            "transfer": 244050
+          },
+          {
+            "url": "hoodie-black-1600.webp",
+            "bytes": 142926,
+            "transfer": 143226
+          },
+          {
+            "url": "meet-night-2880.webp",
+            "bytes": 76596,
+            "transfer": 76896
+          },
+          {
+            "url": "track-night-2880.webp",
+            "bytes": 1243038,
+            "transfer": 1243338
+          },
+          {
+            "url": "stick-viewer.js",
+            "bytes": 13981,
+            "transfer": 14281
+          },
+          {
+            "url": "three.module.min.js",
+            "bytes": 691648,
+            "transfer": 691948
+          },
+          {
+            "url": "GLTFLoader.js",
+            "bytes": 110282,
+            "transfer": 110582
+          },
+          {
+            "url": "RoomEnvironment.js",
+            "bytes": 3622,
+            "transfer": 3922
+          },
+          {
+            "url": "BufferGeometryUtils.js",
+            "bytes": 31784,
+            "transfer": 32084
+          },
+          {
+            "url": "stick.glb",
+            "bytes": 428320,
+            "transfer": 428620
+          },
+          {
+            "url": "og-fastr-wordmark-dark.svg",
+            "bytes": 4824,
+            "transfer": 5124
+          }
+        ],
+        "body_bytes": 5289933,
+        "transfer_bytes": 5299833,
+        "fill": {
+          "assembled": 0.7999,
+          "exploded": 0.7945,
+          "opened": 0.7984
+        },
+        "smooth_scroll_samples": [
+          0.1002,
+          0.1012
+        ]
+      }
+    ],
+    "errors": []
+  }
+}

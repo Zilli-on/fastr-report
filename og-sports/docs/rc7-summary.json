@@ -1,0 +1,141 @@
+{
+  "tests": {
+    "npm_test": "21/21 bestanden",
+    "source_check": "18 Quellen, 105 WebPs, kein Upscaling",
+    "pillars_check": "bestanden",
+    "chrome": "6 Kontexte, keine JS-/Bildfehler, kein horizontaler Overflow, keine externen Requests"
+  },
+  "bytes": {
+    "390": {
+      "rc6": 2150495,
+      "rc7": 1501739,
+      "delta": -648756
+    },
+    "768": {
+      "rc6": 2342153,
+      "rc7": 2156267,
+      "delta": -185886
+    },
+    "1440": {
+      "rc6": 3942475,
+      "rc7": 3428523,
+      "delta": -513952
+    }
+  },
+  "crops": {
+    "run-night.webp": {
+      "desktop": [
+        0,
+        0,
+        5184,
+        3456
+      ],
+      "mobile": [
+        1100,
+        0,
+        3864,
+        3455
+      ],
+      "source_sha256": "f7664240f972220aa6cd9db3edb25835a2fd7285ee6a502254150cd0d3e53940"
+    },
+    "pillar-meet.webp": {
+      "desktop": [
+        1715,
+        0,
+        5451,
+        4670
+      ],
+      "mobile": [
+        1715,
+        0,
+        5451,
+        4670
+      ],
+      "source_sha256": "99a47422e1de780eeabac8768c655248cc49ba33b84c55b37752b28602f04002"
+    }
+  },
+  "grade": {
+    "reference_LS": [
+      40.2,
+      68.4
+    ],
+    "run-night.webp": {
+      "rc6_LS": [
+        32.67,
+        47.74
+      ],
+      "rc7_LS": [
+        95.91,
+        83.7
+      ],
+      "delta_reference": [
+        55.71,
+        15.3
+      ]
+    },
+    "pillar-meet.webp": {
+      "rc6_LS": [
+        101.5,
+        56.27
+      ],
+      "rc7_LS": [
+        71.75,
+        23.23
+      ],
+      "delta_reference": [
+        31.55,
+        -45.17
+      ]
+    }
+  },
+  "screenshots": [
+    "og-sports/qa/rc7-rc6-390-run.png",
+    "og-sports/qa/rc7-rc6-390-temple.png",
+    "og-sports/qa/rc7-rc6-768-run.png",
+    "og-sports/qa/rc7-rc6-768-temple.png",
+    "og-sports/qa/rc7-rc6-1440-run.png",
+    "og-sports/qa/rc7-rc6-1440-temple.png",
+    "og-sports/qa/rc7-rc7-390-run.png",
+    "og-sports/qa/rc7-rc7-390-temple.png",
+    "og-sports/qa/rc7-rc7-768-run.png",
+    "og-sports/qa/rc7-rc7-768-temple.png",
+    "og-sports/qa/rc7-rc7-1440-run.png",
+    "og-sports/qa/rc7-rc7-1440-temple.png"
+  ],
+  "files_changed": [
+    "og-sports/docs/ASSET_AUDIT.md",
+    "og-sports/docs/PHOTO_CREDITS.md",
+    "og-sports/docs/RC7_RESULT.md",
+    "og-sports/docs/photo_sources.json",
+    "og-sports/docs/rc7-measurements.json",
+    "og-sports/docs/rc7-summary.json",
+    "og-sports/docs/responsive-assets.json",
+    "og-sports/scripts/pillars.py",
+    "og-sports/scripts/prepare_responsive.py",
+    "og-sports/scripts/rc7_evidence.py",
+    "og-sports/scripts/rc7_report.py",
+    "og-sports/scripts/responsive_markup.py",
+    "og-sports/site/assets/pillar-meet.webp",
+    "og-sports/site/assets/responsive/pillar-meet-1080.webp",
+    "og-sports/site/assets/responsive/pillar-meet-1600.webp",
+    "og-sports/site/assets/responsive/pillar-meet-2400.webp",
+    "og-sports/site/assets/responsive/pillar-meet-2880.webp",
+    "og-sports/site/assets/responsive/pillar-meet-640.webp",
+    "og-sports/site/assets/responsive/pillar-meet-mobile-1080.webp",
+    "og-sports/site/assets/responsive/pillar-meet-mobile-1280.webp",
+    "og-sports/site/assets/responsive/pillar-meet-mobile-1600.webp",
+    "og-sports/site/assets/responsive/pillar-meet-mobile-640.webp",
+    "og-sports/site/assets/responsive/run-night-1080.webp",
+    "og-sports/site/assets/responsive/run-night-1600.webp",
+    "og-sports/site/assets/responsive/run-night-2400.webp",
+    "og-sports/site/assets/responsive/run-night-2880.webp",
+    "og-sports/site/assets/responsive/run-night-3200.webp",
+    "og-sports/site/assets/responsive/run-night-640.webp",
+    "og-sports/site/assets/responsive/run-night-mobile-1080.webp",
+    "og-sports/site/assets/responsive/run-night-mobile-1280.webp",
+    "og-sports/site/assets/responsive/run-night-mobile-1600.webp",
+    "og-sports/site/assets/responsive/run-night-mobile-640.webp",
+    "og-sports/site/assets/run-night.webp",
+    "og-sports/site/index.html"
+  ]
+}
